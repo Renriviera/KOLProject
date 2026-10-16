@@ -1,0 +1,45 @@
+defaults:
+  - _self_
+
+stage: validate
+snapshot: '2026-10-09'
+target_hcps: 500
+seed: 2357
+workers: 6
+supplemental_candidate_limit: 200
+
+eligibility:
+  active_npi_status: A
+  npi_type: NPI-1
+  country: US
+  minimum_supported_publications: 2
+  publication_start: '2017-01-01'
+  publication_end: '2025-12-31'
+  holdout_pmid: '37419325'
+  taxonomy_codes: [207RH0003X, 207RH0000X, 207RX0202X, 2080P0207X]
+
+deduplication:
+  fuzzy_name_threshold: 88.0
+  same_surname_first_threshold: 80.0
+  primary_key: npi
+
+ranking:
+  pagerank_weight: 0.4
+  citation_percentile_weight: 0.3
+  recent_publications_weight: 0.2
+  betweenness_weight: 0.1
+  recent_start_year: 2023
+
+payments:
+  program_year: 2024
+  dataset_id: e6b17c6a-2534-4207-a4a1-6746a14911ff
+  release_date: '2026-06-30'
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: evaluations/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: evaluations/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+

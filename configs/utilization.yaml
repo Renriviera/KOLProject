@@ -1,0 +1,18 @@
+defaults:
+  - _self_
+
+stage: validate
+snapshot: '2026-10-15'
+cohort_snapshot: '2026-10-09'
+service_year: 2024
+dataset_version_id: 335e5f35-eca6-482d-87b3-f99883e213e3
+source_release_date: '2026-05-21'
+code_list_version: '2024-v1'
+feature_version: '1.0.0'
+workers: 4
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: evaluations/runs/utilization/${now:%Y-%m-%d}/${now:%H-%M-%S}

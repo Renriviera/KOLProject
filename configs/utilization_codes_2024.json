@@ -1,0 +1,460 @@
+[
+  {
+    "hcpcs_code": "J9312",
+    "feature_group": "rituximab_iv",
+    "description": "Injection, rituximab, 10 mg",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "10 mg billed rituximab",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Injection, rituximab, 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Injection, rituximab, 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Injection, rituximab, 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Injection, rituximab, 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "Q5115",
+    "feature_group": "rituximab_iv",
+    "description": "Injection, rituximab-abbs, biosimilar, (truxima), 10 mg",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "10 mg billed rituximab",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Injection, rituximab-abbs, biosimilar, (truxima), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Injection, rituximab-abbs, biosimilar, (truxima), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Injection, rituximab-abbs, biosimilar, (truxima), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Injection, rituximab-abbs, biosimilar, (truxima), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "Q5119",
+    "feature_group": "rituximab_iv",
+    "description": "Injection, rituximab-pvvr, biosimilar, (ruxience), 10 mg",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "10 mg billed rituximab",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Injection, rituximab-pvvr, biosimilar, (ruxience), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Injection, rituximab-pvvr, biosimilar, (ruxience), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Injection, rituximab-pvvr, biosimilar, (ruxience), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Injection, rituximab-pvvr, biosimilar, (ruxience), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "Q5123",
+    "feature_group": "rituximab_iv",
+    "description": "Injection, rituximab-arrx, biosimilar, (riabni), 10 mg",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "10 mg billed rituximab",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Injection, rituximab-arrx, biosimilar, (riabni), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Injection, rituximab-arrx, biosimilar, (riabni), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Injection, rituximab-arrx, biosimilar, (riabni), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Injection, rituximab-arrx, biosimilar, (riabni), 10 mg",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "J9311",
+    "feature_group": "rituximab_sc",
+    "description": "Injection, rituximab 10 mg and hyaluronidase",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "10 mg billed rituximab with hyaluronidase",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Injection, rituximab 10 mg and hyaluronidase",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Injection, rituximab 10 mg and hyaluronidase",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Injection, rituximab 10 mg and hyaluronidase",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Injection, rituximab 10 mg and hyaluronidase",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "J9309",
+    "feature_group": "polatuzumab",
+    "description": "Injection, polatuzumab vedotin-piiq, 1 mg",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "1 mg billed polatuzumab vedotin-piiq",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Injection, polatuzumab vedotin-piiq, 1 mg",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Injection, polatuzumab vedotin-piiq, 1 mg",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Injection, polatuzumab vedotin-piiq, 1 mg",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Injection, polatuzumab vedotin-piiq, 1 mg",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "J9349",
+    "feature_group": "tafasitamab",
+    "description": "Injection, tafasitamab-cxix, 2 mg",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "2 mg billed tafasitamab-cxix",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Injection, tafasitamab-cxix, 2 mg",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Injection, tafasitamab-cxix, 2 mg",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Injection, tafasitamab-cxix, 2 mg",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Injection, tafasitamab-cxix, 2 mg",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "Q2041",
+    "feature_group": "lymphoma_cart_product",
+    "description": "Axicabtagene ciloleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "product therapeutic dose billing unit",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Axicabtagene ciloleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Axicabtagene ciloleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Axicabtagene ciloleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Axicabtagene ciloleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "Q2042",
+    "feature_group": "lymphoma_cart_product",
+    "description": "Tisagenlecleucel, up to 600 million car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "product therapeutic dose billing unit",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Tisagenlecleucel, up to 600 million car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Tisagenlecleucel, up to 600 million car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Tisagenlecleucel, up to 600 million car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Tisagenlecleucel, up to 600 million car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "Q2053",
+    "feature_group": "lymphoma_cart_product",
+    "description": "Brexucabtagene autoleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "product therapeutic dose billing unit",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Brexucabtagene autoleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Brexucabtagene autoleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Brexucabtagene autoleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Brexucabtagene autoleucel, up to 200 million autologous anti-cd19 car positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "Q2054",
+    "feature_group": "lymphoma_cart_product",
+    "description": "Lisocabtagene maraleucel, up to 110 million autologous anti-cd19 car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "product therapeutic dose billing unit",
+    "selected_drug": true,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "quarter": "october",
+        "description": "Lisocabtagene maraleucel, up to 110 million autologous anti-cd19 car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/october-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:07ea16694466c71ca63178a2",
+        "retrieved_at_utc": "2026-10-15T23:38:40Z"
+      },
+      {
+        "quarter": "july",
+        "description": "Lisocabtagene maraleucel, up to 110 million autologous anti-cd19 car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/july-2024-alpha-numeric-hcpcs-file.zip",
+        "source_id": "hcpcs_2024:2ded8c91c227b0a46ef8e55b",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      },
+      {
+        "quarter": "january",
+        "description": "Lisocabtagene maraleucel, up to 110 million autologous anti-cd19 car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/january-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:7507327b09f6c8f2f4834492",
+        "retrieved_at_utc": "2026-10-15T23:38:37Z"
+      },
+      {
+        "quarter": "april",
+        "description": "Lisocabtagene maraleucel, up to 110 million autologous anti-cd19 car-positive viable t cells, including leukapheresis and dose preparation procedures, per therapeutic dose",
+        "source_url": "https://www.cms.gov/files/zip/april-2024-alpha-numeric-hcpcs-files.zip",
+        "source_id": "hcpcs_2024:76b537134301f418f990b853",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z"
+      }
+    ]
+  },
+  {
+    "hcpcs_code": "0540T",
+    "feature_group": "cart_administration_all_indications",
+    "description": "Professional CAR-T administration service; all indications (paraphrase)",
+    "service_year": 2024,
+    "code_list_version": "2024-v1",
+    "billing_unit": "CAR-T administration service",
+    "selected_drug": false,
+    "interpretation": "Proxy for product/service activity; no patient diagnosis or indication confirmed",
+    "evidence": [
+      {
+        "source_url": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c32.pdf",
+        "source_id": "cms_documentation:336313ee40383dc06a1afeb8",
+        "retrieved_at_utc": "2026-10-15T23:39:39Z",
+        "section": "400.2 and 400.2.3: 0540T ends 2024-12-31; 38228 starts 2025-01-01"
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[project]
+name = "kolproject"
+version = "0.3.0"
+description = "Dated, deduplicated CAR-T lymphoma HCP research dataset and reproducible analysis"
+readme = "README.md"
+authors = [
+    { name = "Codex", email = "codex@openai.com" }
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "hydra-core==1.3.2",
+    "matplotlib>=3.10,<4",
+    "networkx>=3.5,<4",
+    "pandas>=2.2,<4",
+    "rapidfuzz>=3.14,<4",
+    "requests>=2.32,<3",
+    "scipy>=1.15,<2",
+]
+
+[project.scripts]
+kolproject = "kolproject.cli:main"
+kolproject-utilization = "kolproject.utilization:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
