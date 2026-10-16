@@ -1,0 +1,4 @@
+# Preserve released data bytes and hashes across platform-specific Git settings.
+Data/processed/** -text
+*.csv -text whitespace=cr-at-eol
+*.png binary
