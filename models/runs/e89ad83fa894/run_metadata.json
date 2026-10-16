@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-10-16T22:16:11Z",
+  "weights": {
+    "pagerank": 0.4,
+    "mean_citation_year_percentile": 0.3,
+    "recent_publications_2023_2025": 0.2,
+    "weighted_betweenness": 0.1
+  },
+  "input_path": "Data/processed/2026-10-09/hcps.csv",
+  "input_sha256": "ef8849bf974222a998980c5c2ab37dfdcfb7e91f7b86f3d2aeedd1b2eefbe2b8",
+  "description": "Unfitted descriptive baseline; no causal or prescribing-performance claim."
+}

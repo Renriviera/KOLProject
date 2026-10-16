@@ -1,0 +1,22 @@
+{
+  "validated_at_utc": "2026-10-15T23:53:24Z",
+  "passed": true,
+  "failures": [],
+  "detail_rows": 3318,
+  "feature_rows": 500,
+  "distinct_feature_npis": 500,
+  "duplicate_detail_keys": 0,
+  "original_tables_preserved_byte_for_byte": 15,
+  "original_hcps_sha256": "ef8849bf974222a998980c5c2ab37dfdcfb7e91f7b86f3d2aeedd1b2eefbe2b8",
+  "source_responses_hash_checked": 922,
+  "source_reconciliation_errors": 0,
+  "aggregate_errors": 0,
+  "missingness_errors": 0,
+  "left_join_rows": 500,
+  "left_join_unmatched_rows": 0,
+  "coverage": {
+    "published_services_no_selected_codes": 404,
+    "no_published_services": 89,
+    "selected_codes_observed": 7
+  }
+}

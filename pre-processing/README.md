@@ -2,7 +2,8 @@
 
 Run from the project root with `uv run kolproject stage=all`, or `stage=rebuild`
 for an offline rebuild from the delivered snapshot. These commands require the
-inputs excluded from GitHub; restore the complete `Data/` directory and populated
+source inputs excluded from GitHub; restore `Data/raw/`, `Data/interim/`,
+`Data/legacy/` and populated
 `configs/affiliation_evidence.csv` and `configs/identity_review.csv` from the
 complete local project/archive first.
 Implementation is in
@@ -14,3 +15,8 @@ Collection is resumable. The frozen publication corpus retains its original
 date-only observation date. Raw responses are not modified by preprocessing.
 `prefetch_payments.py` is an optional helper to overlap independent CMS collection
 with NPI screening; the normal pipeline does not require it.
+
+The processed tables are included in GitHub. To produce a modeling input without
+the source caches, run `uv run python pre-processing/join_utilization.py`.
+This writes a 500-row descriptive join to `models/inputs/`, checks one-to-one
+NPI/HCP-ID cardinality, and leaves the original tables unchanged.

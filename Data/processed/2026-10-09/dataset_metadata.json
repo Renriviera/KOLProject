@@ -1,0 +1,52 @@
+{
+  "dataset_version": "0.2.0",
+  "cohort_snapshot_date": "2026-10-09",
+  "built_at_utc": "2026-10-09T02:09:02Z",
+  "user_timezone": "America/New_York",
+  "publication_window": [
+    "2017-01-01",
+    "2025-12-31"
+  ],
+  "publication_metadata_observation_dates": [
+    "2026-10-08",
+    "2026-10-09"
+  ],
+  "publication_timestamp_precision": "original: day; supplemental API requests: second",
+  "qualification_minimum_publications": 2,
+  "allowed_taxonomies": [
+    "207RH0000X",
+    "207RH0003X",
+    "207RX0202X",
+    "2080P0207X"
+  ],
+  "npi_status_required": "A",
+  "npi_type_required": "NPI-1",
+  "npi_country_required": "US",
+  "target_hcps": 500,
+  "unique_qualified_pool": 516,
+  "payment_program_year": 2024,
+  "payment_source_release_date": "2026-06-30",
+  "ranking_weights": {
+    "pagerank": 0.4,
+    "mean_citation_year_percentile": 0.3,
+    "recent_publications_2023_2025": 0.2,
+    "weighted_betweenness": 0.1
+  },
+  "holdout_pmid": "37419325",
+  "tables": {
+    "hcps": 500,
+    "publications": 3363,
+    "authorships": 4991,
+    "coauthor_edges": 9378,
+    "general_payments_2024": 6445,
+    "payment_query_status": 500,
+    "candidate_screening": 1557,
+    "withheld_authorships": 10
+  },
+  "scope_limitations": [
+    "topic-query relevance is not individually adjudicated",
+    "registry active status is not proof of current clinical practice",
+    "no patient-level copays, treatment volumes or actual referrals",
+    "citation counts were observed in 2026 and cannot serve as historical 2025 features"
+  ]
+}

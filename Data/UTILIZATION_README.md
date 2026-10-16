@@ -109,6 +109,9 @@ uv run kolproject-utilization stage=rebuild  # offline from retained responses
 uv run kolproject-utilization stage=all      # resume collection, build, validate
 ```
 
+Full validation and rebuild require the raw/intermediate source caches excluded
+from GitHub; see the root README for restoration instructions. A fresh clone can
+instead run `uv run kolproject-evaluate` to check published-table consistency.
 The default command validates offline. A different year, snapshot, code list or
 feature specification requires a versioned change; unsupported overrides fail.
 

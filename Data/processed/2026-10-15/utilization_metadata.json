@@ -1,0 +1,56 @@
+{
+  "built_at_utc": "2026-10-15T23:53:23Z",
+  "collection_snapshot_date": "2026-10-15",
+  "service_year": 2024,
+  "source_dataset_version_id": "335e5f35-eca6-482d-87b3-f99883e213e3",
+  "source_release_date": "2026-05-21",
+  "cohort_path": "Data/processed/2026-10-09/hcps.csv",
+  "cohort_sha256": "ef8849bf974222a998980c5c2ab37dfdcfb7e91f7b86f3d2aeedd1b2eefbe2b8",
+  "feature_version": "1.0.0",
+  "code_list_version": "2024-v1",
+  "code_list_sha256": "e32c39cf676ad11a20f2b5eee111cb3032e7ab65d7dc4906265b331a118703b5",
+  "tables": {
+    "cms_provider_service": 3318,
+    "hcp_utilization_features": 500
+  },
+  "hcp_coverage": {
+    "published_services_no_selected_codes": 404,
+    "no_published_services": 89,
+    "selected_codes_observed": 7
+  },
+  "observed_hcps_by_group": {
+    "rituximab_iv": 6,
+    "rituximab_sc": 0,
+    "polatuzumab": 0,
+    "tafasitamab": 0,
+    "lymphoma_cart_product": 0,
+    "cart_administration_all_indications": 1
+  },
+  "source_observed_from_utc": "2026-10-15T23:38:47Z",
+  "source_observed_through_utc": "2026-10-15T23:53:18Z",
+  "detail_key": [
+    "npi",
+    "service_year",
+    "hcpcs_code",
+    "place_of_service",
+    "source_dataset_version_id"
+  ],
+  "features_key": [
+    "npi",
+    "service_year",
+    "source_dataset_version_id",
+    "feature_version"
+  ],
+  "limitations": [
+    "No published row does not imply no activity; suppression reason is unobservable.",
+    "Counts cover published Medicare FFS Part B non-institutional cells only.",
+    "Drug-code activity does not establish DLBCL diagnosis or CAR-T eligibility.",
+    "0540T covers CAR-T administration across indications; it is not lymphoma-specific.",
+    "Drug services are code-specific billing units; no services sum across incompatible families is provided.",
+    "Beneficiary-days summed across codes/settings can repeat the same person-day.",
+    "No unique-patient total is derived by adding beneficiary counts.",
+    "Payment estimates multiply rounded published average payments by units; not exact reimbursement, income, or patient copays.",
+    "Only 2024 is collected; no utilization trend is inferred.",
+    "Original 2026-observed publication/network features are unsuitable as prospective predictors of 2024 outcomes."
+  ]
+}

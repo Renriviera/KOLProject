@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-10-16T22:16:03Z",
+  "hcps": 500,
+  "coauthor_edges": 9378,
+  "unique_linked_eligible_publications": 1134,
+  "publication_count_median": 5.0,
+  "publication_count_min": 2,
+  "publication_count_max": 107,
+  "registry_states": 35,
+  "communities": 16,
+  "note": "Publication-selected cohort. Registry locations may be stale; counts are not US workforce prevalence."
+}

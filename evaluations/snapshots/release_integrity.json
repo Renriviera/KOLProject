@@ -1,0 +1,9 @@
+{
+  "source_responses_checked": 2079,
+  "source_hash_mismatches": [],
+  "legacy_retained": 241,
+  "legacy_excluded": 4,
+  "unit_tests_passed": 8,
+  "offline_rebuild_passed": true,
+  "checked_at_utc": "2026-10-09T02:10:29Z"
+}

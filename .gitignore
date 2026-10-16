@@ -21,14 +21,14 @@ evaluations/multirun/
 *.zip
 
 
-# Dataset payloads and generated reports stay in the complete local project.
-Data/*
-!Data/UTILIZATION_README.md
-edav/*
-!edav/README.md
-evaluations/*
-!evaluations/README.md
-models/*
-!models/README.md
+# Keep bulky source inputs local; processed tables and curated outputs are versioned.
+Data/references/
+Data/manifests/source_requests.csv
+Data/manifests/data_file_checksums.csv
+Data/manifests/*/utilization_source_requests.csv
+Data/manifests/*/utilization_file_checksums.csv
+models/inputs/*.csv
+models/inputs/*.metadata.json
+.cache/
 .env
 .env.*

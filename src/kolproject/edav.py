@@ -13,9 +13,9 @@ def profile(seed=2357):
     a = pd.read_csv(PROCESSED / 'authorships.csv', dtype={'pmid': str})
     p = pd.read_csv(PROCESSED / 'publications.csv', dtype={'pmid': str})
     e = pd.read_csv(PROCESSED / 'coauthor_edges.csv')
-    out = ROOT / 'edav'
-    figures = out / 'figures'
-    figures.mkdir(exist_ok=True)
+    out = ROOT / 'eda'
+    figures = out / 'visualizations'
+    figures.mkdir(parents=True, exist_ok=True)
     h.isna().sum().rename('missing_count').to_frame().assign(total_rows=len(h)).to_csv(out / 'missingness.csv', index_label='column')
     states = h.groupby('npi_state').size().sort_values(ascending=False)
     states.rename('hcp_count').to_csv(out / 'hcp_by_registry_state.csv')
@@ -69,4 +69,3 @@ def profile(seed=2357):
     fig.savefig(figures / 'CART_KOL_network_500.png', dpi=180)
     plt.close(fig)
     return summary
-

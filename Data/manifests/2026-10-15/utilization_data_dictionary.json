@@ -1,0 +1,531 @@
+{
+  "cms_provider_service": [
+    {
+      "column": "hcp_id",
+      "description": "Existing HCP key; foreign key to the preserved 2026-10-09 HCP table.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "npi",
+      "description": "Exact ten-digit individual NPI, stored as text. No fuzzy claims join.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "service_year",
+      "description": "Year in which services occurred: 2024, not the collection year.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_last_name",
+      "description": "cms last name as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_first_name",
+      "description": "cms first name as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_middle_initial",
+      "description": "cms middle initial as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_credentials",
+      "description": "cms credentials as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_entity_type",
+      "description": "cms entity type as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_city",
+      "description": "cms city as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_state",
+      "description": "cms state as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_zip5",
+      "description": "cms zip5 as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_country",
+      "description": "cms country as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_provider_type",
+      "description": "cms provider type as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_medicare_participation_indicator",
+      "description": "cms medicare participation indicator as observed in the 2024 source; not necessarily current employment or credentials.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "hcpcs_code",
+      "description": "CMS service/product code as text, preserving leading zero in 0540T.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "hcpcs_description",
+      "description": "CMS utilization response description; source coding terms apply.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_hcpcs_drug_indicator",
+      "description": "ASP-list-based CMS indicator; not a complete classifier of CAR-T products.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "place_of_service",
+      "description": "F = facility; O = non-facility. Not the original detailed two-digit setting code.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "beneficiaries",
+      "description": "Distinct beneficiaries within this NPI-code-setting cell only; not additive across cells.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "services_or_units",
+      "description": "CMS Tot_Srvcs; drug billing units may differ from treatment sessions.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "beneficiary_days",
+      "description": "CMS Tot_Bene_Day_Srvcs; distinct beneficiary-days within this code-setting cell.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "average_submitted_charge_usd",
+      "description": "Published average submitted charge per service/unit; not amount received.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "average_allowed_amount_usd",
+      "description": "Published average allowed amount per service/unit; not patient copay.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "average_medicare_payment_usd",
+      "description": "Published average Medicare payment per service/unit.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "average_standardized_medicare_payment_usd",
+      "description": "Published average Medicare payment after CMS geographic/payment standardization.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "feature_group",
+      "description": "Selected analytical family, or other for codes outside this narrow list.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "selected_code",
+      "description": "1 if code is in the selected 2024 list, otherwise 0.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "selected_drug_code",
+      "description": "1 for selected product codes, 0 for all others including administration.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "billing_unit_for_selected_code",
+      "description": "Codebook unit; blank for unselected codes.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "code_list_version",
+      "description": "Version of year-specific code definitions.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "estimated_medicare_payment_usd",
+      "description": "services_or_units times average_medicare_payment_usd, rounded to cents.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "estimated_allowed_amount_usd",
+      "description": "services_or_units times average_allowed_amount_usd, rounded to cents.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned CMS annual dataset UUID, not the moving latest alias.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_release_date",
+      "description": "CMS catalog modified date for this annual release: 2026-05-21.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_id",
+      "description": "Raw-response key linking to utilization_source_requests.csv.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_url",
+      "description": "Exact public API request that returned this row.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "retrieved at utc; ISO 8601 UTC with Z. Retrieval, query completion and feature construction are distinct.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "collection_snapshot_date",
+      "description": "Collection-run date; exact request timestamps remain authoritative.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "row_assembled_at_utc",
+      "description": "row assembled at utc; ISO 8601 UTC with Z. Retrieval, query completion and feature construction are distinct.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    }
+  ],
+  "hcp_utilization_features": [
+    {
+      "column": "hcp_id",
+      "description": "Existing HCP key; foreign key to the preserved 2026-10-09 HCP table.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "npi",
+      "description": "Exact ten-digit individual NPI, stored as text. No fuzzy claims join.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "service_year",
+      "description": "Year in which services occurred: 2024, not the collection year.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned CMS annual dataset UUID, not the moving latest alias.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_release_date",
+      "description": "CMS catalog modified date for this annual release: 2026-05-21.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "collection_snapshot_date",
+      "description": "Collection-run date; exact request timestamps remain authoritative.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cohort_snapshot_date",
+      "description": "Date of preserved HCP cohort; not a historical 2024 roster.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "feature_version",
+      "description": "Version of aggregation and missingness definitions.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "code_list_version",
+      "description": "Version of year-specific code definitions.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "code_list_sha256",
+      "description": "SHA-256 of sorted-key JSON encoding of the code evidence list.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "query_status",
+      "description": "complete only after all pages and a terminal empty page; failure blocks publication.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "utilization_data_status",
+      "description": "selected_codes_observed, published_services_no_selected_codes, or no_published_services. None implies confirmed zero activity.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "has_any_published_service",
+      "description": "1 if any released row exists, otherwise 0. Observation flag, not clinical inactivity.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "has_any_selected_code",
+      "description": "1 if any selected code is published, including administration across indications.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "has_any_selected_drug_code",
+      "description": "1 if a selected product code is published; excludes administration-only code.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "published_service_rows",
+      "description": "Number of released code-setting rows, not patients or treatment sessions.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "published_hcpcs_count",
+      "description": "Distinct published HCPCS codes for this NPI.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "published_facility_rows",
+      "description": "Number of released rows in F setting; not number of visits.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "published_nonfacility_rows",
+      "description": "Number of released rows in O setting; not number of visits.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "selected_codes_observed",
+      "description": "Semicolon-separated selected codes observed for this NPI.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cms_provider_types_observed",
+      "description": "Claims-derived specialty descriptions; distinct from current NPPES taxonomy.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "all_published_medicare_payment_estimate_usd",
+      "description": "Sum of units times average Medicare payment over released rows; rounded once to cents. Approximate, not full practice revenue.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "all_published_allowed_amount_estimate_usd",
+      "description": "Sum of units times average allowed amount over released rows; not patient out-of-pocket spending.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "selected_drug_medicare_payment_estimate_usd",
+      "description": "Estimated payment over selected product rows only; blank if unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "selected_drug_facility_payment_share",
+      "description": "Estimated selected-product payment in F divided by all-setting selected-product payment; blank if denominator absent or zero.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_first_retrieved_at_utc",
+      "description": "source first retrieved at utc; ISO 8601 UTC with Z. Retrieval, query completion and feature construction are distinct.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_last_retrieved_at_utc",
+      "description": "source last retrieved at utc; ISO 8601 UTC with Z. Retrieval, query completion and feature construction are distinct.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "query_completed_at_utc",
+      "description": "query completed at utc; ISO 8601 UTC with Z. Retrieval, query completion and feature construction are distinct.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "source_request_ids",
+      "description": "Raw response keys, including the terminal empty-page query.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "features_computed_at_utc",
+      "description": "features computed at utc; ISO 8601 UTC with Z. Retrieval, query completion and feature construction are distinct.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_iv_observed",
+      "description": "rituximab iv: 1 if a family row is published; 0 means unobserved, not confirmed zero activity.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_iv_published_rows",
+      "description": "rituximab iv: Count of published family code-setting rows.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_iv_services_or_units_sum",
+      "description": "rituximab iv: Sum of common-unit services within this family; see codebook. Blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_iv_beneficiary_code_setting_days_sum",
+      "description": "rituximab iv: Sum of cell beneficiary-days; the same patient-day may repeat across codes/settings.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_iv_max_beneficiaries_in_one_cell",
+      "description": "rituximab iv: Largest beneficiary count in one published family cell; not total unique patients.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_iv_medicare_payment_estimate_usd",
+      "description": "rituximab iv: Estimated payment over published family rows, rounded after summing; blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_sc_observed",
+      "description": "rituximab sc: 1 if a family row is published; 0 means unobserved, not confirmed zero activity.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_sc_published_rows",
+      "description": "rituximab sc: Count of published family code-setting rows.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_sc_services_or_units_sum",
+      "description": "rituximab sc: Sum of common-unit services within this family; see codebook. Blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_sc_beneficiary_code_setting_days_sum",
+      "description": "rituximab sc: Sum of cell beneficiary-days; the same patient-day may repeat across codes/settings.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_sc_max_beneficiaries_in_one_cell",
+      "description": "rituximab sc: Largest beneficiary count in one published family cell; not total unique patients.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "rituximab_sc_medicare_payment_estimate_usd",
+      "description": "rituximab sc: Estimated payment over published family rows, rounded after summing; blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "polatuzumab_observed",
+      "description": "polatuzumab: 1 if a family row is published; 0 means unobserved, not confirmed zero activity.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "polatuzumab_published_rows",
+      "description": "polatuzumab: Count of published family code-setting rows.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "polatuzumab_services_or_units_sum",
+      "description": "polatuzumab: Sum of common-unit services within this family; see codebook. Blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "polatuzumab_beneficiary_code_setting_days_sum",
+      "description": "polatuzumab: Sum of cell beneficiary-days; the same patient-day may repeat across codes/settings.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "polatuzumab_max_beneficiaries_in_one_cell",
+      "description": "polatuzumab: Largest beneficiary count in one published family cell; not total unique patients.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "polatuzumab_medicare_payment_estimate_usd",
+      "description": "polatuzumab: Estimated payment over published family rows, rounded after summing; blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "tafasitamab_observed",
+      "description": "tafasitamab: 1 if a family row is published; 0 means unobserved, not confirmed zero activity.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "tafasitamab_published_rows",
+      "description": "tafasitamab: Count of published family code-setting rows.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "tafasitamab_services_or_units_sum",
+      "description": "tafasitamab: Sum of common-unit services within this family; see codebook. Blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "tafasitamab_beneficiary_code_setting_days_sum",
+      "description": "tafasitamab: Sum of cell beneficiary-days; the same patient-day may repeat across codes/settings.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "tafasitamab_max_beneficiaries_in_one_cell",
+      "description": "tafasitamab: Largest beneficiary count in one published family cell; not total unique patients.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "tafasitamab_medicare_payment_estimate_usd",
+      "description": "tafasitamab: Estimated payment over published family rows, rounded after summing; blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "lymphoma_cart_product_observed",
+      "description": "lymphoma cart product: 1 if a family row is published; 0 means unobserved, not confirmed zero activity.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "lymphoma_cart_product_published_rows",
+      "description": "lymphoma cart product: Count of published family code-setting rows.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "lymphoma_cart_product_services_or_units_sum",
+      "description": "lymphoma cart product: Sum of common-unit services within this family; see codebook. Blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "lymphoma_cart_product_beneficiary_code_setting_days_sum",
+      "description": "lymphoma cart product: Sum of cell beneficiary-days; the same patient-day may repeat across codes/settings.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "lymphoma_cart_product_max_beneficiaries_in_one_cell",
+      "description": "lymphoma cart product: Largest beneficiary count in one published family cell; not total unique patients.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "lymphoma_cart_product_medicare_payment_estimate_usd",
+      "description": "lymphoma cart product: Estimated payment over published family rows, rounded after summing; blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cart_administration_all_indications_observed",
+      "description": "cart administration all indications: 1 if a family row is published; 0 means unobserved, not confirmed zero activity.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cart_administration_all_indications_published_rows",
+      "description": "cart administration all indications: Count of published family code-setting rows.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cart_administration_all_indications_services_or_units_sum",
+      "description": "cart administration all indications: Sum of common-unit services within this family; see codebook. Blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cart_administration_all_indications_beneficiary_code_setting_days_sum",
+      "description": "cart administration all indications: Sum of cell beneficiary-days; the same patient-day may repeat across codes/settings.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cart_administration_all_indications_max_beneficiaries_in_one_cell",
+      "description": "cart administration all indications: Largest beneficiary count in one published family cell; not total unique patients.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    },
+    {
+      "column": "cart_administration_all_indications_medicare_payment_estimate_usd",
+      "description": "cart administration all indications: Estimated payment over published family rows, rounded after summing; blank when unobserved.",
+      "missing_value": "Blank = unavailable or unobserved; zero observation flags/counts do not imply zero clinical activity."
+    }
+  ]
+}
