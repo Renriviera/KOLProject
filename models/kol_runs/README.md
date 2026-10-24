@@ -157,7 +157,7 @@ tabs, cycled from the header bar, the arrow keys, or the URL hash: results (the
 zoomable community map and every community's tier, theme, and leaders), stability
 (seed and resolution tests, leader removal, literature perturbation, weight
 perturbation, movers), weak labels (ROC curves and AUC against the guideline
-panel and industry advisors), the temporal test, and data sources. A community
+panel and industry advisors), backtesting (the pre-2023 temporal holdout), and data sources. A community
 can be deep-linked as `#results/<community-id>`. GitHub Pages serves `docs/`
 from `main` at https://renriviera.github.io/KOLProject/ once Pages is enabled in
 the repository settings. The bundle carries manufacturer counts and payment

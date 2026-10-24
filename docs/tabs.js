@@ -61,6 +61,7 @@
     const c5 = el('div', { class: 'card' }); sec4.append(c5);
     const seg = el('div', { class: 'seg', role: 'group' }); c5.append(seg);
     const pertHost = el('div'); c5.append(pertHost);
+    const weightsHost = el('div', { style: 'margin-top:1rem' }); c5.append(weightsHost);
     const classColor = { 'robust leader': css('--c3'), 'weight-sensitive': css('--c4'), occasional: css('--c2'), rarely: css('--muted') };
     const renderPert = (name) => {
       seg.querySelectorAll('.btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.c === name)));
@@ -71,6 +72,14 @@
         tip: `<b>${esc(fmt.title(r.display_name))}</b> · ${esc(node(r)?.institution || '')}<br>Rank ${r.primary_rank}; stays top-25 in ${fmt.pct(r.p_top25_near)} of nearby weightings<br>Rank range p5–p95: ${r.rank_p5_near}–${r.rank_p95_near}<br>Top-25 under any weights: ${fmt.pct(r.p_top25_uninformative)}<br>${r.robustness_class}`,
       })), { domain: [0, 1], title: `${COMPOSITE_LABEL[name]}: probability of staying in the top 25`, sub: `${S.weight_perturbation?.[`${name}_robust_leaders`] ?? ''} robust leaders · ${S.weight_perturbation?.[`${name}_weight_sensitive`] ?? ''} weight-sensitive`, left: 230, width: 680, fmtv: (v) => fmt.pct(v) });
       pertHost.append(legend(Object.entries(classColor).map(([k, v]) => ({ color: v, label: k }))));
+      weightsHost.innerHTML = '';
+      weightsHost.append(el('h3', { text: 'Composite weights being perturbed' }));
+      weightsHost.append(el('p', { class: 'small muted', text: `Each axis is the mean cohort percentile of its features; each composite is 100 × the weighted sum of axes. The ${COMPOSITE_LABEL[name]} column is the one perturbed above.` }));
+      const axesDef = data.meta.axes, comps = data.meta.composites;
+      table(weightsHost, Object.keys(axesDef).map((a) => ({ axis: a, features: axesDef[a].join(', '), ...Object.fromEntries(Object.keys(comps).map((c) => [c, comps[c][a] ?? 0])) })), [
+        { label: 'Axis', key: 'axis' }, { label: 'Features', key: 'features' },
+        ...Object.keys(comps).map((c) => ({ label: COMPOSITE_LABEL[c], num: true, value: (r) => c === name ? el('strong', { text: fmt.num(r[c], 2) }) : fmt.num(r[c], 2) })),
+      ]);
     };
     Object.keys(st.weight_perturbation).forEach((name, i) => seg.append(el('button', { class: 'btn', 'data-c': name, 'aria-pressed': String(i === 0), onclick: () => renderPert(name), text: COMPOSITE_LABEL[name] })));
     renderPert(Object.keys(st.weight_perturbation)[0]);
@@ -192,10 +201,10 @@
   });
 
   /* ================= Temporal ================= */
-  KOL.register('temporal', function (data) {
-    const root = document.getElementById('temporal-content');
+  KOL.register('backtesting', function (data) {
+    const root = document.getElementById('backtesting-content');
     const T = data.temporal, cutoff = T.cutoff_year, S = data.meta.summaries.temporal || {};
-    document.getElementById('temporal-lede').textContent = `Every score is recomputed from papers published through ${cutoff} only, with the industry axis removed because 2024 payments postdate the window. The test asks whether those scores line up with what happened in ${cutoff + 1}–2025: new papers, new coauthors, and 2024 consulting. Publication count through ${cutoff} is the null every score must beat.`;
+    document.getElementById('backtesting-lede').textContent = `Every score is recomputed from papers published through ${cutoff} only, with the industry axis removed because 2024 payments postdate the window. The test asks whether those scores line up with what happened in ${cutoff + 1}–2025: new papers, new coauthors, and 2024 consulting. Publication count through ${cutoff} is the null every score must beat.`;
     root.append(el('div', { class: 'stat-row' }, [stat(S.pre_period_edges?.toLocaleString() ?? '–', `coauthor pairs through ${cutoff}`), stat(S.post_period_new_edges?.toLocaleString() ?? '–', `new coauthor pairs ${cutoff + 1}–2025`), stat(S.hcps_without_pre_period_papers ?? '–', `HCPs with no paper through ${cutoff}`)]));
     const scoreName = (s) => s.replace(/^(academic_authority|network_connector|rising_voice)/, (m) => COMPOSITE_LABEL[m]).replace('publications (volume-only null)', 'Publication count (null)').replace('pagerank alone', 'PageRank alone').replace('mean_citation_pct alone', 'Citation percentile alone');
     const targets = [
@@ -271,9 +280,10 @@
     c0.append(KOL.h(pipelineSvg(Sx, m)));
 
     /* Source cards */
-    const sec1 = section(root, 'Sources', 'What each source contributes, how much of it there is, and what it cannot tell you.');
+    const sec1 = section(root, 'Sources', 'The sources that feed the cohort, the graph, the scores, and the weak labels: what each contributes, how much of it there is, and what it cannot tell you.');
     const grid = el('div', { class: 'grid-2' }); sec1.append(grid);
-    Sx.sources.forEach((s) => {
+    const MAIN = ['Europe PMC / PubMed MED', 'CMS NPPES NPI Registry', 'CMS Open Payments', '2023 ASTCT DLBCL clinical practice recommendations'];
+    Sx.sources.filter((s) => MAIN.includes(s.name)).forEach((s) => {
       const dl = el('dl');
       const add = (k, v) => { if (v != null && v !== '') { dl.append(el('dt', { text: k })); dl.append(el('dd', { text: v })); } };
       if (s.window) add('Window', `${s.window[0]} to ${s.window[1]}`);
@@ -296,12 +306,11 @@
         s.url ? el('p', { class: 'small' }, el('a', { href: s.url, target: '_blank', rel: 'noopener', text: 'Source documentation ↗' })) : null,
       ]));
     });
-    sec1.append(el('p', { class: 'note', text: Sx.legacy_pilot }));
 
     /* Tables */
-    const sec2 = section(root, 'Published tables', 'Identifiers are strings. Join authorships to HCPs on hcp_id and to publications on pmid; join utilization features on hcp_id and npi one-to-one.');
+    const sec2 = section(root, 'Published tables', 'Identifiers are strings. Join authorships to HCPs on hcp_id and to publications on pmid.');
     const c2 = el('div', { class: 'card' }); sec2.append(c2);
-    table(c2, Sx.tables, [{ label: 'Table', value: (r) => el('code', { text: r.table }) }, { label: 'Rows', value: (r) => r.rows.toLocaleString(), num: true }, { label: 'One row is', key: 'grain' }]);
+    table(c2, Sx.tables.filter((t) => !t.table.includes('utilization') && !t.table.includes('provider_service')), [{ label: 'Table', value: (r) => el('code', { text: r.table }) }, { label: 'Rows', value: (r) => r.rows.toLocaleString(), num: true }, { label: 'One row is', key: 'grain' }]);
 
     /* Glossary */
     const sec3 = section(root, 'Derived features', 'How the raw tables become the numbers on the other tabs.');
