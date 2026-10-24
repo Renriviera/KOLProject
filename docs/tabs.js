@@ -65,6 +65,8 @@
     const classColor = { 'robust leader': css('--c3'), 'weight-sensitive': css('--c4'), occasional: css('--c2'), rarely: css('--muted') };
     const renderPert = (name) => {
       seg.querySelectorAll('.btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.c === name)));
+      pertHost.innerHTML = '';
+      weightsHost.innerHTML = '';
       const rows = st.weight_perturbation[name].slice(0, 25);
       const node = (r) => data.nodes.find((n) => n.id === r.hcp_id);
       hBars(pertHost, rows.map((r) => ({
@@ -72,7 +74,6 @@
         tip: `<b>${esc(fmt.title(r.display_name))}</b> · ${esc(node(r)?.institution || '')}<br>Rank ${r.primary_rank}; stays top-25 in ${fmt.pct(r.p_top25_near)} of nearby weightings<br>Rank range p5–p95: ${r.rank_p5_near}–${r.rank_p95_near}<br>Top-25 under any weights: ${fmt.pct(r.p_top25_uninformative)}<br>${r.robustness_class}`,
       })), { domain: [0, 1], title: `${COMPOSITE_LABEL[name]}: probability of staying in the top 25`, sub: `${S.weight_perturbation?.[`${name}_robust_leaders`] ?? ''} robust leaders · ${S.weight_perturbation?.[`${name}_weight_sensitive`] ?? ''} weight-sensitive`, left: 230, width: 680, fmtv: (v) => fmt.pct(v) });
       pertHost.append(legend(Object.entries(classColor).map(([k, v]) => ({ color: v, label: k }))));
-      weightsHost.innerHTML = '';
       weightsHost.append(el('h3', { text: 'Composite weights being perturbed' }));
       weightsHost.append(el('p', { class: 'small muted', text: `Each axis is the mean cohort percentile of its features; each composite is 100 × the weighted sum of axes. The ${COMPOSITE_LABEL[name]} column is the one perturbed above.` }));
       const axesDef = data.meta.axes, comps = data.meta.composites;
@@ -98,10 +99,13 @@
     const heatHost = el('div', { class: 'heat-wrap' }); c6.append(heatHost);
     const classes = ['multi-community mover', 'diffuse mover', 'data-thin mover'];
     const active = new Set(['multi-community mover']);
-    classes.forEach((k) => filt.append(el('button', { class: 'chip', 'aria-pressed': String(active.has(k)), onclick: (e) => { active.has(k) ? active.delete(k) : active.add(k); e.currentTarget.setAttribute('aria-pressed', String(active.has(k))); drawHeat(); }, text: `${k} (${counts[k] ?? 0})` })));
+    classes.forEach((k) => filt.append(el('button', { class: 'chip', 'data-k': k, 'aria-pressed': String(active.has(k)), onclick: () => { if (active.has(k)) active.delete(k); else active.add(k); drawHeat(); }, text: `${k} (${counts[k] ?? 0})` })));
     const commKeys = data.communities.map((c) => c.community);
     function drawHeat() {
+      heatHost.innerHTML = '';
+      filt.querySelectorAll('.chip').forEach((b) => b.setAttribute('aria-pressed', String(active.has(b.dataset.k))));
       const rows = st.membership_shares.filter((r) => active.has(r.mover_class)).slice(0, 60);
+      if (!rows.length) { heatHost.append(el('p', { class: 'note', text: 'Pick at least one mover class to show the heatmap.' })); return; }
       const cellW = 30, cellH = 16, left = 210, top = 90, width = left + commKeys.length * cellW + 20, height = top + rows.length * cellH + 20;
       const svg = svgIn(heatHost, width, height);
       svg.append('text').attr('class', 'title').attr('x', 0).attr('y', 14).text('Share of runs in each community');
@@ -334,13 +338,6 @@
     const c4 = el('div', { class: 'card' }); sec4.append(c4);
     const axes = Object.keys(m.axes);
     table(c4, axes.map((a) => ({ a, ...Object.fromEntries(Object.entries(m.composites).map(([c, w]) => [c, w[a] ?? 0])) })), [{ label: 'Axis', key: 'a' }, ...Object.keys(m.composites).map((c) => ({ label: COMPOSITE_LABEL[c], value: (r) => fmt.num(r[c], 2), num: true }))]);
-
-    /* Reproduction */
-    const sec5 = section(root, 'Reproduce this site');
-    const c5 = el('div', { class: 'card' }); sec5.append(c5);
-    c5.append(el('pre', { text: `git clone https://github.com/Renriviera/KOLProject.git && cd KOLProject\nuv sync --locked\nuv run pytest\nuv run kolproject-kol                                  # rewrites models/kol_runs/${m.run_id}/\nuv run kolproject-kol-site models/kol_runs/${m.run_id}  # writes docs/data/site.json` }));
-    c5.append(el('p', { class: 'small muted', text: `Run ${m.run_id} was computed ${m.created_at_utc} with igraph ${m.library_versions.igraph}, leidenalg ${m.library_versions.leidenalg}, networkx ${m.library_versions.networkx}, scikit-learn ${m.library_versions['scikit-learn']}. Input SHA-256:` }));
-    c5.append(el('pre', { text: Object.entries(m.inputs_sha256).map(([k, v]) => `${v}  ${k}`).join('\n') }));
 
     /* Limits */
     const sec6 = section(root, 'Scope limitations recorded with the data');
