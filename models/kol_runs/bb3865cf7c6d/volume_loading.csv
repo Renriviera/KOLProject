@@ -1,0 +1,4 @@
+composite,prestige_axis_primary,prestige_axis_volume_loaded,spearman_loaded_vs_primary,top50_overlap_loaded_vs_primary,spearman_primary_vs_publication_count,spearman_loaded_vs_publication_count
+academic_authority,pagerank,pagerank+strength+degree+publications,0.9809679682177271,0.98,0.7622601332130614,0.7690539175619772
+network_connector,pagerank,pagerank+strength+degree+publications,0.9946354731256714,0.98,0.7208361084122548,0.7183734317733123
+rising_voice,pagerank,pagerank+strength+degree+publications,0.9971656121862789,0.98,0.3994754965187662,0.39700570097518684

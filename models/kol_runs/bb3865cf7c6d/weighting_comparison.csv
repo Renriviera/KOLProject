@@ -1,0 +1,5 @@
+weighting,definition,edges,communities,ami_vs_fractional,spearman_pagerank,spearman_betweenness,spearman_participation,spearman_strength,top50_overlap_academic_authority,top50_overlap_network_connector,top50_overlap_rising_voice
+fractional,sum over shared papers of 1/(author_count - 1); the published weighting,9378,17,1.0,1.0,1.0,0.9999999999999998,0.9999999999999998,1.0,1.0,1.0
+binary,one per coauthor pair regardless of how many papers,9378,11,0.5002235631921097,0.8500811635402377,0.6630528170341414,0.7987536163666793,0.8460949801718961,0.86,0.88,0.86
+count,number of shared papers,9378,15,0.5580638335829159,0.9346004938452702,0.7967914023000326,0.7429725223610565,0.9277808232543051,0.96,0.84,0.92
+fractional_min2,"fractional weight, keeping only pairs with at least two shared papers",3851,70,0.6804030358733173,0.9223369439614225,0.8264875666640836,0.7018018437378656,0.9385369163264865,0.94,0.88,0.88

@@ -1,0 +1,83 @@
+# Community detection and composite KOL score experiments.
+# Run: uv run kolproject-kol            (full run, several minutes)
+#      uv run kolproject-kol quick=true (reduced seeds and replicates, for smoke tests)
+# Override anything from the command line, e.g. community.resolution=1.5
+defaults:
+  - _self_
+
+seed: 2357
+quick: false
+output_dir: models/kol_runs
+experiments: all   # or a list such as [stability, leave_one_axis_out]
+
+community:
+  resolution: 1.0          # RB-configuration resolution for the primary Leiden partition
+  resolution_sweep: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0]
+  seeds: 50                # Leiden ensemble size for the primary partition and stability tests
+  small_seeds: 10          # ensemble size inside perturbation experiments
+  stability_threshold: 0.8 # mean co-assignment needed before a community is named in a deck
+  min_named_size: 5         # smaller groups are reported but never named
+
+features:
+  recent_from: 2023              # momentum window start (frozen release uses 2023-2025)
+  shrinkage_pseudo_papers: 4     # beta-binomial prior strength for senior_rate and recent_share
+
+# Each axis is the mean cohort percentile of its features. Keep one volume-type
+# feature per axis: pagerank, strength, degree, and publications are one signal.
+axes:
+  prestige: [pagerank]
+  bridging: [betweenness, participation]
+  impact: [mean_citation_pct]
+  leadership: [senior_rate]
+  momentum: [recent_share]
+  industry: [log_consulting_usd, log_cart_product_usd]
+
+# Weights per composite must be nonnegative and sum to one.
+composites:
+  academic_authority:
+    prestige: 0.35
+    bridging: 0.05
+    impact: 0.25
+    leadership: 0.20
+    momentum: 0.05
+    industry: 0.10
+  network_connector:
+    prestige: 0.20
+    bridging: 0.40
+    impact: 0.10
+    leadership: 0.10
+    momentum: 0.10
+    industry: 0.10
+  rising_voice:
+    prestige: 0.15
+    bridging: 0.10
+    impact: 0.15
+    leadership: 0.10
+    momentum: 0.40
+    industry: 0.10
+
+top_k: 25            # "leader" cutoff for robustness probabilities
+top_n_overlap: 50    # list length compared across ablations
+
+bootstrap:
+  replicates: 200
+  leiden_seeds: 5    # Leiden medoid per replicate, so seed noise is not counted as data noise
+  drop_fraction: 0.1 # gentler perturbation: drop this share of papers; used to decide which communities are named
+node_removal:
+  top_k: [1, 3, 5, 10, 20]
+perturbation:
+  draws: 2000
+  concentration: 30  # Dirichlet concentration around stated weights; higher = closer
+face_validity:
+  auc_bootstrap: 1000
+temporal:
+  cutoff_year: 2022
+  difference_bootstrap: 1000
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: evaluations/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: evaluations/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
