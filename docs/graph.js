@@ -13,7 +13,8 @@ KOL.register('results', function renderResults(data) {
     `Leiden finds ${communities.length} coauthorship communities among ${nodes.length} HCPs. ` +
     `${communities.filter((c) => c.tier === 'firm').length} are firm enough to name, ${communities.filter((c) => c.tier === 'provisional').length} are provisional, ` +
     `${communities.filter((c) => c.tier === 'unstable').length} is a loose grouping, and ${communities.filter((c) => c.tier === 'outside main network').length} tiny groups sit outside the main network. ` +
-    'Node size is PageRank; fill is community; the stroke pattern is the community\'s stability tier; a ring marks an HCP whose membership splits across runs.';
+    'Node size is PageRank; fill is community; the stroke pattern is the community\'s stability tier; a ring marks an HCP whose membership splits across runs. ' +
+    'Click a chip to take a community off the map, and click a node to zoom to its community.';
 
   /* ---- Viewport ---- */
   const wrap = document.getElementById('graph');
@@ -25,7 +26,7 @@ KOL.register('results', function renderResults(data) {
   const gNodes = gRoot.append('g');
   const gLabels = gRoot.append('g');
   let W = 0, H = 0, dpr = 1, transform = d3.zoomIdentity;
-  const view = { selected: null, hover: null, edges: true, moversOnly: false, byTier: false, labels: false };
+  const view = { selected: null, hover: null, edges: true, moversOnly: false, byTier: false, labels: false, hidden: new Set() };
 
   // Data coordinates are in [-1, 1]; fit into the viewport with a margin.
   const base = { x: d3.scaleLinear(), y: d3.scaleLinear() };
@@ -44,7 +45,8 @@ KOL.register('results', function renderResults(data) {
   const radius = (n) => 2.5 + 13 * Math.sqrt((n.pagerank || 0) / maxPr);
   const fill = (n) => view.byTier ? tierColor(n.tier) : communityColor(n.community, n.tier);
   const isMover = (n) => n.mover_class !== 'anchored';
-  const visible = (n) => (!view.moversOnly || isMover(n)) && (view.selected == null || n.community === view.selected || (view.hover != null && n === view.hover));
+  const shown = (n) => !view.hidden.has(n.community) && (!view.moversOnly || isMover(n));
+  const visible = (n) => shown(n) && (view.selected == null || n.community === view.selected || (view.hover != null && n === view.hover));
   const dimmed = (n) => view.selected != null && n.community !== view.selected;
 
   function drawEdges() {
@@ -59,6 +61,7 @@ KOL.register('results', function renderResults(data) {
     ctx.lineWidth = 0.6 / k;
     for (const e of edges) {
       const a = nodes[e.s], b = nodes[e.t];
+      if (!shown(a) || !shown(b)) continue;
       let alpha;
       if (hover) alpha = (a === hover || b === hover) ? 0.75 : 0;
       else if (selected != null) {
@@ -67,7 +70,6 @@ KOL.register('results', function renderResults(data) {
         else if (inA || inB) alpha = 0.06;
         else alpha = 0;
       } else alpha = 0.035 + 0.25 * Math.min(1, e.w / 0.6);
-      if (view.moversOnly && !(isMover(a) && isMover(b))) alpha *= 0.25;
       if (alpha <= 0.004) continue;
       ctx.strokeStyle = `rgba(${ink},${alpha})`;
       ctx.lineWidth = (hover || (selected != null && a.community === selected && b.community === selected) ? 0.5 + 2.5 * Math.min(1, e.w / 0.5) : 0.6) / k;
@@ -78,12 +80,12 @@ KOL.register('results', function renderResults(data) {
   function drawNodes() {
     const k = transform.k;
     gRoot.attr('transform', transform);
-    const ordered = nodes.slice().sort((a, b) => (dimmed(a) ? 0 : 1) - (dimmed(b) ? 0 : 1) || a.pagerank - b.pagerank);
+    const ordered = nodes.filter(shown).sort((a, b) => (dimmed(a) ? 0 : 1) - (dimmed(b) ? 0 : 1) || a.pagerank - b.pagerank);
     gNodes.selectAll('circle.node').data(ordered, (d) => d.id).join('circle')
       .attr('class', (d) => `node ${TIER_CLASS[d.tier] || 'outside'}`)
       .attr('cx', (d) => d.px).attr('cy', (d) => d.py).attr('r', (d) => radius(d) / Math.sqrt(k))
       .attr('fill', fill).attr('stroke-width', 1.1 / k)
-      .attr('opacity', (d) => !visible(d) ? 0.06 : dimmed(d) ? 0.12 : 0.95)
+      .attr('opacity', (d) => dimmed(d) ? 0.12 : 0.95)
       .on('mousemove', (e, d) => { view.hover = d; drawEdges(); showTip(e, nodeTip(d)); })
       .on('mouseleave', () => { view.hover = null; drawEdges(); hideTip(); })
       .on('click', (e, d) => { e.stopPropagation(); select(d.community, d); });
@@ -101,12 +103,12 @@ KOL.register('results', function renderResults(data) {
   function labelSet() {
     if (view.selected != null) {
       const c = commById.get(view.selected);
-      const members = nodes.filter((n) => n.community === view.selected);
+      const members = nodes.filter((n) => n.community === view.selected && shown(n));
       const leaders = members.slice().sort((a, b) => b.pagerank - a.pagerank).slice(0, c.size >= 5 ? 3 : members.length);
       const movers = members.filter((n) => n.mover_class === 'multi-community mover').slice().sort((a, b) => b.mover_score - a.mover_score).slice(0, 5);
       return [...new Set([...leaders, ...movers])];
     }
-    if (view.labels) return communities.filter((c) => c.size >= 5).map((c) => nodes[byId.get(c.leader_ids[0])]);
+    if (view.labels) return communities.filter((c) => c.size >= 5 && !view.hidden.has(c.community)).map((c) => nodes[byId.get(c.leader_ids[0])]);
     return [];
   }
   function draw() { drawEdges(); drawNodes(); }
@@ -116,7 +118,7 @@ KOL.register('results', function renderResults(data) {
   svg.on('click', () => { if (view.selected != null) select(null); });
 
   function zoomTo(c) {
-    if (!c) { svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity); return; }
+    if (!c) { if (transform.k !== 1 || transform.x || transform.y) svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity); return; }
     const x0 = base.x(c.bbox.x0), x1 = base.x(c.bbox.x1), y0 = base.y(c.bbox.y1), y1 = base.y(c.bbox.y0);
     const w = Math.max(x1 - x0, 40), hgt = Math.max(y1 - y0, 40);
     const k = Math.max(0.6, Math.min(8, 0.8 / Math.max(w / W, hgt / H)));
@@ -137,13 +139,27 @@ KOL.register('results', function renderResults(data) {
 
   /* ---- Selector chips, side card, legend ---- */
   const chips = document.getElementById('community-chips');
-  const allChip = el('button', { class: 'chip', 'aria-pressed': 'true', onclick: () => select(null) }, ['All communities']);
+  const allChip = el('button', { class: 'chip', onclick: () => { view.hidden.clear(); syncChips(); draw(); } }, ['Show all']);
   chips.append(allChip);
   communities.filter((c) => c.tier !== 'outside main network').forEach((c) => {
-    chips.append(el('button', { class: 'chip', 'data-community': c.community, 'aria-pressed': 'false', onclick: () => select(c.community), title: c.tier_reason },
+    chips.append(el('button', { class: 'chip', 'data-community': c.community, 'aria-pressed': 'false', onclick: () => toggleHidden(c.community),
+      title: 'Click to remove this community from the map; click again to restore it' },
       [el('span', { class: 'dot', style: `background:${communityColor(c.community, c.tier)}` }), shortLabel(c), el('span', { class: 'n', text: c.size })]));
   });
   function shortLabel(c) { return c.label.replace(/^Loose /, '').replace(/ \(.*\)$/, ''); }
+  function toggleHidden(community) {
+    if (view.hidden.has(community)) view.hidden.delete(community); else view.hidden.add(community);
+    if (view.selected === community && view.hidden.has(community)) select(null, null, true);
+    syncChips(); draw();
+  }
+  function syncChips() {
+    chips.querySelectorAll('.chip[data-community]').forEach((b) => {
+      const off = view.hidden.has(+b.dataset.community);
+      b.classList.toggle('off', off); b.setAttribute('aria-pressed', String(off));
+    });
+    allChip.hidden = view.hidden.size === 0;
+  }
+  syncChips();
 
   const side = document.getElementById('graph-side');
   function renderSide(c, focus) {
@@ -152,7 +168,7 @@ KOL.register('results', function renderResults(data) {
       const movers = data.stability.mover_class_counts;
       side.append(el('div', { class: 'card' }, [
         el('div', { class: 'kicker', text: 'How to read the map' }),
-        el('p', { html: 'Click a community chip or a node to zoom in. Hover any node for its scores. Drag to pan, scroll to zoom, click empty space to reset.' }),
+        el('p', { html: 'Click a node to zoom to its community. Click a chip above to remove that community from the map, and again to restore it. Hover any node for its scores. Drag to pan, scroll to zoom, click empty space to reset.' }),
         el('dl', {}, [
           el('dt', { text: 'Firm communities' }), el('dd', { text: communities.filter((x) => x.tier === 'firm').length }),
           el('dt', { text: 'Leader-dependent' }), el('dd', { text: summaries.node_removal?.leader_dependent_communities ?? '–' }),
@@ -190,14 +206,13 @@ KOL.register('results', function renderResults(data) {
   }
   function focusNode(n) { view.hover = n; drawEdges(); drawNodes(); setTimeout(() => { view.hover = null; drawEdges(); }, 1800); }
 
-  function select(community, focus, silent) {
+  function select(community, focus, silent, zoomIn = true) {
     view.selected = community;
     if (!silent) history.replaceState(null, '', community == null ? '#results' : `#results/${community}`);
-    chips.querySelectorAll('.chip').forEach((b) => b.setAttribute('aria-pressed', String((b.dataset.community ? +b.dataset.community : null) === community)));
     document.querySelectorAll('.ccard').forEach((card) => card.classList.toggle('hl', +card.dataset.community === community));
     const c = community == null ? null : commById.get(community);
     renderSide(c, focus);
-    zoomTo(c);
+    if (zoomIn) zoomTo(c);
     draw();
   }
 
@@ -238,7 +253,7 @@ KOL.register('results', function renderResults(data) {
     const themeText = c.theme ? `${c.theme}.` : 'No title terms stand out beyond the shared CAR-T lymphoma vocabulary.';
     const facts = `${c.size} HCPs; ${fmt.pct(c.institution_purity)} at ${c.top_institution}; ${fmt.pct(c.state_purity)} in ${c.top_state}. Median paper year ${Math.round(c.median_paper_year)}; most common journal ${c.top_journal}.`;
     return el('div', { class: 'ccard', 'data-community': c.community, tabindex: 0, style: `border-left-color:${color}`,
-      onclick: () => { select(c.community); document.querySelector('.graph-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' }); },
+      onclick: () => { if (view.hidden.has(c.community)) toggleHidden(c.community); select(c.community, null, false, false); document.querySelector('.graph-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' }); },
       onkeydown: (e) => { if (e.key === 'Enter') e.currentTarget.click(); } }, [
       el('div', { class: 'row' }, [el('span', { class: `badge ${TIER_CLASS[c.tier]}`, text: TIER_LABEL[c.tier] }), el('span', { class: 'muted small', text: fmt.title(c.archetype) }), c.flags ? el('span', { class: 'badge', text: 'leader-dependent', title: c.flags }) : null]),
       el('h3', { text: c.label }),
@@ -250,7 +265,7 @@ KOL.register('results', function renderResults(data) {
 
   resize();
   renderSide(null);
-  const applySub = (sub) => { const c = parseInt(sub, 10); if (commById.has(c)) select(c, null, true); else if (view.selected != null) select(null, null, true); };
+  const applySub = (sub) => { const c = parseInt(sub, 10); if (commById.has(c)) { if (view.hidden.has(c)) toggleHidden(c); select(c, null, true); } else if (view.selected != null) select(null, null, true); };
   KOL.onSub('results', applySub);
   if (KOL.state.sub) setTimeout(() => applySub(KOL.state.sub), 50);
 });

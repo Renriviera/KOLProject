@@ -109,9 +109,12 @@ main { max-width: 1240px; margin: 0 auto; padding: 1.6rem 16px 3rem; }
 .chip { appearance: none; border: 1px solid var(--border); background: var(--surface); color: var(--ink); font: inherit; font-size: .8rem;
   padding: .25rem .6rem .25rem .45rem; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: .4rem; }
 .chip:hover { background: var(--surface-2); }
-.chip[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.chip[aria-pressed="true"]:not(.off) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .chip .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
 .chip .n { color: var(--muted); }
+.chip.off { border-color: var(--critical); color: var(--critical); background: color-mix(in srgb, var(--critical) 12%, var(--surface)); box-shadow: none; text-decoration: line-through; }
+.chip.off .dot { background: var(--critical) !important; opacity: .6; }
+.chip[hidden] { display: none; }
 .badge { display: inline-block; font-size: .7rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: .1rem .45rem; border-radius: 4px; border: 1px solid var(--border); color: var(--ink-2); }
 .badge.firm { color: var(--tier-firm); border-color: var(--tier-firm); }
 .badge.provisional { color: #8a5a00; border-color: var(--tier-provisional); }
