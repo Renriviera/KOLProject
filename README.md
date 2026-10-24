@@ -29,7 +29,7 @@ The evaluation checks the published tables and writes
 | `Data/manifests/` | Field dictionaries for the cohort and utilization extension |
 | `src/kolproject/` | Collection, identity matching, deduplication, preprocessing, analysis, ranking, and evaluation code |
 | `pre-processing/` | Payment prefetch and one-to-one modeling join helpers |
-| `configs/` | Hydra settings, 2024 code definitions, and identity evidence templates |
+| `configs/` | Hydra settings, 2024 code definitions, and identity evidence templates; ignored `configs/local/` holds local evidence |
 | [`models/`](models/README.md) | Baseline ranking runs, input hashes, weights, and modeling-input instructions |
 | [`evaluations/`](evaluations/README.md) | Reproducible processed-table checks and historical source-validation reports |
 | [`eda/`](eda/README.md) | Cohort summaries, missingness, geographic counts, and network statistics |
@@ -77,11 +77,17 @@ or unobserved; they must not be filled with zero by default.
 
 ## Collection and full source validation
 
-Large raw responses, intermediate caches, legacy seeds, and populated identity
-review evidence remain in the complete original local project/archive and are not
-uploaded. Restore `Data/raw/`, `Data/interim/`, `Data/legacy/`,
-`configs/affiliation_evidence.csv`, and `configs/identity_review.csv` before full
-source validation, frozen rebuilds, or collection/resume:
+Use one `KOLProject` working folder connected to GitHub. Code, processed tables,
+and curated analysis outputs are tracked. Large raw responses, intermediate caches,
+legacy seeds, and local identity evidence stay in that same folder and are excluded
+by `.gitignore`; there is no separate publication checkout.
+
+The consolidated local project already contains `Data/raw/`, `Data/interim/`, and
+`Data/legacy/`. For a fresh clone, restore those directories from a local backup
+before full source validation, frozen rebuilds, or collection/resume. Put populated
+`affiliation_evidence.csv` and `identity_review.csv` in ignored `configs/local/`.
+Each local file takes precedence over the corresponding tracked template in
+`configs/`; without a local file, the template is used.
 
 ```bash
 uv run kolproject stage=validate
@@ -95,9 +101,12 @@ uv run kolproject-utilization stage=all
 
 The default `kolproject` stage is full source validation; use `kolproject-evaluate`
 for the checks available in a GitHub clone. Historical validation reports are kept
-in `evaluations/snapshots/` with their original timestamps and scope. The original
-local Git history and release tags remain local; processed tables are added to this
-repository as a new commit.
+in `evaluations/snapshots/` with their original timestamps and scope. The
+pre-publication Git history and release tags are preserved in ignored
+`.local-backups/consolidation-2026-10-24/original-history.bundle` in the consolidated
+local project. That directory also preserves earlier versions of files replaced
+during consolidation and the verification inventories. It is a recovery archive,
+not a second working copy, and is not included in a fresh clone.
 
 ## Interpretation
 

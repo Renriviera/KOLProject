@@ -32,3 +32,15 @@ models/inputs/*.metadata.json
 .cache/
 .env
 .env.*
+
+# Machine-local inputs and recoverable pre-consolidation history.
+configs/local/
+.local-backups/
+Data/manifests/source_catalog.json
+
+# Outputs from the original layout are retained locally for provenance.
+edav/*
+!edav/README.md
+evaluations/validation_report.json
+evaluations/utilization_validation_2026-10-15.json
+evaluations/release_integrity.json

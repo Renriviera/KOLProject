@@ -35,4 +35,5 @@ Use `uv run kolproject-evaluate` to check the published tables and record their
 hashes. It does not call upstream APIs or modify tables. Raw responses, intermediate
 caches, legacy seeds, and source request inventories remain local and ignored.
 The full collection pipeline requires those inputs and populated identity review
-configuration. Third-party source content retains its original terms.
+configuration under ignored `configs/local/`. They remain in the same consolidated
+working folder as the tracked code. Third-party source content retains its original terms.

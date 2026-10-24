@@ -3,9 +3,10 @@
 Run from the project root with `uv run kolproject stage=all`, or `stage=rebuild`
 for an offline rebuild from the delivered snapshot. These commands require the
 source inputs excluded from GitHub; restore `Data/raw/`, `Data/interim/`,
-`Data/legacy/` and populated
-`configs/affiliation_evidence.csv` and `configs/identity_review.csv` from the
-complete local project/archive first.
+`Data/legacy/` from a local backup when using a fresh clone. The consolidated local
+project already contains these inputs. Populated `affiliation_evidence.csv` and
+`identity_review.csv` live in ignored `configs/local/` and take precedence over
+the tracked configuration templates.
 Implementation is in
 `src/kolproject/screen.py`, `identity.py`, `deduplicate.py`, `rescreen.py`,
 `payments.py`, and `build.py`.

@@ -26,6 +26,11 @@ _next_request = 0.0
 def now():
     return datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
 
+def config_input(name):
+    """Prefer machine-local evidence while keeping tracked templates reusable."""
+    local = ROOT / 'configs' / 'local' / name
+    return local if local.is_file() else ROOT / 'configs' / name
+
 def norm(value):
     return ''.join(c for c in unicodedata.normalize('NFKD', str(value).lower()) if not unicodedata.combining(c))
 

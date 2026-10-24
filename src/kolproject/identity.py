@@ -4,14 +4,14 @@ from __future__ import annotations
 import collections
 import re
 from functools import lru_cache
-from .common import ROOT, norm, tokens, clean_affiliation, read_csv
+from .common import norm, tokens, clean_affiliation, read_csv, config_input
 
 TAXONOMIES = {'207RH0003X', '207RH0000X', '207RX0202X', '2080P0207X'}
 HOLDOUT = '37419325'
 
 @lru_cache(maxsize=1)
 def verified_institution_evidence():
-    path = ROOT / 'configs' / 'affiliation_evidence.csv'
+    path = config_input('affiliation_evidence.csv')
     result = collections.defaultdict(list)
     if path.exists():
         for row in read_csv(path):

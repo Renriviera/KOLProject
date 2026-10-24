@@ -10,7 +10,7 @@ from datetime import datetime, date
 import networkx as nx
 import pandas as pd
 
-from .common import ROOT, RAW, INTERIM, PROCESSED, SNAPSHOT, load, dump, write_csv, read_csv, now, plain
+from .common import ROOT, RAW, INTERIM, PROCESSED, SNAPSHOT, load, dump, write_csv, read_csv, now, plain, config_input
 from .identity import HOLDOUT, eligible, TAXONOMIES
 from .deduplicate import canonicalize, fuzzy_pairs, full_name
 from .corpus import get_corpus, publication_observation
@@ -30,7 +30,7 @@ def select_people(target=500, fuzzy_threshold=88, first_threshold=80):
         npi = str(p['accepted']['record']['number'])
         p['legacy_hcp_id'] = legacy_map.get(npi, {}).get('hcp_id', '')
     reviews = fuzzy_pairs(people, fuzzy_threshold, first_threshold)
-    review_path = ROOT / 'configs' / 'identity_review.csv'
+    review_path = config_input('identity_review.csv')
     decisions = {tuple(sorted([r['npi_a'], r['npi_b']])): r for r in read_csv(review_path)} if review_path.exists() else {}
     for r in reviews:
         key = tuple(sorted([r['npi_a'], r['npi_b']]))
