@@ -143,3 +143,23 @@ def disconnected_communities(graph: ig.Graph, membership: np.ndarray) -> int:
         if len(members) > 1 and not graph.induced_subgraph(members).is_connected():
             count += 1
     return count
+
+
+def align(run: np.ndarray, reference: np.ndarray) -> np.ndarray:
+    """Relabel a partition with reference labels: each run community takes its members' majority label."""
+    out = np.empty_like(reference)
+    for label in np.unique(run):
+        members = run == label
+        values, counts = np.unique(reference[members], return_counts=True)
+        out[members] = values[np.argmax(counts)]
+    return out
+
+
+def membership_shares(runs, reference: np.ndarray) -> np.ndarray:
+    """Share of runs in which each node sits in each reference community (rows sum to one)."""
+    k = int(reference.max())
+    counts = np.zeros((len(reference), k))
+    rows = np.arange(len(reference))
+    for run in runs:
+        counts[rows, align(np.asarray(run), reference) - 1] += 1
+    return counts / len(runs)

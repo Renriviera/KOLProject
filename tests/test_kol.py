@@ -122,4 +122,34 @@ def test_quick_run_writes_scores_for_every_hcp(tmp_path):
         assert sorted(scores[f'{name}_rank']) == list(range(1, 501))
     assert 'label_curated_seed' not in scores  # legacy pilot is local-only and absent here
     assert (out / 'report.md').read_text().count('## ') >= 4
-    assert (out / 'community_profiles.csv').exists() and (out / 'bootstrap_communities.csv').exists()
+    profiles = pd.read_csv(out / 'community_profiles.csv')
+    assert profiles.label.notna().all() and profiles.tier.isin(
+        ['firm', 'provisional', 'unstable', 'outside main network']).all()
+    assert scores.community_tier.notna().all() and scores.community_label.notna().all()
+    assert (out / 'bootstrap_communities.csv').exists() and (out / 'node_removal_leader.csv').exists()
+
+
+def test_tiers_and_archetypes_follow_stated_thresholds():
+    from kolproject.kol.labels import archetype, tier
+    assert tier(30, 0.95, 0.9, 5)[0] == 'firm'
+    assert tier(30, 0.95, 0.7, 5)[0] == 'provisional'
+    assert tier(30, 0.70, 0.9, 5)[0] == 'unstable'
+    assert tier(30, 0.95, 0.4, 5)[0] == 'unstable'
+    assert tier(2, 1.0, 1.0, 5)[0] == 'outside main network'
+    assert tier(30, 0.95, float('nan'), 5)[0] == 'firm'
+    assert archetype(30, 0.7, 5) == 'single-institution orbit'
+    assert archetype(30, 0.45, 5) == 'anchored network'
+    assert archetype(30, 0.2, 5) == 'multi-institution network'
+
+
+def test_title_themes_use_other_communities_as_background():
+    from kolproject.kol.labels import TitleThemes
+    titles = pd.Series({f'p{i}': t for i, t in enumerate(
+        ['CD30 CAR T in Hodgkin lymphoma'] * 40 + ['Axicabtagene ciloleucel outcomes'] * 40
+        + ['Neurotoxicity after CAR T'] * 40 + ['Axicabtagene ciloleucel in Hodgkin'] * 5)})
+    community_one = [f'p{i}' for i in range(40)] + [f'p{i}' for i in range(120, 125)]
+    themes = TitleThemes(titles, {1: community_one, 2: [f'p{i}' for i in range(40, 120)]},
+                         prior_strength=10, min_df=2)
+    assert {'cd30', 'hodgkin'} & set(' '.join(themes.themes(1)).split())
+    assert themes.product_lean(2, min_papers=3)[0].startswith('axi-cel')
+    assert themes.product_lean(1) == []

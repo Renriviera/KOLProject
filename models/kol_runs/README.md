@@ -36,15 +36,34 @@ fractional-weight coauthorship graph, the same weighting as the published
 agrees most with the others is used. Each HCP gets a consensus score: the share
 of runs in which it sits with the rest of its community.
 
-Each community gets a label from facts about its members. A community is called an
-"orbit" of an institution when at least 40% of its members share that institution.
-A community is marked **nameable** only when it meets three conditions:
+Every community gets a label, including the unstable ones. The label is worded
+by **archetype**, which depends on the share of members at the largest institution:
 
-- it has at least 5 members;
-- its seed consensus is at least 0.8;
-- it keeps a Jaccard overlap of at least 0.75 when 10% of papers are dropped.
+| Archetype | Rule | Example label |
+|---|---|---|
+| single-institution orbit | at least 60% at one institution | Memorial Sloan Kettering orbit |
+| anchored network | 40% to 60% at one institution | Mayo Clinic orbit |
+| multi-institution network | under 40% | Mass General Brigham – Dana-Farber network (Northeast) |
+| outside main network | fewer than 5 members | Isolated: name (institution), no coauthorship with the cohort |
 
-Every community, nameable or not, is listed in `community_profiles.csv`.
+A **tier** says how much weight the label can bear, and `tier_reason` explains it:
+
+| Tier | Rule | Use |
+|---|---|---|
+| firm | seed consensus at least 0.8 and Jaccard at least 0.75 when 10% of papers are dropped | Safe to name in a deck |
+| provisional | consensus at least 0.8, Jaccard 0.6 to 0.75 | Name it, with a caveat |
+| unstable | lower consensus or Jaccard; the label starts with "Loose" | A loose grouping. `drifts_to` lists where its members also land |
+| outside main network | fewer than 5 members | Describe individuals, not a group |
+
+Each community also gets a **theme** from its members' paper titles. The product
+lean shows how much more often the community's titles name a CAR-T product or its
+trials than the other communities' titles do, for example "tisa-cel (Kymriah) 3.8x".
+The topic terms are the title words and phrases most over-represented relative to
+the other communities, using log-odds with an informative Dirichlet prior (Monroe,
+Colaresi & Quinn 2008). Comparing against the other communities, rather than the
+whole corpus, keeps the large multi-center papers that span many groups from
+inflating every theme. A `leader-dependent` flag marks communities that break up
+when their top PageRank member is removed.
 
 Each HCP also gets a Guimerà–Amaral hub role. The role comes from within-community
 strength and the participation coefficient, the share of their ties that leave
@@ -88,12 +107,34 @@ one with forty papers and a 60% senior rate.
 | 2 | weighting | Do the conclusions depend on how edges are weighted? | Everything is recomputed under binary, shared-count, fractional, and fractional with at least two shared papers. Rank correlations, top-50 overlap, and leaders who are top-50 under every weighting are reported. |
 | 3 | bootstrap | Would the answer change with a different sample of the literature? | Each replicate either resamples papers with replacement or drops 10% of them, then rebuilds everything. The output is rank intervals and Hennig clusterwise Jaccard stability per community. |
 | 4 | node_removal | Is a community a stable network or a single person's orbit? | Remove the top-k PageRank HCPs, or each community's own leader, and rerun Leiden. The effect is the drop beyond a fresh-seed noise floor. |
+| 4b | movers | Which HCPs belong to several communities? | Membership shares across all seed runs and literature-drop replicates, aligned to the primary communities. HCPs are classed as anchored, multi-community mover, diffuse mover, or data-thin mover. A partial Spearman test, controlling for volume, checks whether movers have broader 2024 manufacturer relationships. |
 | 5 | leave_one_axis_out | Which axis does each composite actually depend on? | Drop one axis, renormalize the weights, and measure rank displacement of the top 50. |
 | 6 | weight_perturbation | Do the leaders depend on our exact weights? | 2,000 Dirichlet draws near the stated weights, and 2,000 drawn uniformly. The output is each HCP's probability of staying top 25 and a robustness class. |
 | 7 | collinearity | Is a composite just publication volume in disguise? | Spearman matrix and variance inflation factors. The prestige axis is swapped for four volume features and the top-50 change is measured. |
 | 8 | face_validity | Do scores agree with independent signs of standing? | AUC, average precision, and precision at 25 against three weak labels, with bootstrap CIs. |
 | 9 | temporal | Do scores computed from the past anticipate what happened next? | Score from papers through 2022 only. Test against 2023–2025 publications, new coauthors, 2024 consulting, and the 2023 guideline panel. Each score is compared with a publication-count-only null. |
 | 10 | interpretability | Can each community be described in a sentence? | Per-community institution and state purity, journals, paper years, payers, leaders, and connectors, plus the nameable flag. |
+
+### Movers
+
+A mover is an HCP whose community changes across runs. `mover_score` is the share
+of runs outside their most common community, and `community_split` lists every
+community holding at least 15% of their runs. The class depends on how much
+evidence sits behind the instability:
+
+- **anchored**: one community holds at least 90% of runs.
+- **multi-community mover**: split across two or more communities, with at least 5
+  papers and 10 cohort coauthors. These are the movers worth acting on.
+- **diffuse mover**: well-evidenced but spread thinly, with no second community
+  reaching 15%.
+- **data-thin mover**: unstable with little evidence, so the instability may only
+  reflect sparse data.
+
+Being split across communities shows that an HCP collaborates with several groups.
+It does not show openness to other medications. The breadth test is the closest
+proxy in this data. It measures whether movers already receive 2024 payments from
+more distinct manufacturers than peers with the same publication count, degree,
+and PageRank. Any association is contemporaneous and does not show causation.
 
 ### Weak labels
 

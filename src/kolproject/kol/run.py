@@ -18,7 +18,8 @@ from .graph import WEIGHTING_NOTES
 QUICK = {('community', 'seeds'): 6, ('community', 'small_seeds'): 3, ('bootstrap', 'replicates'): 8,
          ('bootstrap', 'leiden_seeds'): 1,
          ('perturbation', 'draws'): 200, ('face_validity', 'auc_bootstrap'): 50,
-         ('temporal', 'difference_bootstrap'): 50, ('node_removal', 'top_k'): [1, 10]}
+         ('temporal', 'difference_bootstrap'): 50, ('node_removal', 'top_k'): [1, 10],
+         ('movers', 'breadth_bootstrap'): 50}
 
 
 def resolve(cfg: dict) -> dict:
@@ -33,11 +34,12 @@ def resolve(cfg: dict) -> dict:
     unknown = set(cfg['experiments']) - set(ALL_EXPERIMENTS)
     if unknown:
         raise ValueError(f'Unknown experiments {sorted(unknown)}; choose from {ALL_EXPERIMENTS}.')
-    if 'interpretability' in cfg['experiments']:
-        # Community naming uses seed and bootstrap stability, so run those first.
-        for needed in ['stability', 'bootstrap']:
-            if needed not in cfg['experiments']:
-                cfg['experiments'].insert(0, needed)
+    # Community tiers and mover shares reuse earlier experiments' runs, so those run too.
+    needs = {'interpretability': ['stability', 'bootstrap', 'node_removal', 'movers'], 'movers': ['bootstrap']}
+    for _ in range(2):
+        for experiment, required in needs.items():
+            if experiment in cfg['experiments']:
+                cfg['experiments'] += [r for r in required if r not in cfg['experiments']]
     cfg['experiments'] = [e for e in ALL_EXPERIMENTS if e in cfg['experiments']]
     return cfg
 
@@ -87,7 +89,15 @@ def hcp_table(ctx: Context, tables: dict) -> pd.DataFrame:
     if 'community_profiles' in tables:
         profiles = tables['community_profiles'].set_index('community')
         out['community_label'] = out.community.map(profiles.label)
+        out['community_tier'] = out.community.map(profiles.tier)
+        out['community_archetype'] = out.community.map(profiles.archetype)
+        out['community_theme'] = out.community.map(profiles.theme)
         out['community_nameable'] = out.community.map(profiles.nameable)
+    if 'movers' in tables:
+        movers = tables['movers']
+        for column in ['mover_class', 'mover_score', 'home_communities', 'community_split',
+                       'manufacturers_2024']:
+            out[column] = movers[column]
     for axis in ctx.primary.axes.columns:
         out[f'axis_{axis}'] = ctx.primary.axes[axis]
     top_k = int(ctx.cfg['top_k'])
@@ -138,6 +148,7 @@ def report(ctx: Context, cfg: dict, results: dict, tables: dict, scores: pd.Data
         lines += [f'### Top 15: {name}', '', _md_table(frame, cols + extra, digits=2, limit=15), '']
     titles = {'stability': '1. Partition stability', 'weighting': '2. Edge-weighting ablation',
               'bootstrap': '3. Bootstrap over papers', 'node_removal': '4. Node-removal sensitivity',
+              'movers': '4b. Movers between communities',
               'leave_one_axis_out': '5. Leave-one-axis-out importance',
               'weight_perturbation': '6. Weight perturbation',
               'collinearity': '7. Collinearity and volume loading', 'face_validity': '8. Face validity vs weak labels',
@@ -146,17 +157,22 @@ def report(ctx: Context, cfg: dict, results: dict, tables: dict, scores: pd.Data
                   'weighting': [('weighting_comparison', None)],
                   'bootstrap': [('bootstrap_communities', None), ('bootstrap_summary', None)],
                   'node_removal': [('node_removal_global', None), ('node_removal_leader', None)],
+                  'movers': [('movers_top', None), ('mover_breadth_test', None), ('mover_breadth_strata', None)],
                   'leave_one_axis_out': [('axis_importance', None)],
                   'collinearity': [('volume_loading', None), ('feature_vif', None)],
                   'face_validity': [('face_validity', ['label', 'score', 'circular', 'auc', 'auc_ci_low',
                                                        'auc_ci_high', 'precision_at_25', 'lift_at_50'])],
                   'temporal': [('temporal_compact', None)],
-                  'interpretability': [('community_profiles', ['community', 'label', 'size', 'nameable',
-                                                               'seed_consensus', 'jaccard_literature_drop',
-                                                               'jaccard_full_bootstrap',
-                                                               'institution_purity', 'leaders'])]}
+                  'interpretability': [('community_profiles', ['community', 'label', 'tier', 'archetype', 'size',
+                                                               'theme', 'seed_consensus', 'jaccard_literature_drop',
+                                                               'flags', 'leaders']),
+                                       ('community_profiles', ['community', 'tier', 'tier_reason', 'drifts_to'])]}
     if 'temporal_holdout' in tables:
         tables = dict(tables, temporal_compact=_temporal_compact(tables['temporal_holdout']))
+    if 'movers' in tables:
+        top = tables['movers'][tables['movers'].mover_class != 'anchored'].head(25)
+        tables = dict(tables, movers_top=top[['display_name', 'institution', 'mover_class', 'mover_score',
+                                              'community_split', 'publications', 'manufacturers_2024']])
     for name in cfg['experiments']:
         result = results[name]
         lines += [f'## {titles[name]}', '', f'_{EXPERIMENTS[name].__doc__.strip().splitlines()[0]}_', '']
@@ -192,6 +208,10 @@ def run(cfg: dict, root: Path | str = ROOT) -> Path:
         tables.update(produced)
         if name == 'bootstrap':
             ctx.cache['bootstrap'] = produced['bootstrap_communities']
+        if name == 'node_removal':
+            ctx.cache['node_removal'] = produced['node_removal_leader']
+        if name == 'movers':
+            ctx.cache['movers'] = produced['movers']
         for table_name, frame in produced.items():
             frame.to_csv(out / f'{table_name}.csv', index=not isinstance(frame.index, pd.RangeIndex))
     scores = hcp_table(ctx, tables)

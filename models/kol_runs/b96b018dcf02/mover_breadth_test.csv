@@ -1,0 +1,9 @@
+signal,outcome,scope,n,raw_spearman,partial_spearman,ci_low,ci_high,controls
+mover_score,manufacturers_2024,all HCPs,500,0.0827607455039229,0.13500874902918059,0.05267070683488734,0.2171339547199215,"publications, degree, pagerank"
+mover_score,manufacturers_2024,HCPs with evidence,272,0.11536590233710453,0.16666555479963951,0.04594522139740528,0.27691558380643244,"publications, degree, pagerank"
+mover_score,products_named_2024,all HCPs,500,0.09424761458680882,0.13505624429528604,0.052142226907769214,0.2172220231155906,"publications, degree, pagerank"
+mover_score,products_named_2024,HCPs with evidence,272,0.13227620275797744,0.17869433759214576,0.053387040047373366,0.28740079707998434,"publications, degree, pagerank"
+participation,manufacturers_2024,all HCPs,500,0.2646182698585829,0.14741943783491587,0.06295395193434006,0.23724557709219593,"publications, degree, pagerank"
+participation,manufacturers_2024,HCPs with evidence,272,0.25303126563779704,0.18777868688097185,0.06214340419150624,0.3110793787938345,"publications, degree, pagerank"
+participation,products_named_2024,all HCPs,500,0.22291567384376978,0.1280726679967668,0.037380594230517684,0.21228503777067442,"publications, degree, pagerank"
+participation,products_named_2024,HCPs with evidence,272,0.18218656935388633,0.15821854878677485,0.027732162151485957,0.2778907903027464,"publications, degree, pagerank"

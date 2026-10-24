@@ -1,4 +1,4 @@
-# KOL community and composite-score experiments (run bb3865cf7c6d)
+# KOL community and composite-score experiments (run b96b018dcf02)
 
 Scores describe academic visibility and observed 2024 industry engagement in a publication-selected cohort of 500 CAR-T lymphoma HCPs. They are not measures of prescribing influence, clinical quality, or referral volume.
 
@@ -91,7 +91,7 @@ _Seed and resolution stability of Leiden versus Louvain and the published greedy
 - **greedy_ami_vs_leiden**: 0.778
 - **seed_stable_communities**: 16
 - **nodes_below_consensus_threshold**: 79
-- runtime: 20.1s
+- runtime: 20.2s
 
 | method | seeds | seed_to_seed_ami_mean | seed_to_seed_ami_min | ami_vs_leiden_medoid | modularity | communities | disconnected_communities |
 |---|---|---|---|---|---|---|---|
@@ -139,7 +139,7 @@ _Perturb the literature, rebuild graph, communities, features, and scores, and m
 - **academic_authority_median_ci_width_top25**: 56.1
 - **network_connector_median_ci_width_top25**: 34.0
 - **rising_voice_median_ci_width_top25**: 110.1
-- runtime: 96.3s
+- runtime: 94.5s
 
 | community | size | jaccard_resample_mean | jaccard_resample_p10 | verdict_resample | jaccard_drop10_mean | jaccard_drop10_p10 | verdict_drop10 |
 |---|---|---|---|---|---|---|---|
@@ -174,7 +174,7 @@ _Remove top PageRank nodes, globally and per community, and see which communitie
 - **leader_dependent_communities**: 5
 - **communities_tested**: 13
 - **mean_jaccard_after_top10_removed**: 0.735
-- runtime: 9.0s
+- runtime: 8.8s
 
 | removed_top_pagerank | removed_names | mean_best_jaccard | communities_below_0_5 | ami_on_remaining |
 |---|---|---|---|---|
@@ -199,6 +199,71 @@ _Remove top PageRank nodes, globally and per community, and see which communitie
 | 11 | 22 | FREDERICK LUNDRY LOCKE | 0.909 | 0.952 | -0.043 | 1 | False |
 | 12 | 21 | ALEX HERRERA | 0.875 | 0.286 | 0.589 | 1 | True |
 | 13 | 10 | NATALIE SOPHIA GROVER | 1.000 | 1.000 | 0.000 | 1 | False |
+
+## 4b. Movers between communities
+
+_Find HCPs whose community membership splits across runs: candidate movers between groups._
+
+- **anchored**: 321
+- **multi-community mover**: 57
+- **diffuse mover**: 27
+- **data-thin mover**: 95
+- **runs_used**: 250
+- **top_multi_community_movers**: ['Paolo F Caimi (10: Weill Cornell group 29%; 2: Mayo Clinic group 27%; 3: Ohio State group 25%)', 'Craig Sauter (2: Mayo Clinic group 30%; 10: Weill Cornell group 28%; 3: Ohio State group 24%)', 'Brad Steven Kahl (10: Weill Cornell group 30%; 3: Ohio State group 26%; 2: Mayo Clinic group 24%)', 'Mohammad Alhomoud (9: MD Anderson group 40%; 10: Weill Cornell group 26%; 6: Memorial Sloan Kettering group 26%)', 'Bita Fakhri (10: Weill Cornell group 41%; 3: Ohio State group 36%)', 'Amanda Fishback Cashen (9: MD Anderson group 41%; 3: Ohio State group 22%; 1: Cleveland Clinic group 18%)', 'Joshua Brody (12: City of Hope group 41%; 3: Ohio State group 31%)', 'Samuel Yamshon (9: MD Anderson group 43%; 10: Weill Cornell group 27%)']
+- **mover_vs_manufacturer_breadth (partial rho, evidenced HCPs)**: +0.17 [+0.05, +0.28]
+- runtime: 4.3s
+
+| display_name | institution | mover_class | mover_score | community_split | publications | manufacturers_2024 |
+|---|---|---|---|---|---|---|
+| KIRSTEN MARIE BOUGHAN | Louis Stokes Cleveland VA Medical Center | data-thin mover | 0.720 | 10: Weill Cornell group 28%; 3: Ohio State group 27%; 2: Mayo Clinic group 21% | 2.000 | 0.000 |
+| TAYLOR BROOKS | Cleveland Clinic | data-thin mover | 0.712 | 10: Weill Cornell group 29%; 3: Ohio State group 28%; 2: Mayo Clinic group 25% | 3.000 | 3.000 |
+| PAOLO F CAIMI | Cleveland Clinic | multi-community mover | 0.708 | 10: Weill Cornell group 29%; 2: Mayo Clinic group 27%; 3: Ohio State group 25% | 16.000 | 6.000 |
+| DILAN ANIL PATEL | WashU / Siteman | data-thin mover | 0.700 | 10: Weill Cornell group 30%; 3: Ohio State group 24%; 2: Mayo Clinic group 20% | 2.000 | 1.000 |
+| CRAIG SAUTER | Cleveland Clinic | multi-community mover | 0.696 | 2: Mayo Clinic group 30%; 10: Weill Cornell group 28%; 3: Ohio State group 24% | 15.000 | 5.000 |
+| BRAD STEVEN KAHL | WashU / Siteman | multi-community mover | 0.696 | 10: Weill Cornell group 30%; 3: Ohio State group 26%; 2: Mayo Clinic group 24% | 11.000 | 15.000 |
+| SARAH RUTHERFORD | Weill Cornell | data-thin mover | 0.644 | 10: Weill Cornell group 36%; 3: Ohio State group 26%; 2: Mayo Clinic group 22% | 3.000 | 3.000 |
+| KEREN OSMAN | Other / unresolved | data-thin mover | 0.628 | 12: City of Hope group 37%; 3: Ohio State group 25%; 10: Weill Cornell group 21% | 2.000 | 2.000 |
+| KOEN VAN BESIEN | University Hospitals | data-thin mover | 0.624 | 9: MD Anderson group 38%; 10: Weill Cornell group 34%; 6: Memorial Sloan Kettering group 20% | 2.000 | 5.000 |
+| AMIR S STEINBERG | New York Medical College | data-thin mover | 0.604 | 12: City of Hope group 40%; 3: Ohio State group 26%; 10: Weill Cornell group 21% | 3.000 | 4.000 |
+| JIA RUAN | Weill Cornell | data-thin mover | 0.600 | 9: MD Anderson group 40%; 10: Weill Cornell group 27%; 6: Memorial Sloan Kettering group 19% | 2.000 | 5.000 |
+| MOHAMMAD ALHOMOUD | Memorial Sloan Kettering | multi-community mover | 0.596 | 9: MD Anderson group 40%; 10: Weill Cornell group 26%; 6: Memorial Sloan Kettering group 26% | 7.000 | 0.000 |
+| BITA FAKHRI | Stanford | multi-community mover | 0.592 | 10: Weill Cornell group 41%; 3: Ohio State group 36% | 5.000 | 3.000 |
+| AMANDA FISHBACK CASHEN | WashU / Siteman | multi-community mover | 0.588 | 9: MD Anderson group 41%; 3: Ohio State group 22%; 1: Cleveland Clinic group 18% | 6.000 | 4.000 |
+| JOSHUA BRODY | Other / unresolved | multi-community mover | 0.588 | 12: City of Hope group 41%; 3: Ohio State group 31% | 5.000 | 9.000 |
+| IZIDORE LOSSOS | Miami / Sylvester | data-thin mover | 0.584 | 3: Ohio State group 42%; 9: MD Anderson group 23%; 10: Weill Cornell group 18%; 2: Mayo Clinic group 17% | 4.000 | 2.000 |
+| WEIYUN Z AI | UCSF | data-thin mover | 0.580 | 10: Weill Cornell group 42%; 3: Ohio State group 32% | 4.000 | 4.000 |
+| SAMUEL YAMSHON | Weill Cornell | multi-community mover | 0.568 | 9: MD Anderson group 43%; 10: Weill Cornell group 27% | 11.000 | 4.000 |
+| PETER MARTIN | Weill Cornell | multi-community mover | 0.568 | 9: MD Anderson group 43%; 10: Weill Cornell group 27% | 10.000 | 6.000 |
+| TSIPORAH B SHORE | Weill Cornell | multi-community mover | 0.568 | 9: MD Anderson group 43%; 10: Weill Cornell group 27% | 5.000 | 2.000 |
+| CAITLIN GRIBBIN | Weill Cornell | data-thin mover | 0.568 | 9: MD Anderson group 43%; 10: Weill Cornell group 28% | 2.000 | 1.000 |
+| CATHERINE SIBYL DIEFENBACH | Other / unresolved | multi-community mover | 0.556 | 4: Penn / Abramson group 44%; 1: Cleveland Clinic group 29% | 6.000 | 7.000 |
+| JEFF PORTER SHARMAN | Willamette Valley Cancer Institute | data-thin mover | 0.548 | 3: Ohio State group 45%; 10: Weill Cornell group 42% | 2.000 | 11.000 |
+| SANGHEE HONG | Duke University School of Medicine | data-thin mover | 0.496 | 2: Mayo Clinic group 50%; 8: Fred Hutch / UW group 43% | 3.000 | 1.000 |
+| JEAN LOUISE KOFF | Emory / Winship | data-thin mover | 0.492 | 9: MD Anderson group 51%; 2: Mayo Clinic group 26%; 10: Weill Cornell group 16% | 4.000 | 2.000 |
+
+| signal | outcome | scope | n | raw_spearman | partial_spearman | ci_low | ci_high | controls |
+|---|---|---|---|---|---|---|---|---|
+| mover_score | manufacturers_2024 | all HCPs | 500 | 0.083 | 0.135 | 0.053 | 0.217 | publications, degree, pagerank |
+| mover_score | manufacturers_2024 | HCPs with evidence | 272 | 0.115 | 0.167 | 0.046 | 0.277 | publications, degree, pagerank |
+| mover_score | products_named_2024 | all HCPs | 500 | 0.094 | 0.135 | 0.052 | 0.217 | publications, degree, pagerank |
+| mover_score | products_named_2024 | HCPs with evidence | 272 | 0.132 | 0.179 | 0.053 | 0.287 | publications, degree, pagerank |
+| participation | manufacturers_2024 | all HCPs | 500 | 0.265 | 0.147 | 0.063 | 0.237 | publications, degree, pagerank |
+| participation | manufacturers_2024 | HCPs with evidence | 272 | 0.253 | 0.188 | 0.062 | 0.311 | publications, degree, pagerank |
+| participation | products_named_2024 | all HCPs | 500 | 0.223 | 0.128 | 0.037 | 0.212 | publications, degree, pagerank |
+| participation | products_named_2024 | HCPs with evidence | 272 | 0.182 | 0.158 | 0.028 | 0.278 | publications, degree, pagerank |
+
+| publication_tertile | mover_class | hcps | median_manufacturers | mean_manufacturers |
+|---|---|---|---|---|
+| low | anchored | 101 | 1.000 | 2.604 |
+| low | data-thin mover | 66 | 2.000 | 3.015 |
+| mid | anchored | 100 | 2.000 | 3.350 |
+| mid | data-thin mover | 28 | 2.000 | 3.321 |
+| mid | diffuse mover | 10 | 3.500 | 5.800 |
+| mid | multi-community mover | 28 | 2.000 | 2.857 |
+| high | anchored | 120 | 4.000 | 4.692 |
+| high | data-thin mover | 1 | 0.000 | 0.000 |
+| high | diffuse mover | 17 | 3.000 | 4.176 |
+| high | multi-community mover | 29 | 6.000 | 7.759 |
 
 ## 5. Leave-one-axis-out importance
 
@@ -294,7 +359,7 @@ _Agreement with weak external labels. A sanity check, never validation of influe
 - **curated_seed_publication_count_auc**: 0.95
 - **guideline_panel_best**: pagerank AUC 0.87 [0.76, 0.95]
 - **guideline_panel_publication_count_auc**: 0.83
-- runtime: 1.8s
+- runtime: 1.7s
 
 | label | score | circular | auc | auc_ci_low | auc_ci_high | precision_at_25 | lift_at_50 |
 |---|---|---|---|---|---|---|---|
@@ -354,7 +419,7 @@ _Score from papers through the cutoff year only; test against what happened afte
 - **best_on_log_consulting_usd_2024**: academic_authority (no industry, no impact) (rho 0.30, delta +0.05)
 - **best_on_guideline_panel**: pagerank alone AUC 0.82
 - **volume_null_guideline_panel_auc**: 0.8
-- runtime: 4.7s
+- runtime: 4.6s
 - cells read: Spearman rho (change versus the volume-only null [95% bootstrap CI])
 
 | score | publications_2023_2025 | new_coauthors_2023_2025 | log_consulting_usd_2024 | guideline_panel_auc |
@@ -371,33 +436,55 @@ _Score from papers through the cutoff year only; test against what happened afte
 
 ## 10. Community interpretability audit
 
-_Describe each community in facts a brand team can read, and flag the ones safe to name._
+_Label every community, including unstable ones, with a tier, archetype, theme, and facts._
 
 - **communities**: 17
-- **nameable_communities**: 8
-- **institution_anchored (purity>=0.4)**: 13
-- **labels**: ['Cross-regional network around Cleveland Clinic', 'Penn / Abramson orbit', 'Cross-regional network around Mass General Brigham', 'Memorial Sloan Kettering orbit', 'Fred Hutch / UW orbit', 'MD Anderson orbit', 'Moffitt orbit', 'City of Hope orbit']
+- **firm (8)**: ['Cleveland Clinic – Vanderbilt network', 'Penn / Abramson orbit', 'Mass General Brigham – Dana-Farber network (Northeast)', 'Memorial Sloan Kettering orbit', 'Fred Hutch / UW orbit', 'MD Anderson orbit', 'Moffitt orbit', 'City of Hope orbit']
+- **provisional (4)**: ['Mayo Clinic orbit', 'Ohio State – Northwestern / Lurie network (Midwest)', 'Stanford orbit', 'Baylor orbit']
+- **unstable (1)**: ['Loose Weill Cornell – Cleveland Clinic network']
+- **outside main network (4)**: ['Isolated pair at University of California Davis Comprehensive Cancer Center, coauthors only with each other', 'Isolated: Matthew J Barth (Roswell Park), no coauthorship with the cohort', 'Isolated: Reinhold Munker (University of Kentucky HealthCare), no coauthorship with the cohort', 'Isolated: David E Avigan (Beth Israel Deaconess Medical Center), no coauthorship with the cohort']
+- **leader_dependent**: 5
 - runtime: 0.1s
 
-| community | label | size | nameable | seed_consensus | jaccard_literature_drop | jaccard_full_bootstrap | institution_purity | leaders |
-|---|---|---|---|---|---|---|---|---|
-| 1 | Cross-regional network around Cleveland Clinic | 61 | True | 0.925 | 0.755 | 0.439 | 0.148 | OLALEKAN OLANIYI OLUWOLE; BRIAN THOMAS HILL; LAZAROS J LEKAKIS |
-| 2 | Mayo Clinic orbit | 56 | False | 0.858 | 0.729 | 0.499 | 0.571 | SAYED MEHDI HUSSAIN HAMADANI; MOHAMED A KHARFAN DABAJA; YI LIN |
-| 3 | Cross-regional network around Ohio State | 55 | False | 0.934 | 0.711 | 0.541 | 0.364 | NARENDRANATH EPPERLA; REEM KARMALI; NIRAV N SHAH |
-| 4 | Penn / Abramson orbit | 53 | True | 0.973 | 0.893 | 0.697 | 0.434 | STEPHEN J SCHUSTER; PETER RIEDELL; JOSEPH PATRICK MCGUIRK |
-| 5 | Cross-regional network around Mass General Brigham | 49 | True | 0.849 | 0.822 | 0.607 | 0.306 | CARON ALYCE JACOBSON; MATTHEW JOHN FRIGAULT; JEREMY S ABRAMSON |
-| 6 | Memorial Sloan Kettering orbit | 44 | True | 0.988 | 0.911 | 0.745 | 0.773 | MIGUEL A PERALES; MARIA LIA PALOMBA; GUNJAN LALITCHANDRA SHAH |
-| 7 | Stanford orbit | 37 | False | 0.961 | 0.736 | 0.546 | 0.541 | DAVID BERNARD MIKLOS; AARON PAUL RAPOPORT; SAURABH DAHIYA |
-| 8 | Fred Hutch / UW orbit | 32 | True | 0.867 | 0.765 | 0.563 | 0.719 | MAZYAR SHADMAN; DAVID G MALONEY; JORDAN GAUTHIER |
-| 9 | MD Anderson orbit | 30 | True | 0.972 | 0.818 | 0.698 | 0.767 | SATTVA S NEELAPU; SAIRAH AHMED; LORETTA J NASTOUPIL |
-| 10 | Cross-regional network around Weill Cornell | 25 | False | 0.565 | 0.290 | 0.207 | 0.240 | CRAIG SAUTER; PAOLO F CAIMI; BRAD STEVEN KAHL |
-| 11 | Moffitt orbit | 22 | True | 0.937 | 0.897 | 0.561 | 0.864 | FREDERICK LUNDRY LOCKE; JULIO C CHAVEZ; MICHAEL DAVID JAIN |
-| 12 | City of Hope orbit | 21 | True | 1.000 | 0.798 | 0.552 | 0.905 | ALEX HERRERA; GEOFFREY SHOUSE; TANYA SIDDIQI |
-| 13 | Baylor orbit | 10 | False | 0.840 | 0.677 | 0.401 | 0.500 | NATALIE SOPHIA GROVER; HELEN HESLOP; PREMAL DILIP LULLA |
-| 14 | Small group (2) at University of California Davis Comprehensive Cancer Center | 2 | False | 1.000 | 0.998 | 0.912 | 1.000 | NASEEM SHAMS ESTEGHAMAT; JOSEPH M TUSCANO |
-| 15 | Small group (1) at Roswell Park | 1 | False | 1.000 | 1.000 | 1.000 | 1.000 | MATTHEW J BARTH |
-| 16 | Small group (1) at University of Kentucky HealthCare | 1 | False | 1.000 | 1.000 | 1.000 | 1.000 | REINHOLD MUNKER |
-| 17 | Small group (1) at Beth Israel Deaconess Medical Center | 1 | False | 1.000 | 1.000 | 1.000 | 1.000 | DAVID E AVIGAN |
+| community | label | tier | archetype | size | theme | seed_consensus | jaccard_literature_drop | flags | leaders |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Cleveland Clinic – Vanderbilt network | firm | multi-institution network | 61 | axi-cel (Yescarta) 1.8x, brexu-cel (Tecartus) 1.6x; outpatient, leukoencephalopathy, multifocal, lines systemic | 0.925 | 0.755 | leader-dependent: breaks up without Olalekan Olaniyi Oluwole | OLALEKAN OLANIYI OLUWOLE; BRIAN THOMAS HILL; LAZAROS J LEKAKIS |
+| 2 | Mayo Clinic orbit | provisional | anchored network | 56 | brexu-cel (Tecartus) 1.5x; lymphoid malignancies, prognosis, checkpoint inhibitors, autologous stem | 0.858 | 0.729 |  | SAYED MEHDI HUSSAIN HAMADANI; MOHAMED A KHARFAN DABAJA; YI LIN |
+| 3 | Ohio State – Northwestern / Lurie network (Midwest) | provisional | multi-institution network | 55 | inhibitors, survival, reveals, late | 0.934 | 0.711 | leader-dependent: breaks up without Narendranath Epperla | NARENDRANATH EPPERLA; REEM KARMALI; NIRAV N SHAH |
+| 4 | Penn / Abramson orbit | firm | anchored network | 53 | tisa-cel (Kymriah) 3.8x; children, adults, young, acute lymphoblastic | 0.973 | 0.893 |  | STEPHEN J SCHUSTER; PETER RIEDELL; JOSEPH PATRICK MCGUIRK |
+| 5 | Mass General Brigham – Dana-Farber network (Northeast) | firm | multi-institution network | 49 | liso-cel (Breyanzi) 1.8x; cardiovascular, cns, receiving, presentation | 0.849 | 0.822 |  | CARON ALYCE JACOBSON; MATTHEW JOHN FRIGAULT; JEREMY S ABRAMSON |
+| 6 | Memorial Sloan Kettering orbit | firm | single-institution orbit | 44 | commercial, mortality, scholar-5, prognostic index | 0.988 | 0.911 |  | MIGUEL A PERALES; MARIA LIA PALOMBA; GUNJAN LALITCHANDRA SHAH |
+| 7 | Stanford orbit | provisional | anchored network | 37 | neurotoxicity syndrome, remissions, circulating dna, imaging | 0.961 | 0.736 |  | DAVID BERNARD MIKLOS; AARON PAUL RAPOPORT; SAURABH DAHIYA |
+| 8 | Fred Hutch / UW orbit | firm | single-institution orbit | 32 | liso-cel (Breyanzi) 1.8x; hiv | 0.867 | 0.765 | leader-dependent: breaks up without Mazyar Shadman | MAZYAR SHADMAN; DAVID G MALONEY; JORDAN GAUTHIER |
+| 9 | MD Anderson orbit | firm | single-institution orbit | 30 | brexu-cel (Tecartus) 1.6x, axi-cel (Yescarta) 1.5x; mantle, inhibitor, scholar-5, characterization | 0.972 | 0.818 | leader-dependent: breaks up without Sattva S Neelapu | SATTVA S NEELAPU; SAIRAH AHMED; LORETTA J NASTOUPIL |
+| 10 | Loose Weill Cornell – Cleveland Clinic network | unstable | multi-institution network | 25 | review meta-analysis, systematic, myeloma, profiles | 0.565 | 0.290 |  | CRAIG SAUTER; PAOLO F CAIMI; BRAD STEVEN KAHL |
+| 11 | Moffitt orbit | firm | single-institution orbit | 22 | axi-cel (Yescarta) 2.0x, tisa-cel (Kymriah) 1.6x, brexu-cel (Tecartus) 1.5x; car-hematotox, infections, circulating, change | 0.937 | 0.897 |  | FREDERICK LUNDRY LOCKE; JULIO C CHAVEZ; MICHAEL DAVID JAIN |
+| 12 | City of Hope orbit | firm | single-institution orbit | 21 | epcoritamab | 1.000 | 0.798 | leader-dependent: breaks up without Alex Herrera | ALEX HERRERA; GEOFFREY SHOUSE; TANYA SIDDIQI |
+| 13 | Baylor orbit | provisional | anchored network | 10 | cd30, hodgkin, cd30-directed, anti-cd30 | 0.840 | 0.677 |  | NATALIE SOPHIA GROVER; HELEN HESLOP; PREMAL DILIP LULLA |
+| 14 | Isolated pair at University of California Davis Comprehensive Cancer Center, coauthors only with each other | outside main network | outside main network | 2 |  | 1.000 | 0.998 |  | NASEEM SHAMS ESTEGHAMAT; JOSEPH M TUSCANO |
+| 15 | Isolated: Matthew J Barth (Roswell Park), no coauthorship with the cohort | outside main network | outside main network | 1 |  | 1.000 | 1.000 |  | MATTHEW J BARTH |
+| 16 | Isolated: Reinhold Munker (University of Kentucky HealthCare), no coauthorship with the cohort | outside main network | outside main network | 1 |  | 1.000 | 1.000 |  | REINHOLD MUNKER |
+| 17 | Isolated: David E Avigan (Beth Israel Deaconess Medical Center), no coauthorship with the cohort | outside main network | outside main network | 1 |  | 1.000 | 1.000 |  | DAVID E AVIGAN |
+
+| community | tier | tier_reason | drifts_to |
+|---|---|---|---|
+| 1 | firm | stable across seeds and literature perturbation |  |
+| 2 | provisional | changes when 10% of papers are dropped (Jaccard 0.73) | Loose Weill Cornell – Cleveland Clinic network (13% co-assignment); Fred Hutch / UW orbit (8% co-assignment) |
+| 3 | provisional | changes when 10% of papers are dropped (Jaccard 0.71) | Loose Weill Cornell – Cleveland Clinic network (15% co-assignment); Baylor orbit (9% co-assignment) |
+| 4 | firm | stable across seeds and literature perturbation |  |
+| 5 | firm | stable across seeds and literature perturbation |  |
+| 6 | firm | stable across seeds and literature perturbation |  |
+| 7 | provisional | changes when 10% of papers are dropped (Jaccard 0.74) | Cleveland Clinic – Vanderbilt network (21% co-assignment) |
+| 8 | firm | stable across seeds and literature perturbation |  |
+| 9 | firm | stable across seeds and literature perturbation |  |
+| 10 | unstable | members change community across seeds (consensus 0.57); changes when 10% of papers are dropped (Jaccard 0.29) | MD Anderson orbit (16% co-assignment); Ohio State – Northwestern / Lurie network (Midwest) (15% co-assignment) |
+| 11 | firm | stable across seeds and literature perturbation |  |
+| 12 | firm | stable across seeds and literature perturbation |  |
+| 13 | provisional | changes when 10% of papers are dropped (Jaccard 0.68) | Ohio State – Northwestern / Lurie network (Midwest) (9% co-assignment); Loose Weill Cornell – Cleveland Clinic network (6% co-assignment) |
+| 14 | outside main network | only 2 member(s); too small to test |  |
+| 15 | outside main network | only 1 member(s); too small to test |  |
+| 16 | outside main network | only 1 member(s); too small to test |  |
+| 17 | outside main network | only 1 member(s); too small to test |  |
 
 ## Edge weightings
 

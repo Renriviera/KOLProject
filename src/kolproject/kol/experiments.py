@@ -17,13 +17,14 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import average_precision_score, roc_auc_score
 
 from .communities import (best_jaccard, coassignment, disconnected_communities, ensemble, leiden,
-                          louvain, medoid, node_consensus, pairwise_ami, ami)
+                          louvain, medoid, membership_shares, node_consensus, pairwise_ami, ami)
 from .data import Cohort
 from .features import compute_features
 from .graph import WEIGHTINGS, WEIGHTING_NOTES, CoauthorIncidence
+from .labels import TIERS, TitleThemes, archetype, community_name, region_summary, tier
 from .scores import axis_table, composite, overlap, percentile, rank_of, renormalize, top_set
 
-ALL_EXPERIMENTS = ('stability', 'weighting', 'bootstrap', 'node_removal', 'leave_one_axis_out',
+ALL_EXPERIMENTS = ('stability', 'weighting', 'bootstrap', 'node_removal', 'movers', 'leave_one_axis_out',
                    'weight_perturbation', 'collinearity', 'face_validity', 'temporal', 'interpretability')
 
 
@@ -216,6 +217,7 @@ def bootstrap(ctx: Context) -> tuple[dict, dict]:
     communities = ctx.communities()
     ranks = {name: np.zeros((len(ctx.cohort.nodes), replicates), dtype=int) for name in ctx.composites}
     drop_label = f'drop{round(100 * drop)}'
+    ctx.cache['perturbed_memberships'] = []
     jaccard = {mode: {label: [] for label in communities} for mode in ('resample', drop_label)}
     for b in range(replicates):
         for mode in ('resample', drop_label):
@@ -230,6 +232,8 @@ def bootstrap(ctx: Context) -> tuple[dict, dict]:
             if mode == 'resample':
                 for name in ctx.composites:
                     ranks[name][:, b] = result.scores[name]['rank'].to_numpy()
+            else:
+                ctx.cache['perturbed_memberships'].append(result.membership)
     tables = {}
     rows = []
     for name, matrix in ranks.items():
@@ -332,6 +336,114 @@ def node_removal(ctx: Context) -> tuple[dict, dict]:
 
 
 # 5 ─────────────────────────────────────────────────────────────────────────────
+def _residual_ranks(values: np.ndarray, controls: np.ndarray) -> np.ndarray:
+    ranked = rankdata(values)
+    model = LinearRegression().fit(controls, ranked)
+    return ranked - model.predict(controls)
+
+
+def _partial_spearman(x: np.ndarray, y: np.ndarray, controls: np.ndarray) -> float:
+    """Spearman correlation of x and y after removing the rank-linear effect of the controls."""
+    ranked_controls = np.column_stack([rankdata(c) for c in controls.T])
+    return float(np.corrcoef(_residual_ranks(x, ranked_controls), _residual_ranks(y, ranked_controls))[0, 1])
+
+
+def movers(ctx: Context) -> tuple[dict, dict]:
+    """Find HCPs whose community membership splits across runs: candidate movers between groups.
+
+    Membership shares come from every seed run of the primary ensemble plus every
+    literature-drop replicate (when the bootstrap ran), aligned to the primary
+    communities. An HCP split across two or more communities with enough
+    publications and coauthors is a multi-community mover; one who is unstable
+    with little evidence is data-thin, and the instability may only reflect sparse
+    data. The breadth test asks whether movers already receive 2024 payments from
+    more distinct manufacturers than anchored peers of similar publication volume.
+    It describes current industry engagement and does not show future openness.
+    """
+    cfg = ctx.cfg['movers']
+    rng = np.random.default_rng(ctx.seed + 4)
+    primary = ctx.primary.membership
+    runs = list(ctx.ensemble) + list(ctx.cache.get('perturbed_memberships', []))
+    shares = membership_shares(runs, primary)
+    hcps = ctx.cohort.hcps
+    f = ctx.primary.features
+    names = {k: hcps.institution.iloc[np.flatnonzero(primary == k)].mode().iloc[0]
+             for k in np.unique(primary)}
+    home_share = float(cfg['home_share'])
+    max_share = shares.max(axis=1)
+    homes = (shares >= home_share).sum(axis=1)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        logs = np.where(shares > 0, np.log(shares), 0.0)
+    entropy = -(shares * logs).sum(axis=1) / np.log(shares.shape[1])
+    evidence = (f.publications.to_numpy() >= float(cfg['min_publications'])) & \
+               (f.degree.to_numpy() >= float(cfg['min_degree']))
+    anchored = max_share >= float(cfg['anchored_share'])
+    mover_class = np.select(
+        [anchored, evidence & (homes >= 2), evidence],
+        ['anchored', 'multi-community mover', 'diffuse mover'], 'data-thin mover')
+
+    def split(row):
+        order = np.argsort(-row)
+        return '; '.join(f'{k + 1}: {names[k + 1]} group {row[k]:.0%}' for k in order if row[k] >= home_share)
+
+    pay = ctx.cohort.payments
+    manufacturers = pay.groupby('hcp_id').manufacturer.nunique().reindex(hcps.index).fillna(0)
+    product_breadth = (pay.assign(product=pay.products.fillna('').str.upper().str.split(';'))
+                       .explode('product').assign(product=lambda d: d['product'].str.strip())
+                       .query("product != ''").groupby('hcp_id')['product'].nunique()
+                       .reindex(hcps.index).fillna(0))
+    table = pd.DataFrame({
+        'display_name': hcps.display_name, 'institution': hcps.institution, 'primary_community': primary,
+        'modal_community': shares.argmax(axis=1) + 1, 'mover_score': 1 - max_share,
+        'membership_entropy': entropy, 'home_communities': homes, 'community_split': [split(r) for r in shares],
+        'mover_class': mover_class, 'publications': f.publications, 'degree': f.degree,
+        'participation': f.participation, 'hub_role': f.hub_role,
+        'manufacturers_2024': manufacturers, 'products_named_2024': product_breadth,
+    }, index=pd.Index(ctx.cohort.nodes, name='hcp_id')).sort_values(['mover_score', 'publications'],
+                                                                    ascending=[False, False])
+
+    controls = np.column_stack([np.log1p(f.publications), f.degree, f.pagerank])
+    n_boot = int(cfg['breadth_bootstrap'])
+    rows = []
+    for signal in ['mover_score', 'participation']:
+        x = table.loc[f.index, signal].to_numpy(dtype=float)
+        for outcome in ['manufacturers_2024', 'products_named_2024']:
+            y = table.loc[f.index, outcome].to_numpy(dtype=float)
+            for scope, mask in [('all HCPs', np.ones(len(x), bool)), ('HCPs with evidence', evidence)]:
+                xs, ys, cs = x[mask], y[mask], controls[mask]
+                estimate = _partial_spearman(xs, ys, cs)
+                draws = []
+                for _ in range(n_boot):
+                    idx = rng.integers(0, len(xs), len(xs))
+                    draws.append(_partial_spearman(xs[idx], ys[idx], cs[idx]))
+                low, high = np.nanpercentile(draws, [2.5, 97.5])
+                rows.append({'signal': signal, 'outcome': outcome, 'scope': scope, 'n': int(mask.sum()),
+                             'raw_spearman': _spearman(xs, ys), 'partial_spearman': estimate,
+                             'ci_low': low, 'ci_high': high, 'controls': 'publications, degree, pagerank'})
+    test = pd.DataFrame(rows)
+
+    tertile = pd.qcut(f.publications.rank(method='first'), 3, labels=['low', 'mid', 'high'])
+    strata = (table.assign(publication_tertile=tertile.reindex(table.index))
+              .groupby(['publication_tertile', 'mover_class'], observed=True)
+              .agg(hcps=('mover_score', 'size'), median_manufacturers=('manufacturers_2024', 'median'),
+                   mean_manufacturers=('manufacturers_2024', 'mean'))
+              .reset_index())
+
+    main = test[(test.signal == 'mover_score') & (test.outcome == 'manufacturers_2024')
+                & (test.scope == 'HCPs with evidence')].iloc[0]
+    counts = pd.Series(mover_class).value_counts()
+    summary = {c: int(counts.get(c, 0)) for c in ['anchored', 'multi-community mover', 'diffuse mover',
+                                                  'data-thin mover']}
+    summary['runs_used'] = len(runs)
+    summary['top_multi_community_movers'] = [
+        f'{r.display_name.title()} ({r.community_split})'
+        for r in table[table.mover_class == 'multi-community mover'].head(8).itertuples()]
+    summary['mover_vs_manufacturer_breadth (partial rho, evidenced HCPs)'] = (
+        f'{main.partial_spearman:+.2f} [{main.ci_low:+.2f}, {main.ci_high:+.2f}]')
+    return {'movers': table, 'mover_breadth_test': test, 'mover_breadth_strata': strata}, summary
+
+
+# 5b ─────────────────────────────────────────────────────────────────────────────
 def leave_one_axis_out(ctx: Context) -> tuple[dict, dict]:
     """Drop one axis at a time, renormalize, and measure how much the ranking moves."""
     top_n = int(ctx.cfg['top_n_overlap'])
@@ -578,16 +690,39 @@ def temporal(ctx: Context) -> tuple[dict, dict]:
 
 # 10 ────────────────────────────────────────────────────────────────────────────
 def interpretability(ctx: Context) -> tuple[dict, dict]:
-    """Describe each community in facts a brand team can read, and flag the ones safe to name."""
+    """Label every community, including unstable ones, with a tier, archetype, theme, and facts.
+
+    The tier states how much a label can bear: firm communities are safe to name,
+    provisional ones need a caveat, unstable ones are loose groupings whose members
+    move between communities, and tiny groups sit outside the main network.
+    """
     hcps = ctx.cohort.hcps
     features = ctx.primary.features
     links = ctx.cohort.links.merge(ctx.cohort.papers[['journal']], left_on='pmid', right_index=True)
     payments = ctx.cohort.payments
     boot = ctx.cache.get('bootstrap')
-    threshold = float(ctx.cfg['community']['stability_threshold'])
+    removal = ctx.cache.get('node_removal')
+    mover_table = ctx.cache.get('movers')
+    cfg = ctx.cfg['community']
+    threshold = float(cfg['stability_threshold'])
+    min_size = int(cfg['min_named_size'])
+    membership = ctx.primary.membership
+    communities = ctx.communities()
+    member_pmids = {label: set(links.loc[links.hcp_id.isin([ctx.cohort.nodes[i] for i in members]), 'pmid'])
+                    for label, members in communities.items()}
+    themes = TitleThemes(ctx.cohort.papers.title,
+                         {k: v for k, v in member_pmids.items() if len(communities[k]) >= min_size})
+    degrees = ctx.primary.graph.degree()
+    drop_column = None
+    if boot is not None:
+        drop_column = next(c for c in boot.columns if c.startswith('jaccard_drop') and c.endswith('_mean'))
+        boot = boot.set_index('community')
+    if removal is not None:
+        removal = removal.set_index('community')
     rows = []
-    for label, members in ctx.communities().items():
-        ids = [ctx.cohort.nodes[i] for i in sorted(members)]
+    for label, members in communities.items():
+        index = sorted(members)
+        ids = [ctx.cohort.nodes[i] for i in index]
         group = hcps.loc[ids]
         inst = group.institution.value_counts()
         states = group.npi_state.value_counts()
@@ -598,35 +733,54 @@ def interpretability(ctx: Context) -> tuple[dict, dict]:
         leaders = f.sort_values('pagerank', ascending=False).head(3).index
         connectors = f[f.hub_role.isin(['connector hub', 'kinless hub', 'connector'])
                        ].sort_values('betweenness', ascending=False).head(3).index
-        consensus = ctx.node_consensus.loc[ids].mean()
-        drop_column = next((c for c in boot.columns if c.startswith('jaccard_drop') and c.endswith('_mean')), None) \
-            if boot is not None else None
-        boot_j = float(boot.set_index('community').loc[label, drop_column]) if drop_column else np.nan
-        resample_j = float(boot.set_index('community').loc[label, 'jaccard_resample_mean']) if drop_column else np.nan
+        consensus = float(ctx.node_consensus.loc[ids].mean())
+        boot_j = float(boot.loc[label, drop_column]) if boot is not None else np.nan
+        resample_j = float(boot.loc[label, 'jaccard_resample_mean']) if boot is not None else np.nan
         inst_purity = inst.iloc[0] / len(ids)
         state_purity = states.iloc[0] / len(ids)
-        if inst_purity >= 0.4:
-            name = f'{inst.index[0]} orbit'
-        elif state_purity >= 0.5:
-            name = f'{states.index[0]} multi-institution network'
-        else:
-            name = f'Cross-regional network around {inst.index[0]}'
-        if len(ids) < int(ctx.cfg['community']['min_named_size']):
-            name = f'Small group ({len(ids)}) at {inst.index[0]}'
-        nameable = (len(ids) >= int(ctx.cfg['community']['min_named_size']) and consensus >= threshold
-                    and (np.isnan(boot_j) or boot_j >= 0.75))
+        region = region_summary(group.npi_state)
+        kind = archetype(len(ids), inst_purity, min_size)
+        tier_name, reason = tier(len(ids), consensus, boot_j, min_size, threshold)
+        name = community_name(tier_name, kind, inst, region, list(group.display_name.str.title()),
+                              [degrees[i] for i in index])
+
+        flags = []
+        if removal is not None and label in removal.index and bool(removal.loc[label, 'leader_dependent']):
+            flags.append(f'leader-dependent: breaks up without {removal.loc[label, "removed_leader"].title()}')
+        drift = []
+        if tier_name in ('provisional', 'unstable'):
+            shares = {other: ctx.coassignment[np.ix_(index, np.flatnonzero(membership == other))].mean()
+                      for other in np.unique(membership) if other != label}
+            drift = [(k, v) for k, v in sorted(shares.items(), key=lambda kv: -kv[1])[:2] if v >= 0.05]
+        sized = len(ids) >= min_size
+        theme_terms = themes.themes(label) if sized else []
+        lean = themes.product_lean(label) if sized else []
+        theme = '; '.join(filter(None, [', '.join(lean), ', '.join(theme_terms)]))
+        mover_count, mover_names = 0, ''
+        if mover_table is not None:
+            local = mover_table.loc[ids]
+            local = local[local.mover_class == 'multi-community mover'].sort_values('mover_score', ascending=False)
+            mover_count = len(local)
+            mover_names = '; '.join(f'{r.display_name.title()} ({r.community_split})'
+                                    for r in local.head(3).itertuples())
+
         description = (
-            f'{len(ids)} HCPs; {inst_purity:.0%} at {inst.index[0]}'
-            + (f', then {inst.index[1]}' if len(inst) > 1 else '')
-            + f'; {state_purity:.0%} registered in {states.index[0]}. '
-            f'Median paper year {int(member_links.publication_year.median())}; most common journal '
-            f'{member_links.journal.mode().iloc[0] if len(member_links) else "n/a"}. '
+            f'{tier_name.capitalize()} {kind}, {len(ids)} HCPs. '
+            f'{inst_purity:.0%} at {inst.index[0]}' + (f', then {inst.index[1]}' if len(inst) > 1 else '')
+            + f'; {state_purity:.0%} registered in {states.index[0]} ({region}). '
+            + (f'Title themes: {theme}. ' if theme else '')
+            + f'Median paper year {int(member_links.publication_year.median())}. '
             f'Network leaders: {", ".join(hcps.display_name.loc[leaders].str.title())}. '
-            + (f'Largest 2024 industry payer to members: {manufacturers.index[0]}.' if len(manufacturers) else '')
-        )
-        rows.append({'community': label, 'label': name, 'size': len(ids), 'nameable': nameable,
+            + (f'Largest 2024 industry payer to members: {manufacturers.index[0]}. ' if len(manufacturers) else '')
+            + (f'Why {tier_name}: {reason}. ' if tier_name != 'firm' else '')
+            + (f'{mover_count} multi-community mover(s).' if mover_count else '')
+        ).strip()
+        rows.append({'community': label, 'label': name, 'tier': tier_name, 'tier_reason': reason,
+                     'archetype': kind, 'size': len(ids), 'nameable': tier_name == 'firm',
+                     'theme': theme, 'flags': '; '.join(flags), '_drift': drift,
+                     'multi_community_movers': mover_count, 'example_movers': mover_names,
                      'seed_consensus': consensus, 'jaccard_literature_drop': boot_j,
-                     'jaccard_full_bootstrap': resample_j,
+                     'jaccard_full_bootstrap': resample_j, 'region': region,
                      'top_institution': inst.index[0], 'institution_purity': inst_purity,
                      'top_state': states.index[0], 'state_purity': state_purity,
                      'median_paper_year': float(member_links.publication_year.median()),
@@ -637,14 +791,22 @@ def interpretability(ctx: Context) -> tuple[dict, dict]:
                      'hub_roles': '; '.join(f'{k}: {v}' for k, v in f.hub_role.value_counts().items()),
                      'description': description})
     table = pd.DataFrame(rows)
-    summary = {'communities': len(table), 'nameable_communities': int(table.nameable.sum()),
-               'institution_anchored (purity>=0.4)': int((table.institution_purity >= 0.4).sum()),
-               'labels': table.loc[table.nameable, 'label'].tolist()}
+    names = table.set_index('community').label
+    table['drifts_to'] = [
+        '; '.join(f'{names[k]} ({v:.0%} co-assignment)' for k, v in drift) for drift in table.pop('_drift')]
+    table['description'] = [
+        d + (f' Members also group with {to}.' if to else '') for d, to in zip(table.description, table.drifts_to)]
+    summary = {'communities': len(table)}
+    for tier_name in TIERS:
+        chosen = table[table.tier == tier_name]
+        summary[f'{tier_name} ({len(chosen)})'] = chosen.label.tolist()
+    summary['leader_dependent'] = int(table['flags'].str.contains('leader-dependent').sum())
     return {'community_profiles': table}, summary
 
 
 EXPERIMENTS = {
     'stability': stability, 'weighting': weighting, 'bootstrap': bootstrap, 'node_removal': node_removal,
+    'movers': movers,
     'leave_one_axis_out': leave_one_axis_out, 'weight_perturbation': weight_perturbation,
     'collinearity': collinearity, 'face_validity': face_validity, 'temporal': temporal,
     'interpretability': interpretability,

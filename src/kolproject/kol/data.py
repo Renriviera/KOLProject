@@ -121,7 +121,7 @@ def load_cohort(root: Path | str = ROOT) -> Cohort:
 
     papers = (publications[publications.analysis_include == 1]
               .set_index('pmid')[['publication_year', 'first_publication_date', 'author_count',
-                                  'citation_year_percentile', 'journal']])
+                                  'citation_year_percentile', 'journal', 'title']])
     links = authorships[authorships.analysis_include == 1][
         ['hcp_id', 'pmid', 'author_position', 'author_count']].copy()
     links['senior'] = (links.author_position == 1) | (links.author_position == links.author_count)

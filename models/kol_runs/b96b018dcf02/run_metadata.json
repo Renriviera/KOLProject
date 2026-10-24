@@ -1,7 +1,7 @@
 {
-  "run_id": "bb3865cf7c6d",
-  "created_at_utc": "2026-10-24T18:32:27Z",
-  "seconds": 136.5,
+  "run_id": "b96b018dcf02",
+  "created_at_utc": "2026-10-24T20:02:21Z",
+  "seconds": 138.7,
   "config": {
     "seed": 2357,
     "quick": false,
@@ -11,6 +11,7 @@
       "weighting",
       "bootstrap",
       "node_removal",
+      "movers",
       "leave_one_axis_out",
       "weight_perturbation",
       "collinearity",
@@ -101,6 +102,13 @@
         20
       ]
     },
+    "movers": {
+      "anchored_share": 0.9,
+      "home_share": 0.15,
+      "min_publications": 5,
+      "min_degree": 10,
+      "breadth_bootstrap": 1000
+    },
     "perturbation": {
       "draws": 2000,
       "concentration": 30
@@ -165,6 +173,24 @@
       "leader_dependent_communities": 5,
       "communities_tested": 13,
       "mean_jaccard_after_top10_removed": 0.735
+    },
+    "movers": {
+      "anchored": 321,
+      "multi-community mover": 57,
+      "diffuse mover": 27,
+      "data-thin mover": 95,
+      "runs_used": 250,
+      "top_multi_community_movers": [
+        "Paolo F Caimi (10: Weill Cornell group 29%; 2: Mayo Clinic group 27%; 3: Ohio State group 25%)",
+        "Craig Sauter (2: Mayo Clinic group 30%; 10: Weill Cornell group 28%; 3: Ohio State group 24%)",
+        "Brad Steven Kahl (10: Weill Cornell group 30%; 3: Ohio State group 26%; 2: Mayo Clinic group 24%)",
+        "Mohammad Alhomoud (9: MD Anderson group 40%; 10: Weill Cornell group 26%; 6: Memorial Sloan Kettering group 26%)",
+        "Bita Fakhri (10: Weill Cornell group 41%; 3: Ohio State group 36%)",
+        "Amanda Fishback Cashen (9: MD Anderson group 41%; 3: Ohio State group 22%; 1: Cleveland Clinic group 18%)",
+        "Joshua Brody (12: City of Hope group 41%; 3: Ohio State group 31%)",
+        "Samuel Yamshon (9: MD Anderson group 43%; 10: Weill Cornell group 27%)"
+      ],
+      "mover_vs_manufacturer_breadth (partial rho, evidenced HCPs)": "+0.17 [+0.05, +0.28]"
     },
     "leave_one_axis_out": {
       "most_important_axis_academic_authority": "prestige",
@@ -233,18 +259,32 @@
     },
     "interpretability": {
       "communities": 17,
-      "nameable_communities": 8,
-      "institution_anchored (purity>=0.4)": 13,
-      "labels": [
-        "Cross-regional network around Cleveland Clinic",
+      "firm (8)": [
+        "Cleveland Clinic – Vanderbilt network",
         "Penn / Abramson orbit",
-        "Cross-regional network around Mass General Brigham",
+        "Mass General Brigham – Dana-Farber network (Northeast)",
         "Memorial Sloan Kettering orbit",
         "Fred Hutch / UW orbit",
         "MD Anderson orbit",
         "Moffitt orbit",
         "City of Hope orbit"
-      ]
+      ],
+      "provisional (4)": [
+        "Mayo Clinic orbit",
+        "Ohio State – Northwestern / Lurie network (Midwest)",
+        "Stanford orbit",
+        "Baylor orbit"
+      ],
+      "unstable (1)": [
+        "Loose Weill Cornell – Cleveland Clinic network"
+      ],
+      "outside main network (4)": [
+        "Isolated pair at University of California Davis Comprehensive Cancer Center, coauthors only with each other",
+        "Isolated: Matthew J Barth (Roswell Park), no coauthorship with the cohort",
+        "Isolated: Reinhold Munker (University of Kentucky HealthCare), no coauthorship with the cohort",
+        "Isolated: David E Avigan (Beth Israel Deaconess Medical Center), no coauthorship with the cohort"
+      ],
+      "leader_dependent": 5
     }
   },
   "description": "Descriptive community and composite-score experiments; no causal or prescribing claim."
