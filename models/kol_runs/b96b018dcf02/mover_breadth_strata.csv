@@ -1,0 +1,11 @@
+publication_tertile,mover_class,hcps,median_manufacturers,mean_manufacturers
+low,anchored,101,1.0,2.603960396039604
+low,data-thin mover,66,2.0,3.015151515151515
+mid,anchored,100,2.0,3.35
+mid,data-thin mover,28,2.0,3.3214285714285716
+mid,diffuse mover,10,3.5,5.8
+mid,multi-community mover,28,2.0,2.857142857142857
+high,anchored,120,4.0,4.691666666666666
+high,data-thin mover,1,0.0,0.0
+high,diffuse mover,17,3.0,4.176470588235294
+high,multi-community mover,29,6.0,7.758620689655173

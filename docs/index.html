@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAR-T Lymphoma KOL Network</title>
+<meta name="description" content="Interactive Leiden communities, explainable composite scores, and robustness experiments for 500 CAR-T lymphoma HCPs.">
+<link rel="stylesheet" href="site.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-title">CAR-T Lymphoma KOL Network</span>
+      <span class="brand-sub" id="brand-sub">500 HCPs · loading…</span>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab-step" id="tab-prev" aria-label="Previous section" title="Previous section (←)">‹</button>
+      <div class="tab-list" role="tablist" id="tab-list">
+        <button role="tab" class="tab" data-tab="results" aria-controls="panel-results">Results</button>
+        <button role="tab" class="tab" data-tab="stability" aria-controls="panel-stability">Stability</button>
+        <button role="tab" class="tab" data-tab="labels" aria-controls="panel-labels">Weak labels</button>
+        <button role="tab" class="tab" data-tab="backtesting" aria-controls="panel-backtesting">Backtesting</button>
+        <button role="tab" class="tab" data-tab="sources" aria-controls="panel-sources">Data sources</button>
+      </div>
+      <button class="tab-step" id="tab-next" aria-label="Next section" title="Next section (→)">›</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section id="panel-results" class="panel" role="tabpanel" data-tab="results">
+    <div class="intro">
+      <h1>Who leads, who connects, and which groups hold together</h1>
+      <p id="results-lede" class="lede"></p>
+    </div>
+    <div class="graph-wrap">
+      <div class="graph-controls">
+        <div class="chips" id="community-chips" aria-label="Select a community"></div>
+        <div class="toggles">
+          <label class="switch"><input type="checkbox" id="toggle-edges" checked> Edges</label>
+          <label class="switch"><input type="checkbox" id="toggle-movers"> Movers only</label>
+          <label class="switch"><input type="checkbox" id="toggle-tier"> Color by tier</label>
+          <label class="switch"><input type="checkbox" id="toggle-labels"> Label leaders</label>
+          <button class="btn" id="graph-reset">Reset view</button>
+        </div>
+      </div>
+      <div class="graph-stage">
+        <div class="graph-canvas-wrap" id="graph">
+          <canvas id="graph-edges"></canvas>
+          <svg id="graph-nodes" aria-label="Coauthorship network"></svg>
+        </div>
+        <aside class="graph-side" id="graph-side"></aside>
+      </div>
+      <div class="legend-row" id="graph-legend"></div>
+    </div>
+    <div id="community-sections"></div>
+    <p class="limits" data-limits></p>
+  </section>
+
+  <section id="panel-stability" class="panel" role="tabpanel" data-tab="stability" hidden>
+    <div class="intro"><h1>Do the communities and leaders survive perturbation?</h1><p class="lede" id="stability-lede"></p></div>
+    <div id="stability-content"></div>
+    <p class="limits" data-limits></p>
+  </section>
+
+  <section id="panel-labels" class="panel" role="tabpanel" data-tab="labels" hidden>
+    <div class="intro"><h1>Do the scores agree with independent signs of standing?</h1><p class="lede" id="labels-lede"></p></div>
+    <div id="labels-content"></div>
+    <p class="limits" data-limits></p>
+  </section>
+
+  <section id="panel-backtesting" class="panel" role="tabpanel" data-tab="backtesting" hidden>
+    <div class="intro"><h1>Do scores from the past anticipate what happened next?</h1><p class="lede" id="backtesting-lede"></p></div>
+    <div id="backtesting-content"></div>
+    <p class="limits" data-limits></p>
+  </section>
+
+  <section id="panel-sources" class="panel" role="tabpanel" data-tab="sources" hidden>
+    <div class="intro"><h1>Where the data comes from</h1><p class="lede" id="sources-lede"></p></div>
+    <div id="sources-content"></div>
+    <p class="limits" data-limits></p>
+  </section>
+</main>
+
+<footer class="footer">
+  <span id="footer-run"></span>
+  <a href="https://github.com/Renriviera/KOLProject">Code and data on GitHub</a>
+</footer>
+<div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+<script src="site.js"></script>
+<script src="graph.js"></script>
+<script src="tabs.js"></script>
+<script>KOL.boot();</script>
+</body>
+</html>

@@ -31,6 +31,8 @@ The evaluation checks the published tables and writes
 | `pre-processing/` | Payment prefetch and one-to-one modeling join helpers |
 | `configs/` | Hydra settings, 2024 code definitions, and identity evidence templates; ignored `configs/local/` holds local evidence |
 | [`models/`](models/README.md) | Baseline ranking runs, input hashes, weights, and modeling-input instructions |
+| [`models/kol_runs/`](models/kol_runs/README.md) | Leiden communities, three explainable composite KOL scores, and eleven robustness experiments |
+| `docs/` | Static GitHub Pages site built from a run: interactive community map, experiments, and data sources |
 | [`evaluations/`](evaluations/README.md) | Reproducible processed-table checks and historical source-validation reports |
 | [`eda/`](eda/README.md) | Cohort summaries, missingness, geographic counts, and network statistics |
 | [`eda/visualizations/`](eda/visualizations/README.md) | Publication profile and seeded coauthorship network figures |
@@ -46,6 +48,8 @@ These commands use the processed CSVs included in GitHub and do not fetch source
 uv run kolproject stage=edav
 uv run kolproject stage=rank
 uv run python pre-processing/join_utilization.py
+uv run kolproject-kol
+uv run kolproject-kol-site models/kol_runs/b96b018dcf02
 uv run kolproject-evaluate
 ```
 
@@ -53,6 +57,10 @@ EDA writes summaries to `eda/` and images to `eda/visualizations/`. Ranking outp
 go to `models/runs/<weight-hash>/`. The join creates an optional descriptive input
 in `models/inputs/`, preserving all 500 HCPs and both original source tables.
 Derived output timestamps reflect the rerun; source observation dates are preserved.
+`kolproject-kol` writes community, composite-score, and robustness outputs to
+`models/kol_runs/<run-id>/`; see its [README](models/kol_runs/README.md).
+`kolproject-kol-site` turns a run into the static site in `docs/`, published at
+https://renriviera.github.io/KOLProject/ when GitHub Pages is enabled.
 
 ![Cohort publication profile](eda/visualizations/cohort_profile.png)
 

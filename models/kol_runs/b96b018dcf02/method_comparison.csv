@@ -1,0 +1,4 @@
+method,seeds,seed_to_seed_ami_mean,seed_to_seed_ami_min,ami_vs_leiden_medoid,modularity,communities,disconnected_communities
+leiden (RB configuration),50,0.871088399156646,0.7323190874896824,1.0,0.4970555635202187,17.0,0
+louvain (igraph multilevel),50,0.7920883849356775,0.6345858412483921,0.8032222903041982,0.49063212709207477,16.0,0
+greedy modularity (published community_id),1,,,0.7784626109854957,0.48728425300167255,16.0,0

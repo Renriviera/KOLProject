@@ -18,6 +18,8 @@ The score is 100 times the weighted sum. Higher scores rank first; ties use HCP 
 - `runs/<weight-hash>/ranking.csv`: HCP ID, NPI, registered name, score, and rank.
 - `runs/<weight-hash>/run_metadata.json`: exact weights, input table SHA-256, UTC
   run time, and interpretation. Rerunning identical weights replaces that run.
+- [`kol_runs/`](kol_runs/README.md): Leiden communities, three explainable composite
+  scores with per-axis contributions, and ten robustness and ablation experiments.
 - [`inputs/`](inputs/README.md): instructions for generating a separate descriptive
   modeling table that joins HCP and utilization features one-to-one.
 

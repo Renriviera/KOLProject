@@ -1,0 +1,291 @@
+{
+  "run_id": "b96b018dcf02",
+  "created_at_utc": "2026-10-24T21:41:23Z",
+  "seconds": 137.6,
+  "config": {
+    "seed": 2357,
+    "quick": false,
+    "output_dir": "models/kol_runs",
+    "experiments": [
+      "stability",
+      "weighting",
+      "bootstrap",
+      "node_removal",
+      "movers",
+      "leave_one_axis_out",
+      "weight_perturbation",
+      "collinearity",
+      "face_validity",
+      "temporal",
+      "interpretability"
+    ],
+    "community": {
+      "resolution": 1.0,
+      "resolution_sweep": [
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        2.0
+      ],
+      "seeds": 50,
+      "small_seeds": 10,
+      "stability_threshold": 0.8,
+      "min_named_size": 5
+    },
+    "features": {
+      "recent_from": 2023,
+      "shrinkage_pseudo_papers": 4
+    },
+    "axes": {
+      "prestige": [
+        "pagerank"
+      ],
+      "bridging": [
+        "betweenness",
+        "participation"
+      ],
+      "impact": [
+        "mean_citation_pct"
+      ],
+      "leadership": [
+        "senior_rate"
+      ],
+      "momentum": [
+        "recent_share"
+      ],
+      "industry": [
+        "log_consulting_usd",
+        "log_cart_product_usd"
+      ]
+    },
+    "composites": {
+      "academic_authority": {
+        "prestige": 0.35,
+        "bridging": 0.05,
+        "impact": 0.25,
+        "leadership": 0.2,
+        "momentum": 0.05,
+        "industry": 0.1
+      },
+      "network_connector": {
+        "prestige": 0.2,
+        "bridging": 0.4,
+        "impact": 0.1,
+        "leadership": 0.1,
+        "momentum": 0.1,
+        "industry": 0.1
+      },
+      "rising_voice": {
+        "prestige": 0.15,
+        "bridging": 0.1,
+        "impact": 0.15,
+        "leadership": 0.1,
+        "momentum": 0.4,
+        "industry": 0.1
+      }
+    },
+    "top_k": 25,
+    "top_n_overlap": 50,
+    "bootstrap": {
+      "replicates": 200,
+      "leiden_seeds": 5,
+      "drop_fraction": 0.1
+    },
+    "node_removal": {
+      "top_k": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    "movers": {
+      "anchored_share": 0.9,
+      "home_share": 0.15,
+      "min_publications": 5,
+      "min_degree": 10,
+      "breadth_bootstrap": 1000
+    },
+    "perturbation": {
+      "draws": 2000,
+      "concentration": 30
+    },
+    "face_validity": {
+      "auc_bootstrap": 1000
+    },
+    "temporal": {
+      "cutoff_year": 2022,
+      "difference_bootstrap": 1000
+    }
+  },
+  "inputs_sha256": {
+    "Data/processed/2026-10-09/hcps.csv": "ef8849bf974222a998980c5c2ab37dfdcfb7e91f7b86f3d2aeedd1b2eefbe2b8",
+    "Data/processed/2026-10-09/publications.csv": "b195666422d13e1aebaafde1fb8fb77dcf2340bcc186e6348a3542528ddb6170",
+    "Data/processed/2026-10-09/authorships.csv": "6bdda763d5d899b07f93cb756a8775791363d10502ef00d4a9fdda714f4b9760",
+    "Data/processed/2026-10-09/coauthor_edges.csv": "9514e1f4da9dc212e25a7a06d8c3188ebdd5f533eb64cae80574fb96fe39c939",
+    "Data/processed/2026-10-09/general_payments_2024.csv": "c9d2cf8a793adbb567193ad5d25d93dcc9dec91e75eb0c0b9fe17cd2348e3b3a",
+    "Data/legacy/cohort_245/data/hcps.csv": "eb10fb5ac779c636ab408ded1fff4b425bbfb916cb18101c4aae34e5f491c09f"
+  },
+  "notes": [
+    "curated_seed: 48 manually curated seeds in the local legacy pilot, 44 present in the 500-HCP cohort."
+  ],
+  "library_versions": {
+    "igraph": "0.11.9",
+    "leidenalg": "0.10.2",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1"
+  },
+  "summaries": {
+    "stability": {
+      "primary_resolution": 1.0,
+      "primary_communities": 17,
+      "leiden_seed_ami_mean": 0.871,
+      "louvain_seed_ami_mean": 0.792,
+      "greedy_ami_vs_leiden": 0.778,
+      "seed_stable_communities": 16,
+      "nodes_below_consensus_threshold": 79
+    },
+    "weighting": {
+      "robust_top50_academic_authority": 42,
+      "robust_top50_network_connector": 36,
+      "robust_top50_rising_voice": 38,
+      "min_ami_vs_fractional": 0.5,
+      "least_similar_weighting": "binary"
+    },
+    "bootstrap": {
+      "replicates_per_perturbation": 200,
+      "drop_fraction": 0.1,
+      "resample_stable_communities": 0,
+      "resample_dissolving_communities": 4,
+      "drop10_stable_communities": 8,
+      "drop10_dissolving_communities": 1,
+      "academic_authority_median_ci_width_top25": 56.1,
+      "network_connector_median_ci_width_top25": 34.0,
+      "rising_voice_median_ci_width_top25": 110.1
+    },
+    "node_removal": {
+      "leader_dependent_communities": 5,
+      "communities_tested": 13,
+      "mean_jaccard_after_top10_removed": 0.735
+    },
+    "movers": {
+      "anchored": 321,
+      "multi-community mover": 57,
+      "diffuse mover": 27,
+      "data-thin mover": 95,
+      "runs_used": 250,
+      "top_multi_community_movers": [
+        "Paolo F Caimi (10: Weill Cornell group 29%; 2: Mayo Clinic group 27%; 3: Ohio State group 25%)",
+        "Craig Sauter (2: Mayo Clinic group 30%; 10: Weill Cornell group 28%; 3: Ohio State group 24%)",
+        "Brad Steven Kahl (10: Weill Cornell group 30%; 3: Ohio State group 26%; 2: Mayo Clinic group 24%)",
+        "Mohammad Alhomoud (9: MD Anderson group 40%; 10: Weill Cornell group 26%; 6: Memorial Sloan Kettering group 26%)",
+        "Bita Fakhri (10: Weill Cornell group 41%; 3: Ohio State group 36%)",
+        "Amanda Fishback Cashen (9: MD Anderson group 41%; 3: Ohio State group 22%; 1: Cleveland Clinic group 18%)",
+        "Joshua Brody (12: City of Hope group 41%; 3: Ohio State group 31%)",
+        "Samuel Yamshon (9: MD Anderson group 43%; 10: Weill Cornell group 27%)"
+      ],
+      "mover_vs_manufacturer_breadth (partial rho, evidenced HCPs)": "+0.17 [+0.05, +0.28]"
+    },
+    "leave_one_axis_out": {
+      "most_important_axis_academic_authority": "prestige",
+      "most_important_axis_network_connector": "bridging",
+      "most_important_axis_rising_voice": "momentum"
+    },
+    "weight_perturbation": {
+      "academic_authority_mean_l1_shift_near": 0.29,
+      "academic_authority_mean_l1_shift_uninformative": 0.847,
+      "academic_authority_robust_leaders": 13,
+      "academic_authority_weight_sensitive": 19,
+      "academic_authority_top25_under_any_weights": 3,
+      "network_connector_mean_l1_shift_near": 0.295,
+      "network_connector_mean_l1_shift_uninformative": 0.815,
+      "network_connector_robust_leaders": 15,
+      "network_connector_weight_sensitive": 16,
+      "network_connector_top25_under_any_weights": 4,
+      "rising_voice_mean_l1_shift_near": 0.298,
+      "rising_voice_mean_l1_shift_uninformative": 0.798,
+      "rising_voice_robust_leaders": 10,
+      "rising_voice_weight_sensitive": 18,
+      "rising_voice_top25_under_any_weights": 3
+    },
+    "collinearity": {
+      "redundant_pairs_rho_ge_0_85": [
+        "strength~pagerank (0.97)",
+        "publications~strength (0.90)",
+        "publications~pagerank (0.90)",
+        "pagerank~within_module_z (0.86)"
+      ],
+      "highest_vif": "strength (24.2)",
+      "academic_authority_top50_overlap_if_volume_loaded": 0.98,
+      "network_connector_top50_overlap_if_volume_loaded": 0.98,
+      "rising_voice_top50_overlap_if_volume_loaded": 0.98
+    },
+    "face_validity": {
+      "cart_industry_advisor_best": "publications AUC 0.81 [0.74, 0.86]",
+      "cart_industry_advisor_publication_count_auc": 0.81,
+      "curated_seed_best": "publications AUC 0.95 [0.92, 0.97]",
+      "curated_seed_publication_count_auc": 0.95,
+      "guideline_panel_best": "pagerank AUC 0.87 [0.76, 0.95]",
+      "guideline_panel_publication_count_auc": 0.83
+    },
+    "temporal": {
+      "cutoff_year": 2022,
+      "hcps_without_pre_period_papers": 80,
+      "pre_period_edges": 3768,
+      "post_period_new_edges": 5610,
+      "scores_beating_volume_on_publications_2023_2025": [
+        "network_connector (no industry, no impact)"
+      ],
+      "best_on_publications_2023_2025": "network_connector (no industry, no impact) (rho 0.43, delta +0.04)",
+      "scores_beating_volume_on_new_coauthors_2023_2025": [
+        "academic_authority (no industry, no impact)",
+        "network_connector (no industry)",
+        "network_connector (no industry, no impact)",
+        "pagerank alone"
+      ],
+      "best_on_new_coauthors_2023_2025": "network_connector (no industry, no impact) (rho 0.28, delta +0.13)",
+      "scores_beating_volume_on_log_consulting_usd_2024": [
+        "pagerank alone"
+      ],
+      "best_on_log_consulting_usd_2024": "academic_authority (no industry, no impact) (rho 0.30, delta +0.05)",
+      "best_on_guideline_panel": "pagerank alone AUC 0.82",
+      "volume_null_guideline_panel_auc": 0.8
+    },
+    "interpretability": {
+      "communities": 17,
+      "firm (8)": [
+        "Cleveland Clinic – Vanderbilt network",
+        "Penn / Abramson orbit",
+        "Mass General Brigham – Dana-Farber network (Northeast)",
+        "Memorial Sloan Kettering orbit",
+        "Fred Hutch / UW orbit",
+        "MD Anderson orbit",
+        "Moffitt orbit",
+        "City of Hope orbit"
+      ],
+      "provisional (4)": [
+        "Mayo Clinic orbit",
+        "Ohio State – Northwestern / Lurie network (Midwest)",
+        "Stanford orbit",
+        "Baylor orbit"
+      ],
+      "unstable (1)": [
+        "Loose Weill Cornell – Cleveland Clinic network"
+      ],
+      "outside main network (4)": [
+        "Isolated pair at University of California Davis Comprehensive Cancer Center, coauthors only with each other",
+        "Isolated: Matthew J Barth (Roswell Park), no coauthorship with the cohort",
+        "Isolated: Reinhold Munker (University of Kentucky HealthCare), no coauthorship with the cohort",
+        "Isolated: David E Avigan (Beth Israel Deaconess Medical Center), no coauthorship with the cohort"
+      ],
+      "leader_dependent": 5
+    }
+  },
+  "description": "Descriptive community and composite-score experiments; no causal or prescribing claim."
+}

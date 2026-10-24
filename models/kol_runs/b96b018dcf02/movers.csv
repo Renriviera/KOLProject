@@ -1,0 +1,501 @@
+hcp_id,display_name,institution,primary_community,modal_community,mover_score,membership_entropy,home_communities,community_split,mover_class,publications,degree,participation,hub_role,manufacturers_2024,products_named_2024
+NPI1043523103,KIRSTEN MARIE BOUGHAN,Louis Stokes Cleveland VA Medical Center,10,10,0.72,0.5649802908320446,3,10: Weill Cornell group 28%; 3: Ohio State group 27%; 2: Mayo Clinic group 21%,data-thin mover,2.0,6,0.7419659735349717,connector,0.0,0.0
+NPI1255838116,TAYLOR BROOKS,Cleveland Clinic,10,10,0.712,0.5594784268459104,3,10: Weill Cornell group 29%; 3: Ohio State group 28%; 2: Mayo Clinic group 25%,data-thin mover,3.0,38,0.6606399164901582,connector,3.0,0.0
+NPI1538291901,PAOLO F CAIMI,Cleveland Clinic,10,10,0.708,0.5473539028502976,3,10: Weill Cornell group 29%; 2: Mayo Clinic group 27%; 3: Ohio State group 25%,multi-community mover,16.0,55,0.6965774318819015,connector,6.0,5.0
+NPI1356757736,DILAN ANIL PATEL,WashU / Siteman,10,10,0.7,0.5817374521882367,3,10: Weill Cornell group 30%; 3: Ohio State group 24%; 2: Mayo Clinic group 20%,data-thin mover,2.0,28,0.6587395957193816,connector,1.0,1.0
+NPI1447494612,CRAIG SAUTER,Cleveland Clinic,10,2,0.696,0.5480585810983583,3,2: Mayo Clinic group 30%; 10: Weill Cornell group 28%; 3: Ohio State group 24%,multi-community mover,15.0,98,0.8845834422205647,kinless,5.0,5.0
+NPI1407822430,BRAD STEVEN KAHL,WashU / Siteman,10,10,0.696,0.5643951526235729,3,10: Weill Cornell group 30%; 3: Ohio State group 26%; 2: Mayo Clinic group 24%,multi-community mover,11.0,61,0.8120563097673096,kinless,15.0,9.0
+NPI1245467752,SARAH RUTHERFORD,Weill Cornell,10,10,0.644,0.5163374128790078,3,10: Weill Cornell group 36%; 3: Ohio State group 26%; 2: Mayo Clinic group 22%,data-thin mover,3.0,11,0.8429752066115703,kinless,3.0,2.0
+NPI1477571263,KEREN OSMAN,Other / unresolved,10,12,0.628,0.540216616792624,3,12: City of Hope group 37%; 3: Ohio State group 25%; 10: Weill Cornell group 21%,data-thin mover,2.0,7,0.6145404663923182,peripheral,2.0,2.0
+NPI1073525598,KOEN VAN BESIEN,University Hospitals,10,9,0.624,0.45848504142089513,3,9: MD Anderson group 38%; 10: Weill Cornell group 34%; 6: Memorial Sloan Kettering group 20%,data-thin mover,2.0,4,0.3749999999999999,peripheral,5.0,6.0
+NPI1396949913,AMIR S STEINBERG,New York Medical College,10,12,0.604,0.5165439512527606,3,12: City of Hope group 40%; 3: Ohio State group 26%; 10: Weill Cornell group 21%,data-thin mover,3.0,10,0.6673579036666981,connector,4.0,4.0
+NPI1376623926,JIA RUAN,Weill Cornell,10,9,0.6,0.49460182756748544,3,9: MD Anderson group 40%; 10: Weill Cornell group 27%; 6: Memorial Sloan Kettering group 19%,data-thin mover,2.0,7,0.13432525951557095,peripheral,5.0,4.0
+NPI1295220754,MOHAMMAD ALHOMOUD,Memorial Sloan Kettering,10,9,0.596,0.45268452303931467,3,9: MD Anderson group 40%; 10: Weill Cornell group 26%; 6: Memorial Sloan Kettering group 26%,multi-community mover,7.0,18,0.5424102152607257,peripheral,0.0,0.0
+NPI1568729424,BITA FAKHRI,Stanford,10,10,0.5920000000000001,0.4791574246934994,2,10: Weill Cornell group 41%; 3: Ohio State group 36%,multi-community mover,5.0,19,0.6506746162790824,connector,3.0,3.0
+NPI1215953534,AMANDA FISHBACK CASHEN,WashU / Siteman,9,9,0.5880000000000001,0.5319418471962069,3,9: MD Anderson group 41%; 3: Ohio State group 22%; 1: Cleveland Clinic group 18%,multi-community mover,6.0,61,0.8763097397835492,kinless,4.0,1.0
+NPI1508922907,JOSHUA BRODY,Other / unresolved,10,12,0.5880000000000001,0.5099075871782957,2,12: City of Hope group 41%; 3: Ohio State group 31%,multi-community mover,5.0,25,0.821092587467281,kinless,9.0,8.0
+NPI1588628093,IZIDORE LOSSOS,Miami / Sylvester,10,3,0.5840000000000001,0.471356295669314,4,3: Ohio State group 42%; 9: MD Anderson group 23%; 10: Weill Cornell group 18%; 2: Mayo Clinic group 17%,data-thin mover,4.0,31,0.7779970761682277,connector,2.0,1.0
+NPI1649346842,WEIYUN Z AI,UCSF,10,10,0.5800000000000001,0.49023437261625336,2,10: Weill Cornell group 42%; 3: Ohio State group 32%,data-thin mover,4.0,11,0.4903944802829967,peripheral,4.0,3.0
+NPI1174914543,SAMUEL YAMSHON,Weill Cornell,10,9,0.5680000000000001,0.4893616019735682,2,9: MD Anderson group 43%; 10: Weill Cornell group 27%,multi-community mover,11.0,82,0.7140235420814802,connector,4.0,3.0
+NPI1952555799,PETER MARTIN,Weill Cornell,10,9,0.5680000000000001,0.48571638062697403,2,9: MD Anderson group 43%; 10: Weill Cornell group 27%,multi-community mover,10.0,29,0.6183088489871373,peripheral,6.0,3.0
+NPI1720175813,TSIPORAH B SHORE,Weill Cornell,10,9,0.5680000000000001,0.49026542448621074,2,9: MD Anderson group 43%; 10: Weill Cornell group 27%,multi-community mover,5.0,38,0.637954496434507,connector,2.0,2.0
+NPI1023579869,CAITLIN GRIBBIN,Weill Cornell,10,9,0.5680000000000001,0.48671171088919885,2,9: MD Anderson group 43%; 10: Weill Cornell group 28%,data-thin mover,2.0,5,0.17774251140646702,peripheral,1.0,2.0
+NPI1982864039,CATHERINE SIBYL DIEFENBACH,Other / unresolved,4,4,0.556,0.48096755220007753,2,4: Penn / Abramson group 44%; 1: Cleveland Clinic group 29%,multi-community mover,6.0,27,0.8622891408308258,kinless,7.0,5.0
+NPI1659596179,JEFF PORTER SHARMAN,Willamette Valley Cancer Institute,10,3,0.548,0.40300964011172646,2,3: Ohio State group 45%; 10: Weill Cornell group 42%,data-thin mover,2.0,6,0.31275720164609055,peripheral,11.0,9.0
+NPI1679991756,SANGHEE HONG,Duke University School of Medicine,8,2,0.496,0.33267804156670017,2,2: Mayo Clinic group 50%; 8: Fred Hutch / UW group 43%,data-thin mover,3.0,34,0.8038817761679125,kinless,1.0,1.0
+NPI1659697761,JEAN LOUISE KOFF,Emory / Winship,10,9,0.492,0.4273494794636806,3,9: MD Anderson group 51%; 2: Mayo Clinic group 26%; 10: Weill Cornell group 16%,data-thin mover,4.0,18,0.7791151921896312,connector,2.0,3.0
+NPI1487635793,BRIAN K LINK,Iowa,10,9,0.492,0.42270460566865437,3,9: MD Anderson group 51%; 2: Mayo Clinic group 26%; 10: Weill Cornell group 16%,data-thin mover,3.0,21,0.8159483957190546,kinless,0.0,0.0
+NPI1740711456,MICHELE STANCHINA,Miami / Sylvester,10,9,0.492,0.41606722824675,3,9: MD Anderson group 51%; 2: Mayo Clinic group 26%; 10: Weill Cornell group 16%,data-thin mover,2.0,17,0.7490096820879406,connector,2.0,2.0
+NPI1326255951,ATTAPHOL PAWARODE,University of Michigan,8,2,0.484,0.356951198980005,2,2: Mayo Clinic group 52%; 8: Fred Hutch / UW group 39%,data-thin mover,3.0,16,0.8100082540615303,kinless,0.0,0.0
+NPI1639502123,JUAN PABLO ALDERUCCIO,Miami / Sylvester,10,3,0.484,0.3497748921105431,2,3: Ohio State group 52%; 10: Weill Cornell group 42%,data-thin mover,3.0,16,0.4762861391518203,peripheral,6.0,2.0
+NPI1285849489,ADRIANA KACZARAJ MALONE,Tisch Cancer Center,8,2,0.484,0.35101623061441045,2,2: Mayo Clinic group 52%; 8: Fred Hutch / UW group 40%,data-thin mover,2.0,15,0.7904134710332691,connector,1.0,1.0
+NPI1336502731,AJAY MAJOR,University of Colorado,5,5,0.476,0.24424378038296593,2,5: Mass General Brigham group 52%; 3: Ohio State group 48%,data-thin mover,4.0,45,0.6977029902544958,connector,2.0,2.0
+NPI1700074614,LEYLA O SHUNE,Medical College of Wisconsin,2,4,0.46399999999999997,0.3090688085058537,2,4: Penn / Abramson group 54%; 2: Mayo Clinic group 41%,data-thin mover,2.0,4,0.557074910820452,peripheral,5.0,3.0
+NPI1982108155,CASSANDRA DUARTE,University of Colorado,5,5,0.46399999999999997,0.24373488776053956,2,5: Mass General Brigham group 54%; 3: Ohio State group 46%,data-thin mover,2.0,12,0.4382716049382718,peripheral,4.0,3.0
+NPI1760471494,HAN TUN,Mayo Clinic,11,11,0.43600000000000005,0.24175117785392677,2,11: Moffitt group 56%; 2: Mayo Clinic group 44%,data-thin mover,2.0,11,0.49867148474864487,peripheral,0.0,0.0
+NPI1104814888,FRANCINE MARIE FOSS,Yale,3,3,0.43200000000000005,0.31024730053083643,2,3: Ohio State group 57%; 8: Fred Hutch / UW group 38%,multi-community mover,5.0,30,0.7202989647683761,connector,5.0,4.0
+NPI1407021140,IRIS ISUFI,Yale,3,3,0.43200000000000005,0.3104537021150677,2,3: Ohio State group 57%; 8: Fred Hutch / UW group 38%,data-thin mover,4.0,26,0.7568144815391888,connector,3.0,0.0
+NPI1538620190,ALEXANDRA EWA ROJEK,University of Chicago,2,2,0.43200000000000005,0.35071712848249675,2,2: Mayo Clinic group 57%; 3: Ohio State group 32%,data-thin mover,3.0,19,0.7443200000000001,connector,2.0,1.0
+NPI1255488201,NINA DELANEY WAGNER-JOHNSTON,Sidney Kimmel Comprehensive Cancer Center at Johns Hopkins,1,1,0.42400000000000004,0.43515309930182156,2,1: Cleveland Clinic group 58%; 4: Penn / Abramson group 21%,multi-community mover,8.0,41,0.793817096292378,connector,3.0,1.0
+NPI1710202866,ERIC L SMITH,Dana-Farber,11,11,0.42400000000000004,0.24854644699369943,2,11: Moffitt group 58%; 6: Memorial Sloan Kettering group 42%,data-thin mover,4.0,12,0.4998713145929252,peripheral,3.0,2.0
+NPI1750519856,NAUSHEEN AHMED,University of Kansas,2,4,0.42000000000000004,0.24808888278395588,2,4: Penn / Abramson group 58%; 2: Mayo Clinic group 42%,multi-community mover,19.0,121,0.8476583259305744,kinless,9.0,5.0
+NPI1831313691,JUSTIN PAUL KLINE,University of Chicago,5,3,0.41600000000000004,0.2588377666846613,2,3: Ohio State group 58%; 5: Mass General Brigham group 40%,multi-community mover,8.0,62,0.8289877832119336,kinless,5.0,3.0
+NPI1679707319,BRADLEY MICHAEL HAVERKOS,University of Colorado,5,5,0.41600000000000004,0.2396459264764408,2,5: Mass General Brigham group 58%; 3: Ohio State group 42%,multi-community mover,5.0,51,0.788365357900647,connector,4.0,4.0
+NPI1891707709,STEVEN ILKWON PARK,Atrium / Levine,5,5,0.41600000000000004,0.4276414327982829,3,5: Mass General Brigham group 58%; 3: Ohio State group 18%; 13: Baylor group 16%,data-thin mover,4.0,14,0.6048210193737459,peripheral,0.0,0.0
+NPI1548550494,BEI HU,Atrium / Levine,5,5,0.41600000000000004,0.4274286686380661,3,5: Mass General Brigham group 58%; 6: Memorial Sloan Kettering group 18%; 3: Ohio State group 17%,data-thin mover,3.0,7,0.5801151869734669,peripheral,3.0,2.0
+NPI1376962449,ERIN DEAN,University of Florida,7,7,0.41200000000000003,0.29951185562997645,2,7: Stanford group 59%; 11: Moffitt group 35%,multi-community mover,6.0,27,0.6089479390911435,peripheral,2.0,1.0
+NPI1184817959,MANALI K KAMDAR,University of Colorado,5,5,0.40800000000000003,0.2386415217873872,2,5: Mass General Brigham group 59%; 3: Ohio State group 41%,multi-community mover,21.0,124,0.7396437455490996,connector,6.0,7.0
+NPI1902269335,FORAT G LUTFI,University of Kansas,2,4,0.40800000000000003,0.2386415217873872,2,4: Penn / Abramson group 59%; 2: Mayo Clinic group 41%,multi-community mover,5.0,54,0.7303120753482646,connector,2.0,1.0
+NPI1629044649,WALTER L LONGO,Medical College of Wisconsin,2,2,0.40800000000000003,0.362579831259067,2,2: Mayo Clinic group 59%; 3: Ohio State group 27%,data-thin mover,3.0,6,0.5507492826017643,peripheral,0.0,0.0
+NPI1568751238,NATALIE SOPHIA GROVER,UNC / Lineberger,13,13,0.404,0.42985241706323324,2,13: Baylor group 60%; 3: Ohio State group 17%,multi-community mover,22.0,102,0.8926539762318959,kinless,9.0,6.0
+NPI1326500091,MERYL COLTON,University of Colorado,5,5,0.404,0.23810428259139904,2,5: Mass General Brigham group 60%; 3: Ohio State group 40%,data-thin mover,2.0,3,0.0,ultra-peripheral,3.0,2.0
+NPI1033561808,GULRAYZ AHMED,Medical College of Wisconsin,2,2,0.4,0.36154827167967685,2,2: Mayo Clinic group 60%; 3: Ohio State group 26%,data-thin mover,4.0,13,0.6088069270936611,peripheral,5.0,5.0
+NPI1396275525,MENGYANG DI,Fred Hutch / UW,3,3,0.4,0.23754358930334854,2,3: Ohio State group 60%; 8: Fred Hutch / UW group 40%,data-thin mover,4.0,28,0.5915161878718032,peripheral,4.0,2.0
+NPI1639589567,MICHAEL ALEXANDER SPINNER,Stanford,7,7,0.4,0.3390401992411631,2,7: Stanford group 60%; 5: Mass General Brigham group 32%,data-thin mover,3.0,14,0.4757217096678191,peripheral,1.0,2.0
+NPI1982847588,SCOTT F HUNTINGTON,Yale,3,3,0.4,0.2612543554673583,2,3: Ohio State group 60%; 8: Fred Hutch / UW group 38%,data-thin mover,3.0,4,0.0,ultra-peripheral,7.0,7.0
+NPI1114142064,SAYED MEHDI HUSSAIN HAMADANI,Medical College of Wisconsin,2,2,0.396,0.3603520242623119,2,2: Mayo Clinic group 60%; 3: Ohio State group 26%,multi-community mover,58.0,186,0.8721087890970152,kinless,9.0,4.0
+NPI1639225121,RANJANA ADVANI,Stanford,7,7,0.396,0.32213598510662195,2,7: Stanford group 60%; 5: Mass General Brigham group 33%,multi-community mover,8.0,38,0.7269932943450865,connector,3.0,1.0
+NPI1790846848,JONATHAN S SERODY,UNC / Lineberger,13,13,0.396,0.4246473037144432,2,13: Baylor group 60%; 3: Ohio State group 17%,multi-community mover,6.0,11,0.5162920230576944,peripheral,0.0,0.0
+NPI1154563260,CHRISTOPHER DITTUS,UNC / Lineberger,13,13,0.396,0.4246473037144432,2,13: Baylor group 60%; 3: Ohio State group 17%,data-thin mover,4.0,8,0.08873254301960598,peripheral,1.0,0.0
+NPI1811473622,JAMES NOBLE KOCHENDERFER,National Cancer Institute,7,7,0.392,0.2658174497129455,2,7: Stanford group 61%; 1: Cleveland Clinic group 38%,data-thin mover,12.0,5,0.4342788209710956,peripheral,0.0,0.0
+NPI1235221524,PAUL M ARMISTEAD,UNC / Lineberger,13,13,0.392,0.42175266968066777,2,13: Baylor group 61%; 3: Ohio State group 17%,data-thin mover,2.0,4,0.30055401662049874,peripheral,7.0,6.0
+NPI1023332566,TRENT PENG WANG,Miami / Sylvester,2,2,0.376,0.3275186368026532,2,2: Mayo Clinic group 62%; 1: Cleveland Clinic group 28%,data-thin mover,4.0,70,0.8718814232278089,kinless,3.0,2.0
+NPI1760818959,TALHA BADAR,Mayo Clinic,2,2,0.372,0.35963659488846084,2,2: Mayo Clinic group 63%; 3: Ohio State group 23%,multi-community mover,6.0,54,0.7868961849989108,connector,4.0,4.0
+NPI1689767261,SIDDHARTHA GANGULY,Houston Methodist Hospital and Neal Cancer Center,2,2,0.36,0.3279750129344526,2,2: Mayo Clinic group 64%; 8: Fred Hutch / UW group 28%,multi-community mover,6.0,62,0.8914715637705846,kinless,3.0,1.0
+NPI1538360185,TERRY J FRY,University of Colorado,7,7,0.36,0.25789074168736864,2,7: Stanford group 64%; 1: Cleveland Clinic group 34%,multi-community mover,5.0,22,0.20829941509999994,peripheral,0.0,0.0
+NPI1982751053,DAVID BERNARD MIKLOS,Stanford,7,7,0.356,0.2298033646331336,2,7: Stanford group 64%; 1: Cleveland Clinic group 36%,multi-community mover,49.0,115,0.8017075192729106,kinless hub,9.0,6.0
+NPI1942493408,KITSADA WUDHIKARN,Chulalongkorn University,6,6,0.356,0.2298033646331336,2,6: Memorial Sloan Kettering group 64%; 2: Mayo Clinic group 36%,multi-community mover,14.0,84,0.7591884810401276,connector,0.0,0.0
+NPI1184943730,SAURABH DAHIYA,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,21.0,103,0.6685580074513537,connector,6.0,3.0
+NPI1285929232,MATTHEW JOSHUA FRANK,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,20.0,80,0.5234984382111458,peripheral,4.0,4.0
+NPI1003261660,CRYSTAL LEE MACKALL,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,14.0,29,0.15200378151138438,peripheral,1.0,0.0
+NPI1932551066,JAY YAAKOV SPIEGEL,Miami / Sylvester,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,14.0,58,0.6997045129522061,connector,3.0,2.0
+NPI1427256254,LORI SAMANTHA MUFFLY,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,11.0,22,0.10218901399761049,peripheral,5.0,1.0
+NPI1790915031,MELODY SMITH,Stanford,7,7,0.352,0.23667912928146975,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,11.0,61,0.7248593457071826,connector,4.0,3.0
+NPI1265745731,SUSHMA BHARADWAJ,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,8.0,19,0.0818180060778737,peripheral,4.0,3.0
+NPI1437470721,NASHEED MOHAMMAD HOSSAIN,Penn / Abramson,7,7,0.352,0.2474270846675171,2,7: Stanford group 65%; 1: Cleveland Clinic group 34%,multi-community mover,8.0,72,0.8026885982903198,kinless,0.0,0.0
+NPI1285791756,ROBERT STUART NEGRIN,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,6.0,21,0.019936312993058536,ultra-peripheral,2.0,1.0
+NPI1659428241,WEN-KAI WENG,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,6.0,26,0.206652589099785,peripheral,1.0,5.0
+NPI1669815874,SHYAM AJAY PATEL,UMass Memorial Medical Center,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,data-thin mover,6.0,2,0.0,ultra-peripheral,4.0,2.0
+NPI1972868644,SURBHI SIDANA,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,6.0,25,0.46108106688774675,peripheral,14.0,8.0
+NPI1982754784,PARVEEN SHIRAZ,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,multi-community mover,5.0,21,0.06222267834552064,peripheral,0.0,0.0
+NPI1083756308,ROBERT LOWSKY,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,data-thin mover,4.0,21,0.02135876430159045,ultra-peripheral,0.0,0.0
+NPI1508013517,EVERETT HURTEAU MEYER,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,data-thin mover,4.0,21,0.02135876430159045,ultra-peripheral,0.0,0.0
+NPI1609983485,ANDREW R REZVANI,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,data-thin mover,4.0,21,0.02135876430159045,ultra-peripheral,0.0,0.0
+NPI1649327016,LAURA JEAN JOHNSTON,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,data-thin mover,4.0,21,0.02135876430159045,ultra-peripheral,0.0,0.0
+NPI1811124357,ANKIT KANSAGRA,UT Southwestern Medical Center,7,7,0.352,0.297351881117394,2,7: Stanford group 65%; 1: Cleveland Clinic group 28%,data-thin mover,4.0,32,0.7915720221606649,connector,1.0,0.0
+NPI1881739530,SALLY ARAI,Stanford,7,7,0.352,0.22895414328616898,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,data-thin mover,4.0,21,0.02135876430159045,ultra-peripheral,2.0,1.0
+NPI1952662249,ENKHTSETSEG PUREV,University of Colorado,5,5,0.352,0.22895414328616898,2,5: Mass General Brigham group 65%; 3: Ohio State group 35%,data-thin mover,4.0,14,0.6638553411078923,connector,0.0,0.0
+NPI1891182465,ERIC KAM-CHUAN LAU,Stanford,7,7,0.348,0.2280801631123549,2,7: Stanford group 65%; 1: Cleveland Clinic group 35%,data-thin mover,2.0,17,0.0,ultra-peripheral,1.0,1.0
+NPI1083665814,PARAMESWARAN N HARI,Medical College of Wisconsin,3,3,0.344,0.3389266990538125,2,3: Ohio State group 66%; 2: Mayo Clinic group 22%,data-thin mover,4.0,4,0.508923259964307,peripheral,2.0,1.0
+NPI1710953732,PEIMAN HEMATTI,Medical College of Wisconsin,8,8,0.33599999999999997,0.3504328623863621,2,8: Fred Hutch / UW group 66%; 2: Mayo Clinic group 22%,multi-community mover,6.0,58,0.8992105319227455,kinless,0.0,0.0
+NPI1003942251,JUDITH ANNE SHIZURU,Stanford,7,7,0.33599999999999997,0.22530833525873806,2,7: Stanford group 66%; 1: Cleveland Clinic group 34%,data-thin mover,2.0,21,0.04465277507890231,ultra-peripheral,0.0,0.0
+NPI1801277348,AMAR KELKAR,Dana-Farber,2,2,0.33599999999999997,0.3695444196502516,2,2: Mayo Clinic group 66%; 5: Mass General Brigham group 17%,data-thin mover,2.0,14,0.7289496527777777,connector,2.0,0.0
+NPI1467412908,BALDEEP WIRK,Massey Comprehensive Cancer Center,8,8,0.33199999999999996,0.3067558396668118,2,8: Fred Hutch / UW group 67%; 2: Mayo Clinic group 26%,data-thin mover,2.0,19,0.8532485187890594,kinless,0.0,0.0
+NPI1245491257,NIRAV N SHAH,Medical College of Wisconsin,3,3,0.32799999999999996,0.3323703750928827,2,3: Ohio State group 67%; 2: Mayo Clinic group 20%,multi-community mover,22.0,85,0.7412839831478681,connector,15.0,10.0
+NPI1568816106,DAVID FRIEDMAN GOTTLIEB,Westmead Hospital,7,7,0.32399999999999995,0.22991592385556744,2,7: Stanford group 68%; 1: Cleveland Clinic group 32%,data-thin mover,4.0,9,0.10319878446062591,peripheral,12.0,15.0
+NPI1336303817,LELAND L METHENY,Seidman Cancer Center,8,8,0.32399999999999995,0.3425685085459416,2,8: Fred Hutch / UW group 68%; 2: Mayo Clinic group 21%,data-thin mover,2.0,17,0.7870512501888319,connector,4.0,3.0
+NPI1356309280,AARON PAUL RAPOPORT,Maryland / Greenebaum,7,7,0.31999999999999995,0.22125741391396894,2,7: Stanford group 68%; 1: Cleveland Clinic group 32%,multi-community mover,26.0,86,0.7512334212904491,connector,2.0,2.0
+NPI1881871879,JEAN YARED,Maryland / Greenebaum,7,7,0.31999999999999995,0.22125741391396894,2,7: Stanford group 68%; 1: Cleveland Clinic group 32%,multi-community mover,17.0,84,0.6569468790355537,connector,9.0,10.0
+NPI1437487717,NANCY MAUREEN HARDY,Maryland / Greenebaum,7,7,0.31999999999999995,0.22125741391396894,2,7: Stanford group 68%; 1: Cleveland Clinic group 32%,multi-community mover,10.0,13,0.09215925166237793,peripheral,3.0,5.0
+NPI1760724017,ALI ABBAS BUKHARI,Maryland / Greenebaum,7,7,0.31999999999999995,0.22125741391396894,2,7: Stanford group 68%; 1: Cleveland Clinic group 32%,multi-community mover,10.0,20,0.20017792382872568,peripheral,35.0,48.0
+NPI1114001138,MEHMET KOCOGLU,Maryland / Greenebaum,7,7,0.31999999999999995,0.22125741391396894,2,7: Stanford group 68%; 1: Cleveland Clinic group 32%,multi-community mover,8.0,11,0.07015705864203314,peripheral,3.0,6.0
+NPI1417384694,DJORDJE ATANACKOVIC,Maryland / Greenebaum,7,7,0.31999999999999995,0.22125741391396894,2,7: Stanford group 68%; 1: Cleveland Clinic group 32%,multi-community mover,7.0,12,0.13937021110824643,peripheral,0.0,0.0
+NPI1225296692,JENNIE Y LAW,Maryland / Greenebaum,7,7,0.31999999999999995,0.22125741391396894,2,7: Stanford group 68%; 1: Cleveland Clinic group 32%,multi-community mover,5.0,10,0.11725182810473733,peripheral,2.0,1.0
+NPI1467726828,BELINDA RENE AVALOS,Atrium / Levine,5,5,0.31999999999999995,0.35292039735280367,2,5: Mass General Brigham group 68%; 3: Ohio State group 20%,data-thin mover,2.0,6,0.2777777777777779,peripheral,0.0,0.0
+NPI1962417451,EDWARD ALAN COPELAN,Atrium / Levine,5,5,0.31999999999999995,0.35292039735280367,2,5: Mass General Brigham group 68%; 3: Ohio State group 20%,data-thin mover,2.0,6,0.2777777777777779,peripheral,1.0,1.0
+NPI1003935081,MATTHEW ALEXANDER LUNNING,University of Nebraska Medical Center,5,5,0.31599999999999995,0.240883706747557,2,5: Mass General Brigham group 68%; 1: Cleveland Clinic group 30%,multi-community mover,24.0,74,0.8752261988581487,kinless,18.0,16.0
+NPI1821038241,ASHRAF ZARIF BADROS,Maryland / Greenebaum,7,7,0.31200000000000006,0.21907688850526694,2,7: Stanford group 69%; 1: Cleveland Clinic group 31%,data-thin mover,2.0,5,0.0,ultra-peripheral,6.0,7.0
+NPI1518125517,DANIEL W. LEE,National Cancer Institute,7,7,0.30800000000000005,0.21794725266075712,2,7: Stanford group 69%; 1: Cleveland Clinic group 31%,data-thin mover,5.0,3,0.0,ultra-peripheral,0.0,0.0
+NPI1205035466,NILANJAN GHOSH,Atrium / Levine,5,5,0.29200000000000004,0.3287724487535601,2,5: Mass General Brigham group 71%; 3: Ohio State group 20%,multi-community mover,20.0,100,0.84647241348271,kinless,12.0,10.0
+NPI1083020440,ALEX NIU,Roswell Park,2,2,0.29200000000000004,0.23352391141658674,2,2: Mayo Clinic group 71%; 3: Ohio State group 28%,data-thin mover,2.0,23,0.7836111111111109,connector,6.0,4.0
+NPI1245568633,GERHARD CARL HILDEBRANDT,University of Missouri,1,1,0.28,0.3665061522408541,1,1: Cleveland Clinic group 72%,data-thin mover,2.0,35,0.7941257584114729,connector,7.0,9.0
+NPI1619397692,AMY MOSKOP,Medical College of Wisconsin,4,4,0.256,0.29362336916925413,2,4: Penn / Abramson group 74%; 8: Fred Hutch / UW group 16%,multi-community mover,5.0,57,0.8848000115305245,kinless,1.0,3.0
+NPI1780032664,KIRK EDWARD CAHILL,University of Chicago,5,5,0.252,0.29643170593987384,1,5: Mass General Brigham group 75%,data-thin mover,3.0,11,0.6046863189720333,peripheral,0.0,0.0
+NPI1942424528,FARRUKH T AWAN,Harold C. Simmons Comprehensive Cancer Center,2,2,0.244,0.2849634249128853,1,2: Mayo Clinic group 76%,diffuse mover,11.0,102,0.8501772974376378,kinless,5.0,5.0
+NPI1548475650,NATHAN H. FOWLER,Other / unresolved,4,4,0.244,0.19611899428066645,2,4: Penn / Abramson group 76%; 9: MD Anderson group 24%,multi-community mover,10.0,24,0.6914836413258594,connector,1.0,1.0
+NPI1700863677,JOHN E GODWIN,Oncology Hematology Clinic,1,1,0.236,0.3115700275356968,1,1: Cleveland Clinic group 76%,data-thin mover,3.0,15,0.6181422932438358,peripheral,1.0,1.0
+NPI1043308380,DAANISH HODA,Intermountain Health,1,1,0.23199999999999998,0.30273922531524294,1,1: Cleveland Clinic group 77%,diffuse mover,6.0,26,0.6232108545847795,connector,3.0,2.0
+NPI1265425078,JAMES H ESSELL,Other / unresolved,1,1,0.23199999999999998,0.30273922531524294,1,1: Cleveland Clinic group 77%,diffuse mover,5.0,33,0.6471200258056947,connector,12.0,11.0
+NPI1568664480,SUZANNE REIM FANNING,Prisma Health Greenville,1,1,0.23199999999999998,0.30273922531524294,1,1: Cleveland Clinic group 77%,data-thin mover,4.0,25,0.5181572664486728,peripheral,19.0,25.0
+NPI1144330416,NEEL KAMAL GUPTA,Stanford,1,1,0.23199999999999998,0.30273922531524294,1,1: Cleveland Clinic group 77%,data-thin mover,2.0,14,0.5473372781065089,peripheral,3.0,3.0
+NPI1538139548,EDWARD J LICITRA,Other / unresolved,1,1,0.23199999999999998,0.30273922531524294,1,1: Cleveland Clinic group 77%,data-thin mover,2.0,14,0.5473372781065089,peripheral,5.0,3.0
+NPI1639259062,CATHERINE BOLLARD,WashU / Siteman,13,13,0.21999999999999997,0.3121364777786375,1,13: Baylor group 78%,diffuse mover,5.0,28,0.8696586938994894,kinless,3.0,2.0
+NPI1124840343,REMY HADRIEN EMMANUEL DULERY,Dana-Farber,8,8,0.21199999999999997,0.23210256095235954,2,8: Fred Hutch / UW group 79%; 2: Mayo Clinic group 15%,data-thin mover,5.0,4,0.75,connector,0.0,0.0
+NPI1053395624,MICHAEL BRIAN MARIS,Presbyterian/St Luke's Medical Center,1,1,0.21199999999999997,0.2809876279801877,1,1: Cleveland Clinic group 79%,data-thin mover,2.0,9,0.5203232303622995,peripheral,5.0,9.0
+NPI1215153226,SONALI SMITH,University of Chicago,5,5,0.20799999999999996,0.2613096622115779,1,5: Mass General Brigham group 79%,diffuse mover,10.0,44,0.7082384848789769,connector,2.0,1.0
+NPI1043659857,YASMIN H KARIMI,University of Michigan,12,12,0.20799999999999996,0.19243296738166424,2,12: City of Hope group 79%; 3: Ohio State group 20%,multi-community mover,6.0,34,0.8002243736071016,kinless,5.0,3.0
+NPI1508928607,NABIL M AHMED,Baylor,13,13,0.20799999999999996,0.2928886264242495,1,13: Baylor group 79%,data-thin mover,2.0,4,0.3653260695401377,peripheral,1.0,1.0
+NPI1780026567,THEODORA ANAGNOSTOU,Memorial Sloan Kettering,6,6,0.19999999999999996,0.1766200997845713,2,6: Memorial Sloan Kettering group 80%; 2: Mayo Clinic group 20%,data-thin mover,4.0,13,0.4981150151974937,peripheral,5.0,4.0
+NPI1114362795,NATHAN AMAR SINGH,WashU / Siteman,4,4,0.19199999999999995,0.1726343783089471,2,4: Penn / Abramson group 81%; 3: Ohio State group 19%,data-thin mover,3.0,23,0.7248263888888888,connector,0.0,0.0
+NPI1295081511,SAMI IBRAHIMI,University of Oklahoma Stephenson Cancer Center,5,5,0.18799999999999994,0.19974601873147807,2,5: Mass General Brigham group 81%; 3: Ohio State group 16%,data-thin mover,4.0,8,0.550711843804158,peripheral,6.0,6.0
+NPI1477559359,FRANCISCO HERNANDEZ-ILIZALITURRI,Roswell Park,5,5,0.18799999999999994,0.19974601873147807,2,5: Mass General Brigham group 81%; 3: Ohio State group 16%,data-thin mover,4.0,26,0.7127040431737959,connector,9.0,8.0
+NPI1972746394,LORI ANN LESLIE,Hackensack / Theurer,1,1,0.16800000000000004,0.15978349834786096,2,1: Cleveland Clinic group 83%; 6: Memorial Sloan Kettering group 17%,multi-community mover,16.0,86,0.7757726592385072,connector,8.0,8.0
+NPI1912087271,HELEN HESLOP,Baylor,13,13,0.16800000000000004,0.24452412996276968,1,13: Baylor group 83%,diffuse mover,11.0,32,0.39350715454920004,peripheral,1.0,0.0
+NPI1023343357,PREMAL DILIP LULLA,Baylor,13,13,0.16800000000000004,0.24452412996276968,1,13: Baylor group 83%,diffuse mover,10.0,38,0.5537866962690672,peripheral,1.0,1.0
+NPI1619162906,CARLOS ALMEIDA RAMOS,Baylor,13,13,0.16800000000000004,0.24452412996276968,1,13: Baylor group 83%,diffuse mover,10.0,11,0.26084895752184944,peripheral,0.0,0.0
+NPI1629158050,MALCOLM BRENNER,Baylor,13,13,0.16800000000000004,0.24452412996276968,1,13: Baylor group 83%,data-thin mover,6.0,8,0.0770636653098642,peripheral,1.0,0.0
+NPI1992892079,JOHN P LEONARD,Weill Cornell,9,9,0.16800000000000004,0.1914510955460152,1,9: MD Anderson group 83%,diffuse mover,5.0,27,0.7449810907648131,connector,7.0,5.0
+NPI1487769733,ALEXEY DANILOV,City of Hope,12,12,0.16400000000000003,0.15750443404353232,2,12: City of Hope group 84%; 3: Ohio State group 16%,multi-community mover,12.0,51,0.5681300967883087,peripheral,13.0,12.0
+NPI1033491642,BHAGIRATHBHAI RAVJIBHAI DHOLARIA,Vanderbilt,1,1,0.16000000000000003,0.18640490030226878,1,1: Cleveland Clinic group 84%,diffuse mover,12.0,86,0.7654982681929686,connector,6.0,3.0
+NPI1285681627,AMER M. BEITINJANEH,Miami / Sylvester,2,2,0.16000000000000003,0.1915305187357056,1,2: Mayo Clinic group 84%,diffuse mover,12.0,113,0.8717828483568312,kinless,3.0,2.0
+NPI1801086665,BIPIN N SAVANI,Veterans Affairs Tennessee Valley Healthcare System,1,1,0.15600000000000003,0.17044983556900292,1,1: Cleveland Clinic group 84%,diffuse mover,13.0,74,0.7680531025662909,connector,2.0,2.0
+NPI1336164342,ERNESTO AYALA,Mayo Clinic,2,2,0.15600000000000003,0.15282189649450925,2,2: Mayo Clinic group 84%; 11: Moffitt group 16%,multi-community mover,6.0,60,0.6635520421618618,connector,0.0,0.0
+NPI1740716158,VIVEK PATEL,Vanderbilt,4,4,0.15600000000000003,0.15938777003059165,2,4: Penn / Abramson group 84%; 1: Cleveland Clinic group 15%,data-thin mover,4.0,47,0.7248714981409243,connector,4.0,4.0
+NPI1104276336,SHAKTHI TAPASYA BHASKAR,Vanderbilt,4,4,0.15600000000000003,0.16775389668548688,1,4: Penn / Abramson group 84%,data-thin mover,3.0,29,0.7667233560090703,connector,0.0,0.0
+NPI1619024429,SALYKA SENGSAYADETH,Veterans Affairs Tennessee Valley Healthcare System,1,1,0.15600000000000003,0.18061621637854236,1,1: Cleveland Clinic group 84%,data-thin mover,3.0,8,0.25281344740559664,peripheral,0.0,0.0
+NPI1730295742,ADETOLA A KASSIM,Vanderbilt,1,1,0.15600000000000003,0.18061621637854236,1,1: Cleveland Clinic group 84%,data-thin mover,3.0,8,0.31055206871133534,peripheral,5.0,3.0
+NPI1104244458,EDEN BILTIBO,Vanderbilt,1,1,0.15600000000000003,0.18061621637854236,1,1: Cleveland Clinic group 84%,data-thin mover,2.0,8,0.4657066934788855,peripheral,1.0,1.0
+NPI1427493998,JOHN BAIRD,City of Hope,12,12,0.15200000000000002,0.2016588703315296,1,12: City of Hope group 85%,diffuse mover,14.0,72,0.6838794499271029,connector,3.0,2.0
+NPI1568721116,GEOFFREY SHOUSE,City of Hope,12,12,0.14800000000000002,0.14796772805195177,1,12: City of Hope group 85%,diffuse mover,19.0,86,0.6521698094618641,connector,7.0,6.0
+NPI1598850265,KRISHNA V. KOMANDURI,UCSF,2,2,0.14800000000000002,0.2293483966641068,1,2: Mayo Clinic group 85%,data-thin mover,4.0,49,0.8757239750038104,kinless,4.0,1.0
+NPI1609396753,ANDREW PHILIP JALLOUK,Vanderbilt,9,9,0.14800000000000002,0.15895240913276,1,9: MD Anderson group 85%,data-thin mover,4.0,21,0.5599222562049825,peripheral,2.0,1.0
+NPI1275761553,ALEX HERRERA,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,diffuse mover,38.0,142,0.8307737186592759,kinless,6.0,5.0
+NPI1467408948,TANYA SIDDIQI,City of Hope,12,12,0.14400000000000002,0.17456394750547385,1,12: City of Hope group 86%,diffuse mover,26.0,77,0.8308322230344065,kinless,4.0,2.0
+NPI1124030028,LIHUA ELIZABETH BUDDE,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,diffuse mover,16.0,77,0.6206005941285611,connector,12.0,9.0
+NPI1104069269,MATTHEW GENYEH MEI,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,diffuse mover,15.0,59,0.3156701376443448,peripheral,6.0,6.0
+NPI1184731135,STEPHEN FORMAN,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,diffuse mover,14.0,26,0.1593978113539155,peripheral,2.0,2.0
+NPI1285054940,SWETHA K. THIRUVENGADAM,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,diffuse mover,11.0,45,0.5352590134150184,peripheral,2.0,1.0
+NPI1457310450,LESLIE L POPPLEWELL,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,diffuse mover,11.0,30,0.3546698017845481,peripheral,9.0,11.0
+NPI1235491598,JAMES GODFREY,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,diffuse mover,8.0,52,0.6906322076417722,connector,1.0,1.0
+NPI1134215817,LARRY W. KWAK,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,diffuse mover,7.0,16,0.0,ultra-peripheral,1.0,1.0
+NPI1245598101,PRIYANKA A POPHALI,University of Wisconsin,3,3,0.14400000000000002,0.15192527639968756,1,3: Ohio State group 86%,diffuse mover,6.0,62,0.8054436115757232,kinless,2.0,0.0
+NPI1043327075,JASMINE ZAIN,City of Hope,12,12,0.14400000000000002,0.16637924813183644,1,12: City of Hope group 86%,diffuse mover,5.0,22,0.5165656389204296,peripheral,4.0,4.0
+NPI1811968126,STEVEN T. ROSEN,City of Hope,12,12,0.14400000000000002,0.14547394488682874,1,12: City of Hope group 86%,data-thin mover,3.0,15,0.0,ultra-peripheral,4.0,4.0
+NPI1700124914,LIANA NIKOLAENKO,City of Hope,12,12,0.14,0.14293434199493285,1,12: City of Hope group 86%,data-thin mover,4.0,12,0.0,ultra-peripheral,0.0,0.0
+NPI1336240332,MICHAEL VERNERIS,University of Colorado,4,4,0.14,0.1881439312471721,1,4: Penn / Abramson group 86%,data-thin mover,2.0,2,0.0,ultra-peripheral,5.0,4.0
+NPI1861692485,IBRAHIM TAHA ALDOSS,City of Hope,12,12,0.14,0.14293434199493285,1,12: City of Hope group 86%,data-thin mover,2.0,8,0.0,ultra-peripheral,13.0,14.0
+NPI1568607653,TYCEL JOVELLE PHILLIPS,City of Hope,12,12,0.136,0.15108675155660634,1,12: City of Hope group 86%,diffuse mover,8.0,18,0.04135173159467587,ultra-peripheral,17.0,12.0
+NPI1295229458,JONATHAN MARTIN WEISS,University of Michigan,12,12,0.136,0.15108675155660634,1,12: City of Hope group 86%,data-thin mover,3.0,3,0.08677685950413239,peripheral,2.0,1.0
+NPI1912024910,AHMED ARIBI,City of Hope,12,12,0.136,0.14034782912113805,1,12: City of Hope group 86%,data-thin mover,2.0,12,0.0,ultra-peripheral,1.0,2.0
+NPI1124307327,AVYAKTA KALLAM,City of Hope,12,12,0.132,0.1377132497607672,1,12: City of Hope group 87%,data-thin mover,2.0,13,0.0,ultra-peripheral,3.0,2.0
+NPI1447665906,LUKE J MOUNTJOY,Presbyterian/St Luke's Medical Center,2,2,0.124,0.16511817882992041,1,2: Mayo Clinic group 88%,data-thin mover,2.0,5,0.2524005486968448,peripheral,4.0,6.0
+NPI1336776145,FABIANA PERNA,Moffitt,11,11,0.12,0.1580519167468534,1,11: Moffitt group 88%,data-thin mover,3.0,16,0.6849586776859504,connector,1.0,1.0
+NPI1366737231,CASPIAN OLIAI,UCLA,4,4,0.11599999999999999,0.1402858359170622,1,4: Penn / Abramson group 88%,data-thin mover,4.0,36,0.7622219543794155,connector,4.0,7.0
+NPI1013235753,JUAN CARLOS VARELA,Advent Health,5,5,0.11199999999999999,0.16840677184243133,1,5: Mass General Brigham group 89%,data-thin mover,2.0,7,0.697265625,connector,5.0,3.0
+NPI1972791895,MURALI JANAKIRAM,City of Hope,4,4,0.10799999999999998,0.13411880306845708,1,4: Penn / Abramson group 89%,diffuse mover,5.0,17,0.5540085453747401,peripheral,8.0,7.0
+NPI1053402503,CRAIG H MOSKOWITZ,Miami / Sylvester,6,6,0.10799999999999998,0.14849103589830528,1,6: Memorial Sloan Kettering group 89%,data-thin mover,4.0,12,0.692773228907084,connector,3.0,3.0
+NPI1053461517,NOAH SAUL KORNBLUM,Montefiore Medical Center,4,4,0.10799999999999998,0.13411880306845708,1,4: Penn / Abramson group 89%,data-thin mover,4.0,2,0.0,ultra-peripheral,2.0,2.0
+NPI1295815793,JOAN M UEHLINGER,Montefiore Medical Center/Albert Einstein College of Medicin,4,4,0.10799999999999998,0.13411880306845708,1,4: Penn / Abramson group 89%,data-thin mover,3.0,2,0.0,ultra-peripheral,0.0,0.0
+NPI1881850626,ALISON MOSKOWITZ,Memorial Sloan Kettering,6,6,0.10399999999999998,0.13363462758089317,1,6: Memorial Sloan Kettering group 90%,data-thin mover,3.0,18,0.5740616549486208,peripheral,5.0,3.0
+NPI1992703862,BRUCE DAVID CHESON,Other / unresolved,6,6,0.10399999999999998,0.11781111229979921,1,6: Memorial Sloan Kettering group 90%,data-thin mover,2.0,2,0.5,peripheral,15.0,15.0
+NPI1578528089,TATYANA A FELDMAN,Hackensack / Theurer,1,1,0.09199999999999997,0.14423973825305902,1,1: Cleveland Clinic group 91%,anchored,8.0,46,0.7789402260358034,connector,8.0,12.0
+NPI1467436915,ADAM JAN OLSZEWSKI,Brown University Health,3,3,0.09199999999999997,0.10840723829287342,1,3: Ohio State group 91%,anchored,5.0,19,0.3239458294859958,peripheral,5.0,4.0
+NPI1316112634,MICHAEL THOMAS BYRNE,Vanderbilt,1,1,0.09199999999999997,0.1236767232497481,1,1: Cleveland Clinic group 91%,anchored,2.0,27,0.6521527055150884,connector,6.0,6.0
+NPI1164862652,HAMZA HASHMI,Medical University of South Carolina,3,3,0.08799999999999997,0.13876436066215647,1,3: Ohio State group 91%,anchored,6.0,34,0.7546252772428147,connector,8.0,9.0
+NPI1184044570,RAHUL BANERJEE,Fred Hutch / UW,8,8,0.08399999999999996,0.11623986810725942,1,8: Fred Hutch / UW group 92%,anchored,4.0,30,0.8275070373799439,kinless,11.0,10.0
+NPI1003470568,NUTTAVUT SUMRANSUB,University of Minnesota,3,3,0.08399999999999996,0.10747972134222786,1,3: Ohio State group 92%,anchored,2.0,22,0.7770507268735748,connector,0.0,0.0
+NPI1811341977,ABU-SAYEEF MIRZA,Moffitt,11,11,0.07999999999999996,0.13648915218157587,1,11: Moffitt group 92%,anchored,5.0,63,0.8742416011442757,kinless,2.0,0.0
+NPI1003347097,ALLISON BOCK,Huntsman,2,2,0.07999999999999996,0.09839335691165518,1,2: Mayo Clinic group 92%,anchored,3.0,16,0.47743055555555525,peripheral,5.0,6.0
+NPI1073695128,PAUL ANDREW CARPENTER,Fred Hutch / UW,2,2,0.07999999999999996,0.14040356085546749,1,2: Mayo Clinic group 92%,anchored,2.0,27,0.7615289256198348,connector,2.0,2.0
+NPI1215997085,HENRY FUNG,Temple University,1,1,0.07999999999999996,0.12299110271648496,1,1: Cleveland Clinic group 92%,anchored,2.0,28,0.8032336642695626,kinless,9.0,11.0
+NPI1871734038,CATHERINE JOY LEE,Fred Hutch / UW,3,3,0.07999999999999996,0.11739684405592306,1,3: Ohio State group 92%,anchored,2.0,31,0.7279505284855929,connector,5.0,5.0
+NPI1982090288,JENNIFER MARILYN LOGUE,Moffitt,11,11,0.07999999999999996,0.11569863902174225,1,11: Moffitt group 92%,anchored,2.0,38,0.6840227839088643,connector,6.0,5.0
+NPI1770845661,PASHNA N MUNSHI,Penn / Abramson,8,8,0.07599999999999996,0.10588981820718608,1,8: Fred Hutch / UW group 92%,anchored,8.0,47,0.8147929394958696,kinless,7.0,2.0
+NPI1154392140,ARIELA NOY,Memorial Sloan Kettering,6,6,0.07599999999999996,0.0949062277599256,1,6: Memorial Sloan Kettering group 92%,anchored,2.0,38,0.7480532695120856,connector,3.0,1.0
+NPI1942338629,CARLA CASULO,University of Rochester Medical Center,1,1,0.07199999999999995,0.11568415461595229,1,1: Cleveland Clinic group 93%,anchored,11.0,46,0.6960738377246181,connector,3.0,4.0
+NPI1730106295,JOHN F DIPERSIO,WashU / Siteman,1,1,0.07199999999999995,0.11133095930778805,1,1: Cleveland Clinic group 93%,anchored,6.0,37,0.8446355804829674,kinless,5.0,5.0
+NPI1114160082,RYAN WAYNE JACOBS,Atrium / Levine,5,5,0.07199999999999995,0.11850041562709557,1,5: Mass General Brigham group 93%,anchored,4.0,35,0.5267304030250486,peripheral,14.0,13.0
+NPI1982058293,DANIELLE SCHENONE WALLACE,Wilmot Cancer Institute,1,1,0.07199999999999995,0.11568415461595229,1,1: Cleveland Clinic group 93%,anchored,3.0,2,0.0,ultra-peripheral,0.0,0.0
+NPI1922284942,SAAD J KENDERIAN,Mayo Clinic,2,2,0.07199999999999995,0.10020346045724829,1,2: Mayo Clinic group 93%,anchored,2.0,11,0.3611834319526628,peripheral,1.0,0.0
+NPI1922593011,PATRIZIA MONDELLO,Mayo Clinic,2,2,0.07199999999999995,0.09133864589840508,1,2: Mayo Clinic group 93%,anchored,2.0,16,0.3279548079023751,peripheral,0.0,0.0
+NPI1811969272,JOSEPH PATRICK MCGUIRK,University of Kansas,4,4,0.06799999999999995,0.09305596469421269,1,4: Penn / Abramson group 93%,anchored,27.0,115,0.8263288562267643,kinless,2.0,2.0
+NPI1154610467,KIERON DUNLEAVY,Lombardi Comprehensive Cancer Center,9,9,0.06799999999999995,0.11257138965443553,1,9: MD Anderson group 93%,anchored,7.0,10,0.42763899702005437,peripheral,9.0,9.0
+NPI1174837850,FOLASHADE OTEGBEYE,Fred Hutch / UW,8,8,0.06799999999999995,0.11726548148443008,1,8: Fred Hutch / UW group 93%,anchored,2.0,16,0.32717972670467854,peripheral,0.0,0.0
+NPI1275162000,COEN JOHANNES GERARDUS LAP,Lombardi Comprehensive Cancer Center,9,9,0.06799999999999995,0.11257138965443553,1,9: MD Anderson group 93%,anchored,2.0,1,0.0,ultra-peripheral,0.0,0.0
+NPI1831109461,GREGORY A YANIK,University of Michigan,4,4,0.06799999999999995,0.08768650347647854,1,4: Penn / Abramson group 93%,anchored,2.0,8,0.47417355371900816,peripheral,1.0,0.0
+NPI1285880021,JONATHAN HARRY SCHATZ,Miami / Sylvester,3,3,0.06399999999999995,0.09982357587963726,1,3: Ohio State group 94%,anchored,5.0,26,0.6055819449010617,peripheral,2.0,4.0
+NPI1831619063,EREL JOFFE,Tel Aviv Sourasky Medical Center,6,6,0.06399999999999995,0.08394520524303051,1,6: Memorial Sloan Kettering group 94%,anchored,3.0,18,0.2742364435486132,peripheral,0.0,0.0
+NPI1144462441,JOHN NATHAN ALLAN,Weill Cornell,5,5,0.06399999999999995,0.10347898525076389,1,5: Mass General Brigham group 94%,anchored,2.0,6,0.7500000000000001,connector,11.0,15.0
+NPI1942361209,RAJAT BANNERJI,Rutgers Cancer Institute of New Jersey,5,5,0.06399999999999995,0.10347898525076389,1,5: Mass General Brigham group 94%,anchored,2.0,5,0.72,connector,0.0,0.0
+NPI1851491195,MARCOS JOSE GARCIA DE LIMA,Ohio State,3,3,0.06000000000000005,0.10700542364860723,1,3: Ohio State group 94%,anchored,6.0,20,0.46085111894754993,peripheral,2.0,2.0
+NPI1154477834,THEODORE WILLIS LAETSCH,Penn / Abramson,4,4,0.06000000000000005,0.09239065364944739,1,4: Penn / Abramson group 94%,anchored,4.0,17,0.48700605197579205,peripheral,3.0,2.0
+NPI1447705678,ASAAD TRABOLSI,Miami / Sylvester,3,3,0.06000000000000005,0.0971216733982731,1,3: Ohio State group 94%,anchored,4.0,27,0.539536790279469,peripheral,7.0,15.0
+NPI1992912224,MERAV BAR,Fred Hutch / UW,8,8,0.06000000000000005,0.08010957698500132,1,8: Fred Hutch / UW group 94%,anchored,3.0,35,0.783757157765691,connector,0.0,0.0
+NPI1619325404,OTHMAN SALIM AKHTAR,Medical College of Wisconsin,2,2,0.06000000000000005,0.09817887245148875,1,2: Mayo Clinic group 94%,anchored,2.0,34,0.6531494229077168,connector,1.0,1.0
+NPI1548450984,USAMA GERGIS,Thomas Jefferson University,2,2,0.052000000000000046,0.08204576382150156,1,2: Mayo Clinic group 95%,anchored,7.0,52,0.699114581088486,connector,8.0,7.0
+NPI1023403201,MUHAMAD ALHAJ MOUSTAFA,Mayo Clinic,2,2,0.052000000000000046,0.09106777214983022,1,2: Mayo Clinic group 95%,anchored,4.0,46,0.7993100485919084,connector,7.0,8.0
+NPI1669674271,SAMANTHA MARY JAGLOWSKI,Medical College of Wisconsin,3,3,0.04800000000000004,0.06797360239079735,1,3: Ohio State group 95%,anchored,8.0,49,0.6870749958720291,connector,2.0,1.0
+NPI1619269487,SARAH JORDAN NAGLE,OHSU / Knight,4,4,0.04800000000000004,0.07948042267172933,1,4: Penn / Abramson group 95%,anchored,4.0,20,0.6849572002545009,connector,0.0,0.0
+NPI1952051732,DONGNI YI,Mayo Clinic,2,2,0.040000000000000036,0.06386651645893159,1,2: Mayo Clinic group 96%,anchored,3.0,1,0.0,ultra-peripheral,0.0,0.0
+NPI1891832630,SHAHRUKH K HASHMI,Mayo Clinic,2,2,0.03600000000000003,0.0708896877574471,1,2: Mayo Clinic group 96%,anchored,5.0,54,0.7537590213776508,connector,0.0,0.0
+NPI1356543169,FAIZ ANWER,Cleveland Clinic,1,1,0.03600000000000003,0.05471405445635065,1,1: Cleveland Clinic group 96%,anchored,4.0,11,0.20099664310585663,peripheral,3.0,2.0
+NPI1649613126,ALLISON MARIE WINTER,Cleveland Clinic,1,1,0.03600000000000003,0.05471405445635065,1,1: Cleveland Clinic group 96%,anchored,4.0,46,0.6487425096266054,connector,8.0,6.0
+NPI1669813978,TALAL HILAL,Mayo Clinic,2,2,0.03600000000000003,0.07015095321087683,1,2: Mayo Clinic group 96%,anchored,4.0,22,0.4304113039953624,peripheral,3.0,3.0
+NPI1235293572,BETTY KY HAMILTON,Cleveland Clinic,1,1,0.03600000000000003,0.05471405445635065,1,1: Cleveland Clinic group 96%,anchored,3.0,13,0.4651255361283325,peripheral,2.0,0.0
+NPI1306800735,ROBERT M DEAN,Cleveland Clinic,1,1,0.03600000000000003,0.05471405445635065,1,1: Cleveland Clinic group 96%,anchored,3.0,11,0.1534589688429463,peripheral,1.0,1.0
+NPI1467417055,BRAD L POHLMAN,Cleveland Clinic,1,1,0.03600000000000003,0.05471405445635065,1,1: Cleveland Clinic group 96%,anchored,3.0,10,0.07986111111111127,peripheral,0.0,0.0
+NPI1023075835,RONALD M SOBECKS,Cleveland Clinic,1,1,0.03600000000000003,0.05471405445635065,1,1: Cleveland Clinic group 96%,anchored,2.0,10,0.09280190362879215,peripheral,0.0,0.0
+NPI1851739668,JACK JAWDAT KHOURI,Cleveland Clinic,1,1,0.03600000000000003,0.05471405445635065,1,1: Cleveland Clinic group 96%,anchored,2.0,10,0.0928019036287927,peripheral,7.0,8.0
+NPI1922254937,AARON T GERDS,Cleveland Clinic,1,1,0.03600000000000003,0.05471405445635065,1,1: Cleveland Clinic group 96%,anchored,2.0,10,0.0928019036287927,peripheral,7.0,2.0
+NPI1750584140,ALISON SEHGAL,UPMC Hillman Cancer Center,1,1,0.03200000000000003,0.06368857188207423,1,1: Cleveland Clinic group 97%,anchored,13.0,60,0.7878962114655593,connector,0.0,0.0
+NPI1174846158,JOSE DAVID SANDOVAL-SUS,Moffitt,11,11,0.03200000000000003,0.05781695887123681,1,11: Moffitt group 97%,anchored,10.0,51,0.6308690929243403,connector,8.0,6.0
+NPI1720442643,DAI CHIHARA,MD Anderson,9,9,0.03200000000000003,0.05424360826601269,1,9: MD Anderson group 97%,anchored,10.0,32,0.4964479864472494,peripheral,7.0,2.0
+NPI1053342154,NAVNEET SINGH MAJHAIL,TriStar Centennial Medical Center,1,1,0.03200000000000003,0.049988141523453565,1,1: Cleveland Clinic group 97%,anchored,8.0,37,0.4924799150188064,peripheral,5.0,1.0
+NPI1033508304,AUNG TUN,University of Kansas,2,2,0.03200000000000003,0.049988141523453565,1,2: Mayo Clinic group 97%,anchored,4.0,28,0.48139603324099756,peripheral,2.0,1.0
+NPI1417471749,KHUSHALI SHAILESHBHAI JHAVERI,Moffitt,11,11,0.03200000000000003,0.05781695887123681,1,11: Moffitt group 97%,anchored,4.0,15,0.27058911218087955,peripheral,1.0,5.0
+NPI1972170454,RAZAN MOHTY,Moffitt,2,2,0.028000000000000025,0.04507945405157261,1,2: Mayo Clinic group 97%,anchored,7.0,37,0.5558808559808148,peripheral,0.0,0.0
+NPI1114950888,TINA M ALBERTSON,Other / unresolved,5,5,0.028000000000000025,0.04507945405157261,1,5: Mass General Brigham group 97%,anchored,3.0,12,0.6654594839293799,connector,0.0,0.0
+NPI1336166230,MOHAMED A KHARFAN DABAJA,Mayo Clinic,2,2,0.02400000000000002,0.03996257569241548,1,2: Mayo Clinic group 98%,anchored,51.0,163,0.7028628851801371,connector hub,3.0,2.0
+NPI1649687518,MADIHA IQBAL,Mayo Clinic,2,2,0.02400000000000002,0.03996257569241548,1,2: Mayo Clinic group 98%,anchored,22.0,117,0.6780341787265078,connector,4.0,2.0
+NPI1821028499,LEO GORDON,Northwestern / Lurie,3,3,0.02400000000000002,0.05122606647028504,1,3: Ohio State group 98%,anchored,17.0,53,0.7634444697767124,connector,3.0,4.0
+NPI1255351920,HILLARD M LAZARUS,Case Western Reserve University,6,6,0.02400000000000002,0.03996257569241548,1,6: Memorial Sloan Kettering group 98%,anchored,4.0,27,0.5637405482041589,peripheral,5.0,6.0
+NPI1518129121,FREDERICK LUNDRY LOCKE,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,107.0,191,0.8351963151251581,kinless,8.0,3.0
+NPI1750543948,JULIO C CHAVEZ,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,65.0,149,0.7138339139369776,connector,10.0,7.0
+NPI1982139655,MICHAEL DAVID JAIN,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,61.0,146,0.6793078160086918,connector,6.0,3.0
+NPI1508023714,BIJAL SHAH,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,28.0,49,0.30207623449596255,peripheral,15.0,12.0
+NPI1437325784,ALEKSANDR LAZARYAN,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,22.0,74,0.43507723213394256,peripheral,2.0,2.0
+NPI1376792911,FARHAD KHIMANI,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,18.0,57,0.40667277932112866,peripheral,2.0,1.0
+NPI1497963979,TAIGA NISHIHORI,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,18.0,47,0.22439682620908563,peripheral,1.0,1.0
+NPI1518129188,HEMANT SREENIVASA MURTHY,Mayo Clinic,2,2,0.020000000000000018,0.03460350541035244,1,2: Mayo Clinic group 98%,anchored,18.0,66,0.37653483405488575,peripheral,10.0,7.0
+NPI1326204322,MARCO LUIS DAVILA,Roswell Park,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,16.0,34,0.2666601880519497,peripheral,6.0,5.0
+NPI1487736856,JAVIER A PINILLA-IBARZ,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,11.0,25,0.21987679742966548,peripheral,10.0,9.0
+NPI1972879955,RAWAN FARAMAND,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,9.0,18,0.10879696076331069,peripheral,2.0,3.0
+NPI1730740556,PAOLA GHIONE,Memorial Sloan Kettering,6,6,0.020000000000000018,0.042050316079935486,1,6: Memorial Sloan Kettering group 98%,anchored,8.0,18,0.6814501662440257,connector,5.0,5.0
+NPI1841491461,HIEN DUONG LIU,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,8.0,16,0.17107446142196192,peripheral,2.0,1.0
+NPI1235556382,BRADLEY HUNTER,Intermountain LDS Hospital,5,5,0.020000000000000018,0.03813590740604386,1,5: Mass General Brigham group 98%,anchored,7.0,26,0.49262898676490463,peripheral,11.0,8.0
+NPI1568659431,RAN RESHEF,Columbia University Herbert Irving Comprehensive Cancer Cent,1,1,0.020000000000000018,0.04131158153336522,1,1: Cleveland Clinic group 98%,anchored,7.0,19,0.6833338112228775,connector,1.0,1.0
+NPI1851508048,SARAH NIKIFOROW,Dana-Farber,5,5,0.020000000000000018,0.03813590740604387,1,5: Mass General Brigham group 98%,anchored,6.0,35,0.8261974521754348,kinless,1.0,1.0
+NPI1811314354,ZACHARY DREW EPSTEIN-PETERSON,Memorial Sloan Kettering,6,6,0.020000000000000018,0.03460350541035244,1,6: Memorial Sloan Kettering group 98%,anchored,5.0,38,0.46877293143992216,peripheral,0.0,0.0
+NPI1487132205,ADITI SAHA,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,4.0,25,0.34966400515770646,peripheral,1.0,1.0
+NPI1033529896,EMILY CASE AYERS,University of Virginia,3,3,0.020000000000000018,0.03935437719641941,1,3: Ohio State group 98%,anchored,3.0,31,0.7338555092868,connector,5.0,5.0
+NPI1164727673,CIARA FREEMAN,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,3.0,16,0.1237773807689927,peripheral,3.0,0.0
+NPI1659534238,SAMEH REFAT GABALLA,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,3.0,11,0.0,ultra-peripheral,7.0,4.0
+NPI1225225865,ASMITA MISHRA,Moffitt,11,11,0.020000000000000018,0.03813590740604387,1,11: Moffitt group 98%,anchored,2.0,15,0.15871875897730547,peripheral,1.0,1.0
+NPI1336261379,CARON ALYCE JACOBSON,Dana-Farber,5,5,0.016000000000000014,0.02895439445073272,1,5: Mass General Brigham group 98%,anchored,73.0,165,0.7885409947073483,kinless hub,11.0,8.0
+NPI1689648263,PHILIPPE ARMAND,Dana-Farber,5,5,0.016000000000000014,0.02895439445073272,1,5: Mass General Brigham group 98%,anchored,15.0,52,0.5674316004269468,peripheral,7.0,4.0
+NPI1336333673,UMAR FAROOQ,Iowa,1,1,0.016000000000000014,0.03286880312462434,1,1: Cleveland Clinic group 98%,anchored,14.0,81,0.778353506968274,connector,0.0,0.0
+NPI1568800605,REID WEYANT MERRYMAN,Dana-Farber,5,5,0.016000000000000014,0.02895439445073272,1,5: Mass General Brigham group 98%,anchored,14.0,84,0.6820119931832185,connector,8.0,6.0
+NPI1144489295,ANITA KUMAR,Memorial Sloan Kettering,6,6,0.016000000000000014,0.02895439445073272,1,6: Memorial Sloan Kettering group 98%,anchored,7.0,41,0.6142087866180552,peripheral,2.0,1.0
+NPI1003122573,AMITKUMAR MEHTA,UAB,2,2,0.016000000000000014,0.02895439445073272,1,2: Mayo Clinic group 98%,anchored,6.0,46,0.6361329369048068,connector,10.0,10.0
+NPI1629237987,MATTHEW J MATASAR,Rutgers Cancer Institute of New Jersey and RWJ Barnabas Heal,6,6,0.016000000000000014,0.02895439445073272,1,6: Memorial Sloan Kettering group 98%,anchored,6.0,45,0.7040959649317268,connector,11.0,5.0
+NPI1710946140,CATHERINE JU-YING WU,Dana-Farber,5,5,0.016000000000000014,0.02895439445073272,1,5: Mass General Brigham group 98%,anchored,6.0,6,0.0,ultra-peripheral,1.0,0.0
+NPI1811968852,STEVEN HORWITZ,Memorial Sloan Kettering,6,6,0.016000000000000014,0.03482600746157015,1,6: Memorial Sloan Kettering group 98%,anchored,5.0,30,0.46763803333247334,peripheral,2.0,1.0
+NPI1245322262,CHITRA HOSING,MD Anderson,9,9,0.016000000000000014,0.032130068578054075,1,9: MD Anderson group 98%,anchored,4.0,36,0.7661383973187641,connector,1.0,1.0
+NPI1336156983,ANN S LACASCE,Dana-Farber,5,5,0.016000000000000014,0.02895439445073272,1,5: Mass General Brigham group 98%,anchored,4.0,5,0.0,ultra-peripheral,2.0,1.0
+NPI1841261351,ANDREW D ZELENETZ,Memorial Sloan Kettering,6,6,0.016000000000000014,0.02895439445073272,1,6: Memorial Sloan Kettering group 98%,anchored,4.0,42,0.6256057074547712,connector,9.0,8.0
+NPI1497770499,JOSEPH D ROSENBLATT,Miami / Sylvester,1,1,0.016000000000000014,0.03213006857805407,1,1: Cleveland Clinic group 98%,anchored,3.0,16,0.6428884112310084,connector,0.0,0.0
+NPI1457321861,ERIC DAVID JACOBSEN,Dana-Farber,5,5,0.016000000000000014,0.02895439445073272,1,5: Mass General Brigham group 98%,anchored,2.0,5,0.0,ultra-peripheral,2.0,1.0
+NPI1770542391,DAVID CHRISTOPHER FISHER,Dana-Farber,5,5,0.016000000000000014,0.02895439445073272,1,5: Mass General Brigham group 98%,anchored,2.0,11,0.33673469387755106,peripheral,0.0,0.0
+NPI1528093713,SVEN DE VOS,UCLA,1,1,0.01200000000000001,0.025638755366487537,1,1: Cleveland Clinic group 99%,anchored,9.0,34,0.7196287609980756,connector,1.0,1.0
+NPI1790980316,MATTHEW L. ULRICKSON,MD Anderson,1,1,0.01200000000000001,0.025638755366487537,1,1: Cleveland Clinic group 99%,anchored,8.0,69,0.8322190528369471,kinless,3.0,1.0
+NPI1730371592,KATHLEEN ANNE DORRITIE,University of Pittsburgh School of Medicine,1,1,0.01200000000000001,0.025638755366487537,1,1: Cleveland Clinic group 99%,anchored,7.0,48,0.8439131265809412,kinless,0.0,0.0
+NPI1841595634,RASHMI KHANAL,Fox Chase Cancer Center/Temple University Hospital,1,1,0.01200000000000001,0.025638755366487537,1,1: Cleveland Clinic group 99%,anchored,4.0,26,0.6540963035119184,connector,4.0,11.0
+NPI1821518036,DAVID AARON RUSSLER-GERMAIN,WashU / Siteman,1,1,0.01200000000000001,0.025638755366487537,1,1: Cleveland Clinic group 99%,anchored,3.0,5,0.08804733727810643,peripheral,5.0,1.0
+NPI1982931705,HASSAN ALKHATEEB,Mayo Clinic,2,2,0.01200000000000001,0.022942816482971463,1,2: Mayo Clinic group 99%,anchored,3.0,13,0.0,ultra-peripheral,0.0,0.0
+NPI1699947655,OLALEKAN OLANIYI OLUWOLE,Vanderbilt,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,56.0,136,0.8078091104527961,kinless hub,9.0,5.0
+NPI1265753834,PETER RIEDELL,University of Chicago,4,4,0.008000000000000007,0.016445787367144367,1,4: Penn / Abramson group 99%,anchored,35.0,155,0.8538032014676862,kinless,7.0,8.0
+NPI1013199058,BRIAN THOMAS HILL,Cleveland Clinic,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,34.0,146,0.819285811952638,kinless hub,11.0,12.0
+NPI1609085356,ARMIN GHOBADI,WashU / Siteman,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,29.0,76,0.7896955490445577,connector,1.0,1.0
+NPI1326067596,LAZAROS J LEKAKIS,Miami / Sylvester,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,25.0,119,0.8591282947374348,kinless,7.0,7.0
+NPI1841327665,VERONIKA BACHANOVA,University of Minnesota,4,4,0.008000000000000007,0.016445787367144367,1,4: Penn / Abramson group 99%,anchored,24.0,119,0.8324473817679098,kinless,2.0,1.0
+NPI1467686659,PATRICK M. REAGAN,University of Rochester Medical Center,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,20.0,84,0.7492405931929289,connector,2.0,2.0
+NPI1215992912,ANDRE H GOY,Hackensack / Theurer,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,17.0,55,0.7270249451257393,connector,1.0,2.0
+NPI1316965759,NANCY LEE BARTLETT,WashU / Siteman,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,17.0,34,0.6331197831801595,connector,3.0,3.0
+NPI1578746681,ABHINAV DEOL,Karmanos Cancer Institute,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,15.0,73,0.6833135821466474,connector,4.0,2.0
+NPI1598717845,JULIE M VOSE,University of Nebraska Medical Center,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,11.0,65,0.7746838604477011,connector,6.0,4.0
+NPI1891715090,JOHN MATTHEW TIMMERMAN,UCLA,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,11.0,34,0.5104200042247247,peripheral,1.0,0.0
+NPI1417274994,TAMARA KAY MOYO,Atrium / Levine,3,3,0.008000000000000007,0.01840299170409017,1,3: Ohio State group 99%,anchored,8.0,37,0.5559474682048243,peripheral,0.0,0.0
+NPI1417990367,IAN WINCHESTER FLINN,Centennial Center for Blood Cancers Clinic,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,8.0,43,0.7157969302567762,connector,18.0,20.0
+NPI1598820763,CHAITRA SHANKAR UJJANI,Fred Hutch / UW,8,8,0.008000000000000007,0.016445787367144367,1,8: Fred Hutch / UW group 99%,anchored,8.0,37,0.5051454360721286,peripheral,5.0,4.0
+NPI1295707529,DAVID M WEINSTOCK,Dana-Farber,5,5,0.008000000000000007,0.016445787367144367,1,5: Mass General Brigham group 99%,anchored,5.0,10,0.5348228928656572,peripheral,0.0,0.0
+NPI1528026002,DIMITRIOS TZACHANIS,University of California San Diego,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,5.0,17,0.4547271107238937,peripheral,1.0,0.0
+NPI1558348433,PATRICK STIFF,Loyola University Chicago Stritch School of Medicine,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,5.0,23,0.5255297244890156,peripheral,1.0,1.0
+NPI1619225844,MIRIAM TIFFANY JACOBS,WashU / Siteman,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,5.0,34,0.7622711210027235,connector,1.0,1.0
+NPI1790757672,THOMAS M HABERMANN,Mayo Clinic,2,2,0.008000000000000007,0.01840299170409017,1,2: Mayo Clinic group 99%,anchored,5.0,29,0.5802840261745605,peripheral,1.0,1.0
+NPI1881678449,PETER A MCSWEENEY,Colorado Blood Cancer Institute,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,5.0,27,0.5571622956195832,peripheral,1.0,2.0
+NPI1952416505,BASEM WILLIAM,OhioHealth Blood and Marrow Transplant Program,3,3,0.008000000000000007,0.016445787367144367,1,3: Ohio State group 99%,anchored,5.0,19,0.5500150320416458,peripheral,7.0,4.0
+NPI1285957589,PATRICIA ANN YOUNG,UCLA,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,4.0,15,0.2938236884802595,peripheral,1.0,4.0
+NPI1386889418,MONICA DIANE MEAD,UCLA,1,1,0.008000000000000007,0.018402991704090172,1,1: Cleveland Clinic group 99%,anchored,4.0,10,0.22731415775613895,peripheral,0.0,0.0
+NPI1730529777,MAYUR NARKHEDE,UAB,2,2,0.008000000000000007,0.016445787367144367,1,2: Mayo Clinic group 99%,anchored,4.0,51,0.47294975036587605,peripheral,11.0,11.0
+NPI1134440472,JONATHAN U PELED,Memorial Sloan Kettering,6,6,0.008000000000000007,0.016445787367144367,1,6: Memorial Sloan Kettering group 99%,anchored,3.0,32,0.3934141563199679,peripheral,0.0,0.0
+NPI1346681772,GAURAV GOYAL,UAB,2,2,0.008000000000000007,0.016445787367144367,1,2: Mayo Clinic group 99%,anchored,3.0,3,0.0,ultra-peripheral,2.0,2.0
+NPI1558551507,SABARISH R AYYAPPAN,Iowa,3,3,0.008000000000000007,0.018402991704090172,1,3: Ohio State group 99%,anchored,3.0,25,0.5120239482085315,peripheral,15.0,12.0
+NPI1588820955,SARAH MARIE LARSON,UCLA,1,1,0.008000000000000007,0.018402991704090172,1,1: Cleveland Clinic group 99%,anchored,3.0,5,0.05985726643598577,peripheral,5.0,3.0
+NPI1376633222,JOHN MICHAEL PAGEL,Swedish Cancer Institute,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,2.0,22,0.717941389623248,connector,0.0,0.0
+NPI1609813104,JOSEPH P UBERTI,Barbara Ann Karmanos Cancer Institute,1,1,0.008000000000000007,0.016445787367144367,1,1: Cleveland Clinic group 99%,anchored,2.0,1,0.0,ultra-peripheral,0.0,0.0
+NPI1083823637,JAVIER LUIS MUNOZ,Mayo Clinic,2,2,0.0040000000000000036,0.009204330848612654,1,2: Mayo Clinic group 100%,anchored,30.0,125,0.819014544071601,kinless,1.0,1.0
+NPI1275548760,RICHARD THOMAS MAZIARZ,OHSU / Knight,4,4,0.0040000000000000036,0.009204330848612654,1,4: Penn / Abramson group 100%,anchored,30.0,85,0.6690043453436383,connector,4.0,3.0
+NPI1558666214,MICHAEL BISHOP,University of Chicago,4,4,0.0040000000000000036,0.009204330848612654,1,4: Penn / Abramson group 100%,anchored,19.0,52,0.5768356806036256,peripheral,12.0,10.0
+NPI1902900384,ANDY I CHEN,OHSU / Knight,4,4,0.0040000000000000036,0.009204330848612654,1,4: Penn / Abramson group 100%,anchored,16.0,65,0.62966712784068,connector,3.0,2.0
+NPI1831486307,TANIA JAIN,Sidney Kimmel Comprehensive Cancer Center,6,6,0.0040000000000000036,0.009204330848612654,1,6: Memorial Sloan Kettering group 100%,anchored,14.0,90,0.8235781152805202,kinless,7.0,1.0
+NPI1902123284,MONALISA GHOSH,University of Michigan,4,4,0.0040000000000000036,0.009204330848612654,1,4: Penn / Abramson group 100%,anchored,9.0,52,0.7817248052029433,connector,2.0,0.0
+NPI1386890978,VAISHALEE PADGAONKAR KENKRE,University of Wisconsin,3,3,0.0040000000000000036,0.009204330848612654,1,3: Ohio State group 100%,anchored,8.0,75,0.7472514268776916,connector,0.0,0.0
+NPI1346484821,KRISH PATEL,Sarah Cannon Research Institute,3,3,0.0040000000000000036,0.009204330848612654,1,3: Ohio State group 100%,anchored,7.0,62,0.8389209021785571,kinless,21.0,20.0
+NPI1093031668,LEVANTO GERSHON SCHACHTER,OHSU / Knight,4,4,0.0040000000000000036,0.009204330848612654,1,4: Penn / Abramson group 100%,anchored,6.0,31,0.3784108687047233,peripheral,7.0,9.0
+NPI1245243948,YAGO LUIS NIETO,MD Anderson,9,9,0.0040000000000000036,0.009204330848612654,1,9: MD Anderson group 100%,anchored,6.0,51,0.6742093264254851,connector,0.0,0.0
+NPI1922615665,WARREN BENJAMIN FINGRUT,Memorial Sloan Kettering,6,6,0.0040000000000000036,0.009204330848612654,1,6: Memorial Sloan Kettering group 100%,anchored,4.0,28,0.511923620193818,peripheral,7.0,8.0
+NPI1205241262,TAHA AL-JUHAISHI,University of Oklahoma Health Sciences Center and OU Stephen,9,9,0.0040000000000000036,0.009204330848612654,1,9: MD Anderson group 100%,anchored,3.0,10,0.32486463973344326,peripheral,5.0,3.0
+NPI1407023385,MICHAEL TIMOTHY TEES,Colorado Blood Cancer Institute/Sarah Cannon Research Instit,1,1,0.0040000000000000036,0.009204330848612654,1,1: Cleveland Clinic group 100%,anchored,3.0,23,0.6529793180314232,connector,7.0,10.0
+NPI1508278169,HOSSEIN SADRZADEH,Boston University Medical Center,5,5,0.0040000000000000036,0.009204330848612654,1,5: Mass General Brigham group 100%,anchored,3.0,32,0.6156507587356874,peripheral,0.0,0.0
+NPI1891953196,LAKSHMI NAYAK,Dana-Farber,5,5,0.0040000000000000036,0.009204330848612654,1,5: Mass General Brigham group 100%,anchored,3.0,12,0.324630031105665,peripheral,1.0,1.0
+NPI1932150315,MICHAEL ALLEN PULSIPHER,Huntsman,4,4,0.0040000000000000036,0.009204330848612654,1,4: Penn / Abramson group 100%,anchored,3.0,19,0.4298200311658371,peripheral,5.0,6.0
+NPI1174686364,ARAVIND RAMAKRISHNAN,St. David's South Austin Medical Center,1,1,0.0040000000000000036,0.009204330848612654,1,1: Cleveland Clinic group 100%,anchored,2.0,6,0.2865777777777778,peripheral,18.0,22.0
+NPI1700107745,ANUSHA VALLURUPALLI,OHSU / Knight,4,4,0.0040000000000000036,0.009204330848612654,1,4: Penn / Abramson group 100%,anchored,2.0,3,0.0,ultra-peripheral,0.0,0.0
+NPI1730440140,FIONA HE,University of Minnesota,4,4,0.0040000000000000036,0.009204330848612654,1,4: Penn / Abramson group 100%,anchored,2.0,12,0.39655534551564775,peripheral,1.0,2.0
+NPI1922079839,MIGUEL A PERALES,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,76.0,168,0.7236902233149046,connector hub,12.0,4.0
+NPI1386736304,SATTVA S NEELAPU,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,63.0,112,0.7788204456829109,connector,7.0,1.0
+NPI1083389290,GILLES SALLES,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,56.0,95,0.5599127120593503,peripheral,16.0,10.0
+NPI1144387192,SAIRAH AHMED,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,55.0,150,0.7152534734580347,connector hub,8.0,2.0
+NPI1285608174,YI LIN,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,53.0,126,0.7273118267040912,connector hub,9.0,5.0
+NPI1972615102,JASON WESTIN,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,53.0,72,0.6405349903035851,connector,16.0,9.0
+NPI1407048630,LORETTA J NASTOUPIL,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,52.0,133,0.7994263206795167,connector,7.0,7.0
+NPI1033147566,STEPHEN J SCHUSTER,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,51.0,106,0.5114998921593805,connector hub,12.0,8.0
+NPI1487625380,MARIA LIA PALOMBA,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,49.0,95,0.48442583886545487,peripheral,3.0,1.0
+NPI1053586263,GUNJAN LALITCHANDRA SHAH,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,47.0,73,0.3712594290362484,peripheral,2.0,1.0
+NPI1003115700,MICHAEL SCORDO,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,44.0,76,0.3524093752361903,peripheral,0.0,0.0
+NPI1013283035,MATTHEW JOHN FRIGAULT,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,43.0,100,0.5395102937619289,connector hub,4.0,3.0
+NPI1740262484,JEREMY S ABRAMSON,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,42.0,75,0.6071111466834705,connector hub,10.0,5.0
+NPI1750554077,MAZYAR SHADMAN,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,39.0,161,0.8083361344065427,kinless,11.0,8.0
+NPI1417042722,LUHUA M. WANG,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,35.0,80,0.7921233897169749,connector,7.0,4.0
+NPI1922562362,MARCO RUELLA,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,34.0,38,0.36161347084131834,peripheral,2.0,2.0
+NPI1326235466,PARASTOO BAHRAMI DAHI,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,33.0,52,0.12227662401546158,peripheral,0.0,0.0
+NPI1942385752,DAVID G MALONEY,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,32.0,86,0.6383168075623316,connector,3.0,1.0
+NPI1669593000,JAE HONG PARK,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,31.0,57,0.21067353562366353,peripheral,10.0,6.0
+NPI1053399246,PATRICK B JOHNSTON,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,30.0,74,0.428419349920103,peripheral,0.0,0.0
+NPI1174866016,YUCAI WANG,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,30.0,102,0.4762734615944332,peripheral,2.0,3.0
+NPI1558335935,STEPHEN M ANSELL,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,29.0,71,0.37090484492691,peripheral,1.0,1.0
+NPI1639233877,MARCELA VALDERAMA MAUS,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,28.0,39,0.2570859964200718,peripheral,1.0,1.0
+NPI1902119019,NARENDRANATH EPPERLA,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,28.0,145,0.7368397734084176,connector hub,5.0,7.0
+NPI1154599488,CAMERON JOHN TURTLE,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,27.0,111,0.6874829276288706,connector,0.0,0.0
+NPI1174630503,CHRISTOPHER ROBERT FLOWERS,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,26.0,58,0.36381294225341865,peripheral,5.0,5.0
+NPI1346535408,JONAS PALUDO,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,25.0,52,0.21118639524070026,peripheral,1.0,2.0
+NPI1174920953,JORDAN GAUTHIER,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,24.0,89,0.5615487698398505,peripheral,1.0,0.0
+NPI1841545472,ARUSHI KHURANA,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,24.0,101,0.43684664143790986,peripheral,0.0,0.0
+NPI1639278880,SERGIO A. GIRALT,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,23.0,48,0.08262827185001254,peripheral,5.0,3.0
+NPI1780627075,DAVID L PORTER,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,23.0,44,0.31635748816184583,peripheral,8.0,2.0
+NPI1578580460,JAKUB SVOBODA,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,21.0,50,0.3168433330527105,peripheral,5.0,3.0
+NPI1255776092,ELISE A CHONG,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,19.0,65,0.2881228062828517,peripheral,4.0,3.0
+NPI1336384130,STEFAN KLAUS BARTA,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,18.0,53,0.5327781089268887,peripheral,5.0,3.0
+NPI1386687689,CARL JUNE,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,18.0,35,0.11423791583000797,peripheral,5.0,2.0
+NPI1063493229,SWAMINATHAN PADMANABHAN IYER,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,17.0,27,0.1768889186432343,peripheral,2.0,4.0
+NPI1336180108,SUNITA DWIVEDY NASTA,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,17.0,45,0.1921625189632814,peripheral,6.0,8.0
+NPI1083860282,REEM KARMALI,Northwestern / Lurie,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,16.0,105,0.6286952281655216,connector,10.0,6.0
+NPI1194801902,AJAY KUMAR GOPAL,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,16.0,78,0.5314565804043427,peripheral,3.0,4.0
+NPI1801058482,DANIEL J LANDSBURG,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,16.0,70,0.38666067235075463,peripheral,5.0,4.0
+NPI1902003403,JONATHON BRETT COHEN,Emory / Winship,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,16.0,97,0.829361229538651,kinless,2.0,0.0
+NPI1154339570,STEPHAN A GRUPP,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,13.0,36,0.15573748950905753,peripheral,6.0,4.0
+NPI1205921095,LUIS E. FAYAD,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,13.0,23,0.11759499432537268,peripheral,1.0,0.0
+NPI1326139098,ELIZABETH J. SHPALL,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,13.0,42,0.22393991916259792,peripheral,3.0,3.0
+NPI1598045700,RANJIT NAIR,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,13.0,23,0.07441284542323168,peripheral,6.0,4.0
+NPI1629040076,GRZEGORZ S NOWAKOWSKI,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,13.0,58,0.6369647265680161,connector,11.0,6.0
+NPI1912325143,MARK LEICK,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,13.0,11,0.034705686757431575,ultra-peripheral,0.0,0.0
+NPI1306102934,ANDREW C. IP,Hackensack / Theurer,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,12.0,52,0.6831042805557039,connector,6.0,4.0
+NPI1366550931,EDMUND K WALLER,Emory / Winship,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,12.0,20,0.5065941147123261,peripheral,6.0,3.0
+NPI1417214974,ADAM S. KITTAI,Other / unresolved,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,12.0,96,0.5708676506527927,peripheral,9.0,11.0
+NPI1427444611,NATHAN M. DENLINGER,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,12.0,70,0.2962636976353309,peripheral,2.0,0.0
+NPI1467870675,TIMOTHY JOSEPH VOORHEES,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,12.0,64,0.5286522088580354,peripheral,4.0,2.0
+NPI1689698284,KAMI J. MADDOCKS,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,12.0,78,0.6567332199049063,connector,9.0,7.0
+NPI1902064629,ALFRED L GARFALL,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,12.0,24,0.05937814346405723,peripheral,3.0,4.0
+NPI1336406040,JAMES GERSON,University of Vermont Medical Center,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,11.0,37,0.2713994236430215,peripheral,0.0,0.0
+NPI1356332639,YI-BIN ALBERT CHEN,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,11.0,34,0.24798189090959966,peripheral,9.0,5.0
+NPI1497069629,NEERAJ SAINI,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,11.0,42,0.45661596179739283,peripheral,1.0,1.0
+NPI1578897195,JONATHAN E. BRAMMER,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,11.0,47,0.27926177359136883,peripheral,0.0,0.0
+NPI1902917974,BRIAN GERALD TILL,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,11.0,39,0.19150865233613923,peripheral,0.0,0.0
+NPI1952593576,DEBORAH MARIE STEPHENS,UNC / Lineberger,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,11.0,66,0.6681503253684289,connector,5.0,4.0
+NPI1114288859,DAVID ALAN BOND,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,10.0,48,0.44781848809342195,peripheral,3.0,2.0
+NPI1154663581,VICTOR ALEXANDER CHOW,Other / unresolved,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,10.0,47,0.5322937662804572,peripheral,0.0,0.0
+NPI1194258111,SANDEEP RAJ,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,10.0,30,0.20499699787763903,peripheral,0.0,0.0
+NPI1245657592,EVANDRO D BEZERRA,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,10.0,55,0.6638304400192925,connector,1.0,1.0
+NPI1588194286,ALEXANDER PAUL BOARDMAN,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,10.0,21,0.06586776666843763,peripheral,4.0,2.0
+NPI1639231509,NOELLE VIRGINIA FREY,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,10.0,23,0.059929654173708546,peripheral,5.0,4.0
+NPI1689768475,PARTOW KEBRIAEI,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,10.0,43,0.24742627124135697,peripheral,4.0,3.0
+NPI1306126644,SAAR I GILL,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,9.0,23,0.14144866742110118,peripheral,1.0,1.0
+NPI1770898900,BRIAN TIMOTHY HESS,Hollings Cancer Center,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,9.0,71,0.71561299062884,connector,2.0,2.0
+NPI1972897908,JACOB D. SOUMERAI,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,9.0,23,0.3802799868576945,peripheral,5.0,3.0
+NPI1043606965,LINDSEY FITZGERALD,Huntsman,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,8.0,55,0.5437948621991078,peripheral,3.0,2.0
+NPI1235866807,IVAN PATRICK LANDEGO,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,8.0,19,0.04314905915903111,ultra-peripheral,1.0,1.0
+NPI1326238411,JEFFREY A BARNES,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,8.0,17,0.197054466647826,peripheral,1.0,1.0
+NPI1366541054,RICHARD E. CHAMPLIN,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,8.0,22,0.12748082182229947,peripheral,2.0,3.0
+NPI1497925051,STEPHEN DOUGLAS SMITH,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,8.0,64,0.648781539336795,connector,6.0,5.0
+NPI1659564938,SHUO MA,Northwestern / Lurie,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,8.0,42,0.4197528427647058,peripheral,6.0,7.0
+NPI1770146912,JOSHUA ALEXANDER FEIN,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,8.0,60,0.5606170010110378,peripheral,0.0,0.0
+NPI1215147947,STANLEY R RIDDELL,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,7.0,12,0.0,ultra-peripheral,0.0,0.0
+NPI1265744643,PALLAWI TORKA,Memorial Sloan Kettering,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,7.0,58,0.5457121310431123,peripheral,5.0,3.0
+NPI1275949745,URSHILA DURANI,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,7.0,47,0.21188701283995726,peripheral,0.0,0.0
+NPI1417392937,LORENZO FALCHI,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,7.0,25,0.030342294092880473,ultra-peripheral,9.0,5.0
+NPI1699901199,AREEJ R EL-JAWAHRI,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,7.0,13,0.0,ultra-peripheral,3.0,2.0
+NPI1710159744,SUMITHIRA VASU,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,7.0,22,0.0,ultra-peripheral,2.0,1.0
+NPI1750581237,SHANNON MAUDE,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,7.0,18,0.2137712886016212,peripheral,1.0,1.0
+NPI1003227323,WALTER G. HANEL,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,6.0,19,0.0,ultra-peripheral,0.0,0.0
+NPI1053653147,REGINA MAREE MYERS,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,6.0,15,0.07600607623450117,peripheral,0.0,0.0
+NPI1164409827,DAVID J INWARDS,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,6.0,34,0.5430163090250203,peripheral,0.0,0.0
+NPI1184984049,THOMAS OLLILA,Rhode Island Hospital,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,6.0,33,0.2918495270002046,peripheral,4.0,3.0
+NPI1255568135,ALLISON ROSENTHAL,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,6.0,26,0.24251068710374946,peripheral,3.0,3.0
+NPI1306864160,JANE WINTER,Northwestern / Lurie,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,6.0,28,0.2562453839028127,peripheral,3.0,5.0
+NPI1326054586,SUSAN R RHEINGOLD,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,6.0,17,0.0,ultra-peripheral,0.0,0.0
+NPI1336396357,KEVIN ANDREW DAVID,Rutgers Cancer Institute of New Jersey,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,6.0,37,0.4647666185563054,peripheral,1.0,1.0
+NPI1356359640,SAM L. PENZA,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,6.0,20,0.0,ultra-peripheral,2.0,3.0
+NPI1366784407,JEREMY RAMDIAL,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,6.0,46,0.3976414842867849,peripheral,3.0,2.0
+NPI1376937888,AUDREY M. SIGMUND,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,6.0,46,0.2021718882756176,peripheral,0.0,0.0
+NPI1548470347,AYMAN SAAD,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,6.0,14,0.20378780617001246,peripheral,0.0,0.0
+NPI1619291689,CONNIE WING-CHING LEE BATLEVI,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,6.0,22,0.03464838890471589,ultra-peripheral,0.0,0.0
+NPI1962166140,KARTHIK DEEPAK NATH,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,6.0,21,0.03934013532953262,ultra-peripheral,0.0,0.0
+NPI1982725032,KEVIN J. CURRAN,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,6.0,27,0.5971377851112472,peripheral,2.0,2.0
+NPI1992930879,HUN JU LEE,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,6.0,20,0.11833492298518755,peripheral,5.0,6.0
+NPI1013991504,NOOPUR SURESH RAJE,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,5.0,14,0.20224765955672308,peripheral,15.0,6.0
+NPI1083842215,FILIPPO MILANO,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,5.0,21,0.0,ultra-peripheral,4.0,3.0
+NPI1114155603,JOSE CAETANO VILLASBOAS BISNETO,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,5.0,35,0.46485285856113756,peripheral,0.0,0.0
+NPI1356634455,LAPO ALINARI,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,5.0,20,0.08148483476686308,peripheral,0.0,0.0
+NPI1386965952,RYAN CHRISTOPHER LYNCH,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,5.0,32,0.2672666734809058,peripheral,7.0,3.0
+NPI1427497338,YAZEED Y. SAWALHA,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,5.0,40,0.3795536525377603,peripheral,3.0,1.0
+NPI1003595919,ANATH CHRISTOPHER LIONEL,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,4.0,34,0.3645998977991072,peripheral,0.0,0.0
+NPI1083634182,DAVID T TEACHEY,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,4.0,12,0.0,ultra-peripheral,3.0,2.0
+NPI1093796419,RONALD WAYNE TAKVORIAN,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,4.0,8,0.0,ultra-peripheral,0.0,0.0
+NPI1124587365,IMRAN AHMED NIZAMUDDIN,Northwestern / Lurie,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,4.0,46,0.48467040647084514,peripheral,1.0,1.0
+NPI1245474766,AMANDA DINOFIA,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,4.0,11,0.0,ultra-peripheral,1.0,1.0
+NPI1326038407,EPHRAIM P HOCHBERG,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,4.0,8,0.0,ultra-peripheral,0.0,0.0
+NPI1356631196,JENNIFER KIMBERLY LUE,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,4.0,14,0.12073044571524139,peripheral,4.0,4.0
+NPI1366486250,ELIZABETH O HEXNER,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,4.0,22,0.0,ultra-peripheral,2.0,0.0
+NPI1376514315,PAUL A HAMLIN,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,4.0,18,0.0,ultra-peripheral,3.0,2.0
+NPI1437590163,JOHN C. RENEAU,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,4.0,39,0.13249761832211893,peripheral,3.0,2.0
+NPI1508060583,RYAN CASSADAY,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,4.0,17,0.0,ultra-peripheral,5.0,4.0
+NPI1598900698,SAMER SROUR,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,4.0,17,0.3453718486718974,peripheral,3.0,2.0
+NPI1619170925,LISA WRAY,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,4.0,11,0.0,ultra-peripheral,0.0,0.0
+NPI1639366529,AUDE CHAPUIS,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,4.0,16,0.0,ultra-peripheral,1.0,0.0
+NPI1689397119,LORENZO IOVINO,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,4.0,45,0.4469434099298103,peripheral,1.0,1.0
+NPI1740370600,HANS-PETER KIEM,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,4.0,12,0.0,ultra-peripheral,1.0,0.0
+NPI1770599755,ROBERT A. BAIOCCHI,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,4.0,19,0.0,ultra-peripheral,1.0,1.0
+NPI1811004633,REBECCA A GARDNER,Fred Hutch / UW,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,4.0,3,0.0,ultra-peripheral,0.0,0.0
+NPI1063596989,YIPING YANG,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,3.0,18,0.0,ultra-peripheral,0.0,0.0
+NPI1124210869,DAVID BARRETT,Children's Hospital of Philadelphia,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,3.0,12,0.14139461345879056,peripheral,0.0,0.0
+NPI1164192191,MONEEZA WALJI,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,3.0,15,0.08039512934617832,peripheral,1.0,1.0
+NPI1164661427,COLLEEN ELIZABETH ANNESLEY,Fred Hutch / UW,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,3.0,3,0.0,ultra-peripheral,0.0,0.0
+NPI1164803573,PATRICK C JOHNSON,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,3.0,9,0.0,ultra-peripheral,7.0,8.0
+NPI1194254557,HALEY NEWMAN,Children's Hospital of Philadelphia,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,3.0,10,0.0,ultra-peripheral,0.0,0.0
+NPI1194940783,BETH A CHRISTIAN,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,3.0,19,0.0,ultra-peripheral,1.0,1.0
+NPI1255868410,ANDREW JAY PORTUGUESE,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,3.0,12,0.0,ultra-peripheral,3.0,2.0
+NPI1285194944,RAHUL SNEHAL BHANSALI,Penn / Abramson,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,3.0,22,0.2712635521839999,peripheral,0.0,0.0
+NPI1346226370,IVANA N MICALLEF,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,3.0,15,0.1626779155188246,peripheral,0.0,0.0
+NPI1346268711,RICHARD APLENC,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,3.0,11,0.0,ultra-peripheral,0.0,0.0
+NPI1427554013,AMNEET K. BAJWA,Ohio State,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,3.0,21,0.27744936943003595,peripheral,0.0,0.0
+NPI1457394744,EDWARD A STADTMAUER,Penn / Abramson,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,3.0,13,0.0,ultra-peripheral,5.0,4.0
+NPI1750708897,ERIK LESLEY KIMBLE,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,3.0,15,0.0,ultra-peripheral,2.0,1.0
+NPI1790793271,JOSE FRANCISCO LEIS,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,3.0,12,0.0,ultra-peripheral,0.0,0.0
+NPI1871675249,FELIPE SAMANIEGO,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,3.0,9,0.13150916747884078,peripheral,0.0,0.0
+NPI1891769766,DAVID DINGLI,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,3.0,13,0.0,ultra-peripheral,8.0,9.0
+NPI1902221302,KARLO PERICA,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,3.0,10,0.0,ultra-peripheral,0.0,0.0
+NPI1902326143,RICHARD A NEWCOMB,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,3.0,3,0.0,ultra-peripheral,2.0,2.0
+NPI1912235946,SHAM MAILANKODY,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,3.0,16,0.19764276478991027,peripheral,6.0,4.0
+NPI1952349243,DAVID E AVIGAN,Beth Israel Deaconess Medical Center,17,17,0.0,-0.0,1,17: Beth Israel Deaconess Medical Center group 100%,anchored,3.0,0,0.0,ultra-peripheral,3.0,0.0
+NPI1972767978,MOHAMED SORROR,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,3.0,35,0.6367807539682537,connector,2.0,0.0
+NPI1992784391,LUIS F PORRATA,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,3.0,15,0.1626779155188246,peripheral,0.0,0.0
+NPI1003842162,BRUCE ROBERT BLAZAR,University of Minnesota,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,2.0,3,0.4444444444444444,peripheral,3.0,1.0
+NPI1023370541,ANG LI,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,2.0,9,0.0,ultra-peripheral,0.0,0.0
+NPI1073613303,FREDRICK B. HAGEMEISTER,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,2.0,10,0.09070294784580502,peripheral,5.0,7.0
+NPI1124113410,ANAS YOUNES,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,2.0,15,0.0,ultra-peripheral,0.0,0.0
+NPI1215356712,ELLEN FRAINT,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,2.0,12,0.0,ultra-peripheral,0.0,0.0
+NPI1235396730,ELIZABETH KEATING O'DONNELL,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,2.0,7,0.0,ultra-peripheral,2.0,2.0
+NPI1336609288,JENNIFER JANE GILE,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,2.0,13,0.0,ultra-peripheral,0.0,0.0
+NPI1407037278,MANOJ P MENON,Fred Hutch / UW,8,8,0.0,-0.0,1,8: Fred Hutch / UW group 100%,anchored,2.0,7,0.0,ultra-peripheral,0.0,0.0
+NPI1437491222,NASEEM SHAMS ESTEGHAMAT,University of California Davis Comprehensive Cancer Center,14,14,0.0,-0.0,1,14: University of California Davis Comprehensive Cancer Center group 100%,anchored,2.0,1,0.0,ultra-peripheral,2.0,1.0
+NPI1477714103,MATTHEW J BARTH,Roswell Park,15,15,0.0,-0.0,1,15: Roswell Park group 100%,anchored,2.0,0,0.0,ultra-peripheral,6.0,5.0
+NPI1487639795,JOSEPH M TUSCANO,University of California Davis Comprehensive Cancer Center,14,14,0.0,-0.0,1,14: University of California Davis Comprehensive Cancer Center group 100%,anchored,2.0,1,0.0,ultra-peripheral,3.0,1.0
+NPI1568453496,ANDREW J YEE,Mass General Brigham,5,5,0.0,-0.0,1,5: Mass General Brigham group 100%,anchored,2.0,9,0.0,ultra-peripheral,10.0,9.0
+NPI1578560322,REINHOLD MUNKER,University of Kentucky HealthCare,16,16,0.0,-0.0,1,16: University of Kentucky HealthCare group 100%,anchored,2.0,0,0.0,ultra-peripheral,1.0,0.0
+NPI1639118821,ERIC J LOWE,Children's Hospital of the King's Daughters,4,4,0.0,-0.0,1,4: Penn / Abramson group 100%,anchored,2.0,1,0.0,ultra-peripheral,2.0,2.0
+NPI1760846935,MADELYN ELIZABETH SZEWCZYK BURKART,Northwestern / Lurie,3,3,0.0,-0.0,1,3: Ohio State group 100%,anchored,2.0,4,0.0,ultra-peripheral,4.0,2.0
+NPI1760918411,DUSTIN BARRETT MCCURRY,University of Texas,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,2.0,1,0.0,ultra-peripheral,2.0,3.0
+NPI1831482561,MARK BLAINE GEYER,Memorial Sloan Kettering,6,6,0.0,-0.0,1,6: Memorial Sloan Kettering group 100%,anchored,2.0,15,0.1171875,peripheral,2.0,1.0
+NPI1881793560,BORJE S. ANDERSSON,MD Anderson,9,9,0.0,-0.0,1,9: MD Anderson group 100%,anchored,2.0,7,0.0,ultra-peripheral,0.0,0.0
+NPI1982678363,CARRIE A THOMPSON,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,2.0,6,0.24,peripheral,0.0,0.0
+NPI1992749139,JAMES FORAN,Mayo Clinic,2,2,0.0,-0.0,1,2: Mayo Clinic group 100%,anchored,2.0,10,0.11718749999999989,peripheral,2.0,2.0
