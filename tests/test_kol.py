@@ -112,7 +112,7 @@ def test_quick_run_writes_scores_for_every_hcp(tmp_path):
     import yaml
     cfg = yaml.safe_load((ROOT / 'configs' / 'kol.yaml').read_text())
     cfg.pop('hydra'), cfg.pop('defaults')
-    cfg.update(quick=True, experiments=['leave_one_axis_out', 'interpretability'])
+    cfg.update(quick=True, experiments=['leave_one_axis_out', 'interpretability', 'face_validity', 'temporal'])
     out = run(cfg, root=tmp_path)
     scores = pd.read_csv(out / 'kol_scores.csv', dtype={'hcp_id': str, 'npi': str})
     assert len(scores) == 500 and scores.hcp_id.is_unique
@@ -122,11 +122,18 @@ def test_quick_run_writes_scores_for_every_hcp(tmp_path):
         assert sorted(scores[f'{name}_rank']) == list(range(1, 501))
     assert 'label_curated_seed' not in scores  # legacy pilot is local-only and absent here
     assert (out / 'report.md').read_text().count('## ') >= 4
+    curves = pd.read_csv(out / 'roc_curves.csv')
+    assert set(curves.label) == {'guideline_panel', 'cart_industry_advisor'}
+    assert curves.groupby(['label', 'score']).tpr.max().eq(1.0).all()
+    temporal = pd.read_csv(out / 'temporal_hcp.csv', dtype={'hcp_id': str})
+    assert len(temporal) == 500 and 'new_coauthors_2023_2025' in temporal
     profiles = pd.read_csv(out / 'community_profiles.csv')
     assert profiles.label.notna().all() and profiles.tier.isin(
         ['firm', 'provisional', 'unstable', 'outside main network']).all()
     assert scores.community_tier.notna().all() and scores.community_label.notna().all()
     assert (out / 'bootstrap_communities.csv').exists() and (out / 'node_removal_leader.csv').exists()
+    shares = pd.read_csv(out / 'membership_shares.csv', index_col='hcp_id')
+    assert len(shares) == 500 and np.allclose(shares.sum(axis=1), 1.0)
 
 
 def test_tiers_and_archetypes_follow_stated_thresholds():

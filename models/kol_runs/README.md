@@ -1,7 +1,7 @@
 # KOL communities, composite scores, and robustness experiments
 
 `uv run kolproject-kol` detects coauthorship communities with Leiden, scores every
-HCP on three explainable composites, and runs ten experiments that test whether
+HCP on three explainable composites, and runs eleven experiments that test whether
 the communities, the leaders, and the feature-importance claims survive
 perturbation. It reads only the published tables in `Data/processed/`.
 
@@ -148,6 +148,24 @@ and PageRank. Any association is contemporaneous and does not show causation.
 - **cart_industry_advisor**: received 2024 consulting, speaking, or honoraria
   payments on records naming a lymphoma CAR-T product. Scores that include the
   industry axis are marked `circular` against this label.
+
+## Site
+
+`uv run kolproject-kol-site models/kol_runs/<run-id>` bundles a run into
+`docs/data/site.json`, which the static page in `docs/` reads. The page has five
+tabs, cycled from the header bar, the arrow keys, or the URL hash: results (the
+zoomable community map and every community's tier, theme, and leaders), stability
+(seed and resolution tests, leader removal, literature perturbation, weight
+perturbation, movers), weak labels (ROC curves and AUC against the guideline
+panel and industry advisors), the temporal test, and data sources. A community
+can be deep-linked as `#results/<community-id>`. GitHub Pages serves `docs/`
+from `main` at https://renriviera.github.io/KOLProject/ once Pages is enabled in
+the repository settings. The bundle carries manufacturer counts and payment
+natures but never dollar amounts. To preview locally:
+
+```bash
+python3 -m http.server 8765 --directory docs
+```
 
 ## Interpretation limits
 

@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import rankdata, spearmanr
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import average_precision_score, roc_auc_score
+from sklearn.metrics import average_precision_score, roc_auc_score, roc_curve
 
 from .communities import (best_jaccard, coassignment, disconnected_communities, ensemble, leiden,
                           louvain, medoid, membership_shares, node_consensus, pairwise_ami, ami)
@@ -440,7 +440,10 @@ def movers(ctx: Context) -> tuple[dict, dict]:
         for r in table[table.mover_class == 'multi-community mover'].head(8).itertuples()]
     summary['mover_vs_manufacturer_breadth (partial rho, evidenced HCPs)'] = (
         f'{main.partial_spearman:+.2f} [{main.ci_low:+.2f}, {main.ci_high:+.2f}]')
-    return {'movers': table, 'mover_breadth_test': test, 'mover_breadth_strata': strata}, summary
+    share_table = pd.DataFrame(shares, index=pd.Index(ctx.cohort.nodes, name='hcp_id'),
+                               columns=[f'community_{k}' for k in range(1, shares.shape[1] + 1)])
+    return {'movers': table, 'mover_breadth_test': test, 'mover_breadth_strata': strata,
+            'membership_shares': share_table}, summary
 
 
 # 5b ─────────────────────────────────────────────────────────────────────────────
@@ -611,7 +614,15 @@ def face_validity(ctx: Context) -> tuple[dict, dict]:
         volume = group[group.score == 'publications'].iloc[0]
         summary[f'{label}_best'] = f'{best.score} AUC {best.auc:.2f} [{best.auc_ci_low:.2f}, {best.auc_ci_high:.2f}]'
         summary[f'{label}_publication_count_auc'] = round(float(volume.auc), 2)
-    return {'face_validity': table}, summary
+    curves = []
+    for label in ['guideline_panel', 'cart_industry_advisor']:
+        if label not in ctx.cohort.labels:
+            continue
+        y = ctx.cohort.labels[label].to_numpy()
+        for name, score in scores.items():
+            fpr, tpr, _ = roc_curve(y, score.reindex(ctx.cohort.nodes).fillna(-np.inf).to_numpy())
+            curves.append(pd.DataFrame({'label': label, 'score': name, 'fpr': fpr, 'tpr': tpr}))
+    return {'face_validity': table, 'roc_curves': pd.concat(curves, ignore_index=True)}, summary
 
 
 # 9 ─────────────────────────────────────────────────────────────────────────────
@@ -685,7 +696,15 @@ def temporal(ctx: Context) -> tuple[dict, dict]:
     summary['best_on_guideline_panel'] = f'{best.score} AUC {best.guideline_panel_auc:.2f}'
     summary['volume_null_guideline_panel_auc'] = round(float(
         table.loc[table.score == 'publications (volume-only null)', 'guideline_panel_auc'].iloc[0]), 2)
-    return {'temporal_holdout': table}, summary
+    per_hcp = pd.DataFrame({'display_name': ctx.cohort.hcps.display_name,
+                            'pre_period_publications': analysis.features.publications},
+                           index=pd.Index(nodes, name='hcp_id'))
+    for name, series in scores.items():
+        per_hcp[name] = series.to_numpy()
+    for target, values in targets.items():
+        per_hcp[target] = values
+    per_hcp['guideline_panel'] = panel
+    return {'temporal_holdout': table, 'temporal_hcp': per_hcp}, summary
 
 
 # 10 ────────────────────────────────────────────────────────────────────────────

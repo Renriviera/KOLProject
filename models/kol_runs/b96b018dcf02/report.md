@@ -91,7 +91,7 @@ _Seed and resolution stability of Leiden versus Louvain and the published greedy
 - **greedy_ami_vs_leiden**: 0.778
 - **seed_stable_communities**: 16
 - **nodes_below_consensus_threshold**: 79
-- runtime: 20.2s
+- runtime: 19.7s
 
 | method | seeds | seed_to_seed_ami_mean | seed_to_seed_ami_min | ami_vs_leiden_medoid | modularity | communities | disconnected_communities |
 |---|---|---|---|---|---|---|---|
@@ -117,7 +117,7 @@ _Recompute everything under four edge weightings and compare to the fractional p
 - **robust_top50_rising_voice**: 38
 - **min_ami_vs_fractional**: 0.5
 - **least_similar_weighting**: binary
-- runtime: 1.2s
+- runtime: 1.1s
 
 | weighting | definition | edges | communities | ami_vs_fractional | spearman_pagerank | spearman_betweenness | spearman_participation | spearman_strength | top50_overlap_academic_authority | top50_overlap_network_connector | top50_overlap_rising_voice |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -139,7 +139,7 @@ _Perturb the literature, rebuild graph, communities, features, and scores, and m
 - **academic_authority_median_ci_width_top25**: 56.1
 - **network_connector_median_ci_width_top25**: 34.0
 - **rising_voice_median_ci_width_top25**: 110.1
-- runtime: 94.5s
+- runtime: 93.5s
 
 | community | size | jaccard_resample_mean | jaccard_resample_p10 | verdict_resample | jaccard_drop10_mean | jaccard_drop10_p10 | verdict_drop10 |
 |---|---|---|---|---|---|---|---|
@@ -174,7 +174,7 @@ _Remove top PageRank nodes, globally and per community, and see which communitie
 - **leader_dependent_communities**: 5
 - **communities_tested**: 13
 - **mean_jaccard_after_top10_removed**: 0.735
-- runtime: 8.8s
+- runtime: 9.0s
 
 | removed_top_pagerank | removed_names | mean_best_jaccard | communities_below_0_5 | ami_on_remaining |
 |---|---|---|---|---|
@@ -211,7 +211,7 @@ _Find HCPs whose community membership splits across runs: candidate movers betwe
 - **runs_used**: 250
 - **top_multi_community_movers**: ['Paolo F Caimi (10: Weill Cornell group 29%; 2: Mayo Clinic group 27%; 3: Ohio State group 25%)', 'Craig Sauter (2: Mayo Clinic group 30%; 10: Weill Cornell group 28%; 3: Ohio State group 24%)', 'Brad Steven Kahl (10: Weill Cornell group 30%; 3: Ohio State group 26%; 2: Mayo Clinic group 24%)', 'Mohammad Alhomoud (9: MD Anderson group 40%; 10: Weill Cornell group 26%; 6: Memorial Sloan Kettering group 26%)', 'Bita Fakhri (10: Weill Cornell group 41%; 3: Ohio State group 36%)', 'Amanda Fishback Cashen (9: MD Anderson group 41%; 3: Ohio State group 22%; 1: Cleveland Clinic group 18%)', 'Joshua Brody (12: City of Hope group 41%; 3: Ohio State group 31%)', 'Samuel Yamshon (9: MD Anderson group 43%; 10: Weill Cornell group 27%)']
 - **mover_vs_manufacturer_breadth (partial rho, evidenced HCPs)**: +0.17 [+0.05, +0.28]
-- runtime: 4.3s
+- runtime: 4.4s
 
 | display_name | institution | mover_class | mover_score | community_split | publications | manufacturers_2024 |
 |---|---|---|---|---|---|---|
@@ -359,7 +359,7 @@ _Agreement with weak external labels. A sanity check, never validation of influe
 - **curated_seed_publication_count_auc**: 0.95
 - **guideline_panel_best**: pagerank AUC 0.87 [0.76, 0.95]
 - **guideline_panel_publication_count_auc**: 0.83
-- runtime: 1.7s
+- runtime: 1.8s
 
 | label | score | circular | auc | auc_ci_low | auc_ci_high | precision_at_25 | lift_at_50 |
 |---|---|---|---|---|---|---|---|
@@ -419,7 +419,7 @@ _Score from papers through the cutoff year only; test against what happened afte
 - **best_on_log_consulting_usd_2024**: academic_authority (no industry, no impact) (rho 0.30, delta +0.05)
 - **best_on_guideline_panel**: pagerank alone AUC 0.82
 - **volume_null_guideline_panel_auc**: 0.8
-- runtime: 4.6s
+- runtime: 4.7s
 - cells read: Spearman rho (change versus the volume-only null [95% bootstrap CI])
 
 | score | publications_2023_2025 | new_coauthors_2023_2025 | log_consulting_usd_2024 | guideline_panel_auc |
