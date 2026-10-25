@@ -105,12 +105,31 @@ def evaluate(root=ROOT, target=500):
                  or row['has_any_published_service'] != '0'
                  or row['all_published_medicare_payment_estimate_usd'] != '') for row in features),
     }
+    divisions = root / 'Data' / 'processed' / '2026-10-24'
+    division_counts = {}
+    if (divisions / 'hcp_divisions.csv').exists():
+        people = read_csv(divisions / 'hcp_divisions.csv')
+        centers = read_csv(divisions / 'cart_centers.csv')
+        division_counts = {'hcp_divisions': len(people), 'cart_centers': len(centers)}
+        checks.update({
+            'duplicate_division_npis': duplicates(people, ['npi']),
+            'division_core_coverage_errors': len(identities.symmetric_difference(
+                {(row['hcp_id'], row['npi']) for row in people if row['is_core'] == '1'})),
+            'division_core_label_errors': sum((row['is_core'] == '1') != (row['division'] == 'core') for row in people),
+            'referrer_center_contamination': sum(row['division'] == 'referring_proxy'
+                and (row['center_ccn_links'] != '0' or row['core_org_links'] != '0' or row['marker_count'] == '0')
+                for row in people),
+            'affiliate_without_structural_link': sum(row['division'] in {'affiliate_A', 'affiliate_B'}
+                and row['core_ccn_links'] == '0' and row['core_org_links'] == '0' for row in people),
+            'duplicate_center_ccns': duplicates(centers, ['ccn']),
+            'center_without_evidence': sum(not row['evidence'] for row in centers),
+        })
     files = sorted((root / 'Data' / 'processed').rglob('*'))
     return {
         'validated_at_utc': now(),
         'scope': 'Published-table consistency only; source responses and registry identities are not reverified.',
         'counts': {**{name: len(rows) for name, rows in tables.items()},
-                   'cms_provider_service': len(detail), 'hcp_utilization_features': len(features)},
+                   'cms_provider_service': len(detail), 'hcp_utilization_features': len(features), **division_counts},
         'checks': checks,
         'failures': [name for name, value in checks.items() if value],
         'passed': not any(checks.values()),

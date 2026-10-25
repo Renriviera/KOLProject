@@ -2,7 +2,9 @@
 
 CAR-T / lymphoma HCP research pipeline for Columbia's AI for Life Sciences project.
 The published snapshot includes **500 HCPs**, their publication and coauthorship
-evidence, 2024 CMS Open Payments, and separate 2024 Medicare utilization tables.
+evidence, 2024 CMS Open Payments, separate 2024 Medicare utilization tables, and a
+2026-10-24 extension that labels 17,510 US hem/onc NPIs as core, affiliate, or
+referring around a 173-hospital CAR-T center set.
 
 ## Start with uv
 
@@ -26,7 +28,8 @@ The evaluation checks the published tables and writes
 | Folder/file | Contents |
 |---|---|
 | [`Data/processed/`](Data/README.md) | Dated HCP, publication, payment, network, screening, and utilization CSVs |
-| `Data/manifests/` | Field dictionaries for the cohort and utilization extension |
+| `Data/manifests/` | Field dictionaries for the cohort, utilization extension, and HCP divisions |
+| [`Data/DIVISIONS_README.md`](Data/DIVISIONS_README.md) | 2026-10-24 CAR-T center set and referring/affiliate HCP division labels around the core 500 |
 | `src/kolproject/` | Collection, identity matching, deduplication, preprocessing, analysis, ranking, and evaluation code |
 | `pre-processing/` | Payment prefetch and one-to-one modeling join helpers |
 | `configs/` | Hydra settings, 2024 code definitions, and identity evidence templates; ignored `configs/local/` holds local evidence |
@@ -61,6 +64,8 @@ Derived output timestamps reflect the rerun; source observation dates are preser
 `models/kol_runs/<run-id>/`; see its [README](models/kol_runs/README.md).
 `kolproject-kol-site` turns a run into the static site in `docs/`, published at
 https://renriviera.github.io/KOLProject/ when GitHub Pages is enabled.
+`uv run kolproject-divisions --skip-collect` rebuilds the 2026-10-24 division tables
+from local raw files; see [`Data/DIVISIONS_README.md`](Data/DIVISIONS_README.md).
 
 ![Cohort publication profile](eda/visualizations/cohort_profile.png)
 

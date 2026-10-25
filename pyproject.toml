@@ -26,6 +26,7 @@ kolproject-utilization = "kolproject.utilization:main"
 kolproject-evaluate = "kolproject.evaluate:main"
 kolproject-kol = "kolproject.kol.cli:main"
 kolproject-kol-site = "kolproject.kol.site:main"
+kolproject-divisions = "kolproject.divisions:main"
 
 [build-system]
 requires = ["uv_build>=0.12.23,<0.13.0"]

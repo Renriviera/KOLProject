@@ -1,0 +1,661 @@
+{
+  "cart_centers": [
+    {
+      "column": "ccn",
+      "description": "Six-character CMS Certification Number of the hospital.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hospital_name",
+      "description": "Legal organization name from CMS Hospital Enrollments (main location), else the Teaching Hospital or inpatient file name.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "dba_name",
+      "description": "Doing-business-as name from Hospital Enrollments.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "city",
+      "description": "Practice city from the 2024 provider file when present.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "state",
+      "description": "Practice state: 2024 provider file, else first Doctors and Clinicians state, else NPPES.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "zip5",
+      "description": "Five-digit practice ZIP from the 2024 provider file, else Doctors and Clinicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hrr",
+      "description": "Dartmouth hospital referral region number for zip5 (2019 crosswalk); blank when unassigned.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hrr_city",
+      "description": "Dartmouth HRR city label.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "organization_npi",
+      "description": "Organization NPI of the enrolled hospital from Hospital Enrollments.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "drg018_discharges_2024",
+      "description": "Medicare FFS discharges for MS-DRG 018 in 2024; blank when the hospital is in the set only through FACT.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "fact_iec_program_count",
+      "description": "FACT-accredited immune effector cell programs matched to this CCN.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "fact_program_urls",
+      "description": "FACT program listing URLs matched to this CCN.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "evidence",
+      "description": "drg018_2024 and/or fact_iec_accredited.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "core_hcps_affiliated",
+      "description": "Number of core HCPs with a hospital affiliation to this CCN.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "drg018_source_dataset_version_id",
+      "description": "Pinned CMS inpatient dataset UUID when DRG 018 evidence is present.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "collection_snapshot_date",
+      "description": "Collection-run date; exact request timestamps are in the source request manifest.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "fact_iec_programs": [
+    {
+      "column": "program_url",
+      "description": "FACT listing URL; the program key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "program_name",
+      "description": "Program name as listed by FACT.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "organization_director",
+      "description": "Organization director as listed by FACT; a name, not an NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "states",
+      "description": "States listed by FACT, semicolon separated.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cities",
+      "description": "Cities listed by FACT, semicolon separated.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "clinical_services",
+      "description": "FACT clinical services; all rows include Immune Effector Cellular Therapy.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "transplant_types",
+      "description": "FACT transplant types.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "matched_ccn",
+      "description": "Hospital CCN assigned by name matching or by a reviewed override; blank when unmatched.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "match_method",
+      "description": "name_city, name_state, reviewed_override, reviewed_no_ccn, or unmatched.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "match_score",
+      "description": "Share of distinctive program-name tokens found in the hospital name; blank for overrides.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "matched_hospital_name",
+      "description": "Hospital name for the matched CCN.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "matched_hospital_city",
+      "description": "Hospital city for the matched CCN.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "core_hcps_affiliated_with_matched_ccn",
+      "description": "Core HCPs affiliated with the matched CCN; supporting evidence for the match.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "listing_page",
+      "description": "FACT listing page number at collection.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_id",
+      "description": "Raw-response key linking to the source request manifest.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "listing_url",
+      "description": "FACT listing URL with country and clinical-service filters.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "listing_observed_at_utc",
+      "description": "When the FACT listing pass completed.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "hcp_divisions": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hcp_id",
+      "description": "Core cohort key when the NPI is one of the preserved 500 HCPs; blank otherwise.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "is_core",
+      "description": "1 when the NPI is in the preserved 2026-10-09 cohort.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "last_name",
+      "description": "Name as published by CMS (2024 provider file, else Doctors and Clinicians, else NPPES).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "first_name",
+      "description": "Name as published by CMS (2024 provider file, else Doctors and Clinicians, else NPPES).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "credentials",
+      "description": "Credentials string as published by CMS; not verified.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "role",
+      "description": "physician or app from PECOS specialties, or physician when only the 2024 claims specialty is known; blank when not eligible.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "specialty_eligible",
+      "description": "1 when the NPI qualifies for a division by specialty: hematology/oncology, medical oncology, hematology, or an APP with those secondary specialties.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_claims_specialty_universe",
+      "description": "1 when the 2024 Medicare provider file types the NPI as hem/onc, medical oncology, hematology, or HCT and cellular therapy.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_ndf_specialty_universe",
+      "description": "1 when Doctors and Clinicians specialties qualify the NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cms_provider_type_2024",
+      "description": "Claims-derived specialty in the 2024 provider file; differs from NPPES taxonomy.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "ndf_primary_specialty",
+      "description": "PECOS primary specialty from Doctors and Clinicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "ndf_secondary_specialties",
+      "description": "PECOS secondary specialties, comma separated.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "state",
+      "description": "Practice state: 2024 provider file, else first Doctors and Clinicians state, else NPPES.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "city",
+      "description": "Practice city from the 2024 provider file when present.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "zip5",
+      "description": "Five-digit practice ZIP from the 2024 provider file, else Doctors and Clinicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hrr",
+      "description": "Dartmouth hospital referral region number for zip5 (2019 crosswalk); blank when unassigned.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hrr_city",
+      "description": "Dartmouth HRR city label.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hrr_state",
+      "description": "Dartmouth HRR state label.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hrr_has_cart_center",
+      "description": "1 when at least one CAR-T center hospital sits in the same HRR; blank when the ZIP has no HRR.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "ruca",
+      "description": "Rural-urban commuting area code of the practice ZIP from the 2024 provider file.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "medicare_beneficiaries_2024",
+      "description": "Distinct Medicare FFS beneficiaries in the 2024 provider file; suppressed cells are blank.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "medicare_services_2024",
+      "description": "Total Medicare FFS services in the 2024 provider file.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "beneficiary_cancer_pct_2024",
+      "description": "Share of the NPI's beneficiaries with a cancer chronic-condition flag (CMS six-cancer definition).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "beneficiary_avg_risk_score_2024",
+      "description": "Average HCC risk score of the NPI's beneficiaries.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hospital_ccns",
+      "description": "Hospital CCNs from Doctors and Clinicians Facility Affiliation, semicolon separated.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hospital_ccn_count",
+      "description": "Number of hospital CCN affiliations.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "center_ccn_links",
+      "description": "Number of affiliated CCNs in the CAR-T center set.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "core_ccn_links",
+      "description": "Number of affiliated CCNs in the center set that also have at least one core HCP affiliated.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "group_org_pac_ids",
+      "description": "PECOS group practice PAC IDs from Doctors and Clinicians, semicolon separated.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "core_org_links",
+      "description": "Number of group PAC IDs shared with at least one core HCP.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "core_building_links",
+      "description": "Number of Doctors and Clinicians building keys (adrs_id without the last two characters) shared with a core HCP.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "chemo_administration_rows",
+      "description": "Published 2024 code-setting rows for 96413, 96415, 96417 under this NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "chemo_administration_office_rows",
+      "description": "Those rows in the non-facility (office) setting.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "rituximab_rows",
+      "description": "Published 2024 rows for IV or subcutaneous rituximab codes under this NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "rituximab_office_rows",
+      "description": "Those rows in the office setting.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "dlbcl_agent_rows",
+      "description": "Published 2024 rows for polatuzumab, tafasitamab, loncastuximab, epcoritamab, glofitamab, or mosunetuzumab under this NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "dlbcl_agent_office_rows",
+      "description": "Those rows in the office setting.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "part_d_lymphoma_oral_rows",
+      "description": "Published 2024 Part D prescriber-drug rows for the selected lymphoma oral agents.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "part_d_btki_claims",
+      "description": "Sum of published 2024 Part D claims for ibrutinib, acalabrutinib, zanubrutinib, pirtobrutinib.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "part_d_lenalidomide_claims",
+      "description": "Published 2024 Part D claims for lenalidomide; skews to myeloma.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "part_d_venetoclax_claims",
+      "description": "Published 2024 Part D claims for venetoclax; skews to CLL and AML.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "part_d_tazemetostat_claims",
+      "description": "Published 2024 Part D claims for tazemetostat.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "treatment_markers",
+      "description": "Semicolon-separated markers present: office_chemo_administration, rituximab_own_npi, dlbcl_agent_own_npi, part_d_lymphoma_oral.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "marker_count",
+      "description": "Number of distinct markers present.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "division",
+      "description": "core; affiliate_A (shared center CCN and shared group with a core HCP); affiliate_B (one of those); center_affiliate_unlinked (at a center with no core HCP link); affiliate_C (shared building only); referring_proxy (eligible physician outside centers with a treatment marker); hemonc_other; not_eligible.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "label_version",
+      "description": "Version of the labeling rules.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "service_year",
+      "description": "Year of the claims-derived fields: 2024.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "collection_snapshot_date",
+      "description": "Collection-run date; exact request timestamps are in the source request manifest.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cohort_snapshot_date",
+      "description": "Date of the preserved core cohort.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "row_assembled_at_utc",
+      "description": "When this row was built; distinct from retrieval times.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "hcp_hospital_affiliations": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "ccn",
+      "description": "Six-character CMS Certification Number of the hospital.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hospital_name",
+      "description": "Legal organization name from CMS Hospital Enrollments (main location), else the Teaching Hospital or inpatient file name.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "state",
+      "description": "Practice state: 2024 provider file, else first Doctors and Clinicians state, else NPPES.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_cart_center_set",
+      "description": "1 when the CCN is in the CAR-T center set.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "core_hcps_affiliated",
+      "description": "Number of core HCPs with a hospital affiliation to this CCN.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source",
+      "description": "Source file name.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_release_date",
+      "description": "Release date of the source file.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "hcp_group_memberships": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "org_pac_id",
+      "description": "PECOS group practice PAC ID.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "group_legal_name",
+      "description": "Group legal business name from Doctors and Clinicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "group_member_count",
+      "description": "Clinicians in the group as published.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "adrs_id",
+      "description": "Doctors and Clinicians normalized practice address identifier.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "building_key",
+      "description": "adrs_id without its last two characters; shared by clinicians at one building.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "address_line_1",
+      "description": "Practice address line 1 as published.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "city",
+      "description": "Practice city from the 2024 provider file when present.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "state",
+      "description": "Practice state: 2024 provider file, else first Doctors and Clinicians state, else NPPES.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "zip5",
+      "description": "Five-digit practice ZIP from the 2024 provider file, else Doctors and Clinicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "group_assignment",
+      "description": "Doctors and Clinicians group accepts Medicare assignment flag.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "core_hcps_in_group",
+      "description": "Number of core HCPs with a membership row in this group.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source",
+      "description": "Source file name.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_release_date",
+      "description": "Release date of the source file.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "treatment_markers_2024": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hcpcs_code",
+      "description": "CMS service or product code as text.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hcpcs_description",
+      "description": "CMS description of the code.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "place_of_service",
+      "description": "F = facility; O = non-facility (office).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "marker_group",
+      "description": "chemo_administration, rituximab_iv, rituximab_sc, or dlbcl_agents.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "beneficiaries",
+      "description": "Distinct beneficiaries in this NPI-code-setting cell; not additive across cells.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "services_or_units",
+      "description": "CMS Tot_Srvcs for the cell.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "beneficiary_days",
+      "description": "CMS Tot_Bene_Day_Srvcs for the cell.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cms_provider_type",
+      "description": "Claims-derived specialty on the service row.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "service_year",
+      "description": "Year of the claims-derived fields: 2024.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned CMS dataset UUID queried.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "query_name",
+      "description": "Name of the filtered query in the interim collection that returned this row.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "part_d_lymphoma_orals_2024": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "generic_name",
+      "description": "Part D generic name.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "brand_name",
+      "description": "Part D brand name.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "total_claims",
+      "description": "Published 2024 Part D claims for this prescriber-drug cell.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "total_30day_fills",
+      "description": "Published 30-day standardized fills.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "total_beneficiaries",
+      "description": "Published beneficiaries; blank when fewer than 11.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "total_drug_cost_usd",
+      "description": "Published total drug cost.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "prescriber_type",
+      "description": "Claims-derived prescriber specialty.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "service_year",
+      "description": "Year of the claims-derived fields: 2024.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned CMS dataset UUID queried.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "query_name",
+      "description": "Name of the filtered query in the interim collection that returned this row.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ]
+}

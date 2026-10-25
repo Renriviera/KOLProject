@@ -27,6 +27,8 @@ Data/manifests/source_requests.csv
 Data/manifests/data_file_checksums.csv
 Data/manifests/*/utilization_source_requests.csv
 Data/manifests/*/utilization_file_checksums.csv
+Data/manifests/*/division_source_requests.csv
+Data/manifests/*/division_file_checksums.csv
 models/inputs/*.csv
 models/inputs/*.metadata.json
 .cache/

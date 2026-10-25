@@ -18,11 +18,17 @@ timestamps are separate fields; directory dates label snapshots, not service yea
 | `processed/2026-10-09/social_profiles.csv` | Four dated public-search observations; no follower/engagement metrics |
 | `processed/2026-10-15/cms_provider_service.csv` | 3,318 published NPI × service-year × HCPCS × setting rows |
 | `processed/2026-10-15/hcp_utilization_features.csv` | 500 HCP-level utilization feature rows, including unobserved HCPs |
+| `processed/2026-10-24/cart_centers.csv`, `fact_iec_programs.csv` | 173 CAR-T center hospital CCNs from 2024 MS-DRG 018 discharges and FACT accreditation |
+| `processed/2026-10-24/hcp_divisions.csv` | 17,510 US hem/onc NPIs (core, affiliate tiers, referring proxies) with structural links and 2024 treatment markers |
+| `processed/2026-10-24/hcp_hospital_affiliations.csv`, `hcp_group_memberships.csv`, `treatment_markers_2024.csv`, `part_d_lymphoma_orals_2024.csv` | Evidence tables behind the division labels |
 
-Metadata JSON files accompany both snapshots. Field definitions are in
-`manifests/data_dictionary.csv` and
-`manifests/2026-10-15/utilization_data_dictionary.json`. See
-[`UTILIZATION_README.md`](UTILIZATION_README.md) for code definitions and missingness.
+Metadata JSON files accompany all three snapshots. Field definitions are in
+`manifests/data_dictionary.csv`,
+`manifests/2026-10-15/utilization_data_dictionary.json`, and
+`manifests/2026-10-24/division_data_dictionary.json`. See
+[`UTILIZATION_README.md`](UTILIZATION_README.md) for code definitions and missingness,
+[`DIVISIONS_README.md`](DIVISIONS_README.md) for the division labels, and
+[`HCP_EXPANSION_SOURCES.md`](HCP_EXPANSION_SOURCES.md) for the source inventory.
 
 ## Join keys and interpretation
 
