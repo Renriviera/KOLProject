@@ -21,7 +21,7 @@ timestamps are separate fields; directory dates label snapshots, not service yea
 | `processed/2026-10-24/cart_centers.csv`, `fact_iec_programs.csv` | 173 CAR-T center hospital CCNs from 2024 MS-DRG 018 discharges and FACT accreditation |
 | `processed/2026-10-24/hcp_divisions.csv` | 17,510 US hem/onc NPIs (core, affiliate tiers, referring proxies) with structural links and 2024 treatment markers |
 | `processed/2026-10-24/hcp_hospital_affiliations.csv`, `hcp_group_memberships.csv`, `treatment_markers_2024.csv`, `part_d_lymphoma_orals_2024.csv` | Evidence tables behind the division labels |
-| `processed/2026-10-24/shared_patient_annual_{2021,2022}_features.csv`, `*_hrr_center_flows.csv` | CareSet DocGraph shared-patient flows to CAR-T centers, per NPI and per referral region (CC BY-NC-SA 4.0, attribution to CareSet Systems, Inc.) |
+| `processed/2026-10-24/shared_patient_annual_<2017..2022>_features.csv`, `*_hrr_center_flows.csv` | CareSet DocGraph shared-patient flows to CAR-T centers, per NPI and per referral region (CC BY-NC-SA 4.0, attribution to CareSet Systems, Inc.) |
 
 Metadata JSON files accompany all three snapshots. Field definitions are in
 `manifests/data_dictionary.csv`,

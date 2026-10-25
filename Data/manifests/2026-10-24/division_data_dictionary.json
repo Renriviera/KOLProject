@@ -658,6 +658,402 @@
       "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
     }
   ],
+  "shared_patient_annual_2017_features": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "division",
+      "description": "core; affiliate_A (shared center CCN and shared group with a core HCP); affiliate_B (one of those); center_affiliate_unlinked (at a center with no core HCP link); affiliate_C (shared building only); referring_proxy (eligible physician outside centers with a treatment marker); hemonc_other; not_eligible.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "year",
+      "description": "CareSet DocGraph data year (Medicare FFS claims for that calendar year).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "kind",
+      "description": "CareSet product: annual (full-year patient sharing) or same_day.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "out_patients_total",
+      "description": "Patients this NPI shared with any provider seen later in the sequence, summed over kept edges.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "out_patients_to_centers",
+      "description": "Patients this NPI shared with CAR-T center physicians or center organization NPIs.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "distinct_center_partners",
+      "description": "Number of distinct center CCNs reached through those edges.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "mean_day_wait_to_centers",
+      "description": "Mean of CareSet average_day_wait over edges to centers; small values suggest co-management, large values referral.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_patients_total",
+      "description": "Patients shared with this NPI by any provider seen earlier in the sequence.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_patients_from_referrers",
+      "description": "Patients shared with this NPI by physicians labeled referring_proxy.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "referrer_sources",
+      "description": "Number of distinct referring_proxy physicians sharing patients with this NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "observed_shared_patient_edge",
+      "description": "1 for every row; the feature table lists only NPIs with at least one kept edge.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "shared_patient_annual_2017_hrr_center_flows": [
+    {
+      "column": "hrr",
+      "description": "Dartmouth hospital referral region number for zip5 (2019 crosswalk); blank when unassigned.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "ccn",
+      "description": "Six-character CMS Certification Number of the hospital.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "year",
+      "description": "CareSet DocGraph data year (Medicare FFS claims for that calendar year).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "kind",
+      "description": "CareSet product: annual (full-year patient sharing) or same_day.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "patients",
+      "description": "CareSet patient_count summed over referring physicians in the HRR sharing patients with the center.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "referrer_pairs",
+      "description": "Number of referring physician to center-NPI edges aggregated into this flow.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "same_hrr",
+      "description": "1 when the center hospital sits in the same HRR as the referring physicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "shared_patient_annual_2018_features": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "division",
+      "description": "core; affiliate_A (shared center CCN and shared group with a core HCP); affiliate_B (one of those); center_affiliate_unlinked (at a center with no core HCP link); affiliate_C (shared building only); referring_proxy (eligible physician outside centers with a treatment marker); hemonc_other; not_eligible.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "year",
+      "description": "CareSet DocGraph data year (Medicare FFS claims for that calendar year).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "kind",
+      "description": "CareSet product: annual (full-year patient sharing) or same_day.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "out_patients_total",
+      "description": "Patients this NPI shared with any provider seen later in the sequence, summed over kept edges.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "out_patients_to_centers",
+      "description": "Patients this NPI shared with CAR-T center physicians or center organization NPIs.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "distinct_center_partners",
+      "description": "Number of distinct center CCNs reached through those edges.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "mean_day_wait_to_centers",
+      "description": "Mean of CareSet average_day_wait over edges to centers; small values suggest co-management, large values referral.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_patients_total",
+      "description": "Patients shared with this NPI by any provider seen earlier in the sequence.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_patients_from_referrers",
+      "description": "Patients shared with this NPI by physicians labeled referring_proxy.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "referrer_sources",
+      "description": "Number of distinct referring_proxy physicians sharing patients with this NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "observed_shared_patient_edge",
+      "description": "1 for every row; the feature table lists only NPIs with at least one kept edge.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "shared_patient_annual_2018_hrr_center_flows": [
+    {
+      "column": "hrr",
+      "description": "Dartmouth hospital referral region number for zip5 (2019 crosswalk); blank when unassigned.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "ccn",
+      "description": "Six-character CMS Certification Number of the hospital.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "year",
+      "description": "CareSet DocGraph data year (Medicare FFS claims for that calendar year).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "kind",
+      "description": "CareSet product: annual (full-year patient sharing) or same_day.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "patients",
+      "description": "CareSet patient_count summed over referring physicians in the HRR sharing patients with the center.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "referrer_pairs",
+      "description": "Number of referring physician to center-NPI edges aggregated into this flow.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "same_hrr",
+      "description": "1 when the center hospital sits in the same HRR as the referring physicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "shared_patient_annual_2019_features": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "division",
+      "description": "core; affiliate_A (shared center CCN and shared group with a core HCP); affiliate_B (one of those); center_affiliate_unlinked (at a center with no core HCP link); affiliate_C (shared building only); referring_proxy (eligible physician outside centers with a treatment marker); hemonc_other; not_eligible.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "year",
+      "description": "CareSet DocGraph data year (Medicare FFS claims for that calendar year).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "kind",
+      "description": "CareSet product: annual (full-year patient sharing) or same_day.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "out_patients_total",
+      "description": "Patients this NPI shared with any provider seen later in the sequence, summed over kept edges.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "out_patients_to_centers",
+      "description": "Patients this NPI shared with CAR-T center physicians or center organization NPIs.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "distinct_center_partners",
+      "description": "Number of distinct center CCNs reached through those edges.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "mean_day_wait_to_centers",
+      "description": "Mean of CareSet average_day_wait over edges to centers; small values suggest co-management, large values referral.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_patients_total",
+      "description": "Patients shared with this NPI by any provider seen earlier in the sequence.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_patients_from_referrers",
+      "description": "Patients shared with this NPI by physicians labeled referring_proxy.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "referrer_sources",
+      "description": "Number of distinct referring_proxy physicians sharing patients with this NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "observed_shared_patient_edge",
+      "description": "1 for every row; the feature table lists only NPIs with at least one kept edge.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "shared_patient_annual_2019_hrr_center_flows": [
+    {
+      "column": "hrr",
+      "description": "Dartmouth hospital referral region number for zip5 (2019 crosswalk); blank when unassigned.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "ccn",
+      "description": "Six-character CMS Certification Number of the hospital.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "year",
+      "description": "CareSet DocGraph data year (Medicare FFS claims for that calendar year).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "kind",
+      "description": "CareSet product: annual (full-year patient sharing) or same_day.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "patients",
+      "description": "CareSet patient_count summed over referring physicians in the HRR sharing patients with the center.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "referrer_pairs",
+      "description": "Number of referring physician to center-NPI edges aggregated into this flow.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "same_hrr",
+      "description": "1 when the center hospital sits in the same HRR as the referring physicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "shared_patient_annual_2020_features": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI as text; the only person key.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "division",
+      "description": "core; affiliate_A (shared center CCN and shared group with a core HCP); affiliate_B (one of those); center_affiliate_unlinked (at a center with no core HCP link); affiliate_C (shared building only); referring_proxy (eligible physician outside centers with a treatment marker); hemonc_other; not_eligible.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "year",
+      "description": "CareSet DocGraph data year (Medicare FFS claims for that calendar year).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "kind",
+      "description": "CareSet product: annual (full-year patient sharing) or same_day.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "out_patients_total",
+      "description": "Patients this NPI shared with any provider seen later in the sequence, summed over kept edges.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "out_patients_to_centers",
+      "description": "Patients this NPI shared with CAR-T center physicians or center organization NPIs.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "distinct_center_partners",
+      "description": "Number of distinct center CCNs reached through those edges.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "mean_day_wait_to_centers",
+      "description": "Mean of CareSet average_day_wait over edges to centers; small values suggest co-management, large values referral.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_patients_total",
+      "description": "Patients shared with this NPI by any provider seen earlier in the sequence.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "in_patients_from_referrers",
+      "description": "Patients shared with this NPI by physicians labeled referring_proxy.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "referrer_sources",
+      "description": "Number of distinct referring_proxy physicians sharing patients with this NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "observed_shared_patient_edge",
+      "description": "1 for every row; the feature table lists only NPIs with at least one kept edge.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "shared_patient_annual_2020_hrr_center_flows": [
+    {
+      "column": "hrr",
+      "description": "Dartmouth hospital referral region number for zip5 (2019 crosswalk); blank when unassigned.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "ccn",
+      "description": "Six-character CMS Certification Number of the hospital.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "year",
+      "description": "CareSet DocGraph data year (Medicare FFS claims for that calendar year).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "kind",
+      "description": "CareSet product: annual (full-year patient sharing) or same_day.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "patients",
+      "description": "CareSet patient_count summed over referring physicians in the HRR sharing patients with the center.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "referrer_pairs",
+      "description": "Number of referring physician to center-NPI edges aggregated into this flow.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "same_hrr",
+      "description": "1 when the center hospital sits in the same HRR as the referring physicians.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
   "shared_patient_annual_2021_features": [
     {
       "column": "npi",

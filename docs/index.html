@@ -72,12 +72,14 @@
           <span class="seg" id="catch-layer" aria-label="Edge layer"></span>
           <label class="switch"><input type="checkbox" id="catch-toggle-edges" checked> Edges</label>
           <label class="switch"><input type="checkbox" id="catch-toggle-hrr" checked> Referral regions</label>
+          <label class="switch"><input type="checkbox" id="catch-toggle-nocore" checked> Centers without core members</label>
           <label class="switch"><input type="checkbox" id="catch-toggle-state"> Same-state fallback</label>
           <label class="switch"><input type="checkbox" id="catch-toggle-labels"> Label centers</label>
+          <label class="switch" title="Expands the dense middle and resolves overlaps; neighborhoods are preserved, axes have no meaning"><input type="checkbox" id="catch-toggle-spread"> Spread nodes</label>
           <span class="seg" id="catch-size" aria-label="Center size">
-            <button class="btn" data-size="core" aria-pressed="true">Size: core</button>
+            <button class="btn" data-size="reach" aria-pressed="true">Size: inflow</button>
+            <button class="btn" data-size="core" aria-pressed="false">core members</button>
             <button class="btn" data-size="affiliates" aria-pressed="false">affiliates</button>
-            <button class="btn" data-size="reach" aria-pressed="false">reach</button>
           </span>
           <button class="btn" id="catch-reset">Reset view</button>
         </div>

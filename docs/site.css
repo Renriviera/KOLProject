@@ -149,11 +149,23 @@ main { max-width: 1240px; margin: 0 auto; padding: 1.6rem 16px 3rem; }
 #catch-nodes circle.center.firm { stroke: var(--ink); }
 #catch-nodes circle.center.provisional { stroke: var(--ink); stroke-dasharray: 2 1.6; }
 #catch-nodes circle.center.unstable { stroke: var(--ink); stroke-dasharray: 1 1.2; }
+#catch-nodes circle.center.hollow { stroke: var(--ink-2); }
+#catch-nodes circle.center.hollow.none { stroke-dasharray: 2.5 2; }
+.chart .milestones .tick-line { stroke: var(--ink-2); stroke-dasharray: 3 3; opacity: .7; }
+.chart .milestones .tick-label { fill: var(--ink-2); font-size: 10px; }
+.coverage { margin: .6rem 0; }
+.coverage .bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: var(--surface-2); margin: .3rem 0; }
+.coverage .bar span { display: block; height: 100%; }
+.coverage .bar .core { background: var(--accent); }
+.coverage .bar .aff { background: var(--warning); }
+.coverage .bar .none { background: var(--serious); }
 #catch-nodes rect.hrr { fill: var(--ink-2); stroke: var(--surface); }
 #catch-nodes rect.hrr.nocenter { fill: var(--surface); stroke: var(--ink-2); }
 #catch-nodes text.label { fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; font-weight: 600; pointer-events: none; }
 .linklike { appearance: none; border: 0; background: none; color: var(--accent); font: inherit; padding: 0; cursor: pointer; text-align: left; }
 .linklike:hover { text-decoration: underline; }
+.leader-list li.warn, .leader-list li.warn button { font-weight: 600; }
+.leader-list li.warn button { color: var(--serious); }
 #graph-nodes text.label { fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; font-weight: 600; pointer-events: none; }
 .graph-side { font-size: .9rem; }
 .graph-side .card { position: sticky; top: 76px; max-height: min(72vh, 760px); overflow: auto; }

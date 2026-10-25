@@ -25,6 +25,19 @@ from ..divisions_source import SNAPSHOT as DIVISION_SNAPSHOT
 from .data import sha256
 
 DIVISIONS = ROOT / 'Data' / 'processed' / DIVISION_SNAPSHOT
+# CAR-T regulatory milestones shown as vertical markers on the time-progression charts (month resolution).
+MILESTONES = [
+    {'date': '2017-08', 'label': 'Kymriah approved', 'detail': 'August 2017: tisagenlecleucel (Kymriah) becomes the first FDA-approved CAR-T therapy (pediatric and young adult B-ALL).'},
+    {'date': '2017-10', 'label': 'Yescarta approved', 'detail': 'October 2017: axicabtagene ciloleucel (Yescarta) becomes the second approved CAR-T, for relapsed or refractory large B-cell lymphoma.'},
+    {'date': '2018-05', 'label': 'Kymriah: DLBCL', 'detail': 'May 2018: Kymriah wins its second indication, relapsed or refractory DLBCL.'},
+    {'date': '2019-06', 'label': 'ASCO 2019', 'detail': 'May 31 to June 4, 2019: ASCO Annual Meeting, Chicago. The 2019 conference season (ASCO, then ASH in December) carried the long-term follow-up data for the first CAR-T approvals.'},
+    {'date': '2020-07', 'label': 'Tecartus approved', 'detail': 'July 2020: brexucabtagene autoleucel (Tecartus) becomes the third approved CAR-T, for mantle cell lymphoma.'},
+    {'date': '2021-02', 'label': 'Breyanzi approved', 'detail': 'February 2021: lisocabtagene maraleucel (Breyanzi) is approved for relapsed or refractory large B-cell lymphoma.'},
+    {'date': '2021-03', 'label': 'Abecma approved', 'detail': 'March 2021: idecabtagene vicleucel (Abecma) is approved for multiple myeloma.'},
+    {'date': '2021-10', 'label': 'Tecartus: ALL', 'detail': '2021: Tecartus expands to adult B-cell acute lymphoblastic leukemia.'},
+    {'date': '2022-02', 'label': 'Carvykti approved', 'detail': '2022: ciltacabtagene autoleucel (Carvykti) is approved for multiple myeloma.'},
+    {'date': '2022-04', 'label': 'Yescarta: 2nd line', 'detail': '2022: Yescarta moves to second-line large B-cell lymphoma.'},
+]
 
 
 def mode_share(values):
@@ -103,15 +116,34 @@ def layout(centers, hrrs, edges, seed=2357):
     for h in hrrs:
         if 'h:' + h['hrr'] not in pos:
             near('h:' + h['hrr'], {'same_state'}, 0.18)
+    # Anything still unplaced (for example a children's hospital with no flows) sits next to its state's
+    # placed centers or regions; only nodes in a state with nothing placed fall back to an outer ring.
+    state_of = {'c:' + c['ccn']: c.get('state', '') for c in centers}
+    state_of.update({'h:' + h['hrr']: h.get('state', '') for h in hrrs})
+    by_state = collections.defaultdict(list)
+    for node, (x, y) in pos.items():
+        if state_of.get(node):
+            by_state[state_of[node]].append((x, y))
     unplaced = [n for n in ['c:' + c['ccn'] for c in centers] + ['h:' + h['hrr'] for h in hrrs] if n not in pos]
-    for i, node in enumerate(sorted(unplaced)):
-        angle = 2 * math.pi * i / max(1, len(unplaced))
+    ring = []
+    for node in sorted(unplaced):
+        pts = by_state.get(state_of.get(node, ''), [])
+        if pts:
+            cx, cy = sum(q[0] for q in pts) / len(pts), sum(q[1] for q in pts) / len(pts)
+            dx, dy = jitter(0.12)
+            pos[node] = (cx + dx, cy + dy)
+        else:
+            ring.append(node)
+    for i, node in enumerate(ring):
+        angle = 2 * math.pi * i / max(1, len(ring))
         pos[node] = (1.25 * math.cos(angle), 1.25 * math.sin(angle))
     graph = nx.Graph()
     graph.add_nodes_from(pos)
     for e in edges:
         graph.add_edge('h:' + e['hrr'], 'c:' + e['ccn'], weight=1.0 if e['kind'] != 'same_state' else 0.2)
-    fixed = ['c:' + c['ccn'] for c in centers if c['x'] is not None] or None
+    # Anchored centers and edge-less nodes stay put; the spring pass only spreads nodes that have edges.
+    isolated = [n for n in graph.nodes if graph.degree(n) == 0]
+    fixed = (['c:' + c['ccn'] for c in centers if c['x'] is not None] + isolated) or None
     result = nx.spring_layout(graph, pos=pos, fixed=fixed, weight='weight', seed=seed, iterations=25, k=0.04)
     limit = 1.34  # inside the 1.35 frame even after rounding
     placed = {}
@@ -155,6 +187,49 @@ def relax_centers(centers, placed, rng, iterations=40):
                 moved = True
         if not moved:
             break
+
+
+def spread_positions(centers, hrrs, pos, alpha=0.55, seed=2357, iterations=60):
+    """A readable copy of the layout: expand the dense middle radially and keep nodes from overlapping.
+
+    Coordinates in these layouts carry no metric meaning; only neighborhoods do. The radial power
+    transform about the anchored centers' centroid is monotone in distance, so every node keeps its
+    direction and its rank by distance from the middle, and the collision pass only resolves overlaps.
+    """
+    import random
+    rng = random.Random(seed)
+    anchored = [pos['c:' + c['ccn']] for c in centers if c['x'] is not None] or list(pos.values())
+    cx = sum(p[0] for p in anchored) / len(anchored)
+    cy = sum(p[1] for p in anchored) / len(anchored)
+    radii = {n: math.hypot(x - cx, y - cy) for n, (x, y) in pos.items()}
+    rmax = max(radii.values()) or 1.0
+    out = {}
+    for n, (x, y) in pos.items():
+        r = radii[n]
+        scale = (r / rmax) ** (alpha - 1) if r > 1e-9 else 1.0
+        out[n] = [cx + (x - cx) * scale, cy + (y - cy) * scale]
+    max_core = max((c['core'] for c in centers), default=1) or 1
+    size = {('c:' + c['ccn']): 0.03 + 0.06 * math.sqrt(c['core'] / max_core) for c in centers}
+    size.update({('h:' + h['hrr']): 0.018 for h in hrrs})
+    keys = [k for k in size if k in out]
+    for _ in range(iterations):
+        moved = False
+        for i, a in enumerate(keys):
+            for b in keys[i + 1:]:
+                dx, dy = out[b][0] - out[a][0], out[b][1] - out[a][1]
+                dist = math.hypot(dx, dy)
+                gap = size[a] + size[b] - dist
+                if gap <= 0:
+                    continue
+                if dist < 1e-6:
+                    dx, dy, dist = rng.uniform(-1, 1), rng.uniform(-1, 1), 1.0
+                ux, uy = dx / dist, dy / dist
+                out[a][0] -= ux * gap / 2; out[a][1] -= uy * gap / 2
+                out[b][0] += ux * gap / 2; out[b][1] += uy * gap / 2
+                moved = True
+        if not moved:
+            break
+    return {n: (round(x, 5), round(y, 5)) for n, (x, y) in out.items()}
 
 
 def build(site_path: Path, root: Path = ROOT) -> dict:
@@ -292,10 +367,13 @@ def build(site_path: Path, root: Path = ROOT) -> dict:
         union.extend({**e, 'w': e['w'] / wmax} for e in layer['edges'])
     hrr_list = sorted(hrrs.values(), key=lambda h: h['hrr'])
     positions = layout(centers, hrr_list, union)
+    spread = spread_positions(centers, hrr_list, positions)
     for c in centers:
         c['x'], c['y'] = positions['c:' + c['ccn']]
+        c['xs'], c['ys'] = spread['c:' + c['ccn']]
     for h in hrr_list:
         h['x'], h['y'] = positions['h:' + h['hrr']]
+        h['xs'], h['ys'] = spread['h:' + h['hrr']]
     reach = collections.defaultdict(float)
     reach_state = collections.defaultdict(float)
     for e in proxy:
@@ -316,6 +394,8 @@ def build(site_path: Path, root: Path = ROOT) -> dict:
                  'referrers_unassigned': unassigned, 'proxy_edges': len(proxy), 'observed_edges': sum(len(layers[k]['edges']) for k in observed_keys),
                  'pediatric_centers_excluded_from_proxy': sum(c['pediatric'] for c in centers),
                  'careset': careset_meta, 'divisions': division_counts,
+                 'milestones': MILESTONES,
+                 'layout_note': 'x,y: centers at the centroid of their core members on the seeded spring layout of the coauthorship graph, other nodes placed next to what they link to; xs,ys: the same layout after a monotone radial expansion and collision pass. Neither has metric axes; only neighborhoods carry meaning.',
                  'description': 'Layer B attaches affiliates to CAR-T centers as counts; Layer C links referral regions to centers. '
                                 + ('Observed CareSet shared-patient flows are available alongside the geographic proxy.' if observed_keys else
                                    'Edges are a geographic proxy (same referral region, else same state), not observed referrals.')},

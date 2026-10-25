@@ -1,6 +1,6 @@
 """Catchment layer: proxy edges, pediatric exclusion, observed-edge upgrade, and bounded layout."""
 import math
-from kolproject.kol.catchment import proxy_edges, observed_edges, is_pediatric, title, layout
+from kolproject.kol.catchment import proxy_edges, observed_edges, is_pediatric, title, layout, spread_positions
 
 REFERRERS = [
     {'hrr': '301', 'state': 'NY'}, {'hrr': '301', 'state': 'NY'}, {'hrr': '302', 'state': 'NY'},
@@ -46,3 +46,18 @@ def test_layout_keeps_anchors_near_their_centroid_and_everything_inside_the_fram
     assert math.hypot(*pos['h:301']) < 1.0  # placed next to its anchored centers
     assert all(math.hypot(x, y) <= 1.35 + 1e-6 for x, y in pos.values())
     assert len(pos) == 8
+
+
+def test_spread_keeps_direction_and_distance_rank_but_opens_the_middle():
+    centers = [{'ccn': '1', 'x': 0.02, 'y': 0.0, 'core': 30}, {'ccn': '2', 'x': 0.03, 'y': 0.01, 'core': 20},
+               {'ccn': '3', 'x': 0.5, 'y': 0.0, 'core': 5}, {'ccn': '4', 'x': None, 'y': None, 'core': 0}]
+    hrrs = [{'hrr': 'a'}]
+    pos = {'c:1': (0.02, 0.0), 'c:2': (0.03, 0.01), 'c:3': (0.5, 0.0), 'c:4': (-0.4, 0.3), 'h:a': (0.04, 0.0)}
+    spread = spread_positions(centers, hrrs, pos)
+    centroid = (sum(p[0] for p in list(pos.values())[:3]) / 3, sum(p[1] for p in list(pos.values())[:3]) / 3)
+    before = {k: math.hypot(v[0] - centroid[0], v[1] - centroid[1]) for k, v in pos.items()}
+    after = {k: math.hypot(v[0] - centroid[0], v[1] - centroid[1]) for k, v in spread.items()}
+    assert sorted(before, key=before.get)[-1] == sorted(after, key=after.get)[-1]  # farthest node stays farthest
+    gap = lambda p, a, b: math.hypot(p[a][0] - p[b][0], p[a][1] - p[b][1])
+    assert gap(spread, 'c:1', 'c:2') > gap(pos, 'c:1', 'c:2')  # the crowded pair is pushed apart
+    assert gap(spread, 'c:1', 'c:2') < gap(spread, 'c:1', 'c:3')  # but stays the closer neighbor

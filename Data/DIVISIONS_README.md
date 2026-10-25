@@ -104,54 +104,90 @@ clients; their headers and timestamps sit next to each file under
 site's Catchment tab draws as a second graph with its own state, separate from
 the coauthorship map on the Results tab:
 
-- **Layer A anchors.** Each center hospital is placed at the centroid of its
-  core members on the coauthorship layout and colored by their dominant
-  community (92 centers have a core member; the other 81 are grey and placed
-  next to what they link to).
+- **Core versus affiliates.** The core is the 500 publication-selected
+  CAR-T lymphoma authors: the publishing layer. Affiliates are clinicians who
+  share a center hospital or PECOS group with a core member but did not author
+  in the corpus: the non-publishing colleagues. Every center CCN is on the map.
+- **Layer A anchors and core presence.** A center with a core member is
+  filled with its members' dominant community color and placed at their
+  centroid on the coauthorship layout (92 centers). A center with no core
+  member is hollow; dashed when it has no tier A or B affiliate either (the
+  other 81, placed next to what they link to or next to their state).
 - **Layer B as counts.** Tier A and tier B affiliates and unlinked center staff
-  are attached to each center; the side card lists the core members.
+  are attached to each center; the side card lists the core members with the
+  patients each receives directly from referring physicians.
 - **Layer C edges.** Squares are hospital referral regions sized by referring
-  physicians. The proxy layer links a region to the adult centers inside it,
-  or, when it has none, to the adult centers in its state (dashed, off by
-  default); children's hospitals are kept as centers but excluded as proxy
-  targets. Each ingested CareSet year adds an observed layer of patient flows
-  from a region's referring physicians to center physicians and organizations;
-  the latest year is the default layer.
+  physicians; node size defaults to inflow, so a large hollow circle is flow the
+  publishing core does not touch. The proxy layer links a region to the adult
+  centers inside it, or, when it has none, to the adult centers in its state
+  (dashed, off by default); children's hospitals are kept as centers but
+  excluded as proxy targets. Each ingested CareSet year adds an observed layer;
+  the latest year is the default.
+- **Time progression.** Above the community table, two charts trace the
+  CareSet years for the current selection: with nothing selected, patients from
+  referring physicians by where they land (core, affiliates only, no link) and
+  the breadth of the referral base; for a selected center, its own inflow and
+  referrer links; for a selected region, patients sent and where they go.
+  Dashed vertical tickers mark CAR-T regulatory milestones (first approvals of
+  Kymriah and Yescarta in 2017, Kymriah's DLBCL indication in 2018, the 2019 ASCO Annual Meeting, Tecartus
+  in 2020, Breyanzi and Abecma in 2021, Tecartus's ALL expansion, Carvykti and
+  Yescarta's second-line move in 2022); the list lives in `catchment.py`.
+- **Coverage of the publishing core.** For every layer the page reports where
+  the flow lands: centers with a core member, centers reached only through
+  affiliates, and centers with no link to the core network. On 2022 flows, 65%
+  of patients land at centers with a publishing core member, 27% at
+  affiliate-only centers, and 8% at centers the network does not reach, led by
+  Baylor University Medical Center, Baptist Memorial Memphis, and Sentara
+  Norfolk. Those blind spots are listed in their own table.
 
 Positions outside the anchored set are barycentric with a short spring pass,
 clamped to the coauthorship frame, so the two graphs share a coordinate system.
+The axes of both graphs carry no meaning: the coauthorship layout is a seeded
+Fruchterman-Reingold spring embedding, so only neighborhoods (who sits near whom,
+which cluster a node belongs to) are interpretable, not distances or directions.
+Because of that, the Catchment tab also ships an optional spread layout (off by default):
+a monotone radial expansion about the anchored centroid plus a collision pass,
+which keeps every node's direction and rank by distance from the middle while
+opening the dense academic core for reading when switched on.
 
 ## CareSet DocGraph (Layer C, observed)
 
-The 2021 and 2022 DocGraph Hop Teaming files were obtained under CareSet's
+The 2017 through 2022 DocGraph Hop Teaming files were obtained under CareSet's
 non-commercial license (CC BY-NC-SA 4.0 plus the CareSet Noncommercial Data
 License Addendum: attribution, non-commercial use, derived tables under the
 same license, no re-identification). The delivered folders live next to the
-project at `../DocGraph_2021_NonCommercial/` and `../DocGraph_2022_NonCommercial/`;
-MD5 checksums matched the shipped `.md5` files. Each file has about 7.9 GB and
-206 to 210 million directed provider pairs.
+project at `../DocGraph_<year>_NonCommercial/`; MD5 checksums matched the
+shipped `.md5` files (BSD format for 2017 to 2019). Each file holds 7 to 11 GB
+and 186 to 223 million directed provider pairs.
 
 ```bash
 uv run kolproject-careset ../DocGraph_2022_NonCommercial/DocGraph_Hop_Teaming_2022.csv --year 2022 --kind annual
 uv run kolproject-catchment
 ```
 
-The loader streams the file once, keeps directed edges that touch the division
-universe or a center organization NPI, and writes:
+The loader streams each file once, keeps directed edges that touch the
+division universe or a center organization NPI, and writes per year
+`shared_patient_annual_<year>_edges.csv` (local, `Data/interim/2026-10-24/careset/`,
+about 600 MB each), plus the published `_features.csv`, `_hrr_center_flows.csv`,
+and `_metadata.json` under `Data/processed/2026-10-24/`.
 
-| Output | Location | 2021 | 2022 |
-|---|---|---|---|
-| `shared_patient_annual_<year>_edges.csv` | `Data/interim/2026-10-24/careset/` (local; about 650 MB each) | 6,418,279 edges | 6,585,585 edges |
-| `shared_patient_annual_<year>_features.csv` | `Data/processed/2026-10-24/` | 13,750 NPIs | 14,251 NPIs |
-| `shared_patient_annual_<year>_hrr_center_flows.csv` | `Data/processed/2026-10-24/` | 1,713 HRR to center flows, 459,103 patients | 1,690 flows, 453,840 patients |
-| `shared_patient_annual_<year>_metadata.json` | `Data/processed/2026-10-24/` | row counts, file hash, license | same |
+| Year | Pairs in file | Edges kept | NPIs with features | HRR to center flows | Patients in flows |
+|---|---|---|---|---|---|
+| 2017 | 203,330,907 | 5,746,912 | 11,640 | 1,938 | 421,795 |
+| 2018 | 217,911,308 | 6,260,795 | 12,242 | 1,978 | 460,810 |
+| 2019 | 223,400,012 | 6,584,925 | 12,801 | 1,966 | 506,700 |
+| 2020 | 186,367,054 | 5,763,378 | 13,251 | 1,798 | 445,256 |
+| 2021 | 206,574,841 | 6,418,279 | 13,750 | 1,713 | 459,103 |
+| 2022 | 210,313,975 | 6,585,585 | 14,251 | 1,690 | 453,840 |
 
-What the flows show, 2022: 3,547 of the 4,412 referring proxies with any kept
-edge share patients with a CAR-T center physician or organization; 297 referral
-regions send to 152 centers; 51% of patients stay inside the referring
-physician's own region, which is the share the geographic proxy gets right by
-construction. Only 55 core HCPs receive flow directly from referrers, because
-most flow lands on center organization NPIs or on affiliates rather than on the
+The referring physicians are those labeled on 2024 markers, so earlier years
+describe what that same set of physicians did then. Across the six years the
+share of flow landing at centers with a publishing core member stays between
+62% and 65%, affiliate-only centers take 27% to 30%, and centers with no link
+to the core network 7% to 8%; the share of patients staying in the referring
+physician's own region rises from 45% in 2017 to 51% in 2022. Only about 55
+core HCPs receive flow directly from referrers in any year, because most flow
+lands on center organization NPIs or on affiliates rather than on the
 publishing physicians.
 
 The edge tables stay local because of their size, not the license; the derived
