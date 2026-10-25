@@ -1,6 +1,6 @@
 /* Boot, header-bar tab routing, shared helpers, and small chart primitives. */
 window.KOL = (function () {
-  const TABS = ['results', 'stability', 'labels', 'backtesting', 'sources'];
+  const TABS = ['results', 'catchment', 'stability', 'labels', 'backtesting', 'sources'];
   const TIER_LABEL = { firm: 'Firm', provisional: 'Provisional', unstable: 'Unstable', 'outside main network': 'Outside the main network' };
   const TIER_CLASS = { firm: 'firm', provisional: 'provisional', unstable: 'unstable', 'outside main network': 'outside' };
   const COMPOSITE_LABEL = { academic_authority: 'Academic Authority', network_connector: 'Network Connector', rising_voice: 'Rising Voice' };

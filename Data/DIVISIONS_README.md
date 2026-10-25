@@ -98,10 +98,74 @@ downloaded with `curl` because the Doctors and Clinicians host rejects other
 clients; their headers and timestamps sit next to each file under
 `Data/raw/2026-10-24/bulk/`.
 
+## Catchment graph on the site
+
+`uv run kolproject-catchment` writes `docs/data/catchment.json`, which the
+site's Catchment tab draws as a second graph with its own state, separate from
+the coauthorship map on the Results tab:
+
+- **Layer A anchors.** Each center hospital is placed at the centroid of its
+  core members on the coauthorship layout and colored by their dominant
+  community (92 centers have a core member; the other 81 are grey and placed
+  next to what they link to).
+- **Layer B as counts.** Tier A and tier B affiliates and unlinked center staff
+  are attached to each center; the side card lists the core members.
+- **Layer C edges.** Squares are hospital referral regions sized by referring
+  physicians. The proxy layer links a region to the adult centers inside it,
+  or, when it has none, to the adult centers in its state (dashed, off by
+  default); children's hospitals are kept as centers but excluded as proxy
+  targets. Each ingested CareSet year adds an observed layer of patient flows
+  from a region's referring physicians to center physicians and organizations;
+  the latest year is the default layer.
+
+Positions outside the anchored set are barycentric with a short spring pass,
+clamped to the coauthorship frame, so the two graphs share a coordinate system.
+
+## CareSet DocGraph (Layer C, observed)
+
+The 2021 and 2022 DocGraph Hop Teaming files were obtained under CareSet's
+non-commercial license (CC BY-NC-SA 4.0 plus the CareSet Noncommercial Data
+License Addendum: attribution, non-commercial use, derived tables under the
+same license, no re-identification). The delivered folders live next to the
+project at `../DocGraph_2021_NonCommercial/` and `../DocGraph_2022_NonCommercial/`;
+MD5 checksums matched the shipped `.md5` files. Each file has about 7.9 GB and
+206 to 210 million directed provider pairs.
+
+```bash
+uv run kolproject-careset ../DocGraph_2022_NonCommercial/DocGraph_Hop_Teaming_2022.csv --year 2022 --kind annual
+uv run kolproject-catchment
+```
+
+The loader streams the file once, keeps directed edges that touch the division
+universe or a center organization NPI, and writes:
+
+| Output | Location | 2021 | 2022 |
+|---|---|---|---|
+| `shared_patient_annual_<year>_edges.csv` | `Data/interim/2026-10-24/careset/` (local; about 650 MB each) | 6,418,279 edges | 6,585,585 edges |
+| `shared_patient_annual_<year>_features.csv` | `Data/processed/2026-10-24/` | 13,750 NPIs | 14,251 NPIs |
+| `shared_patient_annual_<year>_hrr_center_flows.csv` | `Data/processed/2026-10-24/` | 1,713 HRR to center flows, 459,103 patients | 1,690 flows, 453,840 patients |
+| `shared_patient_annual_<year>_metadata.json` | `Data/processed/2026-10-24/` | row counts, file hash, license | same |
+
+What the flows show, 2022: 3,547 of the 4,412 referring proxies with any kept
+edge share patients with a CAR-T center physician or organization; 297 referral
+regions send to 152 centers; 51% of patients stay inside the referring
+physician's own region, which is the share the geographic proxy gets right by
+construction. Only 55 core HCPs receive flow directly from referrers, because
+most flow lands on center organization NPIs or on affiliates rather than on the
+publishing physicians.
+
+The edge tables stay local because of their size, not the license; the derived
+feature and flow tables are published with attribution to CareSet Systems, Inc.
+under CC BY-NC-SA 4.0. The Catchment tab offers the proxy and each observed
+year as switchable edge layers; node positions are computed once from the
+union of layers so switching never moves a node. DocGraph years precede the
+2024 markers and center set and the 2025 removal of CAR-T REMS requirements.
+
 ## Limitations
 
-- Referring labels are proxies. No shared-patient edge is observed in this
-  release; CareSet DocGraph Hop Teaming is the planned source for that.
+- Referring labels are proxies from 2024 markers. Observed shared-patient flows
+  come from CareSet DocGraph 2021 and 2022 and are Medicare FFS patients of any
+  diagnosis, not lymphoma referrals.
 - Markers come from Medicare FFS with 11-beneficiary suppression. Absence of a
   marker is not evidence of no lymphoma treatment. BTK inhibitors and
   lenalidomide skew to CLL, MCL, WM, and myeloma.

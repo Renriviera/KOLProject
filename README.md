@@ -35,7 +35,7 @@ The evaluation checks the published tables and writes
 | `configs/` | Hydra settings, 2024 code definitions, and identity evidence templates; ignored `configs/local/` holds local evidence |
 | [`models/`](models/README.md) | Baseline ranking runs, input hashes, weights, and modeling-input instructions |
 | [`models/kol_runs/`](models/kol_runs/README.md) | Leiden communities, three explainable composite KOL scores, and eleven robustness experiments |
-| `docs/` | Static GitHub Pages site built from a run: interactive community map, experiments, and data sources |
+| `docs/` | Static GitHub Pages site built from a run: interactive community map, affiliate and referrer catchment graph, experiments, and data sources |
 | [`evaluations/`](evaluations/README.md) | Reproducible processed-table checks and historical source-validation reports |
 | [`eda/`](eda/README.md) | Cohort summaries, missingness, geographic counts, and network statistics |
 | [`eda/visualizations/`](eda/visualizations/README.md) | Publication profile and seeded coauthorship network figures |
@@ -65,7 +65,9 @@ Derived output timestamps reflect the rerun; source observation dates are preser
 `kolproject-kol-site` turns a run into the static site in `docs/`, published at
 https://renriviera.github.io/KOLProject/ when GitHub Pages is enabled.
 `uv run kolproject-divisions --skip-collect` rebuilds the 2026-10-24 division tables
-from local raw files; see [`Data/DIVISIONS_README.md`](Data/DIVISIONS_README.md).
+from local raw files, and `uv run kolproject-catchment` bundles them into the site's
+Catchment tab; see [`Data/DIVISIONS_README.md`](Data/DIVISIONS_README.md). CareSet
+DocGraph files, once licensed, load with `uv run kolproject-careset <file> --year 2024`.
 
 ![Cohort publication profile](eda/visualizations/cohort_profile.png)
 

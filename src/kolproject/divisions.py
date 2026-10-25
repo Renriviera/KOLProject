@@ -521,9 +521,23 @@ DESCRIPTIONS = {
     'total_beneficiaries': 'Published beneficiaries; blank when fewer than 11.',
     'total_drug_cost_usd': 'Published total drug cost.',
     'prescriber_type': 'Claims-derived prescriber specialty.',
+    'year': 'CareSet DocGraph data year (Medicare FFS claims for that calendar year).',
+    'kind': 'CareSet product: annual (full-year patient sharing) or same_day.',
+    'out_patients_total': 'Patients this NPI shared with any provider seen later in the sequence, summed over kept edges.',
+    'out_patients_to_centers': 'Patients this NPI shared with CAR-T center physicians or center organization NPIs.',
+    'distinct_center_partners': 'Number of distinct center CCNs reached through those edges.',
+    'mean_day_wait_to_centers': 'Mean of CareSet average_day_wait over edges to centers; small values suggest co-management, large values referral.',
+    'in_patients_total': 'Patients shared with this NPI by any provider seen earlier in the sequence.',
+    'in_patients_from_referrers': 'Patients shared with this NPI by physicians labeled referring_proxy.',
+    'referrer_sources': 'Number of distinct referring_proxy physicians sharing patients with this NPI.',
+    'observed_shared_patient_edge': '1 for every row; the feature table lists only NPIs with at least one kept edge.',
+    'patients': 'CareSet patient_count summed over referring physicians in the HRR sharing patients with the center.',
+    'referrer_pairs': 'Number of referring physician to center-NPI edges aggregated into this flow.',
+    'same_hrr': '1 when the center hospital sits in the same HRR as the referring physicians.',
 }
 TABLES = ['cart_centers', 'fact_iec_programs', 'hcp_divisions', 'hcp_hospital_affiliations',
           'hcp_group_memberships', 'treatment_markers_2024', 'part_d_lymphoma_orals_2024']
+OPTIONAL_TABLE_GLOBS = ['shared_patient_*_features', 'shared_patient_*_hrr_center_flows']
 
 def make_manifests():
     dest = ROOT / 'Data' / 'manifests' / SNAPSHOT
@@ -535,7 +549,8 @@ def make_manifests():
     paths.append(config_input('cart_center_overrides.csv'))
     write_csv(dest / 'division_file_checksums.csv', [{'path': str(p.relative_to(ROOT)), 'bytes': p.stat().st_size, 'sha256': sha(p)} for p in paths])
     dictionary = {}
-    for table in TABLES:
+    optional = sorted(p.stem for pattern in OPTIONAL_TABLE_GLOBS for p in OUT.glob(pattern + '.csv'))
+    for table in TABLES + optional:
         rows = read_csv(OUT / (table + '.csv'))
         entries = []
         for field in (list(rows[0]) if rows else []):

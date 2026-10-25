@@ -1,0 +1,15 @@
+{
+  "source": "CareSet DocGraph Hop Teaming",
+  "kind": "annual",
+  "year": 2022,
+  "license": "CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum: attribution to CareSet Systems, non-commercial use, derived tables shared under the same license, no re-identification of individuals",
+  "sha256": "dc05f405bae7a2331e741c167147e22a4138a5ac9f39ca0397599962d59b0c8d",
+  "bytes": 8034267995,
+  "ingested_at_utc": "2026-10-25T13:55:31Z",
+  "rows_total": 210313975,
+  "rows_kept": 6585585,
+  "feature_rows": 14251,
+  "flow_rows": 1690,
+  "edges_published": false,
+  "edge_table": "Data/interim/2026-10-24/careset/shared_patient_annual_2022_edges.csv"
+}

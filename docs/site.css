@@ -144,6 +144,16 @@ main { max-width: 1240px; margin: 0 auto; padding: 1.6rem 16px 3rem; }
 #graph-nodes circle.node.provisional { stroke: var(--ink); stroke-dasharray: 2 1.6; }
 #graph-nodes circle.node.unstable { stroke: var(--ink); stroke-dasharray: 1 1.2; }
 #graph-nodes circle.ring { fill: none; stroke: var(--ink); pointer-events: none; }
+#catch-edges, #catch-nodes { position: absolute; inset: 0; width: 100%; height: 100%; }
+#catch-nodes circle.center { stroke: var(--surface); }
+#catch-nodes circle.center.firm { stroke: var(--ink); }
+#catch-nodes circle.center.provisional { stroke: var(--ink); stroke-dasharray: 2 1.6; }
+#catch-nodes circle.center.unstable { stroke: var(--ink); stroke-dasharray: 1 1.2; }
+#catch-nodes rect.hrr { fill: var(--ink-2); stroke: var(--surface); }
+#catch-nodes rect.hrr.nocenter { fill: var(--surface); stroke: var(--ink-2); }
+#catch-nodes text.label { fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; font-weight: 600; pointer-events: none; }
+.linklike { appearance: none; border: 0; background: none; color: var(--accent); font: inherit; padding: 0; cursor: pointer; text-align: left; }
+.linklike:hover { text-decoration: underline; }
 #graph-nodes text.label { fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; font-weight: 600; pointer-events: none; }
 .graph-side { font-size: .9rem; }
 .graph-side .card { position: sticky; top: 76px; max-height: min(72vh, 760px); overflow: auto; }

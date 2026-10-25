@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CAR-T Lymphoma KOL Network</title>
-<meta name="description" content="Interactive Leiden communities, explainable composite scores, and robustness experiments for 500 CAR-T lymphoma HCPs.">
+<meta name="description" content="Interactive Leiden communities, explainable composite scores, robustness experiments, and the affiliate and referrer catchment around 500 CAR-T lymphoma HCPs.">
 <link rel="stylesheet" href="site.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
@@ -19,6 +19,7 @@
       <button class="tab-step" id="tab-prev" aria-label="Previous section" title="Previous section (←)">‹</button>
       <div class="tab-list" role="tablist" id="tab-list">
         <button role="tab" class="tab" data-tab="results" aria-controls="panel-results">Results</button>
+        <button role="tab" class="tab" data-tab="catchment" aria-controls="panel-catchment">Catchment</button>
         <button role="tab" class="tab" data-tab="stability" aria-controls="panel-stability">Stability</button>
         <button role="tab" class="tab" data-tab="labels" aria-controls="panel-labels">Weak labels</button>
         <button role="tab" class="tab" data-tab="backtesting" aria-controls="panel-backtesting">Backtesting</button>
@@ -59,6 +60,41 @@
     <p class="limits" data-limits></p>
   </section>
 
+  <section id="panel-catchment" class="panel" role="tabpanel" data-tab="catchment" hidden>
+    <div class="intro">
+      <h1>Where the affiliates sit and where the referrers come from</h1>
+      <p id="catchment-lede" class="lede"></p>
+    </div>
+    <div class="graph-wrap">
+      <div class="graph-controls">
+        <div class="chips" id="catch-chips" aria-label="Select a community"></div>
+        <div class="toggles">
+          <span class="seg" id="catch-layer" aria-label="Edge layer"></span>
+          <label class="switch"><input type="checkbox" id="catch-toggle-edges" checked> Edges</label>
+          <label class="switch"><input type="checkbox" id="catch-toggle-hrr" checked> Referral regions</label>
+          <label class="switch"><input type="checkbox" id="catch-toggle-state"> Same-state fallback</label>
+          <label class="switch"><input type="checkbox" id="catch-toggle-labels"> Label centers</label>
+          <span class="seg" id="catch-size" aria-label="Center size">
+            <button class="btn" data-size="core" aria-pressed="true">Size: core</button>
+            <button class="btn" data-size="affiliates" aria-pressed="false">affiliates</button>
+            <button class="btn" data-size="reach" aria-pressed="false">reach</button>
+          </span>
+          <button class="btn" id="catch-reset">Reset view</button>
+        </div>
+      </div>
+      <div class="graph-stage">
+        <div class="graph-canvas-wrap" id="catch-graph">
+          <canvas id="catch-edges"></canvas>
+          <svg id="catch-nodes" aria-label="Affiliation and catchment network"></svg>
+        </div>
+        <aside class="graph-side" id="catch-side"></aside>
+      </div>
+      <div class="legend-row" id="catch-legend"></div>
+    </div>
+    <div id="catchment-content"></div>
+    <p class="limits" data-limits></p>
+  </section>
+
   <section id="panel-stability" class="panel" role="tabpanel" data-tab="stability" hidden>
     <div class="intro"><h1>Do the communities and leaders survive perturbation?</h1><p class="lede" id="stability-lede"></p></div>
     <div id="stability-content"></div>
@@ -92,6 +128,7 @@
 
 <script src="site.js"></script>
 <script src="graph.js"></script>
+<script src="catchment.js"></script>
 <script src="tabs.js"></script>
 <script>KOL.boot();</script>
 </body>
