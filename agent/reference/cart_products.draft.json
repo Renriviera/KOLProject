@@ -1,0 +1,85 @@
+{
+  "status": "DRAFT, NOT VERIFIED. Every date and code below must be confirmed against the FDA approval letter or CMS file and given a source URL before this file is renamed cart_products.json and rendered into the system prompt and the database (plan phase 1).",
+  "as_of": "2026-11-20",
+  "products": [
+    {
+      "brand": "Kymriah", "generic": "tisagenlecleucel", "short_name": "tisa-cel",
+      "company_group": "Novartis", "target": "CD19", "lymphoma_product": true, "hcpcs_code": "Q2042",
+      "first_us_approval": "2017-08-30",
+      "events": [
+        {"date": "2017-08-30", "type": "first_approval", "label": "Kymriah approved (B-ALL, up to age 25)", "lymphoma": false},
+        {"date": "2018-05-01", "type": "new_indication", "label": "Kymriah: large B-cell lymphoma, third line", "lymphoma": true},
+        {"date": "2022-05-27", "type": "new_indication", "label": "Kymriah: follicular lymphoma, third line", "lymphoma": true}
+      ]
+    },
+    {
+      "brand": "Yescarta", "generic": "axicabtagene ciloleucel", "short_name": "axi-cel",
+      "company_group": "Kite/Gilead", "target": "CD19", "lymphoma_product": true, "hcpcs_code": "Q2041",
+      "first_us_approval": "2017-10-18",
+      "events": [
+        {"date": "2017-10-18", "type": "first_approval", "label": "Yescarta approved (large B-cell lymphoma, third line)", "lymphoma": true},
+        {"date": "2021-03-05", "type": "new_indication", "label": "Yescarta: follicular lymphoma, third line", "lymphoma": true},
+        {"date": "2022-04-01", "type": "new_indication", "label": "Yescarta: large B-cell lymphoma, second line", "lymphoma": true}
+      ]
+    },
+    {
+      "brand": "Tecartus", "generic": "brexucabtagene autoleucel", "short_name": "brexu-cel",
+      "company_group": "Kite/Gilead", "target": "CD19", "lymphoma_product": true, "hcpcs_code": "Q2053",
+      "first_us_approval": "2020-07-24",
+      "events": [
+        {"date": "2020-07-24", "type": "first_approval", "label": "Tecartus approved (mantle cell lymphoma)", "lymphoma": true},
+        {"date": "2021-10-01", "type": "new_indication", "label": "Tecartus: adult B-ALL", "lymphoma": false}
+      ]
+    },
+    {
+      "brand": "Breyanzi", "generic": "lisocabtagene maraleucel", "short_name": "liso-cel",
+      "company_group": "Bristol Myers Squibb/Celgene/Juno", "target": "CD19", "lymphoma_product": true, "hcpcs_code": "Q2054",
+      "first_us_approval": "2021-02-05",
+      "events": [
+        {"date": "2021-02-05", "type": "first_approval", "label": "Breyanzi approved (large B-cell lymphoma, third line)", "lymphoma": true},
+        {"date": "2022-06-24", "type": "new_indication", "label": "Breyanzi: large B-cell lymphoma, second line", "lymphoma": true},
+        {"date": "2024-03-14", "type": "new_indication", "label": "Breyanzi: CLL/SLL", "lymphoma": true, "verify_note": "The repository's FDA-derived table shows 2024-03-21; confirm which date is the approval."},
+        {"date": "2024-05-15", "type": "new_indication", "label": "Breyanzi: follicular lymphoma", "lymphoma": true},
+        {"date": "2024-05-30", "type": "new_indication", "label": "Breyanzi: mantle cell lymphoma", "lymphoma": true},
+        {"date": "2025-12-04", "type": "new_indication", "label": "Breyanzi: marginal zone lymphoma", "lymphoma": true}
+      ]
+    },
+    {
+      "brand": "Abecma", "generic": "idecabtagene vicleucel", "short_name": "ide-cel",
+      "company_group": "Bristol Myers Squibb/Celgene/Juno", "partner": "bluebird bio/2seventy bio", "target": "BCMA", "lymphoma_product": false, "hcpcs_code": "Q2055",
+      "first_us_approval": "2021-03-26",
+      "events": [
+        {"date": "2021-03-26", "type": "first_approval", "label": "Abecma approved (multiple myeloma, fifth line)", "lymphoma": false},
+        {"date": "2024-04-04", "type": "new_indication", "label": "Abecma: myeloma, earlier line", "lymphoma": false}
+      ]
+    },
+    {
+      "brand": "Carvykti", "generic": "ciltacabtagene autoleucel", "short_name": "cilta-cel",
+      "company_group": "Janssen/Johnson & Johnson", "partner": "Legend Biotech", "target": "BCMA", "lymphoma_product": false, "hcpcs_code": "Q2056",
+      "first_us_approval": "2022-02-28",
+      "events": [
+        {"date": "2022-02-28", "type": "first_approval", "label": "Carvykti approved (multiple myeloma, fifth line)", "lymphoma": false},
+        {"date": "2024-04-05", "type": "new_indication", "label": "Carvykti: myeloma, second line", "lymphoma": false}
+      ]
+    },
+    {
+      "brand": "Aucatzyl", "generic": "obecabtagene autoleucel", "short_name": "obe-cel",
+      "company_group": "Autolus", "target": "CD19", "lymphoma_product": false, "hcpcs_code": "",
+      "first_us_approval": "2024-11-08",
+      "events": [
+        {"date": "2024-11-08", "type": "first_approval", "label": "Aucatzyl approved (adult B-ALL)", "lymphoma": false, "verify_note": "Web sources disagree between November 2024 and 2025; confirm with the FDA letter. Billing code not yet confirmed."}
+      ]
+    }
+  ],
+  "pending": [
+    {"generic": "anitocabtagene autoleucel", "short_name": "anito-cel", "company_group": "Arcellx with Kite/Gilead", "target": "BCMA", "note": "Not approved as of 2026-11-20. Secondary sources give an FDA decision date of 2026-12-23; confirm and add on approval."}
+  ],
+  "class_and_coding_events": [
+    {"date": "2019-01-01", "type": "coding", "label": "CAR-T procedure codes 0537T-0540T start"},
+    {"date": "2019-08-07", "type": "coverage", "label": "Medicare national coverage decision for CAR-T"},
+    {"date": "2020-10-01", "type": "coding", "label": "Medicare inpatient group MS-DRG 018 created for CAR-T"},
+    {"date": "2024-01", "type": "safety", "label": "FDA class-wide boxed warning on T-cell malignancies"},
+    {"date": "2025-01-01", "type": "coding", "label": "CAR-T procedure codes 38225-38228 replace 0537T-0540T"},
+    {"date": "2025-06-26", "type": "regulatory", "label": "FDA removes REMS requirements for approved CAR-T products"}
+  ]
+}

@@ -1,0 +1,3607 @@
+{
+ "label": "2026-11-21 profile skills can run topic queries; held-out (h3- asked for the first time)",
+ "date": "2026-11-21",
+ "model": "qwen3.5:9b",
+ "questions_in_set": 83,
+ "summary": {
+  "overall": {
+   "questions": 83,
+   "routed": 0.976,
+   "all_checks": 0.976,
+   "outcome": 0.988,
+   "skill": 0.987,
+   "entity": 0.984,
+   "queries": 0.986,
+   "params": 1.0,
+   "map": 0.973,
+   "caveats": 1.0,
+   "text": 1.0
+  },
+  "by_group": {
+   "community": {
+    "questions": 10,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": 1.0,
+    "queries": 1.0,
+    "params": 1.0,
+    "map": 1.0,
+    "caveats": null,
+    "text": null
+   },
+   "hcp": {
+    "questions": 9,
+    "routed": 0.889,
+    "all_checks": 0.889,
+    "outcome": 1.0,
+    "skill": 0.889,
+    "entity": 0.889,
+    "queries": 0.889,
+    "params": null,
+    "map": 1.0,
+    "caveats": 1.0,
+    "text": null
+   },
+   "center": {
+    "questions": 10,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": 1.0,
+    "queries": 1.0,
+    "params": 1.0,
+    "map": 1.0,
+    "caveats": 1.0,
+    "text": null
+   },
+   "payments": {
+    "questions": 12,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": 1.0,
+    "queries": 1.0,
+    "params": 1.0,
+    "map": null,
+    "caveats": 1.0,
+    "text": null
+   },
+   "ties": {
+    "questions": 5,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": 1.0,
+    "queries": 1.0,
+    "params": null,
+    "map": null,
+    "caveats": 1.0,
+    "text": null
+   },
+   "prescribing": {
+    "questions": 9,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": 1.0,
+    "queries": 1.0,
+    "params": 1.0,
+    "map": null,
+    "caveats": 1.0,
+    "text": null
+   },
+   "referral": {
+    "questions": 10,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": 1.0,
+    "queries": 1.0,
+    "params": 1.0,
+    "map": 1.0,
+    "caveats": 1.0,
+    "text": null
+   },
+   "product": {
+    "questions": 6,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": null,
+    "queries": 1.0,
+    "params": 1.0,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "scope": {
+    "questions": 6,
+    "routed": 0.833,
+    "all_checks": 0.833,
+    "outcome": 0.833,
+    "skill": 1.0,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": 0.8,
+    "caveats": null,
+    "text": 1.0
+   },
+   "ambiguity": {
+    "questions": 3,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "follow-up": {
+    "questions": 2,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": 1.0,
+    "queries": 1.0,
+    "params": null,
+    "map": null,
+    "caveats": 1.0,
+    "text": null
+   },
+   "new-topic": {
+    "questions": 1,
+    "routed": 1.0,
+    "all_checks": 1.0,
+    "outcome": 1.0,
+    "skill": 1.0,
+    "entity": 1.0,
+    "queries": 1.0,
+    "params": null,
+    "map": 1.0,
+    "caveats": null,
+    "text": null
+   }
+  },
+  "seconds": {
+   "median": 8.9,
+   "p90": 11.2,
+   "max": 15.8,
+   "share_within_10s": 0.795
+  },
+  "first_view_seconds": {
+   "median": 2.5,
+   "p90": 5.1,
+   "max": 13.8,
+   "share_within_10s": 0.988
+  },
+  "first_text_seconds": {
+   "median": 7.6,
+   "p90": 9.5,
+   "max": 13.8,
+   "share_within_10s": 0.952
+  },
+  "model_calls_median": 3,
+  "output_tokens_median": 197,
+  "plain_text_replies": 80,
+  "answers_with_a_dropped_sentence": 1,
+  "answers_with_a_tool_error": 2
+ },
+ "records": [
+  {
+   "id": "h-com-1",
+   "group": "community",
+   "question": "Who are the key authors in the Mass General Brigham network?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_leaders"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "5"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Leaders by PageRank in the co-authorship network: Mass General Brigham – Dana-Farber network",
+   "seconds": 7.8,
+   "first_view_seconds": 2.7,
+   "first_text_seconds": 7.8,
+   "model_calls": 3,
+   "output_tokens": 165,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-com-2",
+   "group": "community",
+   "question": "Tell me about the Baylor orbit.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_centers",
+    "community_leaders",
+    "community_summary"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "13"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Baylor orbit is a South region community with 10 core members and 2 main centers.",
+   "seconds": 9.7,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 7.5,
+   "model_calls": 3,
+   "output_tokens": 236,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-com-3",
+   "group": "community",
+   "question": "Which hospitals belong to the Fred Hutch / UW orbit?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_centers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "8"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Centers attached to the community: Fred Hutch / UW orbit",
+   "seconds": 7.6,
+   "first_view_seconds": 2.6,
+   "first_text_seconds": 7.6,
+   "model_calls": 3,
+   "output_tokens": 156,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-com-4",
+   "group": "community",
+   "question": "Mayo versus Stanford: how do the two orbits compare?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_centers",
+    "community_compare",
+    "community_leaders"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "7",
+      "2"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Mayo Clinic orbit has more core members and affiliates than Stanford orbit.",
+   "seconds": 15.8,
+   "first_view_seconds": 2.6,
+   "first_text_seconds": 12.9,
+   "model_calls": 4,
+   "output_tokens": 372,
+   "tool_errors": 1,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-com-5",
+   "group": "community",
+   "question": "Has the Memorial Sloan Kettering community published more together over the years?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_coauthor_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "6"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Memorial Sloan Kettering community co-authorship grew from 6 papers in 2018 to 47 in 2025.",
+   "seconds": 9.9,
+   "first_view_seconds": 2.7,
+   "first_text_seconds": 7.7,
+   "model_calls": 3,
+   "output_tokens": 232,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-hcp-1",
+   "group": "hcp",
+   "question": "Who is Jeremy Abramson?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "hcp-profile",
+   "queries": [
+    "hcp_profile"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1740262484"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Profile: Jeremy S Abramson",
+   "seconds": 9.9,
+   "first_view_seconds": 2.9,
+   "first_text_seconds": 8.7,
+   "model_calls": 5,
+   "output_tokens": 235,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-hcp-2",
+   "group": "hcp",
+   "question": "Show Nirav Shah's co-authors.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "hcp-profile",
+   "queries": [
+    "hcp_profile",
+    "hcp_top_coauthors"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1245491257"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Nirav N Shah's top co-authors are listed below.",
+   "seconds": 10.6,
+   "first_view_seconds": 2.8,
+   "first_text_seconds": 9.0,
+   "model_calls": 4,
+   "output_tokens": 238,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-hcp-3",
+   "group": "hcp",
+   "question": "How many papers has Michael Jain written each year?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "hcp-profile",
+   "queries": [
+    "hcp_publications_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1982139655"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Michael David Jain published 7 papers in 2026, 8 in 2025, 9 in 2024, 10 in 2023, 14 in 2022, 10 in 2021, 5 in 2020, 3 in 2019, 1 in 2018, and 1 in 2017.",
+   "seconds": 9.3,
+   "first_view_seconds": 2.7,
+   "first_text_seconds": 9.3,
+   "model_calls": 4,
+   "output_tokens": 224,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-hcp-4",
+   "group": "hcp",
+   "question": "Brian Hill's industry payments over time.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "payments_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1013199058"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Brian Hill received industry payments from 2019 to 2025, totaling $107,992 across seven years.",
+   "seconds": 9.7,
+   "first_view_seconds": 2.6,
+   "first_text_seconds": 8.5,
+   "model_calls": 3,
+   "output_tokens": 213,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ctr-1",
+   "group": "center",
+   "question": "Give me a profile of City of Hope National Medical Center.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "center_core_hcps",
+    "center_medicare_cart_stays",
+    "center_profile"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "050146"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "City of Hope National Medical Center is a cancer hospital in Duarte, CA, part of the City of Hope orbit.",
+   "seconds": 9.9,
+   "first_view_seconds": 2.6,
+   "first_text_seconds": 8.4,
+   "model_calls": 3,
+   "output_tokens": 220,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ctr-2",
+   "group": "center",
+   "question": "Which core clinicians work at Massachusetts General Hospital?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "center_core_hcps",
+    "center_profile"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "220071"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Massachusetts General Hospital has 19 core clinicians in the Mass General Brigham – Dana-Farber network.",
+   "seconds": 9.3,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 8.3,
+   "model_calls": 3,
+   "output_tokens": 189,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ctr-3",
+   "group": "center",
+   "question": "How many CAR-T centers are there in Ohio?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "centers_in_state"
+   ],
+   "map": {
+    "focus": {
+     "kind": "state",
+     "ids": [
+      "OH"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "There are 11 CAR-T centers in Ohio.",
+   "seconds": 7.7,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 6.3,
+   "model_calls": 3,
+   "output_tokens": 177,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 1
+  },
+  {
+   "id": "h-ctr-4",
+   "group": "center",
+   "question": "Medicare CAR-T stays at Stanford Health Care by year.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "center_medicare_cart_stays"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "050441"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Medicare CAR-T stays at Stanford Health Care rose from 43 in 2021 to 63 in 2024.",
+   "seconds": 8.4,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.0,
+   "model_calls": 3,
+   "output_tokens": 209,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ctr-5",
+   "group": "center",
+   "question": "Which Texas centers had the most Medicare CAR-T stays in 2022?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "top_centers_by_medicare_stays"
+   ],
+   "map": {
+    "focus": {
+     "kind": "state",
+     "ids": [
+      "TX"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Centers in TX by Medicare CAR-T stays, 2022",
+   "seconds": 6.0,
+   "first_view_seconds": 4.7,
+   "first_text_seconds": 6.0,
+   "model_calls": 3,
+   "output_tokens": 126,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-pay-1",
+   "group": "payments",
+   "question": "Consulting and speaking payments to the City of Hope orbit, year by year.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "payments_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "12"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Consulting and speaking payments to the City of Hope orbit rose from $29,778 in 2019 to $64,200 in 2025.",
+   "seconds": 10.6,
+   "first_view_seconds": 5.9,
+   "first_text_seconds": 9.6,
+   "model_calls": 5,
+   "output_tokens": 213,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-pay-2",
+   "group": "payments",
+   "question": "Payments naming Kymriah to the Penn orbit.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "payments_by_product"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "4"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Payments naming Kymriah to the Penn orbit totaled $292,056 from 2019 to 2025, with 28 HCPs paid in 2019 and 17 in 2025.",
+   "seconds": 8.0,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 8.0,
+   "model_calls": 3,
+   "output_tokens": 185,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-pay-3",
+   "group": "payments",
+   "question": "Who received the most meals and travel payments in the Mayo orbit?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "top_paid_hcps"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "2"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Javier Luis Munoz received the most meals and travel payments in the Mayo orbit.",
+   "seconds": 9.6,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 8.3,
+   "model_calls": 3,
+   "output_tokens": 209,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-pay-4",
+   "group": "payments",
+   "question": "Research funding for the Stanford orbit's investigators over time.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "research_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "7"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Research funding for the Stanford orbit's investigators over time.",
+   "seconds": 9.0,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 6.8,
+   "model_calls": 3,
+   "output_tokens": 223,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-pay-5",
+   "group": "payments",
+   "question": "Which manufacturers paid Caron Jacobson?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "payments_by_manufacturer"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1336261379"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Manufacturers that paid Caron Alyce Jacobson: Kite/Gilead, Novartis, and Bristol Myers Squibb/Celgene/Juno.",
+   "seconds": 9.7,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 7.8,
+   "model_calls": 3,
+   "output_tokens": 249,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-tie-1",
+   "group": "ties",
+   "question": "Which CAR-T companies appear in David Maloney's conflict-of-interest statements?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "disclosed-ties",
+   "queries": [
+    "hcp_ties_papers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1942385752"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "David Maloney's conflict-of-interest statements name Kite/Gilead, Bristol Myers Squibb/Celgene/Juno, and Novartis.",
+   "seconds": 7.5,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.5,
+   "model_calls": 3,
+   "output_tokens": 165,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-tie-2",
+   "group": "ties",
+   "question": "How have disclosures by the Dana-Farber network's authors changed by year?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "disclosed-ties",
+   "queries": [
+    "ties_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "5"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Disclosures by the Dana-Farber network's authors rose from zero in 2017 to 30 papers with statements in 2026.",
+   "seconds": 7.7,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 6.3,
+   "model_calls": 3,
+   "output_tokens": 215,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-rx-1",
+   "group": "prescribing",
+   "question": "Oral lymphoma drug prescribing by Brian Hill under Part D.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "prescribing-claims",
+   "queries": [
+    "partd_by_drug_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1013199058"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Brian Thomas Hill prescribed oral lymphoma drugs under Medicare Part D from 2017 to 2024.",
+   "seconds": 11.1,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.6,
+   "model_calls": 3,
+   "output_tokens": 298,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-rx-2",
+   "group": "prescribing",
+   "question": "Top venetoclax prescribers in the MD Anderson orbit.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "prescribing-claims",
+   "queries": [
+    "top_prescribers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "9"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Top venetoclax prescribers in the MD Anderson orbit in 2024.",
+   "seconds": 10.5,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 8.5,
+   "model_calls": 3,
+   "output_tokens": 248,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-rx-3",
+   "group": "prescribing",
+   "question": "Medicaid payments to HCPs attached to the Stanford orbit.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "prescribing-claims",
+   "queries": [
+    "medicaid_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "7"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Medicaid payments to HCPs attached to the Stanford orbit from 2018 to 2024.",
+   "seconds": 10.2,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 7.7,
+   "model_calls": 3,
+   "output_tokens": 248,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-rx-4",
+   "group": "prescribing",
+   "question": "How many Medicare CAR-T stays do the Penn orbit's centers have?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "community_medicare_cart_stays"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "4"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Penn / Abramson orbit centers had 72 Medicare CAR-T stays in 2021, 100 in 2022, 150 in 2023, and 185 in 2024.",
+   "seconds": 7.3,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.3,
+   "model_calls": 3,
+   "output_tokens": 173,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ref-1",
+   "group": "referral",
+   "question": "Who refers patients to Moffitt?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "referral-flow",
+   "queries": [
+    "center_referral_summary",
+    "center_referrers_by_division",
+    "center_referrers_by_region",
+    "center_top_referrers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "100271"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "Shared Medicare patients refer to Moffitt, not CAR-T-specific referrals.",
+   "seconds": 12.3,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 9.5,
+   "model_calls": 3,
+   "output_tokens": 285,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ref-2",
+   "group": "referral",
+   "question": "How did Dana-Farber's shared-patient base change from 2017 to 2022?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "referral-flow",
+   "queries": [
+    "center_referrer_base_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "220162"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "Dana-Farber's shared-patient base grew from 46,224 in 2017 to 58,991 in 2022.",
+   "seconds": 9.4,
+   "first_view_seconds": 2.6,
+   "first_text_seconds": 8.2,
+   "model_calls": 3,
+   "output_tokens": 215,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ref-3",
+   "group": "referral",
+   "question": "Which regions do Stanford Health Care's referring HCPs come from?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "center_referrers_by_region"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "050441"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "Stanford Health Care's referring HCPs come from 15 regions across California, Nevada, and Pennsylvania.",
+   "seconds": 9.4,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.2,
+   "model_calls": 3,
+   "output_tokens": 240,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ref-4",
+   "group": "referral",
+   "question": "Rank California centers by shared patients in 2021.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "top_centers_by_shared_patients"
+   ],
+   "map": {
+    "focus": {
+     "kind": "state",
+     "ids": [
+      "CA"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "Centers in CA by shared patients, 2021",
+   "seconds": 7.2,
+   "first_view_seconds": 4.5,
+   "first_text_seconds": 7.2,
+   "model_calls": 3,
+   "output_tokens": 146,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-ref-5",
+   "group": "referral",
+   "question": "Which centers does Frederick Locke share patients with?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "referral-flow",
+   "queries": [
+    "hcp_referral_links"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1518129121"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "Frederick Locke shares patients with one center: H. Lee Moffitt Cancer Center and Research Institute Hospital, INC. in Tampa, FL.",
+   "seconds": 8.7,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.8,
+   "model_calls": 3,
+   "output_tokens": 192,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-prd-1",
+   "group": "product",
+   "question": "When was Kymriah first approved?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "product-timeline",
+   "queries": [
+    "product_events"
+   ],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Kymriah was first approved on August 30, 2017.",
+   "seconds": 5.3,
+   "first_view_seconds": 4.3,
+   "first_text_seconds": 5.3,
+   "model_calls": 4,
+   "output_tokens": 113,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-prd-2",
+   "group": "product",
+   "question": "What does Abecma treat and who makes it?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "product-timeline",
+   "queries": [
+    "product_facts"
+   ],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Abecma treats multiple myeloma and is made by Bristol Myers Squibb/Celgene/Juno.",
+   "seconds": 7.1,
+   "first_view_seconds": 6.0,
+   "first_text_seconds": 7.1,
+   "model_calls": 5,
+   "output_tokens": 166,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-prd-3",
+   "group": "product",
+   "question": "Timeline of Yescarta's indications.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "product-timeline",
+   "queries": [
+    "product_events"
+   ],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Yescarta received three key approvals from 2017 to 2022.",
+   "seconds": 6.4,
+   "first_view_seconds": 3.8,
+   "first_text_seconds": 4.9,
+   "model_calls": 3,
+   "output_tokens": 170,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-out-1",
+   "group": "scope",
+   "question": "Show me patient-level records for Yescarta recipients at MD Anderson.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "scope-and-help",
+   "queries": [],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none",
+    "unchanged": true
+   },
+   "asked": false,
+   "headline": "Patient-level records are not in the database.",
+   "seconds": 2.7,
+   "first_view_seconds": 2.7,
+   "first_text_seconds": 2.7,
+   "model_calls": 2,
+   "output_tokens": 57,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-out-2",
+   "group": "scope",
+   "question": "Is the community detection reliable? Show me the validation.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": true
+   },
+   "skill": "scope-and-help",
+   "queries": [],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none",
+    "unchanged": true
+   },
+   "asked": false,
+   "headline": "Communities are a fixed grouping of the co-authorship network, and leaders are ranked by PageRank.",
+   "seconds": 2.6,
+   "first_view_seconds": 2.6,
+   "first_text_seconds": 2.6,
+   "model_calls": 2,
+   "output_tokens": 59,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-out-3",
+   "group": "scope",
+   "question": "Predict which centers will grow fastest next year.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none",
+    "unchanged": true
+   },
+   "asked": false,
+   "headline": "The database does not contain forecasts or predictions about future growth.",
+   "seconds": 5.6,
+   "first_view_seconds": 5.6,
+   "first_text_seconds": 5.6,
+   "model_calls": 3,
+   "output_tokens": 127,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-out-4",
+   "group": "scope",
+   "question": "Which data do you have?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "scope-and-help",
+   "queries": [],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none",
+    "unchanged": true
+   },
+   "asked": false,
+   "headline": "I have access to a fixed database about CAR-T lymphoma clinicians, treatment centers and their co-authorship communities in the United States.",
+   "seconds": 13.8,
+   "first_view_seconds": 13.8,
+   "first_text_seconds": 13.8,
+   "model_calls": 2,
+   "output_tokens": 503,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-amb-1",
+   "group": "ambiguity",
+   "question": "Show me Dr. Shah.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": null,
+   "queries": [],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none",
+    "unchanged": true
+   },
+   "asked": true,
+   "headline": "Several entries match \"Dr. Shah\". Which one do you mean?",
+   "seconds": 5.2,
+   "first_view_seconds": 5.2,
+   "first_text_seconds": 5.2,
+   "model_calls": 2,
+   "output_tokens": 153,
+   "tool_errors": 0,
+   "plain_text_reply": false,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-fol-1",
+   "group": "follow-up",
+   "question": "Which centers anchor it?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_centers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "9"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Centers attached to the community: MD Anderson orbit",
+   "seconds": 5.8,
+   "first_view_seconds": 4.3,
+   "first_text_seconds": 5.8,
+   "model_calls": 3,
+   "output_tokens": 119,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h-fol-2",
+   "group": "follow-up",
+   "question": "How many Medicare CAR-T stays does it report each year?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "center_medicare_cart_stays"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "100271"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Medicare CAR-T stays are not published for H. Lee Moffitt Cancer Center and Research Institute Hospital, INC.",
+   "seconds": 6.2,
+   "first_view_seconds": 4.4,
+   "first_text_seconds": 5.3,
+   "model_calls": 3,
+   "output_tokens": 145,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-com-1",
+   "group": "community",
+   "question": "Who heads the City of Hope orbit?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_leaders"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "12"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Alex Herrera heads the City of Hope orbit.",
+   "seconds": 7.2,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 6.5,
+   "model_calls": 3,
+   "output_tokens": 161,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-com-2",
+   "group": "community",
+   "question": "List the referring HCPs attached to the Stanford orbit.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": true,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_members"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "7"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "The Stanford orbit has 165 referring HCPs attached through shared Medicare patients with centers in the community.",
+   "seconds": 8.2,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 7.6,
+   "model_calls": 3,
+   "output_tokens": 170,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-com-3",
+   "group": "community",
+   "question": "Put the Moffitt and MD Anderson communities side by side.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_compare"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "11",
+      "9"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Moffitt and MD Anderson communities side by side",
+   "seconds": 9.5,
+   "first_view_seconds": 2.2,
+   "first_text_seconds": 7.6,
+   "model_calls": 3,
+   "output_tokens": 246,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-hcp-1",
+   "group": "hcp",
+   "question": "Give me a quick profile of Sairah Ahmed.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "hcp-profile",
+   "queries": [
+    "hcp_profile",
+    "hcp_publications_by_year",
+    "hcp_top_coauthors"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1144387192"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Sairah Ahmed is a core hematology/oncology physician at MD Anderson in Houston, TX, ranked 2nd in the MD Anderson orbit community.",
+   "seconds": 10.8,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 8.9,
+   "model_calls": 3,
+   "output_tokens": 251,
+   "tool_errors": 1,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-hcp-2",
+   "group": "hcp",
+   "question": "Who are David Maloney's most frequent co-authors?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "hcp-profile",
+   "queries": [
+    "hcp_top_coauthors"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1942385752"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Most frequent co-authors: David G Maloney",
+   "seconds": 8.1,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 8.1,
+   "model_calls": 3,
+   "output_tokens": 183,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-hcp-3",
+   "group": "hcp",
+   "question": "Is Julio Chavez a community leader?",
+   "routed": false,
+   "all_checks": false,
+   "failed": [
+    "skill",
+    "entity",
+    "queries"
+   ],
+   "checks": {
+    "outcome": true,
+    "skill": false,
+    "entity": false,
+    "queries": false,
+    "params": null,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_leaders"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "11"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Julio C Chavez is a leader by PageRank in the Moffitt orbit community.",
+   "seconds": 7.2,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 6.7,
+   "model_calls": 3,
+   "output_tokens": 162,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-ctr-1",
+   "group": "center",
+   "question": "What is the 340B status of Stanford Health Care?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "center_profile"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "050441"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Stanford Health Care is a 340B hospital.",
+   "seconds": 7.0,
+   "first_view_seconds": 3.2,
+   "first_text_seconds": 7.0,
+   "model_calls": 5,
+   "output_tokens": 147,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-ctr-2",
+   "group": "center",
+   "question": "Show the CAR-T centers in Massachusetts.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "centers_in_state"
+   ],
+   "map": {
+    "focus": {
+     "kind": "state",
+     "ids": [
+      "MA"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "CAR-T centers in MA",
+   "seconds": 7.8,
+   "first_view_seconds": 2.2,
+   "first_text_seconds": 7.2,
+   "model_calls": 3,
+   "output_tokens": 188,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-ctr-3",
+   "group": "center",
+   "question": "Who are the core HCPs at Fred Hutchinson Cancer Center?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "center_core_hcps",
+    "center_profile"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "500138"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Fred Hutchinson Cancer Center has 19 core HCPs linked to it.",
+   "seconds": 9.1,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 7.5,
+   "model_calls": 3,
+   "output_tokens": 210,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-pay-1",
+   "group": "payments",
+   "question": "Which companies paid HCPs in the Fred Hutch orbit, and how much?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "payments_by_manufacturer"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "8"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Kite/Gilead led payments to the Fred Hutch orbit with $425,267 across 95 HCPs from 2019 to 2025.",
+   "seconds": 8.5,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.7,
+   "model_calls": 3,
+   "output_tokens": 201,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-pay-2",
+   "group": "payments",
+   "question": "Payments naming Tecartus to the MD Anderson orbit by year.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "payments_by_product"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "9"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Payments naming Tecartus to the MD Anderson orbit by year.",
+   "seconds": 11.2,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 8.7,
+   "model_calls": 3,
+   "output_tokens": 274,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-pay-3",
+   "group": "payments",
+   "question": "Largest research studies involving the Penn orbit's investigators.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "research_studies"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "4"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Largest research studies in the Penn / Abramson orbit involve Janssen/Johnson & Johnson and Kite/Gilead.",
+   "seconds": 11.4,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.9,
+   "model_calls": 3,
+   "output_tokens": 282,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-tie-1",
+   "group": "ties",
+   "question": "What has Miguel Perales disclosed about CAR-T manufacturers on his papers?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "disclosed-ties",
+   "queries": [
+    "hcp_ties_papers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1922079839"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Miguel Perales disclosed ties to Kite/Gilead, Bristol Myers Squibb/Celgene/Juno, and Novartis on 25 papers from 2024 to 2025.",
+   "seconds": 9.0,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 9.0,
+   "model_calls": 3,
+   "output_tokens": 183,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-rx-1",
+   "group": "prescribing",
+   "question": "Part D prescribing of oral lymphoma drugs by HCPs attached to the Mayo orbit.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "prescribing-claims",
+   "queries": [
+    "partd_by_drug_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "2"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Medicare Part D oral lymphoma drug prescribing by HCPs attached to the Mayo Clinic orbit.",
+   "seconds": 10.0,
+   "first_view_seconds": 2.2,
+   "first_text_seconds": 7.4,
+   "model_calls": 3,
+   "output_tokens": 249,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-rx-2",
+   "group": "prescribing",
+   "question": "Medicare Part B payment to HCPs at City of Hope National Medical Center by year.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "prescribing-claims",
+   "queries": [
+    "partb_payment_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "050146"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Medicare Part B payments to HCPs at City of Hope grew from $51.3M in 2017 to $96.5M in 2024.",
+   "seconds": 10.3,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 8.4,
+   "model_calls": 3,
+   "output_tokens": 248,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-ref-1",
+   "group": "referral",
+   "question": "Where do Cleveland Clinic hospital's shared patients come from?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "referral-flow",
+   "queries": [
+    "center_referral_summary",
+    "center_referrers_by_division",
+    "center_referrers_by_region",
+    "center_top_referrers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "360180"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "Shared patients to Cleveland Clinic in 2022 came from 387 HCPs, mostly from its own affiliates.",
+   "seconds": 12.7,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 10.0,
+   "model_calls": 3,
+   "output_tokens": 289,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-ref-2",
+   "group": "referral",
+   "question": "Top HCPs sharing patients with Massachusetts General Hospital in 2019.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": true,
+    "map": true,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "referral-flow",
+   "queries": [
+    "center_top_referrers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "220071"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "HCPs with the most shared patients, 2019: Massachusetts General Hospital",
+   "seconds": 9.5,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 9.5,
+   "model_calls": 3,
+   "output_tokens": 201,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-prd-1",
+   "group": "product",
+   "question": "Who makes Kymriah and what does it target?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "product-timeline",
+   "queries": [
+    "product_facts"
+   ],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Novartis makes Kymriah, which targets CD19.",
+   "seconds": 6.5,
+   "first_view_seconds": 5.7,
+   "first_text_seconds": 6.5,
+   "model_calls": 5,
+   "output_tokens": 150,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-prd-2",
+   "group": "product",
+   "question": "When was Carvykti approved?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "product-timeline",
+   "queries": [
+    "product_events"
+   ],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Carvykti was approved on 2022-02-28 for multiple myeloma as a fifth-line therapy.",
+   "seconds": 5.5,
+   "first_view_seconds": 4.3,
+   "first_text_seconds": 5.5,
+   "model_calls": 4,
+   "output_tokens": 124,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-amb-1",
+   "group": "ambiguity",
+   "question": "Show me the profile of Dr. Patel.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": null,
+   "queries": [],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none",
+    "unchanged": true
+   },
+   "asked": true,
+   "headline": "Several entries match \"Dr. Patel\". Which one do you mean?",
+   "seconds": 5.1,
+   "first_view_seconds": 5.1,
+   "first_text_seconds": 5.1,
+   "model_calls": 2,
+   "output_tokens": 149,
+   "tool_errors": 0,
+   "plain_text_reply": false,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h2-out-1",
+   "group": "scope",
+   "question": "Which insurer pays the most for Yescarta in the commercial market?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "product-timeline",
+   "queries": [],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none",
+    "unchanged": true
+   },
+   "asked": false,
+   "headline": "Commercial insurance claims and commercial market payment data are not in the database.",
+   "seconds": 4.6,
+   "first_view_seconds": 4.6,
+   "first_text_seconds": 4.6,
+   "model_calls": 3,
+   "output_tokens": 106,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-pay-1",
+   "group": "payments",
+   "question": "How much research funding goes to investigators at Moffitt Cancer Center?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "research_by_year",
+    "research_studies"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "100271"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Research funding to investigators at Moffitt Cancer Center totaled $19.4 million from 2019 to 2025, with the highest single year in 2022 at $6.3 million.",
+   "seconds": 9.4,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 9.4,
+   "model_calls": 3,
+   "output_tokens": 180,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-pay-2",
+   "group": "payments",
+   "question": "Which Dana-Farber network members were paid the most for consulting?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "top_paid_hcps"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "5"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Top-paid Dana-Farber network members for consulting: Bradley Hunter ($126,412), Matthew Alexander Lunning ($114,259), Caron Alyce Jacobson ($81,079).",
+   "seconds": 9.2,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 9.2,
+   "model_calls": 3,
+   "output_tokens": 195,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-pay-3",
+   "group": "payments",
+   "question": "Payments by company to HCPs at Stanford Health Care.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "payments_by_manufacturer"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "050441"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Payments by company to HCPs at Stanford Health Care total $157,482 from 2019 to 2025.",
+   "seconds": 9.1,
+   "first_view_seconds": 2.2,
+   "first_text_seconds": 7.6,
+   "model_calls": 3,
+   "output_tokens": 225,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-pay-4",
+   "group": "payments",
+   "question": "What studies has Sattva Neelapu been funded for?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "industry-payments",
+   "queries": [
+    "research_studies"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1386736304"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Sattva Neelapu has been funded for seven CAR-T research studies.",
+   "seconds": 9.1,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 7.8,
+   "model_calls": 3,
+   "output_tokens": 210,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-rx-1",
+   "group": "prescribing",
+   "question": "Medicare Part B payment to HCPs at Moffitt by year.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "prescribing-claims",
+   "queries": [
+    "partb_payment_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "100271"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Medicare Part B payment to HCPs at Moffitt grew from $15.1M in 2017 to $25.3M in 2024.",
+   "seconds": 9.1,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 8.4,
+   "model_calls": 3,
+   "output_tokens": 197,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-rx-2",
+   "group": "prescribing",
+   "question": "What do the Fred Hutch orbit's clinicians prescribe under Part D?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "prescribing-claims",
+   "queries": [
+    "prescribing_summary"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "8"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Fred Hutch orbit clinicians prescribed oral lymphoma drugs to 266 prescribers with 23,879 Part D claims in 2024.",
+   "seconds": 7.8,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.8,
+   "model_calls": 3,
+   "output_tokens": 165,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-rx-3",
+   "group": "prescribing",
+   "question": "Medicaid paid amounts for HCPs at MD Anderson.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "prescribing-claims",
+   "queries": [
+    "medicaid_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "450076"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Medicaid paid amounts for HCPs at MD Anderson from 2018 to 2024 totaled $419,110.",
+   "seconds": 8.9,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 8.1,
+   "model_calls": 3,
+   "output_tokens": 189,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-tie-1",
+   "group": "ties",
+   "question": "Which CAR-T manufacturers do Memorial Sloan Kettering orbit authors name in their disclosures?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "disclosed-ties",
+   "queries": [
+    "ties_by_manufacturer"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "6"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Memorial Sloan Kettering orbit authors disclose ties to six CAR-T manufacturers.",
+   "seconds": 8.4,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 6.1,
+   "model_calls": 3,
+   "output_tokens": 234,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-tie-2",
+   "group": "ties",
+   "question": "Disclosures by year for Yi Lin.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "disclosed-ties",
+   "queries": [
+    "ties_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1285608174"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Disclosures by year for Yi Lin show papers with conflict-of-interest statements from 2017 to 2026.",
+   "seconds": 9.0,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 6.4,
+   "model_calls": 3,
+   "output_tokens": 260,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-ref-1",
+   "group": "referral",
+   "question": "Who are the main referrers to City of Hope National Medical Center?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "referral-flow",
+   "queries": [
+    "center_referral_summary",
+    "center_referrers_by_region",
+    "center_top_referrers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "050146"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "In 2022, City of Hope National Medical Center received shared Medicare patients from 408 HCPs, with 51,001 shared patients total.",
+   "seconds": 11.3,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 10.1,
+   "model_calls": 3,
+   "output_tokens": 237,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-ref-2",
+   "group": "referral",
+   "question": "How has the shared-patient base of the Penn orbit's centers changed?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "referral-flow",
+   "queries": [
+    "community_referral_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "4"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "Shared-patient base of the Penn / Abramson orbit fluctuated between 164,702 and 213,647 from 2017 to 2022.",
+   "seconds": 8.5,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 7.5,
+   "model_calls": 3,
+   "output_tokens": 198,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-ref-3",
+   "group": "referral",
+   "question": "Out-of-region share of Mayo Clinic Rochester's referrers.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": true,
+    "text": null
+   },
+   "skill": "referral-flow",
+   "queries": [
+    "center_referrer_base_by_year",
+    "center_referrers_by_region"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "240010"
+     ]
+    },
+    "edges": "referral"
+   },
+   "asked": false,
+   "headline": "Out-of-region share of Mayo Clinic Rochester's referrers was 14% in 2022, down from 31.9% in 2017.",
+   "seconds": 9.8,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 9.0,
+   "model_calls": 3,
+   "output_tokens": 212,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-com-1",
+   "group": "community",
+   "question": "Who are the core members of the MD Anderson orbit?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_leaders",
+    "community_summary"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "9"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "The MD Anderson orbit has 30 core members.",
+   "seconds": 8.1,
+   "first_view_seconds": 2.3,
+   "first_text_seconds": 6.8,
+   "model_calls": 3,
+   "output_tokens": 188,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-com-2",
+   "group": "community",
+   "question": "How many centers does the Cleveland Clinic – Vanderbilt network have, and which ones?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_centers"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "1"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "The Cleveland Clinic – Vanderbilt network has 21 centers attached to it.",
+   "seconds": 8.2,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.1,
+   "model_calls": 3,
+   "output_tokens": 174,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-hcp-1",
+   "group": "hcp",
+   "question": "Tell me about Helen Heslop.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "hcp-profile",
+   "queries": [
+    "hcp_profile",
+    "hcp_publications_by_year",
+    "hcp_top_coauthors",
+    "payments_by_year"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1912087271"
+     ]
+    },
+    "edges": "payments"
+   },
+   "asked": false,
+   "headline": "Helen Heslop is a core hematology/oncology physician at Houston Methodist Hospital in the Baylor orbit.",
+   "seconds": 11.6,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 9.7,
+   "model_calls": 3,
+   "output_tokens": 274,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-hcp-2",
+   "group": "hcp",
+   "question": "Is Geoffrey Shouse a core member?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "hcp-profile",
+   "queries": [
+    "hcp_profile"
+   ],
+   "map": {
+    "focus": {
+     "kind": "hcp",
+     "ids": [
+      "1568721116"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Geoffrey Shouse is a core member of the City of Hope orbit community.",
+   "seconds": 8.1,
+   "first_view_seconds": 2.4,
+   "first_text_seconds": 7.4,
+   "model_calls": 4,
+   "output_tokens": 188,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-ctr-1",
+   "group": "center",
+   "question": "How many core HCPs does Brigham and Women's have, and who are they?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "center_core_hcps",
+    "center_profile"
+   ],
+   "map": {
+    "focus": {
+     "kind": "center",
+     "ids": [
+      "220110"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Brigham and Women's has 25 core HCPs.",
+   "seconds": 10.5,
+   "first_view_seconds": 2.5,
+   "first_text_seconds": 7.7,
+   "model_calls": 3,
+   "output_tokens": 255,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-ctr-2",
+   "group": "center",
+   "question": "Rank Florida centers by Medicare CAR-T stays in 2023.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "center-profile",
+   "queries": [
+    "top_centers_by_medicare_stays"
+   ],
+   "map": {
+    "focus": {
+     "kind": "state",
+     "ids": [
+      "FL"
+     ]
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Mayo Clinic Jacksonville leads Florida with 31 Medicare CAR-T stays in 2023.",
+   "seconds": 6.4,
+   "first_view_seconds": 4.7,
+   "first_text_seconds": 5.6,
+   "model_calls": 3,
+   "output_tokens": 151,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-prd-1",
+   "group": "product",
+   "question": "What is Aucatzyl and when was it approved?",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": null,
+    "queries": true,
+    "params": true,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "product-timeline",
+   "queries": [
+    "product_events",
+    "product_facts"
+   ],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Aucatzyl is obecabtagene autoleucel (obe-cel), a CD19-targeted CAR-T product made by Autolus.",
+   "seconds": 7.5,
+   "first_view_seconds": 5.3,
+   "first_text_seconds": 6.9,
+   "model_calls": 4,
+   "output_tokens": 195,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-out-1",
+   "group": "scope",
+   "question": "What is the survival rate of patients treated with Breyanzi?",
+   "routed": false,
+   "all_checks": false,
+   "failed": [
+    "outcome",
+    "map"
+   ],
+   "checks": {
+    "outcome": false,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": false,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "product-timeline",
+   "queries": [
+    "product_facts"
+   ],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none"
+   },
+   "asked": false,
+   "headline": "Survival rate for patients treated with Breyanzi is not in the database.",
+   "seconds": 5.0,
+   "first_view_seconds": 4.1,
+   "first_text_seconds": 5.0,
+   "model_calls": 4,
+   "output_tokens": 111,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-amb-1",
+   "group": "ambiguity",
+   "question": "Profile of Dr. Lee.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": null,
+    "entity": null,
+    "queries": null,
+    "params": null,
+    "map": null,
+    "caveats": null,
+    "text": null
+   },
+   "skill": null,
+   "queries": [],
+   "map": {
+    "focus": {
+     "kind": "usa",
+     "ids": []
+    },
+    "edges": "none",
+    "unchanged": true
+   },
+   "asked": true,
+   "headline": "Which Dr. Lee would you like to see a profile for?",
+   "seconds": 5.4,
+   "first_view_seconds": 5.4,
+   "first_text_seconds": 5.4,
+   "model_calls": 2,
+   "output_tokens": 164,
+   "tool_errors": 0,
+   "plain_text_reply": false,
+   "dropped_sentences": 0
+  },
+  {
+   "id": "h3-new-1",
+   "group": "new-topic",
+   "question": "Show me the Penn / Abramson orbit instead.",
+   "routed": true,
+   "all_checks": true,
+   "failed": [],
+   "checks": {
+    "outcome": true,
+    "skill": true,
+    "entity": true,
+    "queries": true,
+    "params": null,
+    "map": true,
+    "caveats": null,
+    "text": null
+   },
+   "skill": "community-view",
+   "queries": [
+    "community_centers",
+    "community_leaders",
+    "community_summary"
+   ],
+   "map": {
+    "focus": {
+     "kind": "community",
+     "ids": [
+      "4"
+     ]
+    },
+    "edges": "coauthor"
+   },
+   "asked": false,
+   "headline": "Penn / Abramson orbit has 53 core HCPs, 750 affiliates, 318 referrers, 8 centers, 245 papers and 376 co-author pairs.",
+   "seconds": 15.8,
+   "first_view_seconds": 4.3,
+   "first_text_seconds": 12.8,
+   "model_calls": 5,
+   "output_tokens": 432,
+   "tool_errors": 0,
+   "plain_text_reply": true,
+   "dropped_sentences": 0
+  }
+ ]
+}

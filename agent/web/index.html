@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAR-T KOL Navigator</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.css">
+<link rel="stylesheet" href="/web/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <strong>CAR-T KOL Navigator</strong>
+    <span class="notice" id="notice">Academic, non-commercial demonstration</span>
+  </div>
+  <form id="ask" autocomplete="off">
+    <input id="q" type="text" placeholder="Ask about a community, a clinician, a center or a CAR-T product" aria-label="Question" maxlength="600">
+    <button id="send" type="submit">Ask</button>
+  </form>
+  <div id="examples" class="chips" aria-label="Example questions"></div>
+  <ol id="steps" class="steps" aria-live="polite"></ol>
+</header>
+<main id="main">
+  <section id="map-wrap" aria-label="Map of centers and clinicians">
+    <div id="map"></div>
+    <div id="map-tools" class="map-tools">
+      <label>Links
+        <select id="edges" aria-label="Links drawn on the map">
+          <option value="none">None</option>
+          <option value="coauthor">Co-authorship</option>
+          <option value="referral">Shared patients</option>
+          <option value="payments">Research dollars</option>
+        </select>
+      </label>
+      <label id="year-wrap" hidden>Year
+        <select id="year" aria-label="Year for shared-patient links"></select>
+      </label>
+      <button id="everything" type="button">Show everything</button>
+    </div>
+    <aside id="legend" class="legend" aria-label="Map legend"></aside>
+  </section>
+  <div id="splitter" role="separator" aria-orientation="horizontal" aria-label="Resize map" tabindex="0"></div>
+  <section id="canvas" aria-live="polite">
+    <div id="answer" class="answer">
+      <h1 id="headline">Ask a question to begin</h1>
+      <p id="text" class="lede">The map shows every CAR-T center and the 500 core clinicians, coloured by co-authorship community. Ask about a community, a clinician, a center or a product, and the map and the panels below will follow.</p>
+      <div id="choices" class="chips"></div>
+    </div>
+    <div id="panels" class="grid"></div>
+    <ul id="caveats" class="caveats"></ul>
+  </section>
+</main>
+<div id="tip" class="tip" hidden></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.js"></script>
+<script type="module" src="/web/app.js"></script>
+</body>
+</html>

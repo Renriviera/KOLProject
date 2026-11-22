@@ -29,6 +29,11 @@ timestamps are separate fields; directory dates label snapshots, not service yea
 | `processed/2026-11-19/` (17 tables) | CAR-T treating sites with public volume measures, 340B status of the 173 centers, public evidence of CAR-T involvement by NPI, and Open Payments, Medicare and Medicaid payments for all 17,510 universe NPIs; listed in [`VOLUME_BILLING_README.md`](VOLUME_BILLING_README.md) |
 | `processed/2026-11-20/` (44 tables) | Extensions of the four dataset categories: authorship and co-authorship beyond the core 500 with citation links and yearly views; Medicare Part B and Part D back to 2017 with state all-payer hospital stays; ownership, research and disclosed industry ties; shared-patient links to centers and core HCPs for 2017–2022 with a 2009–2015 baseline; listed in [`EXTENSIONS_README.md`](EXTENSIONS_README.md) |
 
+The `processed/2026-11-11`, `processed/2026-11-19` and `processed/2026-11-20` folders are not in the repository
+yet; their loaders, field dictionaries and source lists are. [`../agent/USAGE.md`](../agent/USAGE.md) says how to
+get the tables. Until they are in place, `uv run kolproject-evaluate` reports the 2026-11-19 and 2026-11-20
+snapshots as missing.
+
 Metadata JSON files accompany every snapshot. Field definitions are in
 `manifests/data_dictionary.csv`,
 `manifests/2026-10-15/utilization_data_dictionary.json`, and

@@ -21,7 +21,9 @@ uv run pytest
 ```
 
 The evaluation checks the published tables and writes
-`evaluations/processed_validation.json`. It works offline from a fresh clone.
+`evaluations/processed_validation.json`. It works offline from a fresh clone. On the `cart-kol-navigator` branch it
+reports the 2026-11-19 and 2026-11-20 snapshots as missing, and one test fails for the same reason, until the three
+newest table folders are in place; [`agent/USAGE.md`](agent/USAGE.md) says how to get them.
 
 ## Repository structure
 
@@ -34,6 +36,7 @@ The evaluation checks the published tables and writes
 | [`Data/GENERAL_PAYMENTS_README.md`](Data/GENERAL_PAYMENTS_README.md) | 2026-11-11 Open Payments general records for core HCPs across 2019–2025, with nature groups and CAR-T flags |
 | [`Data/VOLUME_BILLING_README.md`](Data/VOLUME_BILLING_README.md) | 2026-11-19 CAR-T site volume panel, 340B status, treater evidence, and Open Payments, Medicare and Medicaid payments for the whole universe |
 | [`Data/EXTENSIONS_README.md`](Data/EXTENSIONS_README.md) | 2026-11-20 extensions of the four dataset categories (publications, payer payments, industry ties, referral flows), with a source log and no entry repeated from earlier snapshots |
+| [`agent/`](agent/README.md) | CAR-T KOL Navigator: a local question-and-answer tool (Qwen3.5-9B) that answers with a US map and panels drawn from the published tables; academic, non-commercial demonstration. [`agent/USAGE.md`](agent/USAGE.md) says how to run it and where its datasets come from |
 | `src/kolproject/` | Collection, identity matching, deduplication, preprocessing, analysis, ranking, and evaluation code |
 | `pre-processing/` | Payment prefetch and one-to-one modeling join helpers |
 | `configs/` | Hydra settings, 2024 code definitions, and identity evidence templates; ignored `configs/local/` holds local evidence |

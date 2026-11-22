@@ -1,0 +1,493 @@
+{
+  "status": "Verified on 2026-11-20: 25 of 25 events are verified against primary sources (19 product approval events read in FDA approval letters, 6 class and coding events read in CMS and FDA documents); 0 events are unverified. The one pending product is confirmed as not approved from the sponsor and FDA lists.",
+  "as_of": "2026-11-20",
+  "products": [
+    {
+      "brand": "Kymriah",
+      "generic": "tisagenlecleucel",
+      "short_name": "tisa-cel",
+      "short_name_note": "Common short name in clinical literature; it does not appear in the FDA documents read.",
+      "company_group": "Novartis",
+      "licence_holder": "Novartis Pharmaceuticals Corporation",
+      "target": "CD19",
+      "lymphoma_product": true,
+      "hcpcs_code": "Q2042",
+      "hcpcs_effective": "2019-01-01",
+      "hcpcs_previous_codes": [
+        {"code": "Q2040", "effective": "2018-01-01", "terminated": "2018-12-31"}
+      ],
+      "hcpcs_source_url": "https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip",
+      "hcpcs_source_title": "CMS October 2026 Alpha-Numeric HCPCS File (HCPC2026_OCT_ANWEB_09232026.txt), code added date field",
+      "hcpcs_source_type": "cms",
+      "hcpcs_verified": true,
+      "product_source_url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/kymriah",
+      "product_source_title": "FDA product page: KYMRIAH (tisagenlecleucel), STN 125646",
+      "first_us_approval": "2017-08-30",
+      "events": [
+        {
+          "date": "2017-08-30",
+          "type": "first_approval",
+          "label": "Kymriah approved (B-cell ALL, patients up to age 25)",
+          "lymphoma": false,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/106989/download",
+          "source_title": "August 30, 2017 Approval Letter - KYMRIAH (STN BL 125646/0)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2018-05-01",
+          "type": "new_indication",
+          "label": "Kymriah: large B-cell lymphoma, third line",
+          "lymphoma": true,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/112803/download",
+          "source_title": "May 1, 2018 Approval Letter - KYMRIAH (STN BL 125646/76)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2022-05-27",
+          "type": "new_indication",
+          "label": "Kymriah: follicular lymphoma, third line",
+          "lymphoma": true,
+          "accelerated": true,
+          "source_url": "https://www.fda.gov/media/158835/download",
+          "source_title": "May 27, 2022 Approval Letter - KYMRIAH (STN BL 125646/663)",
+          "source_type": "fda_letter",
+          "verified": true,
+          "note": "Still listed as an accelerated approval on the FDA product page (content current 2025-07-02)."
+        }
+      ]
+    },
+    {
+      "brand": "Yescarta",
+      "generic": "axicabtagene ciloleucel",
+      "short_name": "axi-cel",
+      "company_group": "Kite/Gilead",
+      "licence_holder": "Kite Pharma, Inc.",
+      "target": "CD19",
+      "lymphoma_product": true,
+      "hcpcs_code": "Q2041",
+      "hcpcs_effective": "2018-04-01",
+      "hcpcs_source_url": "https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip",
+      "hcpcs_source_title": "CMS October 2026 Alpha-Numeric HCPCS File (HCPC2026_OCT_ANWEB_09232026.txt), code added date field",
+      "hcpcs_source_type": "cms",
+      "hcpcs_verified": true,
+      "product_source_url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/yescarta",
+      "product_source_title": "FDA product page: YESCARTA (axicabtagene ciloleucel), STN BL 125643",
+      "first_us_approval": "2017-10-18",
+      "events": [
+        {
+          "date": "2017-10-18",
+          "type": "first_approval",
+          "label": "Yescarta approved (large B-cell lymphoma, third line)",
+          "lymphoma": true,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/108458/download",
+          "source_title": "October 18, 2017 Approval Letter - YESCARTA (STN BL 125643/0)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2021-03-05",
+          "type": "new_indication",
+          "label": "Yescarta: follicular lymphoma, third line",
+          "lymphoma": true,
+          "accelerated": true,
+          "source_url": "https://www.fda.gov/media/148510/download",
+          "source_title": "April 2, 2021 Approval Letter - YESCARTA (STN BL 125643/248, replacement letter)",
+          "source_type": "fda_letter",
+          "verified": true,
+          "note": "The posted letter is a replacement dated 2021-04-02; it states that the effective approval date remains 2021-03-05. Still listed as an accelerated approval on the FDA product page (content current 2026-08-07)."
+        },
+        {
+          "date": "2022-04-01",
+          "type": "new_indication",
+          "label": "Yescarta: large B-cell lymphoma, second line",
+          "lymphoma": true,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/157539/download",
+          "source_title": "April 1, 2022 Approval Letter - YESCARTA (STN BL 125643/394)",
+          "source_type": "fda_letter",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "brand": "Tecartus",
+      "generic": "brexucabtagene autoleucel",
+      "short_name": "brexu-cel",
+      "company_group": "Kite/Gilead",
+      "licence_holder": "Kite Pharma, Inc.",
+      "target": "CD19",
+      "lymphoma_product": true,
+      "hcpcs_code": "Q2053",
+      "hcpcs_effective": "2021-04-01",
+      "hcpcs_previous_codes": [
+        {"code": "C9073", "effective": "2021-01-01", "terminated": "2021-03-31"}
+      ],
+      "hcpcs_source_url": "https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip",
+      "hcpcs_source_title": "CMS October 2026 Alpha-Numeric HCPCS File (HCPC2026_OCT_ANWEB_09232026.txt), code added date field",
+      "hcpcs_source_type": "cms",
+      "hcpcs_verified": true,
+      "product_source_url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecartus",
+      "product_source_title": "FDA product page: TECARTUS (brexucabtagene autoleucel), STN BL 125703",
+      "first_us_approval": "2020-07-24",
+      "events": [
+        {
+          "date": "2020-07-24",
+          "type": "first_approval",
+          "label": "Tecartus approved (mantle cell lymphoma)",
+          "lymphoma": true,
+          "accelerated": true,
+          "converted_to_regular_approval": {
+            "date": "2026-04-01",
+            "source_url": "https://www.fda.gov/media/191807/download",
+            "source_title": "April 1, 2026 Approval Letter - TECARTUS (STN BL 125703/464)",
+            "source_type": "fda_letter"
+          },
+          "source_url": "https://www.fda.gov/media/140415/download",
+          "source_title": "July 24, 2020 Approval Letter - TECARTUS (STN BL 125703/0)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2021-10-01",
+          "type": "new_indication",
+          "label": "Tecartus: adult B-cell ALL",
+          "lymphoma": false,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/152696/download",
+          "source_title": "October 1, 2021 Approval Letter - TECARTUS (STN BL 125703/91)",
+          "source_type": "fda_letter",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "brand": "Breyanzi",
+      "generic": "lisocabtagene maraleucel",
+      "short_name": "liso-cel",
+      "short_name_note": "Common short name in clinical literature; it does not appear in the FDA documents read.",
+      "company_group": "Bristol Myers Squibb/Celgene/Juno",
+      "licence_holder": "Juno Therapeutics, Inc., a Bristol-Myers Squibb Company",
+      "target": "CD19",
+      "lymphoma_product": true,
+      "hcpcs_code": "Q2054",
+      "hcpcs_effective": "2021-10-01",
+      "hcpcs_previous_codes": [
+        {"code": "C9076", "effective": "2021-07-01", "terminated": "2021-09-30"}
+      ],
+      "hcpcs_source_url": "https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip",
+      "hcpcs_source_title": "CMS October 2026 Alpha-Numeric HCPCS File (HCPC2026_OCT_ANWEB_09232026.txt), code added date field",
+      "hcpcs_source_type": "cms",
+      "hcpcs_verified": true,
+      "product_source_url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/breyanzi",
+      "product_source_title": "FDA product page: BREYANZI (lisocabtagene maraleucel), STN BLA 125714",
+      "first_us_approval": "2021-02-05",
+      "events": [
+        {
+          "date": "2021-02-05",
+          "type": "first_approval",
+          "label": "Breyanzi approved (large B-cell lymphoma, third line)",
+          "lymphoma": true,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/145712/download",
+          "source_title": "February 5, 2021 Approval Letter - BREYANZI (STN BL 125714/0)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2022-06-24",
+          "type": "new_indication",
+          "label": "Breyanzi: large B-cell lymphoma, second line",
+          "lymphoma": true,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/159473/download",
+          "source_title": "June 24, 2022 Approval Letter - BREYANZI (STN BL 125714/90)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2024-03-14",
+          "type": "new_indication",
+          "label": "Breyanzi: CLL/SLL, third line",
+          "lymphoma": true,
+          "accelerated": true,
+          "source_url": "https://www.fda.gov/media/177113/download",
+          "source_title": "March 21, 2024 Approval Letter - BREYANZI (STN BL 125714/205, replacement letter)",
+          "source_type": "fda_letter",
+          "verified": true,
+          "note": "The posted letter is a replacement dated 2024-03-21 that corrects the post-marketing requirement section; it states that the effective approval date remains 2024-03-14. FDA's 2024 list of noteworthy supplement approvals also gives 03/14/2024. Still listed as an accelerated approval on the FDA product page (content current 2026-03-11)."
+        },
+        {
+          "date": "2024-05-15",
+          "type": "new_indication",
+          "label": "Breyanzi: follicular lymphoma, third line",
+          "lymphoma": true,
+          "accelerated": true,
+          "converted_to_regular_approval": {
+            "date": "2026-02-20",
+            "source_url": "https://www.fda.gov/media/191255/download",
+            "source_title": "February 20, 2026 Approval Letter - BREYANZI (STN BL 125714/703)",
+            "source_type": "fda_letter"
+          },
+          "source_url": "https://www.fda.gov/media/178659/download",
+          "source_title": "May 15, 2024 Approval Letter - BREYANZI (STN BL 125714/225)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2024-05-30",
+          "type": "new_indication",
+          "label": "Breyanzi: mantle cell lymphoma, third line",
+          "lymphoma": true,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/178992/download",
+          "source_title": "May 30, 2024 Approval Letter - BREYANZI (STN BL 125714/227)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2025-12-04",
+          "type": "new_indication",
+          "label": "Breyanzi: marginal zone lymphoma, third line",
+          "lymphoma": true,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/190001/download",
+          "source_title": "December 4, 2025 Approval Letter - BREYANZI (STN BL 125714/644)",
+          "source_type": "fda_letter",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "brand": "Abecma",
+      "generic": "idecabtagene vicleucel",
+      "short_name": "ide-cel",
+      "company_group": "Bristol Myers Squibb/Celgene/Juno",
+      "licence_holder": "Celgene Corporation, a Bristol-Myers Squibb Company",
+      "partner": "bluebird bio/2seventy bio",
+      "partner_note": "2seventy bio became a wholly owned subsidiary of Bristol Myers Squibb on 2025-05-13.",
+      "partner_source_url": "https://www.sec.gov/Archives/edgar/data/1860782/000114036125018514/ny20048433x3_8k.htm",
+      "partner_source_type": "sponsor",
+      "target": "BCMA",
+      "lymphoma_product": false,
+      "hcpcs_code": "Q2055",
+      "hcpcs_effective": "2022-01-01",
+      "hcpcs_previous_codes": [
+        {"code": "C9081", "effective": "2021-10-01", "terminated": "2021-12-31"}
+      ],
+      "hcpcs_source_url": "https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip",
+      "hcpcs_source_title": "CMS October 2026 Alpha-Numeric HCPCS File (HCPC2026_OCT_ANWEB_09232026.txt), code added date field",
+      "hcpcs_source_type": "cms",
+      "hcpcs_verified": true,
+      "product_source_url": "https://www.fda.gov/vaccines-blood-biologics/abecma",
+      "product_source_title": "FDA product page: ABECMA (idecabtagene vicleucel), STN BLA 125736",
+      "first_us_approval": "2021-03-26",
+      "events": [
+        {
+          "date": "2021-03-26",
+          "type": "first_approval",
+          "label": "Abecma approved (multiple myeloma, fifth line)",
+          "lymphoma": false,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/147062/download",
+          "source_title": "March 26, 2021 Approval Letter - ABECMA (STN BL 125736/0)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2024-04-04",
+          "type": "new_indication",
+          "label": "Abecma: multiple myeloma, third line",
+          "lymphoma": false,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/177545/download",
+          "source_title": "April 4, 2024 Approval Letter - ABECMA (STN BL 125736/218)",
+          "source_type": "fda_letter",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "brand": "Carvykti",
+      "generic": "ciltacabtagene autoleucel",
+      "short_name": "cilta-cel",
+      "company_group": "Janssen/Johnson & Johnson",
+      "licence_holder": "Janssen Biotech, Inc.",
+      "partner": "Legend Biotech",
+      "partner_source_url": "https://www.jnj.com/media-center/press-releases/carvykti-is-the-first-and-only-bcma-targeted-treatment-approved-by-the-u-s-fda-for-patients-with-relapsed-or-refractory-multiple-myeloma-who-have-received-at-least-one-prior-line-of-therapy",
+      "partner_source_type": "sponsor",
+      "target": "BCMA",
+      "lymphoma_product": false,
+      "hcpcs_code": "Q2056",
+      "hcpcs_effective": "2022-10-01",
+      "hcpcs_previous_codes": [
+        {"code": "C9098", "effective": "2022-07-01", "terminated": "2022-09-30"}
+      ],
+      "hcpcs_source_url": "https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip",
+      "hcpcs_source_title": "CMS October 2026 Alpha-Numeric HCPCS File (HCPC2026_OCT_ANWEB_09232026.txt), code added date field",
+      "hcpcs_source_type": "cms",
+      "hcpcs_verified": true,
+      "product_source_url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/carvykti",
+      "product_source_title": "FDA product page: CARVYKTI (ciltacabtagene autoleucel), STN 125746",
+      "first_us_approval": "2022-02-28",
+      "events": [
+        {
+          "date": "2022-02-28",
+          "type": "first_approval",
+          "label": "Carvykti approved (multiple myeloma, fifth line)",
+          "lymphoma": false,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/156572/download",
+          "source_title": "February 28, 2022 Approval Letter - CARVYKTI (STN BL 125746/0)",
+          "source_type": "fda_letter",
+          "verified": true
+        },
+        {
+          "date": "2024-04-05",
+          "type": "new_indication",
+          "label": "Carvykti: multiple myeloma, second line",
+          "lymphoma": false,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/177564/download",
+          "source_title": "April 5, 2024 Approval Letter - CARVYKTI (STN BL 125746/74)",
+          "source_type": "fda_letter",
+          "verified": true,
+          "note": "The letter gives the date and says the indication is extended; the line of therapy (at least one prior line, lenalidomide-refractory) is read on the FDA product page and in FDA's 2024 list of noteworthy supplement approvals."
+        }
+      ]
+    },
+    {
+      "brand": "Aucatzyl",
+      "generic": "obecabtagene autoleucel",
+      "short_name": "obe-cel",
+      "company_group": "Autolus",
+      "licence_holder": "Autolus Inc. (FDA product page lists the manufacturer as Autolus Limited)",
+      "target": "CD19",
+      "lymphoma_product": false,
+      "hcpcs_code": "Q2058",
+      "hcpcs_effective": "2025-07-01",
+      "hcpcs_previous_codes": [
+        {"code": "C9301", "effective": "2025-04-01", "terminated": "2025-06-30"}
+      ],
+      "hcpcs_source_url": "https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip",
+      "hcpcs_source_title": "CMS October 2026 Alpha-Numeric HCPCS File (HCPC2026_OCT_ANWEB_09232026.txt), code added date field",
+      "hcpcs_source_type": "cms",
+      "hcpcs_verified": true,
+      "product_source_url": "https://www.fda.gov/vaccines-blood-biologics/aucatzyl",
+      "product_source_title": "FDA product page: AUCATZYL (obecabtagene autoleucel), STN 125813",
+      "first_us_approval": "2024-11-08",
+      "events": [
+        {
+          "date": "2024-11-08",
+          "type": "first_approval",
+          "label": "Aucatzyl approved (adult B-cell ALL)",
+          "lymphoma": false,
+          "accelerated": false,
+          "source_url": "https://www.fda.gov/media/183464/download",
+          "source_title": "November 8, 2024 Approval Letter - AUCATZYL (STN BL 125813/0)",
+          "source_type": "fda_letter",
+          "verified": true,
+          "note": "FDA's 2024 list of biologics licence approvals also gives 11/08/2024, and FDA's 2025 list has no entry for this product: the approval is November 2024, not 2025."
+        }
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "generic": "anitocabtagene autoleucel",
+      "short_name": "anito-cel",
+      "company_group": "Kite/Gilead",
+      "partner": "Arcellx (originator; wholly owned subsidiary of Gilead since 2026-04-28)",
+      "target": "BCMA",
+      "approved": false,
+      "fda_target_decision_date": "2026-12-23",
+      "note": "Not approved as of 2026-11-20. The sponsor describes it as investigational: the licence application for relapsed or refractory multiple myeloma (fourth line or later) is under FDA review with a target decision date of 2026-12-23, as stated by the sponsor on 2026-11-04. It is absent from FDA's list of approved cellular and gene therapy products (content current 2026-10-30) and from FDA's 2026 list of biologics licence approvals (content current 2026-10-22), and the sponsor's press release index showed no approval announcement on 2026-11-20. Add it here as a product only after an FDA approval letter is posted.",
+      "source_url": "https://www.kitepharma.com/news/press-releases/2026/11/gilead-and-kite-advance-leadership-with-new-data-across-pipeline-and-portfolio-at-ash-2026",
+      "source_title": "Gilead and Kite press release, November 4, 2026",
+      "source_type": "sponsor",
+      "corroborating_urls": [
+        "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products",
+        "https://www.fda.gov/vaccines-blood-biologics/development-approval-process-cber/2026-biological-license-application-approvals",
+        "https://www.kitepharma.com/news/press-releases/2026/4/gilead-sciences-completes-acquisition-of-arcellx-ahead-of-potential-commercial-launch-of-anito-cel"
+      ],
+      "verified": true
+    }
+  ],
+  "class_and_coding_events": [
+    {
+      "date": "2019-01-01",
+      "type": "coding",
+      "label": "CAR-T procedure codes 0537T-0540T start",
+      "date_basis": "Effective date (date of service) from which CMS added the four codes to its outpatient code editor.",
+      "source_url": "https://www.cms.gov/regulations-and-guidance/guidance/transmittals/2018downloads/r4185cp.pdf",
+      "source_title": "CMS Transmittal 4185, Change Request 11068, January 2019 Integrated Outpatient Code Editor Specifications (December 21, 2018)",
+      "source_type": "cms",
+      "verified": true
+    },
+    {
+      "date": "2019-08-07",
+      "type": "coverage",
+      "label": "Medicare national coverage decision for CAR-T",
+      "date_basis": "Effective date of National Coverage Determination 110.24, version 1 (coverage applies to services on or after this date). The claims-processing implementation date shown by CMS is 2021-09-20.",
+      "source_url": "https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?NCDId=374",
+      "source_title": "CMS National Coverage Determination 110.24, Chimeric Antigen Receptor (CAR) T-cell Therapy",
+      "source_type": "cms",
+      "verified": true
+    },
+    {
+      "date": "2020-10-01",
+      "type": "coding",
+      "label": "Medicare inpatient group MS-DRG 018 created for CAR-T",
+      "date_basis": "Effective date of the fiscal year 2021 inpatient payment changes, which created the group.",
+      "source_url": "https://www.cms.gov/files/document/mm11879.pdf",
+      "source_title": "CMS MLN Matters MM11879, Fiscal Year 2021 Inpatient Prospective Payment System and Long-Term Care Hospital PPS Changes",
+      "source_type": "cms",
+      "verified": true
+    },
+    {
+      "date": "2024-01-19",
+      "type": "safety",
+      "label": "FDA class-wide boxed warning on T-cell malignancies",
+      "date_basis": "Date of FDA's safety labeling change notification letters requiring the warning (five products on 2024-01-19; Tecartus on 2024-01-23). This is the date FDA required the change, not the date the labels changed: label supplements adding the warning were approved on 2024-04-12 for Kymriah, Yescarta and Tecartus (letters read), and FDA's public statement that the warning is required is dated 2024-04-18.",
+      "related_dates": {
+        "fda_public_statement": "2024-04-18",
+        "label_supplements_approved_kymriah_yescarta_tecartus": "2024-04-12"
+      },
+      "source_url": "https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/2024-safety-and-availability-communications",
+      "source_title": "FDA 2024 Safety and Availability Communications (lists the January 2024 notification letters and the April 18, 2024 statement)",
+      "source_type": "fda_page",
+      "additional_source_urls": [
+        "https://www.fda.gov/media/175625/download",
+        "https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-requires-boxed-warning-t-cell-malignancies-following-treatment-bcma-directed-or-cd19-directed"
+      ],
+      "verified": true
+    },
+    {
+      "date": "2025-01-01",
+      "type": "coding",
+      "label": "CAR-T procedure codes 38225-38228 replace 0537T-0540T",
+      "date_basis": "Effective date of the new codes; the earlier codes were end-dated 2024-12-31.",
+      "source_url": "https://www.cms.gov/files/document/r13097otn.pdf",
+      "source_title": "CMS Transmittal 13097, Change Request 13939, Coding Revisions to National Coverage Determinations, July 2025 (March 20, 2025)",
+      "source_type": "cms",
+      "additional_source_urls": [
+        "https://www.cms.gov/files/document/r13033cp.pdf"
+      ],
+      "verified": true
+    },
+    {
+      "date": "2025-06-26",
+      "type": "regulatory",
+      "label": "FDA removes REMS requirements for approved CAR-T products",
+      "date_basis": "Date of the FDA safety communication and of the approval letters eliminating each programme. FDA lists six products (Abecma, Breyanzi, Carvykti, Kymriah, Tecartus, Yescarta); Aucatzyl is not in FDA's list.",
+      "source_url": "https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-eliminates-risk-evaluation-and-mitigation-strategies-rems-autologous-chimeric-antigen-receptor",
+      "source_title": "FDA Safety Communication, June 26, 2025: FDA Eliminates REMS for Autologous CAR T cell Immunotherapies",
+      "source_type": "fda_page",
+      "verified": true
+    }
+  ]
+}

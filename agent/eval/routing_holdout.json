@@ -1,0 +1,1380 @@
+{
+ "about": "Held-out questions for the CAR-T KOL Navigator, in the same format as routing_set.json. The prompt and skills are never tuned against them: their score estimates how the agent does on questions it was not adjusted for. Each group was written before the agent was run on any of its questions: h- before the first run of the three-reply agent, h2- before the first run of the streamed answer with its fixes, h3- before the first run after the profile skills were allowed to run the topic queries. Earlier groups have been asked more than once, with fixes in between, so quote the first-ask score of the newest group. Scored by `uv run kolproject-agent-eval --set holdout`.",
+ "questions": [
+  {
+   "id": "h-com-1",
+   "group": "community",
+   "question": "Who are the key authors in the Mass General Brigham network?",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "5"
+   ],
+   "queries_any": [
+    "community_leaders",
+    "community_members"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h-com-2",
+   "group": "community",
+   "question": "Tell me about the Baylor orbit.",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "13"
+   ],
+   "queries": [
+    "community_summary"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h-com-3",
+   "group": "community",
+   "question": "Which hospitals belong to the Fred Hutch / UW orbit?",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "8"
+   ],
+   "queries": [
+    "community_centers"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h-com-4",
+   "group": "community",
+   "question": "Mayo versus Stanford: how do the two orbits compare?",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "2",
+    "7"
+   ],
+   "queries": [
+    "community_compare"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h-com-5",
+   "group": "community",
+   "question": "Has the Memorial Sloan Kettering community published more together over the years?",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "6"
+   ],
+   "queries": [
+    "community_coauthor_by_year"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h-hcp-1",
+   "group": "hcp",
+   "question": "Who is Jeremy Abramson?",
+   "skill": [
+    "hcp-profile"
+   ],
+   "ids": [
+    "1740262484"
+   ],
+   "queries": [
+    "hcp_profile"
+   ],
+   "focus": "hcp"
+  },
+  {
+   "id": "h-hcp-2",
+   "group": "hcp",
+   "question": "Show Nirav Shah's co-authors.",
+   "skill": [
+    "hcp-profile"
+   ],
+   "ids": [
+    "1245491257"
+   ],
+   "queries": [
+    "hcp_top_coauthors"
+   ],
+   "focus": "hcp",
+   "edges": [
+    "coauthor"
+   ]
+  },
+  {
+   "id": "h-hcp-3",
+   "group": "hcp",
+   "question": "How many papers has Michael Jain written each year?",
+   "skill": [
+    "hcp-profile"
+   ],
+   "ids": [
+    "1982139655"
+   ],
+   "queries": [
+    "hcp_publications_by_year"
+   ],
+   "focus": "hcp"
+  },
+  {
+   "id": "h-hcp-4",
+   "group": "hcp",
+   "question": "Brian Hill's industry payments over time.",
+   "skill": [
+    "hcp-profile",
+    "industry-payments"
+   ],
+   "ids": [
+    "1013199058"
+   ],
+   "queries": [
+    "payments_by_year"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h-ctr-1",
+   "group": "center",
+   "question": "Give me a profile of City of Hope National Medical Center.",
+   "skill": [
+    "center-profile"
+   ],
+   "ids": [
+    "050146"
+   ],
+   "queries": [
+    "center_profile"
+   ],
+   "focus": "center"
+  },
+  {
+   "id": "h-ctr-2",
+   "group": "center",
+   "question": "Which core clinicians work at Massachusetts General Hospital?",
+   "skill": [
+    "center-profile"
+   ],
+   "ids": [
+    "220071"
+   ],
+   "queries": [
+    "center_core_hcps"
+   ],
+   "focus": "center"
+  },
+  {
+   "id": "h-ctr-3",
+   "group": "center",
+   "question": "How many CAR-T centers are there in Ohio?",
+   "skill": [
+    "center-profile"
+   ],
+   "queries": [
+    "centers_in_state"
+   ],
+   "params": {
+    "state": "OH"
+   },
+   "focus": "state"
+  },
+  {
+   "id": "h-ctr-4",
+   "group": "center",
+   "question": "Medicare CAR-T stays at Stanford Health Care by year.",
+   "skill": [
+    "center-profile",
+    "prescribing-claims"
+   ],
+   "ids": [
+    "050441"
+   ],
+   "queries": [
+    "center_medicare_cart_stays"
+   ],
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h-ctr-5",
+   "group": "center",
+   "question": "Which Texas centers had the most Medicare CAR-T stays in 2022?",
+   "skill": [
+    "center-profile",
+    "prescribing-claims"
+   ],
+   "queries": [
+    "top_centers_by_medicare_stays"
+   ],
+   "params": {
+    "state": "TX",
+    "year": "2022"
+   }
+  },
+  {
+   "id": "h-pay-1",
+   "group": "payments",
+   "question": "Consulting and speaking payments to the City of Hope orbit, year by year.",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    "12"
+   ],
+   "queries": [
+    "payments_by_year"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h-pay-2",
+   "group": "payments",
+   "question": "Payments naming Kymriah to the Penn orbit.",
+   "skill": [
+    "industry-payments",
+    "product-timeline"
+   ],
+   "ids": [
+    "4"
+   ],
+   "queries_any": [
+    "payments_by_product",
+    "payments_monthly"
+   ],
+   "params": {
+    "brand": "Kymriah"
+   },
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h-pay-3",
+   "group": "payments",
+   "question": "Who received the most meals and travel payments in the Mayo orbit?",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    "2"
+   ],
+   "queries": [
+    "top_paid_hcps"
+   ],
+   "params": {
+    "nature": "hospitality_education"
+   },
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h-pay-4",
+   "group": "payments",
+   "question": "Research funding for the Stanford orbit's investigators over time.",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    "7"
+   ],
+   "queries": [
+    "research_by_year"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h-pay-5",
+   "group": "payments",
+   "question": "Which manufacturers paid Caron Jacobson?",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    "1336261379"
+   ],
+   "queries": [
+    "payments_by_manufacturer"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h-tie-1",
+   "group": "ties",
+   "question": "Which CAR-T companies appear in David Maloney's conflict-of-interest statements?",
+   "skill": [
+    "disclosed-ties"
+   ],
+   "ids": [
+    "1942385752"
+   ],
+   "queries_any": [
+    "ties_by_manufacturer",
+    "hcp_ties_papers"
+   ],
+   "caveats": [
+    "TIES"
+   ]
+  },
+  {
+   "id": "h-tie-2",
+   "group": "ties",
+   "question": "How have disclosures by the Dana-Farber network's authors changed by year?",
+   "skill": [
+    "disclosed-ties"
+   ],
+   "ids": [
+    "5"
+   ],
+   "queries": [
+    "ties_by_year"
+   ],
+   "caveats": [
+    "TIES"
+   ]
+  },
+  {
+   "id": "h-rx-1",
+   "group": "prescribing",
+   "question": "Oral lymphoma drug prescribing by Brian Hill under Part D.",
+   "skill": [
+    "prescribing-claims",
+    "hcp-profile"
+   ],
+   "ids": [
+    "1013199058"
+   ],
+   "queries": [
+    "partd_by_drug_year"
+   ],
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h-rx-2",
+   "group": "prescribing",
+   "question": "Top venetoclax prescribers in the MD Anderson orbit.",
+   "skill": [
+    "prescribing-claims"
+   ],
+   "ids": [
+    "9"
+   ],
+   "queries": [
+    "top_prescribers"
+   ],
+   "params": {
+    "drug": "venetoclax"
+   },
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h-rx-3",
+   "group": "prescribing",
+   "question": "Medicaid payments to HCPs attached to the Stanford orbit.",
+   "skill": [
+    "prescribing-claims"
+   ],
+   "ids": [
+    "7"
+   ],
+   "queries": [
+    "medicaid_by_year"
+   ],
+   "caveats": [
+    "MEDICAID"
+   ]
+  },
+  {
+   "id": "h-rx-4",
+   "group": "prescribing",
+   "question": "How many Medicare CAR-T stays do the Penn orbit's centers have?",
+   "skill": [
+    "prescribing-claims",
+    "community-view",
+    "center-profile"
+   ],
+   "ids": [
+    "4"
+   ],
+   "queries": [
+    "community_medicare_cart_stays"
+   ],
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h-ref-1",
+   "group": "referral",
+   "question": "Who refers patients to Moffitt?",
+   "skill": [
+    "referral-flow"
+   ],
+   "ids": [
+    "100271"
+   ],
+   "queries_any": [
+    "center_top_referrers",
+    "center_referral_summary",
+    "center_referrers_by_division"
+   ],
+   "focus": "center",
+   "edges": [
+    "referral"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h-ref-2",
+   "group": "referral",
+   "question": "How did Dana-Farber's shared-patient base change from 2017 to 2022?",
+   "skill": [
+    "referral-flow"
+   ],
+   "ids": [
+    "220162"
+   ],
+   "queries": [
+    "center_referrer_base_by_year"
+   ],
+   "focus": "center",
+   "edges": [
+    "referral"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h-ref-3",
+   "group": "referral",
+   "question": "Which regions do Stanford Health Care's referring HCPs come from?",
+   "skill": [
+    "referral-flow"
+   ],
+   "ids": [
+    "050441"
+   ],
+   "queries": [
+    "center_referrers_by_region"
+   ],
+   "focus": "center",
+   "edges": [
+    "referral"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h-ref-4",
+   "group": "referral",
+   "question": "Rank California centers by shared patients in 2021.",
+   "skill": [
+    "referral-flow"
+   ],
+   "queries": [
+    "top_centers_by_shared_patients"
+   ],
+   "params": {
+    "state": "CA",
+    "year": "2021"
+   },
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h-ref-5",
+   "group": "referral",
+   "question": "Which centers does Frederick Locke share patients with?",
+   "skill": [
+    "referral-flow",
+    "hcp-profile"
+   ],
+   "ids": [
+    "1518129121"
+   ],
+   "queries_any": [
+    "hcp_referral_links",
+    "hcp_referral_summary"
+   ],
+   "edges": [
+    "referral"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h-prd-1",
+   "group": "product",
+   "question": "When was Kymriah first approved?",
+   "skill": [
+    "product-timeline"
+   ],
+   "queries_any": [
+    "product_events",
+    "product_facts"
+   ],
+   "params": {
+    "brand": "Kymriah"
+   }
+  },
+  {
+   "id": "h-prd-2",
+   "group": "product",
+   "question": "What does Abecma treat and who makes it?",
+   "skill": [
+    "product-timeline"
+   ],
+   "queries_any": [
+    "product_facts",
+    "product_events"
+   ],
+   "params": {
+    "brand": "Abecma"
+   }
+  },
+  {
+   "id": "h-prd-3",
+   "group": "product",
+   "question": "Timeline of Yescarta's indications.",
+   "skill": [
+    "product-timeline"
+   ],
+   "queries": [
+    "product_events"
+   ],
+   "params": {
+    "brand": "Yescarta"
+   }
+  },
+  {
+   "id": "h-out-1",
+   "group": "scope",
+   "question": "Show me patient-level records for Yescarta recipients at MD Anderson.",
+   "skill": [
+    "scope-and-help"
+   ],
+   "outcome": "decline"
+  },
+  {
+   "id": "h-out-2",
+   "group": "scope",
+   "question": "Is the community detection reliable? Show me the validation.",
+   "skill": [
+    "scope-and-help"
+   ],
+   "outcome": "decline",
+   "text_has": "Method checks are not part of this tool"
+  },
+  {
+   "id": "h-out-3",
+   "group": "scope",
+   "question": "Predict which centers will grow fastest next year.",
+   "skill": [
+    "scope-and-help"
+   ],
+   "outcome": "decline"
+  },
+  {
+   "id": "h-out-4",
+   "group": "scope",
+   "question": "Which data do you have?",
+   "skill": [
+    "scope-and-help"
+   ],
+   "outcome": "help"
+  },
+  {
+   "id": "h-amb-1",
+   "group": "ambiguity",
+   "question": "Show me Dr. Shah.",
+   "skill": [
+    "hcp-profile"
+   ],
+   "outcome": "ask"
+  },
+  {
+   "id": "h-fol-1",
+   "group": "follow-up",
+   "memory": "community 9 (MD Anderson orbit)",
+   "question": "Which centers anchor it?",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "9"
+   ],
+   "queries": [
+    "community_centers"
+   ]
+  },
+  {
+   "id": "h-fol-2",
+   "group": "follow-up",
+   "memory": "center 100271 (H. Lee Moffitt Cancer Center and Research Institute Hospital, INC.)",
+   "question": "How many Medicare CAR-T stays does it report each year?",
+   "skill": [
+    "center-profile",
+    "prescribing-claims"
+   ],
+   "ids": [
+    "100271"
+   ],
+   "queries": [
+    "center_medicare_cart_stays"
+   ],
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h2-com-1",
+   "group": "community",
+   "question": "Who heads the City of Hope orbit?",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "12"
+   ],
+   "queries": [
+    "community_leaders"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h2-com-2",
+   "group": "community",
+   "question": "List the referring HCPs attached to the Stanford orbit.",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "7"
+   ],
+   "queries": [
+    "community_members"
+   ],
+   "params": {
+    "division_group": "referring"
+   },
+   "focus": "community"
+  },
+  {
+   "id": "h2-com-3",
+   "group": "community",
+   "question": "Put the Moffitt and MD Anderson communities side by side.",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "11",
+    "9"
+   ],
+   "queries": [
+    "community_compare"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h2-hcp-1",
+   "group": "hcp",
+   "question": "Give me a quick profile of Sairah Ahmed.",
+   "skill": [
+    "hcp-profile"
+   ],
+   "ids": [
+    "1144387192"
+   ],
+   "queries": [
+    "hcp_profile"
+   ],
+   "focus": "hcp"
+  },
+  {
+   "id": "h2-hcp-2",
+   "group": "hcp",
+   "question": "Who are David Maloney's most frequent co-authors?",
+   "skill": [
+    "hcp-profile"
+   ],
+   "ids": [
+    "1942385752"
+   ],
+   "queries": [
+    "hcp_top_coauthors"
+   ],
+   "focus": "hcp",
+   "edges": [
+    "coauthor"
+   ]
+  },
+  {
+   "id": "h2-hcp-3",
+   "group": "hcp",
+   "question": "Is Julio Chavez a community leader?",
+   "skill": [
+    "hcp-profile"
+   ],
+   "ids": [
+    "1750543948"
+   ],
+   "queries": [
+    "hcp_profile"
+   ]
+  },
+  {
+   "id": "h2-ctr-1",
+   "group": "center",
+   "question": "What is the 340B status of Stanford Health Care?",
+   "skill": [
+    "center-profile"
+   ],
+   "ids": [
+    "050441"
+   ],
+   "queries": [
+    "center_profile"
+   ],
+   "focus": "center"
+  },
+  {
+   "id": "h2-ctr-2",
+   "group": "center",
+   "question": "Show the CAR-T centers in Massachusetts.",
+   "skill": [
+    "center-profile"
+   ],
+   "queries": [
+    "centers_in_state"
+   ],
+   "params": {
+    "state": "MA"
+   },
+   "focus": "state"
+  },
+  {
+   "id": "h2-ctr-3",
+   "group": "center",
+   "question": "Who are the core HCPs at Fred Hutchinson Cancer Center?",
+   "skill": [
+    "center-profile"
+   ],
+   "ids": [
+    "500138"
+   ],
+   "queries": [
+    "center_core_hcps"
+   ],
+   "focus": "center"
+  },
+  {
+   "id": "h2-pay-1",
+   "group": "payments",
+   "question": "Which companies paid HCPs in the Fred Hutch orbit, and how much?",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    "8"
+   ],
+   "queries": [
+    "payments_by_manufacturer"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h2-pay-2",
+   "group": "payments",
+   "question": "Payments naming Tecartus to the MD Anderson orbit by year.",
+   "skill": [
+    "industry-payments",
+    "product-timeline"
+   ],
+   "ids": [
+    "9"
+   ],
+   "queries_any": [
+    "payments_by_product",
+    "payments_monthly"
+   ],
+   "params": {
+    "brand": "Tecartus"
+   },
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h2-pay-3",
+   "group": "payments",
+   "question": "Largest research studies involving the Penn orbit's investigators.",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    "4"
+   ],
+   "queries": [
+    "research_studies"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h2-tie-1",
+   "group": "ties",
+   "question": "What has Miguel Perales disclosed about CAR-T manufacturers on his papers?",
+   "skill": [
+    "disclosed-ties"
+   ],
+   "ids": [
+    "1922079839"
+   ],
+   "queries_any": [
+    "ties_by_manufacturer",
+    "hcp_ties_papers"
+   ],
+   "caveats": [
+    "TIES"
+   ]
+  },
+  {
+   "id": "h2-rx-1",
+   "group": "prescribing",
+   "question": "Part D prescribing of oral lymphoma drugs by HCPs attached to the Mayo orbit.",
+   "skill": [
+    "prescribing-claims"
+   ],
+   "ids": [
+    "2"
+   ],
+   "queries": [
+    "partd_by_drug_year"
+   ],
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h2-rx-2",
+   "group": "prescribing",
+   "question": "Medicare Part B payment to HCPs at City of Hope National Medical Center by year.",
+   "skill": [
+    "prescribing-claims"
+   ],
+   "ids": [
+    "050146"
+   ],
+   "queries": [
+    "partb_payment_by_year"
+   ],
+   "params": {
+    "scope": "center"
+   },
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h2-ref-1",
+   "group": "referral",
+   "question": "Where do Cleveland Clinic hospital's shared patients come from?",
+   "skill": [
+    "referral-flow"
+   ],
+   "ids": [
+    "360180"
+   ],
+   "queries_any": [
+    "center_referral_summary",
+    "center_referrers_by_division",
+    "center_referrers_by_region",
+    "center_top_referrers"
+   ],
+   "focus": "center",
+   "edges": [
+    "referral"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h2-ref-2",
+   "group": "referral",
+   "question": "Top HCPs sharing patients with Massachusetts General Hospital in 2019.",
+   "skill": [
+    "referral-flow"
+   ],
+   "ids": [
+    "220071"
+   ],
+   "queries": [
+    "center_top_referrers"
+   ],
+   "params": {
+    "year": "2019"
+   },
+   "focus": "center",
+   "edges": [
+    "referral"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h2-prd-1",
+   "group": "product",
+   "question": "Who makes Kymriah and what does it target?",
+   "skill": [
+    "product-timeline"
+   ],
+   "queries": [
+    "product_facts"
+   ],
+   "params": {
+    "brand": "Kymriah"
+   }
+  },
+  {
+   "id": "h2-prd-2",
+   "group": "product",
+   "question": "When was Carvykti approved?",
+   "skill": [
+    "product-timeline"
+   ],
+   "queries_any": [
+    "product_events",
+    "product_facts"
+   ],
+   "params": {
+    "brand": "Carvykti"
+   }
+  },
+  {
+   "id": "h2-amb-1",
+   "group": "ambiguity",
+   "question": "Show me the profile of Dr. Patel.",
+   "skill": [
+    "hcp-profile"
+   ],
+   "outcome": "ask"
+  },
+  {
+   "id": "h2-out-1",
+   "group": "scope",
+   "question": "Which insurer pays the most for Yescarta in the commercial market?",
+   "skill": [
+    "scope-and-help"
+   ],
+   "outcome": "decline"
+  },
+  {
+   "id": "h3-pay-1",
+   "group": "payments",
+   "question": "How much research funding goes to investigators at Moffitt Cancer Center?",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    [
+     "100271",
+     "11"
+    ]
+   ],
+   "queries_any": [
+    "research_by_year",
+    "research_studies"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h3-pay-2",
+   "group": "payments",
+   "question": "Which Dana-Farber network members were paid the most for consulting?",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    "5"
+   ],
+   "queries": [
+    "top_paid_hcps"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h3-pay-3",
+   "group": "payments",
+   "question": "Payments by company to HCPs at Stanford Health Care.",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    [
+     "050441",
+     "7"
+    ]
+   ],
+   "queries": [
+    "payments_by_manufacturer"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h3-pay-4",
+   "group": "payments",
+   "question": "What studies has Sattva Neelapu been funded for?",
+   "skill": [
+    "industry-payments"
+   ],
+   "ids": [
+    "1386736304"
+   ],
+   "queries": [
+    "research_studies"
+   ],
+   "caveats": [
+    "PAYMENTS"
+   ]
+  },
+  {
+   "id": "h3-rx-1",
+   "group": "prescribing",
+   "question": "Medicare Part B payment to HCPs at Moffitt by year.",
+   "skill": [
+    "prescribing-claims"
+   ],
+   "ids": [
+    [
+     "100271",
+     "11"
+    ]
+   ],
+   "queries": [
+    "partb_payment_by_year"
+   ],
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h3-rx-2",
+   "group": "prescribing",
+   "question": "What do the Fred Hutch orbit's clinicians prescribe under Part D?",
+   "skill": [
+    "prescribing-claims"
+   ],
+   "ids": [
+    "8"
+   ],
+   "queries_any": [
+    "partd_by_drug_year",
+    "prescribing_summary",
+    "top_prescribers"
+   ],
+   "caveats": [
+    "MEDICARE"
+   ]
+  },
+  {
+   "id": "h3-rx-3",
+   "group": "prescribing",
+   "question": "Medicaid paid amounts for HCPs at MD Anderson.",
+   "skill": [
+    "prescribing-claims"
+   ],
+   "ids": [
+    [
+     "450076",
+     "9"
+    ]
+   ],
+   "queries": [
+    "medicaid_by_year"
+   ],
+   "caveats": [
+    "MEDICAID"
+   ]
+  },
+  {
+   "id": "h3-tie-1",
+   "group": "ties",
+   "question": "Which CAR-T manufacturers do Memorial Sloan Kettering orbit authors name in their disclosures?",
+   "skill": [
+    "disclosed-ties"
+   ],
+   "ids": [
+    "6"
+   ],
+   "queries": [
+    "ties_by_manufacturer"
+   ],
+   "caveats": [
+    "TIES"
+   ]
+  },
+  {
+   "id": "h3-tie-2",
+   "group": "ties",
+   "question": "Disclosures by year for Yi Lin.",
+   "skill": [
+    "disclosed-ties"
+   ],
+   "ids": [
+    "1285608174"
+   ],
+   "queries_any": [
+    "ties_by_year",
+    "hcp_ties_papers"
+   ],
+   "caveats": [
+    "TIES"
+   ]
+  },
+  {
+   "id": "h3-ref-1",
+   "group": "referral",
+   "question": "Who are the main referrers to City of Hope National Medical Center?",
+   "skill": [
+    "referral-flow"
+   ],
+   "ids": [
+    "050146"
+   ],
+   "queries_any": [
+    "center_top_referrers",
+    "center_referral_summary"
+   ],
+   "focus": "center",
+   "edges": [
+    "referral"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h3-ref-2",
+   "group": "referral",
+   "question": "How has the shared-patient base of the Penn orbit's centers changed?",
+   "skill": [
+    "referral-flow",
+    "community-view"
+   ],
+   "ids": [
+    "4"
+   ],
+   "queries_any": [
+    "community_referral_by_year",
+    "community_referral_flows"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h3-ref-3",
+   "group": "referral",
+   "question": "Out-of-region share of Mayo Clinic Rochester's referrers.",
+   "skill": [
+    "referral-flow"
+   ],
+   "ids": [
+    "240010"
+   ],
+   "queries_any": [
+    "center_referral_summary",
+    "center_referrers_by_region",
+    "center_referrer_base_by_year"
+   ],
+   "focus": "center",
+   "edges": [
+    "referral"
+   ],
+   "caveats": [
+    "REFERRAL"
+   ]
+  },
+  {
+   "id": "h3-com-1",
+   "group": "community",
+   "question": "Who are the core members of the MD Anderson orbit?",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "9"
+   ],
+   "queries_any": [
+    "community_members",
+    "community_leaders"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h3-com-2",
+   "group": "community",
+   "question": "How many centers does the Cleveland Clinic – Vanderbilt network have, and which ones?",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "1"
+   ],
+   "queries": [
+    "community_centers"
+   ],
+   "focus": "community"
+  },
+  {
+   "id": "h3-hcp-1",
+   "group": "hcp",
+   "question": "Tell me about Helen Heslop.",
+   "skill": [
+    "hcp-profile"
+   ],
+   "ids": [
+    "1912087271"
+   ],
+   "queries": [
+    "hcp_profile"
+   ],
+   "focus": "hcp"
+  },
+  {
+   "id": "h3-hcp-2",
+   "group": "hcp",
+   "question": "Is Geoffrey Shouse a core member?",
+   "skill": [
+    "hcp-profile"
+   ],
+   "ids": [
+    "1568721116"
+   ],
+   "queries": [
+    "hcp_profile"
+   ]
+  },
+  {
+   "id": "h3-ctr-1",
+   "group": "center",
+   "question": "How many core HCPs does Brigham and Women's have, and who are they?",
+   "skill": [
+    "center-profile"
+   ],
+   "ids": [
+    "220110"
+   ],
+   "queries_any": [
+    "center_core_hcps",
+    "center_profile"
+   ],
+   "focus": "center"
+  },
+  {
+   "id": "h3-ctr-2",
+   "group": "center",
+   "question": "Rank Florida centers by Medicare CAR-T stays in 2023.",
+   "skill": [
+    "center-profile",
+    "prescribing-claims"
+   ],
+   "queries": [
+    "top_centers_by_medicare_stays"
+   ],
+   "params": {
+    "state": "FL",
+    "year": "2023"
+   }
+  },
+  {
+   "id": "h3-prd-1",
+   "group": "product",
+   "question": "What is Aucatzyl and when was it approved?",
+   "skill": [
+    "product-timeline"
+   ],
+   "queries_any": [
+    "product_facts",
+    "product_events"
+   ],
+   "params": {
+    "brand": "Aucatzyl"
+   }
+  },
+  {
+   "id": "h3-out-1",
+   "group": "scope",
+   "question": "What is the survival rate of patients treated with Breyanzi?",
+   "skill": [
+    "scope-and-help"
+   ],
+   "outcome": "decline"
+  },
+  {
+   "id": "h3-amb-1",
+   "group": "ambiguity",
+   "question": "Profile of Dr. Lee.",
+   "skill": [
+    "hcp-profile"
+   ],
+   "outcome": "ask"
+  },
+  {
+   "id": "h3-new-1",
+   "group": "new-topic",
+   "memory": "community 7 (Stanford orbit)",
+   "question": "Show me the Penn / Abramson orbit instead.",
+   "skill": [
+    "community-view"
+   ],
+   "ids": [
+    "4"
+   ],
+   "queries_any": [
+    "community_summary",
+    "community_leaders"
+   ],
+   "focus": "community"
+  }
+ ]
+}

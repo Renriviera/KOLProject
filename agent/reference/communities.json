@@ -1,0 +1,647 @@
+{
+ "source": "docs/data/site.json run b96b018dcf02 (co-authorship Leiden grouping of the 500 core HCPs, fixed)",
+ "note": "Ids, labels and colours are fixed. Colours repeat the --c1..--c13 palette of docs/site.css so the map matches the existing site. Stability tiers and method diagnostics are deliberately left out.",
+ "communities": [
+  {
+   "community_id": 1,
+   "label": "Cleveland Clinic – Vanderbilt network",
+   "short_label": "Cleveland Clinic – Vanderbilt network",
+   "kind": "named",
+   "color_light": "#2a78d6",
+   "color_dark": "#3987e5",
+   "core_members": 61,
+   "region": "multi-region",
+   "top_institution": "Cleveland Clinic",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1699947655",
+     "name": "Olalekan Olaniyi Oluwole",
+     "institution": "Vanderbilt",
+     "state": "TN"
+    },
+    {
+     "npi": "1013199058",
+     "name": "Brian Thomas Hill",
+     "institution": "Cleveland Clinic",
+     "state": "OH"
+    },
+    {
+     "npi": "1326067596",
+     "name": "Lazaros J Lekakis",
+     "institution": "Miami / Sylvester",
+     "state": "FL"
+    },
+    {
+     "npi": "1609085356",
+     "name": "Armin Ghobadi",
+     "institution": "WashU / Siteman",
+     "state": "MO"
+    },
+    {
+     "npi": "1467686659",
+     "name": "Patrick M. Reagan",
+     "institution": "University of Rochester Medical Center",
+     "state": "NY"
+    }
+   ]
+  },
+  {
+   "community_id": 2,
+   "label": "Mayo Clinic orbit",
+   "short_label": "Mayo Clinic orbit",
+   "kind": "named",
+   "color_light": "#eb6834",
+   "color_dark": "#d95926",
+   "core_members": 56,
+   "region": "Midwest",
+   "top_institution": "Mayo Clinic",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1114142064",
+     "name": "Sayed Mehdi Hussain Hamadani",
+     "institution": "Medical College of Wisconsin",
+     "state": "WI"
+    },
+    {
+     "npi": "1336166230",
+     "name": "Mohamed A Kharfan Dabaja",
+     "institution": "Mayo Clinic",
+     "state": "FL"
+    },
+    {
+     "npi": "1285608174",
+     "name": "Yi Lin",
+     "institution": "Mayo Clinic",
+     "state": "MN"
+    },
+    {
+     "npi": "1083823637",
+     "name": "Javier Luis Munoz",
+     "institution": "Mayo Clinic",
+     "state": "FL"
+    },
+    {
+     "npi": "1174866016",
+     "name": "Yucai Wang",
+     "institution": "Mayo Clinic",
+     "state": "MN"
+    }
+   ]
+  },
+  {
+   "community_id": 3,
+   "label": "Ohio State – Northwestern / Lurie network (Midwest)",
+   "short_label": "Ohio State – Northwestern / Lurie network",
+   "kind": "named",
+   "color_light": "#1baf7a",
+   "color_dark": "#199e70",
+   "core_members": 55,
+   "region": "Midwest",
+   "top_institution": "Ohio State",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1902119019",
+     "name": "Narendranath Epperla",
+     "institution": "Ohio State",
+     "state": "OH"
+    },
+    {
+     "npi": "1083860282",
+     "name": "Reem Karmali",
+     "institution": "Northwestern / Lurie",
+     "state": "IL"
+    },
+    {
+     "npi": "1245491257",
+     "name": "Nirav N Shah",
+     "institution": "Medical College of Wisconsin",
+     "state": "WI"
+    },
+    {
+     "npi": "1902003403",
+     "name": "Jonathon Brett Cohen",
+     "institution": "Emory / Winship",
+     "state": "GA"
+    },
+    {
+     "npi": "1821028499",
+     "name": "Leo Gordon",
+     "institution": "Northwestern / Lurie",
+     "state": "IL"
+    }
+   ]
+  },
+  {
+   "community_id": 4,
+   "label": "Penn / Abramson orbit",
+   "short_label": "Penn / Abramson orbit",
+   "kind": "named",
+   "color_light": "#eda100",
+   "color_dark": "#c98500",
+   "core_members": 53,
+   "region": "Northeast",
+   "top_institution": "Penn / Abramson",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1033147566",
+     "name": "Stephen J Schuster",
+     "institution": "Penn / Abramson",
+     "state": "PA"
+    },
+    {
+     "npi": "1265753834",
+     "name": "Peter Riedell",
+     "institution": "University of Chicago",
+     "state": "IL"
+    },
+    {
+     "npi": "1811969272",
+     "name": "Joseph Patrick Mcguirk",
+     "institution": "University of Kansas",
+     "state": "KS"
+    },
+    {
+     "npi": "1275548760",
+     "name": "Richard Thomas Maziarz",
+     "institution": "OHSU / Knight",
+     "state": "OR"
+    },
+    {
+     "npi": "1841327665",
+     "name": "Veronika Bachanova",
+     "institution": "University of Minnesota",
+     "state": "MN"
+    }
+   ]
+  },
+  {
+   "community_id": 5,
+   "label": "Mass General Brigham – Dana-Farber network (Northeast)",
+   "short_label": "Mass General Brigham – Dana-Farber network",
+   "kind": "named",
+   "color_light": "#e87ba4",
+   "color_dark": "#d55181",
+   "core_members": 49,
+   "region": "Northeast",
+   "top_institution": "Mass General Brigham",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1336261379",
+     "name": "Caron Alyce Jacobson",
+     "institution": "Dana-Farber",
+     "state": "MA"
+    },
+    {
+     "npi": "1013283035",
+     "name": "Matthew John Frigault",
+     "institution": "Mass General Brigham",
+     "state": "MA"
+    },
+    {
+     "npi": "1740262484",
+     "name": "Jeremy S Abramson",
+     "institution": "Mass General Brigham",
+     "state": "MA"
+    },
+    {
+     "npi": "1003935081",
+     "name": "Matthew Alexander Lunning",
+     "institution": "University of Nebraska Medical Center",
+     "state": "NE"
+    },
+    {
+     "npi": "1184817959",
+     "name": "Manali K Kamdar",
+     "institution": "University of Colorado",
+     "state": "CO"
+    }
+   ]
+  },
+  {
+   "community_id": 6,
+   "label": "Memorial Sloan Kettering orbit",
+   "short_label": "Memorial Sloan Kettering orbit",
+   "kind": "named",
+   "color_light": "#008300",
+   "color_dark": "#008300",
+   "core_members": 44,
+   "region": "Northeast",
+   "top_institution": "Memorial Sloan Kettering",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1922079839",
+     "name": "Miguel A Perales",
+     "institution": "Memorial Sloan Kettering",
+     "state": "NY"
+    },
+    {
+     "npi": "1487625380",
+     "name": "Maria Lia Palomba",
+     "institution": "Memorial Sloan Kettering",
+     "state": "NY"
+    },
+    {
+     "npi": "1053586263",
+     "name": "Gunjan Lalitchandra Shah",
+     "institution": "Memorial Sloan Kettering",
+     "state": "NY"
+    },
+    {
+     "npi": "1083389290",
+     "name": "Gilles Salles",
+     "institution": "Memorial Sloan Kettering",
+     "state": "NY"
+    },
+    {
+     "npi": "1003115700",
+     "name": "Michael Scordo",
+     "institution": "Memorial Sloan Kettering",
+     "state": "NY"
+    }
+   ]
+  },
+  {
+   "community_id": 7,
+   "label": "Stanford orbit",
+   "short_label": "Stanford orbit",
+   "kind": "named",
+   "color_light": "#6250d6",
+   "color_dark": "#9085e9",
+   "core_members": 37,
+   "region": "West",
+   "top_institution": "Stanford",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1982751053",
+     "name": "David Bernard Miklos",
+     "institution": "Stanford",
+     "state": "CA"
+    },
+    {
+     "npi": "1356309280",
+     "name": "Aaron Paul Rapoport",
+     "institution": "Maryland / Greenebaum",
+     "state": "MD"
+    },
+    {
+     "npi": "1184943730",
+     "name": "Saurabh Dahiya",
+     "institution": "Stanford",
+     "state": "CA"
+    },
+    {
+     "npi": "1285929232",
+     "name": "Matthew Joshua Frank",
+     "institution": "Stanford",
+     "state": "CA"
+    },
+    {
+     "npi": "1932551066",
+     "name": "Jay Yaakov Spiegel",
+     "institution": "Miami / Sylvester",
+     "state": "FL"
+    }
+   ]
+  },
+  {
+   "community_id": 8,
+   "label": "Fred Hutch / UW orbit",
+   "short_label": "Fred Hutch / UW orbit",
+   "kind": "named",
+   "color_light": "#e34948",
+   "color_dark": "#e66767",
+   "core_members": 32,
+   "region": "West",
+   "top_institution": "Fred Hutch / UW",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1750554077",
+     "name": "Mazyar Shadman",
+     "institution": "Fred Hutch / UW",
+     "state": "WA"
+    },
+    {
+     "npi": "1942385752",
+     "name": "David G Maloney",
+     "institution": "Fred Hutch / UW",
+     "state": "WA"
+    },
+    {
+     "npi": "1174920953",
+     "name": "Jordan Gauthier",
+     "institution": "Fred Hutch / UW",
+     "state": "WA"
+    },
+    {
+     "npi": "1154599488",
+     "name": "Cameron John Turtle",
+     "institution": "Fred Hutch / UW",
+     "state": "WA"
+    },
+    {
+     "npi": "1194801902",
+     "name": "Ajay Kumar Gopal",
+     "institution": "Fred Hutch / UW",
+     "state": "WA"
+    }
+   ]
+  },
+  {
+   "community_id": 9,
+   "label": "MD Anderson orbit",
+   "short_label": "MD Anderson orbit",
+   "kind": "named",
+   "color_light": "#16a0b0",
+   "color_dark": "#22b5c6",
+   "core_members": 30,
+   "region": "South",
+   "top_institution": "MD Anderson",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1386736304",
+     "name": "Sattva S Neelapu",
+     "institution": "MD Anderson",
+     "state": "TX"
+    },
+    {
+     "npi": "1144387192",
+     "name": "Sairah Ahmed",
+     "institution": "MD Anderson",
+     "state": "TX"
+    },
+    {
+     "npi": "1407048630",
+     "name": "Loretta J Nastoupil",
+     "institution": "MD Anderson",
+     "state": "TX"
+    },
+    {
+     "npi": "1972615102",
+     "name": "Jason Westin",
+     "institution": "MD Anderson",
+     "state": "TX"
+    },
+    {
+     "npi": "1417042722",
+     "name": "Luhua M. Wang",
+     "institution": "MD Anderson",
+     "state": "TX"
+    }
+   ]
+  },
+  {
+   "community_id": 10,
+   "label": "Loose Weill Cornell – Cleveland Clinic network",
+   "short_label": "Weill Cornell – Cleveland Clinic network",
+   "kind": "named",
+   "color_light": "#b26a1f",
+   "color_dark": "#c27a2c",
+   "core_members": 25,
+   "region": "multi-region",
+   "top_institution": "Weill Cornell",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1447494612",
+     "name": "Craig Sauter",
+     "institution": "Cleveland Clinic",
+     "state": "OH"
+    },
+    {
+     "npi": "1538291901",
+     "name": "Paolo F Caimi",
+     "institution": "Cleveland Clinic",
+     "state": "OH"
+    },
+    {
+     "npi": "1407822430",
+     "name": "Brad Steven Kahl",
+     "institution": "WashU / Siteman",
+     "state": "MO"
+    },
+    {
+     "npi": "1174914543",
+     "name": "Samuel Yamshon",
+     "institution": "Weill Cornell",
+     "state": "NY"
+    },
+    {
+     "npi": "1952555799",
+     "name": "Peter Martin",
+     "institution": "Weill Cornell",
+     "state": "NY"
+    }
+   ]
+  },
+  {
+   "community_id": 11,
+   "label": "Moffitt orbit",
+   "short_label": "Moffitt orbit",
+   "kind": "named",
+   "color_light": "#9bc400",
+   "color_dark": "#a9d11a",
+   "core_members": 22,
+   "region": "South",
+   "top_institution": "Moffitt",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1518129121",
+     "name": "Frederick Lundry Locke",
+     "institution": "Moffitt",
+     "state": "FL"
+    },
+    {
+     "npi": "1750543948",
+     "name": "Julio C Chavez",
+     "institution": "Moffitt",
+     "state": "FL"
+    },
+    {
+     "npi": "1982139655",
+     "name": "Michael David Jain",
+     "institution": "Moffitt",
+     "state": "FL"
+    },
+    {
+     "npi": "1437325784",
+     "name": "Aleksandr Lazaryan",
+     "institution": "Moffitt",
+     "state": "FL"
+    },
+    {
+     "npi": "1508023714",
+     "name": "Bijal Shah",
+     "institution": "Moffitt",
+     "state": "FL"
+    }
+   ]
+  },
+  {
+   "community_id": 12,
+   "label": "City of Hope orbit",
+   "short_label": "City of Hope orbit",
+   "kind": "named",
+   "color_light": "#c2187a",
+   "color_dark": "#d8368f",
+   "core_members": 21,
+   "region": "West",
+   "top_institution": "City of Hope",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1275761553",
+     "name": "Alex Herrera",
+     "institution": "City of Hope",
+     "state": "CA"
+    },
+    {
+     "npi": "1568721116",
+     "name": "Geoffrey Shouse",
+     "institution": "City of Hope",
+     "state": "CA"
+    },
+    {
+     "npi": "1467408948",
+     "name": "Tanya Siddiqi",
+     "institution": "City of Hope",
+     "state": "CA"
+    },
+    {
+     "npi": "1487769733",
+     "name": "Alexey Danilov",
+     "institution": "City of Hope",
+     "state": "CA"
+    },
+    {
+     "npi": "1124030028",
+     "name": "Lihua Elizabeth Budde",
+     "institution": "City of Hope",
+     "state": "CA"
+    }
+   ]
+  },
+  {
+   "community_id": 13,
+   "label": "Baylor orbit",
+   "short_label": "Baylor orbit",
+   "kind": "named",
+   "color_light": "#7d6bd8",
+   "color_dark": "#9b8cf0",
+   "core_members": 10,
+   "region": "South",
+   "top_institution": "Baylor",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1568751238",
+     "name": "Natalie Sophia Grover",
+     "institution": "UNC / Lineberger",
+     "state": "NC"
+    },
+    {
+     "npi": "1912087271",
+     "name": "Helen Heslop",
+     "institution": "Baylor",
+     "state": "TX"
+    },
+    {
+     "npi": "1023343357",
+     "name": "Premal Dilip Lulla",
+     "institution": "Baylor",
+     "state": "TX"
+    },
+    {
+     "npi": "1619162906",
+     "name": "Carlos Almeida Ramos",
+     "institution": "Baylor",
+     "state": "TX"
+    },
+    {
+     "npi": "1790846848",
+     "name": "Jonathan S Serody",
+     "institution": "UNC / Lineberger",
+     "state": "NC"
+    }
+   ]
+  },
+  {
+   "community_id": 14,
+   "label": "Outside main network",
+   "short_label": "Outside main network",
+   "kind": "isolated",
+   "color_light": "#8a8f98",
+   "color_dark": "#9aa0a9",
+   "core_members": 2,
+   "region": "West",
+   "top_institution": "University of California Davis Comprehensive Cancer Center",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1487639795",
+     "name": "Joseph M Tuscano",
+     "institution": "University of California Davis Comprehensive Cancer Center",
+     "state": "CA"
+    },
+    {
+     "npi": "1437491222",
+     "name": "Naseem Shams Esteghamat",
+     "institution": "University of California Davis Comprehensive Cancer Center",
+     "state": "CA"
+    }
+   ]
+  },
+  {
+   "community_id": 15,
+   "label": "Outside main network",
+   "short_label": "Outside main network",
+   "kind": "isolated",
+   "color_light": "#8a8f98",
+   "color_dark": "#9aa0a9",
+   "core_members": 1,
+   "region": "Northeast",
+   "top_institution": "Roswell Park",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1477714103",
+     "name": "Matthew J Barth",
+     "institution": "Roswell Park",
+     "state": "NY"
+    }
+   ]
+  },
+  {
+   "community_id": 16,
+   "label": "Outside main network",
+   "short_label": "Outside main network",
+   "kind": "isolated",
+   "color_light": "#8a8f98",
+   "color_dark": "#9aa0a9",
+   "core_members": 1,
+   "region": "South",
+   "top_institution": "University of Kentucky HealthCare",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1578560322",
+     "name": "Reinhold Munker",
+     "institution": "University of Kentucky HealthCare",
+     "state": "KY"
+    }
+   ]
+  },
+  {
+   "community_id": 17,
+   "label": "Outside main network",
+   "short_label": "Outside main network",
+   "kind": "isolated",
+   "color_light": "#8a8f98",
+   "color_dark": "#9aa0a9",
+   "core_members": 1,
+   "region": "Northeast",
+   "top_institution": "Beth Israel Deaconess Medical Center",
+   "leaders_by_pagerank": [
+    {
+     "npi": "1952349243",
+     "name": "David E Avigan",
+     "institution": "Beth Israel Deaconess Medical Center",
+     "state": "MA"
+    }
+   ]
+  }
+ ]
+}

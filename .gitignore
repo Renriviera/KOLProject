@@ -56,3 +56,6 @@ reports/
 Data/manifests/*/volume_billing_file_checksums.csv
 Data/manifests/*/extension_request_log.csv
 Data/manifests/*/extension_file_checksums.csv
+
+# The agent data pack holds street-level coordinates and is rebuilt from published tables.
+agent/pack/
