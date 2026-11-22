@@ -1,0 +1,4170 @@
+{
+  "universe_authorships": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the linked clinician; joins hcp_divisions.csv of 2026-10-24.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "pmid",
+      "description": "PubMed identifier (PMID) of the paper; joins publications.csv of 2026-10-09.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "author_position",
+      "description": "Position of the linked author in the Europe PMC author list, 1 = first author.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "author_count",
+      "description": "Number of authors Europe PMC lists for the paper.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "author_name_as_indexed",
+      "description": "Author name as Europe PMC indexes it (surname and initials).",
+      "missing_value": "Blank when Europe PMC gives no full name.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "first_name_as_indexed",
+      "description": "Given names or initials as Europe PMC indexes them.",
+      "missing_value": "Never blank for a linked slot.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "last_name_as_indexed",
+      "description": "Surname as Europe PMC indexes it.",
+      "missing_value": "Never blank for a linked slot.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "orcid",
+      "description": "Open Researcher and Contributor ID (ORCID) iD that Europe PMC attaches to this author slot.",
+      "missing_value": "Blank when the slot has no ORCID iD.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "affiliation_at_publication",
+      "description": "Affiliation text of the slot as indexed, with email addresses, street addresses and phone numbers removed.",
+      "missing_value": "Blank when the slot has no affiliation.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "publication_date",
+      "description": "First publication date of the paper in Europe PMC (YYYY-MM-DD).",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "confidence_tier",
+      "description": "Identity grade: A = name plus institution or an anchored ORCID iD; B = name plus city and state, name unique in the universe. Name-only links (tier C) and A or B links without institution evidence whose name another oncologist shares nationally are kept in a local review file and are not in this table.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "match_rule",
+      "description": "Rule that made the link: name_institution, name_institution_disambiguated (institution separated same-name candidates), name_orcid_anchored, name_city_state_unique or name_only_unique.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "universe_name_candidates",
+      "description": "Number of NPIs of the 17,510-NPI universe (core included) whose first given name and surname match the slot.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "nppes_name_matches_national",
+      "description": "Active individual NPIs in the national NPPES (National Plan and Provider Enumeration System) registry with the same first given name and surname as the linked NPI, queried 2026-11-20; 1 means the name is unique nationally, 0 that the query did not return the NPI itself under the universe spelling of its name.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "nppes_hemonc_name_matches_national",
+      "description": "Of those, NPIs with a hematology, hematology-oncology, medical oncology, bone marrow transplant or pediatric hematology-oncology taxonomy; above 1 means a same-name oncologist exists, inside or outside the universe.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "evidence_detail",
+      "description": "The evidence matched in the affiliation: the hospital or group name (tier A institution), the city and state (tier B), or the anchoring ORCID iD.",
+      "missing_value": "Blank for tier C rows, which rest on the name only.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_ccn",
+      "description": "CMS Certification Number (CCN) of the hospital whose name matched the affiliation.",
+      "missing_value": "Blank when the match was a group name, a city or an ORCID iD.",
+      "source": "cms"
+    },
+    {
+      "column": "institution_multi_site",
+      "description": "1 when the matched hospital or group words fit two or more hospitals or groups of the universe (a multi-site system); such a match also required the state of the hospital or group to be named in the affiliation. 0 otherwise.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "analysis_include",
+      "description": "1 when the paper is analysis-included, else 0 (every tracked link is tier A or B).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen Europe PMC response the slot was read from.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "metadata_retrieved_on",
+      "description": "Date (UTC) the Europe PMC record of the paper was retrieved.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the Europe PMC response was retrieved, or, for held papers whose 2026-10-09 record has only a retrieval day, the UTC time the frozen 2026-10-09 corpus file was written.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "matched_at_utc",
+      "description": "UTC time this module made the link.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "universe_coauthor_edges": [
+    {
+      "column": "npi_a",
+      "description": "Lower NPI of the unordered pair.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "npi_b",
+      "description": "Higher NPI of the unordered pair.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "pair_type",
+      "description": "core_universe when exactly one NPI is a core HCP, universe_universe when neither is; core-core pairs are in coauthor_edges.csv of 2026-10-09.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "shared_publications",
+      "description": "Number of analysis-included held papers (2017-2025) on which both NPIs have an analysis-included link.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "fractional_weight",
+      "description": "Sum over shared papers of 1 / (author count - 1), as in coauthor_edges.csv.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_pmids",
+      "description": "Semicolon-separated PMIDs of the shared papers, ascending.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "first_shared_publication_date",
+      "description": "Earliest first publication date among the shared papers.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "last_shared_publication_date",
+      "description": "Latest first publication date among the shared papers.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "edge_type",
+      "description": "Always observed_coauthorship.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "min_link_tier",
+      "description": "Lowest identity tier among the links of this snapshot behind the pair (A or B), or core when every link is a 2026-10-09 core link.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_metadata_first_observed_on",
+      "description": "Earliest Europe PMC retrieval date among the shared papers.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "evidence_metadata_last_observed_on",
+      "description": "Latest Europe PMC retrieval date among the shared papers.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "source_id",
+      "description": "Source of the links: universe_authorships of 2026-11-20 and authorships.csv of 2026-10-09.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "computed_at_utc",
+      "description": "UTC time the pair was computed.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "new_publications": [
+    {
+      "column": "pmid",
+      "description": "PubMed identifier (PMID); not in publications.csv of 2026-10-09.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "doi",
+      "description": "Digital Object Identifier (DOI) as indexed.",
+      "missing_value": "Blank when Europe PMC gives no DOI.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "title",
+      "description": "Article title as indexed, markup removed.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "first_publication_date",
+      "description": "First publication date in Europe PMC (YYYY-MM-DD).",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "publication_year",
+      "description": "Year of first_publication_date.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "first_index_date",
+      "description": "Date Europe PMC first indexed the record (YYYY-MM-DD).",
+      "missing_value": "Blank when Europe PMC gives none.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "journal",
+      "description": "Journal title as indexed.",
+      "missing_value": "Blank when Europe PMC gives none.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "author_count",
+      "description": "Number of authors Europe PMC lists.",
+      "missing_value": "Never blank; 0 means no author list.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "citation_count_epmc",
+      "description": "Europe PMC cited-by count on the retrieval date.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "publication_types",
+      "description": "Semicolon-separated publication types as indexed.",
+      "missing_value": "Blank when none are indexed.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "analysis_include",
+      "description": "1 when first published 2017-01-01 to 2026-11-20 and not a retraction, correction or erratum (the 2026-10-09 rule with the window carried to this snapshot).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "exclusion_reason",
+      "description": "Why analysis_include is 0: outside_window or correction_or_retraction.",
+      "missing_value": "Blank when analysis_include is 1.",
+      "source": "project"
+    },
+    {
+      "column": "in_2017_2025_window",
+      "description": "1 when first published 2017-2025 (the 2026-10-09 window), else 0.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "access_keyword_flag",
+      "description": "1 when title or abstract contains an access keyword (the 2026-10-09 list: access, disparity, referral, rural, insurance, travel and others).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_url",
+      "description": "Europe PMC article page.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "pubmed_url",
+      "description": "PubMed article page.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen Europe PMC response page holding the record.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "source_release",
+      "description": "Release of the source: the live Europe PMC index on the retrieval date.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the Europe PMC response page was retrieved.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "query_family",
+      "description": "Query that returned the record, named as in publications.csv: original_lymphoma_in_title (lymphoma, DLBCL or LBCL in title, CAR-T term in title or abstract) or supplement_cart_in_title_lymphoma_in_title_or_abstract; a record returned by both keeps the first.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "new_authorships": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the linked clinician; joins hcp_divisions.csv of 2026-10-24.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "is_core",
+      "description": "1 when the NPI is one of the 500 core HCPs of 2026-10-09, else 0.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pmid",
+      "description": "PubMed identifier (PMID) of the paper; joins new_publications.csv of this snapshot.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "author_position",
+      "description": "Position of the linked author in the Europe PMC author list, 1 = first author.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "author_count",
+      "description": "Number of authors Europe PMC lists for the paper.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "author_name_as_indexed",
+      "description": "Author name as Europe PMC indexes it (surname and initials).",
+      "missing_value": "Blank when Europe PMC gives no full name.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "first_name_as_indexed",
+      "description": "Given names or initials as Europe PMC indexes them.",
+      "missing_value": "Never blank for a linked slot.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "last_name_as_indexed",
+      "description": "Surname as Europe PMC indexes it.",
+      "missing_value": "Never blank for a linked slot.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "orcid",
+      "description": "Open Researcher and Contributor ID (ORCID) iD that Europe PMC attaches to this author slot.",
+      "missing_value": "Blank when the slot has no ORCID iD.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "affiliation_at_publication",
+      "description": "Affiliation text of the slot as indexed, with email addresses, street addresses and phone numbers removed.",
+      "missing_value": "Blank when the slot has no affiliation.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "publication_date",
+      "description": "First publication date of the paper in Europe PMC (YYYY-MM-DD).",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "confidence_tier",
+      "description": "Identity grade: A = name plus institution or an anchored ORCID iD; B = name plus city and state, name unique in the universe. Name-only links (tier C) and A or B links without institution evidence whose name another oncologist shares nationally are kept in a local review file and are not in this table.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "match_rule",
+      "description": "Rule that made the link: name_institution, name_institution_disambiguated (institution separated same-name candidates), name_orcid_anchored, name_city_state_unique or name_only_unique.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "universe_name_candidates",
+      "description": "Number of NPIs of the 17,510-NPI universe (core included) whose first given name and surname match the slot.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "nppes_name_matches_national",
+      "description": "Active individual NPIs in the national NPPES (National Plan and Provider Enumeration System) registry with the same first given name and surname as the linked NPI, queried 2026-11-20; 1 means the name is unique nationally, 0 that the query did not return the NPI itself under the universe spelling of its name.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "nppes_hemonc_name_matches_national",
+      "description": "Of those, NPIs with a hematology, hematology-oncology, medical oncology, bone marrow transplant or pediatric hematology-oncology taxonomy; above 1 means a same-name oncologist exists, inside or outside the universe.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "evidence_detail",
+      "description": "The evidence matched in the affiliation: the hospital or group name (tier A institution), the city and state (tier B), or the anchoring ORCID iD.",
+      "missing_value": "Blank for tier C rows, which rest on the name only.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_ccn",
+      "description": "CMS Certification Number (CCN) of the hospital whose name matched the affiliation.",
+      "missing_value": "Blank when the match was a group name, a city or an ORCID iD.",
+      "source": "cms"
+    },
+    {
+      "column": "institution_multi_site",
+      "description": "1 when the matched hospital or group words fit two or more hospitals or groups of the universe (a multi-site system); such a match also required the state of the hospital or group to be named in the affiliation. 0 otherwise.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "analysis_include",
+      "description": "1 when the paper is analysis-included, else 0 (every tracked link is tier A or B).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen Europe PMC response the slot was read from.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "metadata_retrieved_on",
+      "description": "Date (UTC) the Europe PMC record of the paper was retrieved.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the Europe PMC response was retrieved, or, for held papers whose 2026-10-09 record has only a retrieval day, the UTC time the frozen 2026-10-09 corpus file was written.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "matched_at_utc",
+      "description": "UTC time this module made the link.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "new_paper_coauthor_edges": [
+    {
+      "column": "npi_a",
+      "description": "Lower NPI of the unordered pair.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "npi_b",
+      "description": "Higher NPI of the unordered pair.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "pair_type",
+      "description": "core_core, core_universe or universe_universe by whether each NPI is a core HCP.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "prior_pair_status",
+      "description": "Whether the pair already has a held-paper row: in_coauthor_edges_2026_10_09, in_universe_coauthor_edges, or new_pair. Counts here are new-paper counts only, so rows add to the earlier row without double counting.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "shared_publications",
+      "description": "Number of analysis-included new papers (new_publications, all 2026) on which both NPIs have an analysis-included link in new_authorships; held papers are not counted here.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "fractional_weight",
+      "description": "Sum over shared papers of 1 / (author count - 1), as in coauthor_edges.csv.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_pmids",
+      "description": "Semicolon-separated PMIDs of the shared papers, ascending.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "first_shared_publication_date",
+      "description": "Earliest first publication date among the shared papers.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "last_shared_publication_date",
+      "description": "Latest first publication date among the shared papers.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "edge_type",
+      "description": "Always observed_coauthorship.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "min_link_tier",
+      "description": "Lowest identity tier among the links of this snapshot behind the pair (A or B), or core when every link is a 2026-10-09 core link.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_metadata_first_observed_on",
+      "description": "Earliest Europe PMC retrieval date among the shared papers.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "evidence_metadata_last_observed_on",
+      "description": "Latest Europe PMC retrieval date among the shared papers.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "source_id",
+      "description": "Source of the links: new_authorships and new_publications of 2026-11-20.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "computed_at_utc",
+      "description": "UTC time the pair was computed.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "corpus_citation_edges": [
+    {
+      "column": "citing_pmid",
+      "description": "PubMed identifier (PMID) of the citing paper; in publications.csv of 2026-10-09 or new_publications.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "cited_pmid",
+      "description": "PMID of the cited paper; in publications.csv of 2026-10-09 or new_publications; never equal to citing_pmid.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "citing_publication_date",
+      "description": "First publication date of the citing paper (YYYY-MM-DD) from the corpus tables.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "cited_publication_date",
+      "description": "First publication date of the cited paper (YYYY-MM-DD) from the corpus tables.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "citing_corpus_status",
+      "description": "held (publications.csv of 2026-10-09) or new (new_publications of 2026-11-20).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cited_corpus_status",
+      "description": "held or new, as for the citing paper.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "citing_precedes_cited",
+      "description": "1 when the citing paper was first published before the cited one (possible with online-first and print dates, or preprint versions); kept and counted, not dropped.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen Europe PMC citations response listing the citing paper.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "source_release",
+      "description": "Release of the source: the live Europe PMC index on the retrieval date.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the citations response was retrieved.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    }
+  ],
+  "hcp_citation_links": [
+    {
+      "column": "citing_npi",
+      "description": "NPI linked (included link) to the citing paper; joins hcp_divisions.csv of 2026-10-24.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "cited_npi",
+      "description": "NPI linked (included link) to the cited paper; never equal to citing_npi.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "citation_pairs",
+      "description": "Number of corpus_citation_edges rows whose citing paper is linked to citing_npi and whose cited paper is linked to cited_npi. Links are the 2026-10-09 core links and the tracked tier A and B links of this snapshot, analysis-included only.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "citation_pairs_coauthors_on_either_paper",
+      "description": "The part of citation_pairs in which the two NPIs are both linked to the citing paper or both linked to the cited paper.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "citation_pairs_not_coauthors",
+      "description": "The part of citation_pairs in which the two NPIs share neither paper.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "first_citing_date",
+      "description": "Earliest citing-paper publication date among the pairs.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "last_citing_date",
+      "description": "Latest citing-paper publication date among the pairs.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "source_id",
+      "description": "Tables the row is computed from.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release",
+      "description": "Snapshot date of the computation.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "computed_at_utc",
+      "description": "UTC time the row was computed.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "publication_citation_counts_2026_11_20": [
+    {
+      "column": "pmid",
+      "description": "PMID of a corpus paper (held on 2026-10-09 or new).",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "corpus_status",
+      "description": "held or new.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "citation_count_epmc_2026_11_20",
+      "description": "Europe PMC cited-by count in the frozen 2026-11-20 search record of the paper (all citing sources, not only the corpus).",
+      "missing_value": "Blank when neither 2026-11-20 query returned the paper (see observation_status).",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "observed_at_utc",
+      "description": "UTC time the search response carrying the count was retrieved.",
+      "missing_value": "Blank when the count is blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "observation_status",
+      "description": "observed, or not_returned_by_2026_11_20_queries.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "citation_count_epmc_2026_10_09",
+      "description": "The earlier count, citation_count_epmc of publications.csv of 2026-10-09 (that file is not edited).",
+      "missing_value": "Blank for new papers.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "observed_on_2026_10_09",
+      "description": "citation_observed_on of publications.csv for the earlier count.",
+      "missing_value": "Blank for new papers.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "citation_count_change",
+      "description": "citation_count_epmc_2026_11_20 minus citation_count_epmc_2026_10_09; may be negative when Europe PMC revises links.",
+      "missing_value": "Blank when either count is blank.",
+      "source": "project"
+    },
+    {
+      "column": "citation_pull_status",
+      "description": "State of the citations pull for this paper: complete (every citing record retrieved), no_citations (count zero, no request needed), incomplete, or not_pulled (no 2026-11-20 count).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen search response, or for a paper not returned now the 2026-10-09 snapshot id.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "source_release",
+      "description": "Release of the source.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC retrieval time of the source response, or the 2026-10-09 retrieval day when that is all the earlier record holds.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    }
+  ],
+  "hcp_universe_publication_features": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI); one row for each of the 17,510 NPIs of hcp_divisions.csv of 2026-10-24.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "is_core",
+      "description": "1 for the 500 core HCPs of 2026-10-09, else 0.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "link_status",
+      "description": "core, linked (non-core NPI with at least one analysis-included link) or no_included_link (no A or B link found; this is not evidence of no publications).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "held_publications_2017_2025",
+      "description": "Analysis-included held CAR-T lymphoma papers (2017-2025) linked to the NPI: core links of 2026-10-09 plus tier A and B universe links.",
+      "missing_value": "Never blank; 0 means no included link was found.",
+      "source": "project"
+    },
+    {
+      "column": "new_publications_2026",
+      "description": "Analysis-included links of the NPI on new_publications (all first published in 2026).",
+      "missing_value": "Never blank; 0 means no included link was found.",
+      "source": "project"
+    },
+    {
+      "column": "first_publication_year",
+      "description": "Earliest publication year among the counted papers.",
+      "missing_value": "Blank when no paper is counted.",
+      "source": "project"
+    },
+    {
+      "column": "last_publication_year",
+      "description": "Latest publication year among the counted papers.",
+      "missing_value": "Blank when no paper is counted.",
+      "source": "project"
+    },
+    {
+      "column": "first_or_last_author_publications",
+      "description": "Counted papers on which the NPI is first or last author.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "distinct_core_coauthors",
+      "description": "Distinct core HCPs sharing at least one held paper with the NPI (from coauthor_edges.csv of 2026-10-09 and universe_coauthor_edges).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "distinct_universe_coauthors",
+      "description": "Distinct non-core universe NPIs sharing at least one held paper with the NPI (from universe_coauthor_edges).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_distinct_core_coauthors",
+      "description": "Distinct core HCPs sharing at least one new 2026 paper with the NPI (from new_paper_coauthor_edges); counted apart from the held-paper columns.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_distinct_universe_coauthors",
+      "description": "Distinct non-core universe NPIs sharing at least one new 2026 paper with the NPI (from new_paper_coauthor_edges).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "corpus_citation_links_received",
+      "description": "Citing-paper to cited-paper pairs inside the corpus in which another universe NPI, linked to the citing paper, cites a paper linked to this NPI (sum of citation_pairs in hcp_citation_links where this NPI is cited_npi).",
+      "missing_value": "Never blank; 0 means none found.",
+      "source": "project"
+    },
+    {
+      "column": "corpus_citation_links_received_not_coauthors",
+      "description": "The part of corpus_citation_links_received in which the two NPIs share neither the citing nor the cited paper.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "distinct_citing_npis",
+      "description": "Distinct universe NPIs whose linked papers cite a paper linked to this NPI inside the corpus.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "best_link_tier",
+      "description": "Best identity tier among the counted links (A or B), or core_2026_10_09 for core links.",
+      "missing_value": "Blank when no paper is counted.",
+      "source": "project"
+    },
+    {
+      "column": "institution_ccns",
+      "description": "Semicolon-separated CMS Certification Numbers (CCNs) of hospitals whose names matched the affiliation on counted tier A links.",
+      "missing_value": "Blank when no counted link rests on a hospital name.",
+      "source": "cms"
+    },
+    {
+      "column": "source_id",
+      "description": "Tables the row is computed from.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release",
+      "description": "Snapshot date of the computation.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "computed_at_utc",
+      "description": "UTC time the row was computed.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "coauthor_pairs_by_year": [
+    {
+      "column": "npi_a",
+      "description": "Lower NPI of the unordered pair.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "npi_b",
+      "description": "Higher NPI of the unordered pair.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "publication_year",
+      "description": "Publication year of the shared papers (2017-2025 held papers, 2026 new papers).",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "pair_type",
+      "description": "core_core, core_universe or universe_universe.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "shared_publications",
+      "description": "Included papers of that year on which both NPIs have an included link. Summed over 2017-2025 it equals coauthor_edges.csv of 2026-10-09 (core_core) or universe_coauthor_edges (other pairs); the 2026 row equals new_paper_coauthor_edges.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "fractional_weight",
+      "description": "Sum over that year's shared papers of 1 / (author count - 1).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_pmids",
+      "description": "Semicolon-separated PMIDs of that year's shared papers, ascending.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "source_id",
+      "description": "Tables the row is computed from.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release",
+      "description": "Snapshot date of the computation.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "computed_at_utc",
+      "description": "UTC time the row was computed.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "hcp_publications_by_year": [
+    {
+      "column": "npi",
+      "description": "NPI with at least one included link; joins hcp_divisions.csv of 2026-10-24.",
+      "missing_value": "Never blank.",
+      "source": "nppes"
+    },
+    {
+      "column": "publication_year",
+      "description": "Publication year (2017-2025 held papers, 2026 new papers); only years with a paper are listed.",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "is_core",
+      "description": "1 for a core HCP of 2026-10-09, else 0.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers",
+      "description": "Included papers of that year linked to the NPI. For core HCPs the 2017-2025 sum equals publications_2017_2025 of hcps.csv.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "first_author_papers",
+      "description": "Of those, papers with the NPI in author position 1.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "last_author_papers",
+      "description": "Of those, papers with the NPI in the last author position (single-author papers not counted).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "distinct_core_coauthors",
+      "description": "Distinct core HCPs with an included link on any of that year's papers.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "distinct_noncore_coauthors",
+      "description": "Distinct non-core universe NPIs with an included link on any of that year's papers.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_coauthors",
+      "description": "Co-authors of that year (core or not) not linked with the NPI in any earlier year listed here.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "citations_received_from_other_papers",
+      "description": "corpus_citation_edges rows citing one of that year's papers whose citing paper has no included link to this NPI.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_id",
+      "description": "Tables the row is computed from.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release",
+      "description": "Snapshot date of the computation.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "computed_at_utc",
+      "description": "UTC time the row was computed.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "network_summary_by_year": [
+    {
+      "column": "publication_year",
+      "description": "Publication year (2017-2025 held papers, 2026 new papers).",
+      "missing_value": "Never blank.",
+      "source": "europe_pmc"
+    },
+    {
+      "column": "included_papers",
+      "description": "Analysis-included corpus papers first published that year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "linked_npis_core",
+      "description": "Distinct NPIs of division group core (hcp_divisions.csv, label version 1.0.0) with an included link on a paper of that year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "linked_npis_affiliates",
+      "description": "Distinct NPIs of division group affiliates (hcp_divisions.csv, label version 1.0.0) with an included link on a paper of that year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "linked_npis_referring",
+      "description": "Distinct NPIs of division group referring (hcp_divisions.csv, label version 1.0.0) with an included link on a paper of that year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "linked_npis_other",
+      "description": "Distinct NPIs of division group other (hcp_divisions.csv, label version 1.0.0) with an included link on a paper of that year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs",
+      "description": "Rows of coauthor_pairs_by_year for that year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_pairs",
+      "description": "Of those, pairs with no shared paper in any earlier year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_core_core",
+      "description": "Pairs of that year with one NPI in group core and the other in group core.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_core_affiliates",
+      "description": "Pairs of that year with one NPI in group core and the other in group affiliates.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_core_referring",
+      "description": "Pairs of that year with one NPI in group core and the other in group referring.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_core_other",
+      "description": "Pairs of that year with one NPI in group core and the other in group other.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_affiliates_affiliates",
+      "description": "Pairs of that year with one NPI in group affiliates and the other in group affiliates.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_affiliates_referring",
+      "description": "Pairs of that year with one NPI in group affiliates and the other in group referring.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_affiliates_other",
+      "description": "Pairs of that year with one NPI in group affiliates and the other in group other.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_referring_referring",
+      "description": "Pairs of that year with one NPI in group referring and the other in group referring.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_referring_other",
+      "description": "Pairs of that year with one NPI in group referring and the other in group other.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "pairs_other_other",
+      "description": "Pairs of that year with one NPI in group other and the other in group other.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cross_group_pairs",
+      "description": "Pairs of that year whose two NPIs are in different division groups.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cross_group_share",
+      "description": "cross_group_pairs / pairs, four decimals.",
+      "missing_value": "Blank when the year has no pair.",
+      "source": "project"
+    },
+    {
+      "column": "source_id",
+      "description": "Tables the row is computed from.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release",
+      "description": "Snapshot date of the computation.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "computed_at_utc",
+      "description": "UTC time the row was computed.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "hcp_medicare_partb_treatment_markers_2017_2023": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the rendering clinician; one of the 17,510 NPIs of hcp_divisions.csv (2026-10-24), joined on npi for names and divisions.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "service_year",
+      "description": "Medicare service year of the row, 2017 to 2023 (2024 is published in treatment_markers_2024.csv and medicare_partb_drug_rows_2024.csv).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "hcpcs_code",
+      "description": "Healthcare Common Procedure Coding System (HCPCS) code number billed; descriptor text is deliberately not published.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "place_of_service",
+      "description": "CMS place-of-service flag: F facility (hospital outpatient and similar), O office or other non-facility setting.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "code_family",
+      "description": "Project label of the code: chemo_administration (96413, 96415, 96417), rituximab_intravenous, rituximab_subcutaneous, polatuzumab_vedotin, tafasitamab, mosunetuzumab, glofitamab, epcoritamab, loncastuximab_tesirine, obinutuzumab or bendamustine. None is specific to lymphoma.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "hcpcs_drug_indicator",
+      "description": "CMS flag: Y when the code is a drug billed in Part B, N otherwise.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "beneficiaries",
+      "description": "Distinct Medicare fee-for-service beneficiaries with the service from this clinician in the year. CMS releases a row only when it rests on 11 or more beneficiaries.",
+      "missing_value": "Never blank; rows under 11 beneficiaries are absent from the CMS file, not zero.",
+      "source": "cms"
+    },
+    {
+      "column": "services_or_units",
+      "description": "Number of services, or billing units for a drug code, in the year, as CMS gives it (may have decimals).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "beneficiary_days",
+      "description": "Distinct beneficiary-days of service in the year.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "average_medicare_allowed_usd",
+      "description": "CMS average Medicare allowed amount per service or unit, US dollars, unrounded as published.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "average_medicare_payment_usd",
+      "description": "CMS average Medicare payment per service or unit after deductible and coinsurance, US dollars, unrounded as published.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "estimated_medicare_payment_usd",
+      "description": "average_medicare_payment_usd times services_or_units, rounded half up to cents; an estimate of the Medicare payment on the row, not a CMS figure.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cms_provider_type",
+      "description": "CMS provider type derived from the clinician's claims in that service year (can change between years).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned data.cms.gov dataset version id the row was read from (Medicare Physician & Other Practitioners - by Provider and Service, one version per service year); never the series alias.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_release",
+      "description": "Date the pinned version was last modified according to the data.cms.gov catalog (https://data.cms.gov/data.json) read on 2026-11-20.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the response page holding the row was retrieved and frozen.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "hcp_medicare_partd_lymphoma_orals_2017_2023": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the prescriber; one of the 17,510 NPIs of hcp_divisions.csv (2026-10-24), joined on npi for names and divisions.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "service_year",
+      "description": "Medicare Part D service year, 2017 to 2023 (2024 is published in part_d_lymphoma_orals_2024.csv).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "generic_name",
+      "description": "CMS generic name exactly as spelled in the file; salts are separate names (Acalabrutinib capsule and Acalabrutinib Maleate tablet).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "brand_name",
+      "description": "CMS brand name as spelled in the file; generic lenalidomide appears under its generic name once generics were sold.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "drug_class",
+      "description": "Project label: btk_inhibitor (Bruton tyrosine kinase inhibitors ibrutinib, acalabrutinib, zanubrutinib, pirtobrutinib), lenalidomide, venetoclax or tazemetostat. None is specific to lymphoma.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "total_claims",
+      "description": "Part D claims including refills for the drug from this prescriber in the year. CMS releases a row only with 11 or more claims.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "total_30day_fills",
+      "description": "Claims standardized to 30-day fills, as CMS gives it (decimals).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "total_day_supply",
+      "description": "Total days of supply on the claims.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "total_drug_cost_usd",
+      "description": "Total gross drug cost paid by the plan, beneficiary and others, US dollars, as published (before rebates).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "total_beneficiaries",
+      "description": "Distinct beneficiaries with a claim for the drug from this prescriber in the year.",
+      "missing_value": "Blank when CMS suppresses a count of 1 to 10 (beneficiaries_status says so); never a zero.",
+      "source": "cms"
+    },
+    {
+      "column": "beneficiaries_status",
+      "description": "beneficiaries_published, or beneficiaries_suppressed_1_to_10 when CMS blanks the count.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "prescriber_type",
+      "description": "CMS prescriber type for the year.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned data.cms.gov dataset version id the row was read from (Medicare Part D Prescribers - by Provider and Drug, one version per service year); never the series alias.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_release",
+      "description": "Date the pinned version was last modified according to the data.cms.gov catalog (https://data.cms.gov/data.json) read on 2026-11-20.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the response page holding the row was retrieved and frozen.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "cart_product_program_spending_by_year": [
+    {
+      "column": "brand_name",
+      "description": "CAR-T (chimeric antigen receptor T-cell) product brand: Yescarta, Kymriah, Tecartus, Breyanzi, Abecma, Carvykti or Aucatzyl.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "program",
+      "description": "medicare_part_b (Medicare Part B Spending by Drug, outpatient and physician claims; inpatient CAR-T stays are paid under Part A and are not in it) or medicaid (Medicaid Spending by Drug, state drug utilization, all manufacturers row).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "calendar_year",
+      "description": "Calendar year of the spending, 2020 to 2024 (the years carried by the 2024 release).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "hcpcs_code",
+      "description": "HCPCS code of the product in the Part B file.",
+      "missing_value": "Blank for medicaid rows (the Medicaid file is by drug name) and for brands not in the Part B file.",
+      "source": "cms"
+    },
+    {
+      "column": "total_spending_usd",
+      "description": "Total program spending on the product in the year, US dollars, as published (before rebates).",
+      "missing_value": "Blank when the file has no value for the year or does not list the brand; value_status says which. Never a zero for a missing value.",
+      "source": "cms"
+    },
+    {
+      "column": "total_claims",
+      "description": "Claims for the product in the year.",
+      "missing_value": "Blank under the same rule as total_spending_usd.",
+      "source": "cms"
+    },
+    {
+      "column": "total_dosage_units",
+      "description": "Dosage units in the year, as published (decimals).",
+      "missing_value": "Blank under the same rule as total_spending_usd.",
+      "source": "cms"
+    },
+    {
+      "column": "total_beneficiaries",
+      "description": "Beneficiaries with a claim for the product in the year (Part B only).",
+      "missing_value": "Blank for medicaid rows (not reported), or when the Part B file has no value; beneficiaries_status says which.",
+      "source": "cms"
+    },
+    {
+      "column": "beneficiaries_status",
+      "description": "published, blank_in_file (Part B file gives no count for the year) or not_reported_by_program (Medicaid file has no beneficiary count).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "outlier_flag",
+      "description": "CMS outlier flag for the year as published (1 = flagged by CMS).",
+      "missing_value": "Blank when the file has no value for the year.",
+      "source": "cms"
+    },
+    {
+      "column": "value_status",
+      "description": "published (spending shown), no_value_in_file (brand listed, year blank, e.g. before approval or below the reporting rule) or brand_not_in_file.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned data.cms.gov dataset version id the row was read from (Medicare Part B Spending by Drug or Medicaid Spending by Drug, 2024 release); never the series alias.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_release",
+      "description": "Date the pinned version was last modified according to the data.cms.gov catalog (https://data.cms.gov/data.json) read on 2026-11-20.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the response page holding the row was retrieved and frozen.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "state_cart_hospital_stays_by_payer": [
+    {
+      "column": "ccn",
+      "description": "CMS Certification Number (CCN) of the hospital, six characters as text; mapped by hand from the state facility number.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "year",
+      "description": "Discharge year: California 2021 to 2023 (2024-2025 are in cart_site_volume_panel.csv), Florida 2023 to 2025.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source",
+      "description": "ca_hcai_top25_msdrg_hospital_profile (California HCAI Top 25 MS-DRGs Individual Hospital Pivot Profile) or fl_ahca_inpatient_query_tool (Florida AHCA FloridaHealthFinder inpatient query tool).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "payer_group",
+      "description": "all_payer, or for Florida the principal payer group: medicare_ffs (traditional Medicare), medicare_managed_care, commercial, medicaid, medicaid_managed_care.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "state",
+      "description": "State of the source file (CA or FL).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "ca_hcai_discharges",
+      "description": "California rows: all-payer inpatient discharges in Medicare Severity Diagnosis Related Group (MS-DRG) 018 (CAR-T and other immunotherapies) at the licensed facility in the year, from the California Department of Health Care Access and Information (HCAI) Top 25 MS-DRGs Individual Hospital Pivot Profile; a hospital is listed only when MS-DRG 018 is in one of its top-25 tables.",
+      "missing_value": "Blank on every Florida row, and on a California row whose hospital is not listed (cell_status drg018_not_in_top25_tables; not evidence of zero).",
+      "source": "ca_hcai"
+    },
+    {
+      "column": "fl_ahca_discharges",
+      "description": "Florida rows: MS-DRG 018 inpatient discharges at the hospital in the year for the payer group, as displayed by the Florida Agency for Health Care Administration (AHCA) FloridaHealthFinder inpatient query tool. The site disclaimer says facilities with fewer than 30 cases are shown as N/A and facilities with zero cases are excluded.",
+      "missing_value": "Blank on every California row, and on a Florida row the tool did not display (cell_status not_shown_below_display_threshold: 0 to 29 cases); never filled by subtraction.",
+      "source": "fl_ahca"
+    },
+    {
+      "column": "cell_status",
+      "description": "shown, not_shown_below_display_threshold (Florida: the site disclaimer says facilities with fewer than 30 cases are shown as N/A and those with zero cases are excluded, so the value is 0 to 29) or drg018_not_in_top25_tables (California hospital not listed that year).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "state_facility_number",
+      "description": "State facility number of the listed hospital (California HCAI facility number or Florida AHCA file number).",
+      "missing_value": "Blank for a center the source did not list that year.",
+      "source": "project"
+    },
+    {
+      "column": "in_cart_center_set",
+      "description": "1 when the CCN is one of the 173 hospitals of cart_centers.csv (2026-10-24), else 0.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "query_parameters",
+      "description": "Workbook and sheet (California) or query tool parameters (Florida) that produced the cell.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release",
+      "description": "Portal date of the California workbook, or for Florida the tool data as served when the earlier search queried it (2026-11-19).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "California: UTC time the workbook was retrieved on 2026-11-20. Florida: UTC time on 2026-11-19 at which the earlier search saved the query tool output this row comes from; the tool was not queried again on 2026-11-20 (file hashes are in the module metadata).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "attribution",
+      "description": "Required attribution for the source; California data are Creative Commons Attribution, Florida data are shown counts quoted with attribution and no affiliation.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "state_medicare_cart_administration_by_year": [
+    {
+      "column": "geography_level",
+      "description": "national or state, as the CMS file gives the rendering provider geography.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "geography_code",
+      "description": "US for the national row, else the two-digit state Federal Information Processing Standards (FIPS) code as CMS gives it.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "geography_name",
+      "description": "State name (or National) of the rendering providers.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "service_year",
+      "description": "Medicare service year, 2019 to 2024.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "hcpcs_code",
+      "description": "Category III code number of a CAR-T episode step (0537T to 0540T); descriptor text is not published.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "code_step",
+      "description": "Project label of the step: cart_cell_harvest (0537T), cart_cell_preparation (0538T), cart_cell_receipt (0539T), cart_cell_administration (0540T).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "place_of_service",
+      "description": "F facility or O office/non-facility.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "rendering_providers",
+      "description": "Distinct rendering providers billing the code in the geography and year.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "beneficiaries",
+      "description": "Distinct Medicare fee-for-service beneficiaries; CMS releases a geography row only with 11 or more.",
+      "missing_value": "Never blank; rows under 11 are absent from the file, not zero.",
+      "source": "cms"
+    },
+    {
+      "column": "services",
+      "description": "Services billed, as published.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "beneficiary_days",
+      "description": "Distinct beneficiary-days of service.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "average_medicare_payment_usd",
+      "description": "CMS average Medicare payment per service, US dollars, unrounded as published.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned data.cms.gov dataset version id the row was read from (Medicare Physician & Other Practitioners - by Geography and Service, one version per service year); never the series alias.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_release",
+      "description": "Date the pinned version was last modified according to the data.cms.gov catalog (https://data.cms.gov/data.json) read on 2026-11-20.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the response page holding the row was retrieved and frozen.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "lymphoma_product_code_validity": [
+    {
+      "column": "hcpcs_code",
+      "description": "Healthcare Common Procedure Coding System (HCPCS) Level II code number of a lymphoma product (no descriptor text). Miscellaneous codes (J9999, J3490, J3590, C9399) are not attributed to any product and are not listed.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "service_year",
+      "description": "Medicare service year, 2017 to 2023.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "code_family",
+      "description": "Project product label, as in hcp_medicare_partb_treatment_markers_2017_2023.csv.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "code_kind",
+      "description": "temporary_product_specific (a C code used for hospital outpatient billing before the permanent code) or permanent_or_biosimilar.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "valid_from_date",
+      "description": "Date the code was added, from the CMS Level II alpha-numeric HCPCS file (ISO date).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "valid_to_date",
+      "description": "Termination date of the code in the same file (ISO date).",
+      "missing_value": "Blank when the code had not been terminated as of the January 2025 file.",
+      "source": "cms"
+    },
+    {
+      "column": "validity_in_year",
+      "description": "valid_all_year, valid_part_of_year or not_valid, computed from valid_from_date and valid_to_date for the service year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "hcpcs_file_read",
+      "description": "The January HCPCS file (2021 to 2025) whose record gave the dates: the latest file listing the code.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "national_rows_in_pinned_file",
+      "description": "Rows of the code in the pinned by-Provider-and-Service file of the year, all clinicians nationally; 0 means CMS released no clinician row (fewer than 11 beneficiaries everywhere, or the code was not valid).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "universe_rows",
+      "description": "Rows of the code and year in hcp_medicare_partb_treatment_markers_2017_2023.csv (universe NPIs only).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned data.cms.gov dataset version id the row was read from (Medicare Physician & Other Practitioners - by Provider and Service of the year); never the series alias.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_release",
+      "description": "Date the pinned version was last modified according to the data.cms.gov catalog (https://data.cms.gov/data.json) read on 2026-11-20.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the response page holding the row was retrieved and frozen.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "hcp_medicare_partb_payments_by_year_2017_2018": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI); every one of the 17,510 NPIs of hcp_divisions.csv (2026-10-24) has one row per year.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "service_year",
+      "description": "Medicare service year, 2017 or 2018 (2019-2024 are in hcp_medicare_partb_payments_by_year.csv of 2026-11-19).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "by_provider_status",
+      "description": "published_split (CMS row with the drug and non-drug split), split_suppressed (row released but the split hidden because one side rests on 1 to 10 beneficiaries) or no_row (no CMS row).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cms_provider_type",
+      "description": "CMS provider type of the NPI in the year.",
+      "missing_value": "Blank when by_provider_status is no_row (CMS released no row: 10 or fewer beneficiaries or no Part B claims).",
+      "source": "cms"
+    },
+    {
+      "column": "total_medicare_payment_usd",
+      "description": "Total Medicare fee-for-service Part B payment to the NPI in the year, US dollars rounded to cents.",
+      "missing_value": "Blank when by_provider_status is no_row (CMS released no row: 10 or fewer beneficiaries or no Part B claims).",
+      "source": "cms"
+    },
+    {
+      "column": "drug_medicare_payment_usd",
+      "description": "Medicare payment for Part B drug codes, US dollars rounded to cents.",
+      "missing_value": "Blank when by_provider_status is no_row (CMS released no row: 10 or fewer beneficiaries or no Part B claims), or when split_suppressed.",
+      "source": "cms"
+    },
+    {
+      "column": "non_drug_medicare_payment_usd",
+      "description": "Medicare payment for all other codes, US dollars rounded to cents.",
+      "missing_value": "Blank when by_provider_status is no_row (CMS released no row: 10 or fewer beneficiaries or no Part B claims), or when split_suppressed.",
+      "source": "cms"
+    },
+    {
+      "column": "drug_suppression_indicator",
+      "description": "CMS indicator on the drug side: * (1 to 10 beneficiaries) or # (hidden so the other side cannot be derived).",
+      "missing_value": "Blank when CMS sets no indicator or there is no row.",
+      "source": "cms"
+    },
+    {
+      "column": "non_drug_suppression_indicator",
+      "description": "CMS indicator on the non-drug side, same codes.",
+      "missing_value": "Blank when CMS sets no indicator or there is no row.",
+      "source": "cms"
+    },
+    {
+      "column": "total_beneficiaries",
+      "description": "Distinct Medicare fee-for-service beneficiaries of the NPI in the year.",
+      "missing_value": "Blank when by_provider_status is no_row (CMS released no row: 10 or fewer beneficiaries or no Part B claims).",
+      "source": "cms"
+    },
+    {
+      "column": "drug_beneficiaries",
+      "description": "Beneficiaries with a Part B drug code.",
+      "missing_value": "Blank when by_provider_status is no_row (CMS released no row: 10 or fewer beneficiaries or no Part B claims), or when split_suppressed.",
+      "source": "cms"
+    },
+    {
+      "column": "non_drug_beneficiaries",
+      "description": "Beneficiaries with any other code.",
+      "missing_value": "Blank when by_provider_status is no_row (CMS released no row: 10 or fewer beneficiaries or no Part B claims), or when split_suppressed.",
+      "source": "cms"
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "Pinned data.cms.gov dataset version id the row was read from (Medicare Physician & Other Practitioners - by Provider, one version per service year); never the series alias.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_release",
+      "description": "Date the pinned version was last modified according to the data.cms.gov catalog (https://data.cms.gov/data.json) read on 2026-11-20.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the response page holding the row was retrieved and frozen.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "universe_ownership_interests_2019_2025": [
+    {
+      "column": "record_id",
+      "description": "CMS Open Payments record identifier of the ownership or investment interest; unique in this table.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI) of the physician holding the interest; a universe NPI of hcp_divisions.csv (2026-10-24).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year of the report (2019-2025).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "manufacturer",
+      "description": "Name of the applicable manufacturer or group purchasing organization (GPO) in which the interest is held, as reported to CMS.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "manufacturer_id",
+      "description": "CMS identifier of that manufacturer or GPO.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "submitting_manufacturer",
+      "description": "Name of the manufacturer or GPO that submitted the report.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_manufacturer",
+      "description": "1 when the manufacturer name matches one of seven CAR-T manufacturer groups (Kite/Gilead; Bristol Myers Squibb/Celgene/Juno; Novartis; Janssen/Johnson & Johnson; Legend Biotech; Autolus; bluebird bio/2seventy bio), else 0.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_manufacturer_group",
+      "description": "The CAR-T manufacturer group matched by the manufacturer name.",
+      "missing_value": "Blank when cart_manufacturer is 0.",
+      "source": "open_payments"
+    },
+    {
+      "column": "value_of_interest_usd",
+      "description": "Dollar value of the ownership or investment interest reported for the program year, in whole cents.",
+      "missing_value": "Blank when CMS reports no value.",
+      "source": "open_payments"
+    },
+    {
+      "column": "amount_invested_usd",
+      "description": "Total dollar amount invested reported for the program year, in whole cents.",
+      "missing_value": "Blank when CMS reports no amount.",
+      "source": "open_payments"
+    },
+    {
+      "column": "interest_holder",
+      "description": "Who holds the interest: the physician (Physician Covered Recipient) or an immediate family member.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "terms_reported",
+      "description": "1 when the manufacturer reported free-text terms of the interest, else 0; the text itself is kept local because it can name people and places.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "dispute_status",
+      "description": "CMS dispute status for publication (Yes or No).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "change_type",
+      "description": "CMS change type of the record in this publication (NEW, ADD, CHANGED, UNCHANGED).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "payment_publication_date",
+      "description": "Date CMS published the record (ISO 8601).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_file",
+      "description": "Detail file inside the Open Payments program-year archive the record was read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_url",
+      "description": "URL of the CMS Open Payments program-year archive (publication of 2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Publication date of the Open Payments archive (2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Coordinated Universal Time (UTC) at which the archive was downloaded for the 2026-11-11 snapshot.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "hcp_universe_ownership_features": [
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI); every NPI of hcp_divisions.csv (2026-10-24) appears once.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_data_status",
+      "description": "published_records when at least one ownership or investment record names the NPI in program years 2019-2025, else no_published_records.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_rows_2019_2025",
+      "description": "Ownership or investment records naming the NPI, program years 2019-2025; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_physician_held_rows_2019_2025",
+      "description": "Records whose interest is held by the physician; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_family_held_rows_2019_2025",
+      "description": "Records whose interest is held by an immediate family member; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_manufacturers",
+      "description": "Distinct manufacturer or GPO identifiers on the NPI records; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_active_years",
+      "description": "Program years with at least one record; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_latest_program_year",
+      "description": "Latest program year with a record.",
+      "missing_value": "Blank when the NPI has no record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_value_of_interest_usd_2019_2025",
+      "description": "Sum of the reported value of interest over the NPI records, program years 2019-2025, in US dollars; a holding reported in several years is counted in each year.",
+      "missing_value": "Blank when the NPI has no record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ownership_amount_invested_usd_2019_2025",
+      "description": "Sum of the reported amount invested over the NPI records, program years 2019-2025, in US dollars.",
+      "missing_value": "Blank when the NPI has no record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_manufacturer_ownership_rows_2019_2025",
+      "description": "Records whose manufacturer matches one of seven CAR-T manufacturer groups (Kite/Gilead; Bristol Myers Squibb/Celgene/Juno; Novartis; Janssen/Johnson & Johnson; Legend Biotech; Autolus; bluebird bio/2seventy bio); zero when none.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_manufacturer_ownership_value_usd_2019_2025",
+      "description": "Sum of the reported value of interest over those CAR-T manufacturer records, in US dollars.",
+      "missing_value": "Blank when the NPI has no CAR-T manufacturer record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_manufacturer_ownership_groups",
+      "description": "CAR-T manufacturer groups of those records, semicolon-separated.",
+      "missing_value": "Blank when the NPI has no CAR-T manufacturer record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_years_scanned",
+      "description": "Range of Open Payments program years whose Ownership file was scanned in full.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Publication date of the Open Payments archives (2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "universe_cart_research_payments_2019_2025": [
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI) of a universe NPI (hcp_divisions.csv, 2026-10-24) who is not one of the 500 core HCPs.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "record_id",
+      "description": "CMS Open Payments research record identifier; with npi, the key of this table.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "role",
+      "description": "investigator when the NPI is in a principal-investigator slot; recipient_only when it is only the covered recipient.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pi_slots",
+      "description": "Principal-investigator slot numbers (1-5) holding the NPI, semicolon-separated.",
+      "missing_value": "Blank when role is recipient_only.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year of the record (2019-2025).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "payment_date",
+      "description": "Date of payment reported by the manufacturer (ISO 8601).",
+      "missing_value": "Blank when CMS reports none.",
+      "source": "open_payments"
+    },
+    {
+      "column": "amount_usd",
+      "description": "Total amount of the research record in US dollars, in whole cents; a record-level value repeated on every NPI row of the record, not personal income.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "record_pi_count",
+      "description": "Number of populated principal-investigator slots on the record.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "record_universe_npi_count",
+      "description": "Number of universe NPIs (core included) named on the record as investigator or recipient.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "covered_recipient_type",
+      "description": "CMS covered-recipient type of the record (for example Covered Recipient Teaching Hospital or Non-covered Recipient Entity).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "teaching_hospital_ccn",
+      "description": "CMS Certification Number (CCN) of the teaching hospital recipient.",
+      "missing_value": "Blank when the recipient is not a teaching hospital.",
+      "source": "open_payments"
+    },
+    {
+      "column": "manufacturer",
+      "description": "Applicable manufacturer or group purchasing organization (GPO) making the payment.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "manufacturer_id",
+      "description": "CMS identifier of the manufacturer making the payment.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_manufacturer_group",
+      "description": "The payer name matched to one of seven CAR-T manufacturer groups (Kite/Gilead; Bristol Myers Squibb/Celgene/Juno; Novartis; Janssen/Johnson & Johnson; Legend Biotech; Autolus; bluebird bio/2seventy bio).",
+      "missing_value": "Blank when the payer matches none.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_products",
+      "description": "CAR-T products (Yescarta, Tecartus, Kymriah, Breyanzi, Abecma, Carvykti, Aucatzyl) named by brand, generic or development name in the five product fields, semicolon-separated.",
+      "missing_value": "Blank when match_basis is study_or_context_text.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_mentioned",
+      "description": "1 when a product field names a CAR-T product, else 0.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "match_basis",
+      "description": "product_field when a product field names a CAR-T product; study_or_context_text when only the study name or research context names a CAR-T product or uses generic CAR-T wording (a text heuristic).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "study_name",
+      "description": "Name of the study reported by the manufacturer, published only when it passes the person-and-address screen.",
+      "missing_value": "Blank when no study name was reported or it failed the screen (see study_name_screen).",
+      "source": "open_payments"
+    },
+    {
+      "column": "study_name_screen",
+      "description": "passed, failed (holds an e-mail, telephone number, street address, honorific or a person name on the record; kept local) or blank (none reported).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "nct_id",
+      "description": "ClinicalTrials.gov identifier reported by the manufacturer.",
+      "missing_value": "Blank when none was reported.",
+      "source": "open_payments"
+    },
+    {
+      "column": "preclinical_research_indicator",
+      "description": "CMS preclinical research indicator (Yes or No).",
+      "missing_value": "Blank when not reported.",
+      "source": "open_payments"
+    },
+    {
+      "column": "payment_form",
+      "description": "Form of payment or transfer of value.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "dispute_status",
+      "description": "CMS dispute status for publication (Yes or No).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "change_type",
+      "description": "CMS change type of the record in this publication (NEW, ADD, CHANGED, UNCHANGED).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "payment_publication_date",
+      "description": "Date CMS published the record (ISO 8601).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_file",
+      "description": "Detail file inside the Open Payments program-year archive the record was read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_url",
+      "description": "URL of the CMS Open Payments program-year archive (publication of 2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Publication date of the Open Payments archive (2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Coordinated Universal Time (UTC) at which the archive was downloaded for the 2026-11-11 snapshot.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "publication_industry_disclosures": [
+    {
+      "column": "pmid",
+      "description": "PubMed identifier (PMID) of a held CAR-T lymphoma paper of publications.csv (2026-10-09); unique.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_record_status",
+      "description": "returned when the efetch response held the PMID, not_returned otherwise.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_record_type",
+      "description": "journal_article (PubmedArticle) or book (PubmedBookArticle, such as a health technology assessment report).",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_author_count",
+      "description": "Number of entries in the PubMed author list (collective names included).",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_statement_present",
+      "description": "1 when the PubMed record carries a conflict-of-interest (COI) statement, else 0.",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_cart_manufacturers",
+      "description": "CAR-T manufacturer groups named anywhere in the statement: of seven CAR-T manufacturer groups (Kite/Gilead; Bristol Myers Squibb/Celgene/Juno; Novartis; Janssen/Johnson & Johnson; Legend Biotech; Autolus; bluebird bio/2seventy bio).",
+      "missing_value": "Blank when none is named or there is no statement.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_cart_manufacturer_count",
+      "description": "Number of CAR-T manufacturer groups named in the statement.",
+      "missing_value": "Blank when PubMed did not return the record or it has no statement.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_no_conflict_wording",
+      "description": "1 when the statement contains no-conflict wording (for example \"no competing interests\"), else 0; a statement can hold both.",
+      "missing_value": "Blank when PubMed did not return the record or it has no statement.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_names_authors",
+      "description": "1 when at least one author of the paper is found in the statement by full name, initials and surname, or initials, else 0.",
+      "missing_value": "Blank when PubMed did not return the record or it has no statement.",
+      "source": "pubmed"
+    },
+    {
+      "column": "industry_affiliation_authors",
+      "description": "Authors with at least one PubMed affiliation naming a CAR-T manufacturer group.",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "industry_coauthorship",
+      "description": "1 when any author affiliation names a CAR-T manufacturer group, else 0.",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "industry_affiliation_groups",
+      "description": "CAR-T manufacturer groups named in author affiliations.",
+      "missing_value": "Blank when none or the record was not returned.",
+      "source": "pubmed"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen efetch response (Data/raw/2026-11-20/industry/) holding the record.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_url",
+      "description": "PubMed page of the paper.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_date_revised",
+      "description": "DateRevised of the PubMed record (YYYY-MM-DD), the version read; not_returned or not_reported otherwise.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Coordinated Universal Time (UTC) at which the efetch response was retrieved.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    }
+  ],
+  "core_author_publication_industry_ties": [
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI) of a core HCP (hcps.csv, 2026-10-09).",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pmid",
+      "description": "PubMed identifier of a held paper; (npi, pmid) is a link of authorships.csv (2026-10-09) and the key here.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "author_position",
+      "description": "Position of the core author in the author list, from authorships.csv.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_author_located",
+      "description": "How the core author was found in the PubMed author list: position_and_surname, unique_surname, not_located or record_not_returned.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "statement_status",
+      "description": "no_statement; no_cart_manufacturer (statement names none); not_structured (names one but no author of the paper can be found in it); author_not_named; author_named.",
+      "missing_value": "Blank when the record was not returned.",
+      "source": "pubmed"
+    },
+    {
+      "column": "named_in_statement",
+      "description": "1 when the author is found in a statement that names authors, else 0.",
+      "missing_value": "Blank when the record was not returned, has no statement, or the author could not be read from it.",
+      "source": "pubmed"
+    },
+    {
+      "column": "named_with_cart_manufacturer",
+      "description": "1 when a passage of the statement that discloses for this author names a CAR-T manufacturer group; 0 when it does not, when the statement names none, or when other authors are found and this one is not.",
+      "missing_value": "Blank when there is no statement, it is not structured, or the author was not located.",
+      "source": "pubmed"
+    },
+    {
+      "column": "cart_manufacturers_named_for_author",
+      "description": "CAR-T manufacturer groups named in the passages that disclose for this author.",
+      "missing_value": "Blank when none.",
+      "source": "pubmed"
+    },
+    {
+      "column": "own_affiliation_cart_manufacturer",
+      "description": "1 when one of the author own PubMed affiliations names a CAR-T manufacturer group, else 0.",
+      "missing_value": "Blank when the author was not located or the record was not returned.",
+      "source": "pubmed"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen efetch response holding the record.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_date_revised",
+      "description": "DateRevised of the PubMed record (YYYY-MM-DD), the version read; not_returned or not_reported otherwise.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Coordinated Universal Time (UTC) at which the efetch response was retrieved.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    }
+  ],
+  "core_hcp_industry_ties_summary": [
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI) of a core HCP (hcps.csv, 2026-10-09); all 500 appear once.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "ownership_rows_2019_2025",
+      "description": "Ownership or investment records naming the HCP, program years 2019-2025 (from hcp_universe_ownership_features); zero when none.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_manufacturer_ownership_rows_2019_2025",
+      "description": "Of those, records in a CAR-T manufacturer group; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_rows_2019_2025",
+      "description": "Open Payments research records naming the HCP whose product fields name a CAR-T product, program years 2019-2025, from research_payments_2019_2025.csv (2026-11-11); zero when none.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_investigator_rows_2019_2025",
+      "description": "Of those, records with the HCP in a principal-investigator slot.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_sole_pi_rows_2019_2025",
+      "description": "Of those, records on which the HCP is the only principal investigator.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_nct_ids",
+      "description": "Distinct ClinicalTrials.gov identifiers on those records; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_manufacturer_groups",
+      "description": "CAR-T manufacturer groups paying those records, semicolon-separated.",
+      "missing_value": "Blank when none.",
+      "source": "project"
+    },
+    {
+      "column": "held_paper_links",
+      "description": "Held CAR-T lymphoma papers authored by the HCP (links of authorships.csv, 2026-10-09).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_with_coi_statement",
+      "description": "Of those, papers whose PubMed record carries a conflict-of-interest statement.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_cart_manufacturer",
+      "description": "Papers whose statement discloses for the HCP a tie to a CAR-T manufacturer group (named_with_cart_manufacturer = 1).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_not_named_with_cart_manufacturer",
+      "description": "Papers whose statement is read as naming no CAR-T manufacturer group for the HCP (value 0).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_undetermined",
+      "description": "Papers with no statement, a statement that cannot be read author by author, or the HCP not located (blank value).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "disclosed_cart_manufacturer_groups",
+      "description": "CAR-T manufacturer groups disclosed for the HCP across held papers, semicolon-separated.",
+      "missing_value": "Blank when none.",
+      "source": "project"
+    },
+    {
+      "column": "papers_with_own_cart_affiliation",
+      "description": "Papers on which one of the HCP own PubMed affiliations names a CAR-T manufacturer group.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "groups_in_both_research_and_disclosure",
+      "description": "CAR-T manufacturer groups that both pay CAR-T product research naming the HCP and are disclosed for the HCP on a held paper.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "inputs",
+      "description": "Published tables the row is computed from, semicolon-separated, as snapshot/table.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Release of the underlying sources: Open Payments publication date and PubMed retrieval date.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Latest UTC retrieval time of the efetch responses behind the row (the 2025 archive download time when the HCP has no held paper).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "hcp_universe_cart_general_payments_by_year": [
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI) of a universe NPI with at least one record in universe_cart_general_payments_2019_2025.csv (2026-11-19); NPIs with no such record are absent, not zero.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year (2019-2025); every NPI present has all seven years.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "year_status",
+      "description": "records_in_year when the NPI has at least one CAR-T general record in the year, else no_records_in_year (all counts zero).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "records",
+      "description": "CAR-T general records of the NPI in the year in the 2026-11-19 row-level table (any of its rules).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "usd",
+      "description": "Dollars of those records, in whole cents.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_rows",
+      "description": "Records of the year that name a CAR-T product in at least one product-name field.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_usd",
+      "description": "Dollars of the records of the year that name a CAR-T product in at least one product-name field, in whole cents.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_rows",
+      "description": "Records of the year on which every named product is a CAR-T product.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_usd",
+      "description": "Dollars of the records of the year on which every named product is a CAR-T product, in whole cents.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_services_usd",
+      "description": "Services dollars (consulting, honoraria, speaking and other compensation for services) of the cart_only records of the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_hospitality_education_usd",
+      "description": "Food, travel, lodging, education, gift and entertainment dollars of the cart_only records of the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_direct_services_usd",
+      "description": "Services dollars of the cart_only records of the year paid directly to the physician (no third-party payee).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_rows",
+      "description": "Records of the year on which every named product is a CAR-T product and one is Yescarta, Tecartus, Kymriah or Breyanzi.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_usd",
+      "description": "Dollars of the records of the year on which every named product is a CAR-T product and one is Yescarta, Tecartus, Kymriah or Breyanzi, in whole cents.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_services_usd",
+      "description": "Services dollars (consulting, honoraria, speaking and other compensation for services) of the lymphoma_only records of the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_hospitality_education_usd",
+      "description": "Food, travel, lodging, education, gift and entertainment dollars of the lymphoma_only records of the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_rows",
+      "description": "Records of the year paid by Kite Pharma, Legend Biotech or Autolus, whatever the product fields say.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_usd",
+      "description": "Dollars of the records of the year paid by Kite Pharma, Legend Biotech or Autolus, whatever the product fields say, in whole cents.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "manufacturers",
+      "description": "Distinct manufacturer identifiers on the NPI CAR-T general records of the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_table",
+      "description": "Published table the row aggregates (Data/processed/2026-11-19/universe_cart_general_payments_2019_2025.csv).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_file",
+      "description": "General detail file of the program-year archive the records of the year were read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Publication date of the Open Payments archives behind that table (2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Coordinated Universal Time (UTC) at which that program-year archive was downloaded (2026-11-11 snapshot).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "cart_general_payments_by_division_year": [
+    {
+      "column": "division_group",
+      "description": "Division group of hcp_divisions.csv (label version 1.0.0): core, affiliates, referring or other.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year (2019-2025).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "npis_in_division_group",
+      "description": "Universe NPIs in the division group.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_npis_paid",
+      "description": "NPIs of the group with at least one cart_only record in the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_rows",
+      "description": "cart_only records of the group in the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_services_npis_paid",
+      "description": "NPIs of the group with cart_only services dollars in the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_services_usd",
+      "description": "cart_only services dollars of the group in the year, in whole cents.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_direct_services_usd",
+      "description": "Of those, dollars paid directly to the physician.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_hospitality_education_npis_paid",
+      "description": "NPIs of the group with cart_only hospitality and education dollars in the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_hospitality_education_usd",
+      "description": "cart_only food, travel, lodging, education, gift and entertainment dollars of the group in the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "universe_snapshot_date",
+      "description": "Snapshot of the universe and division labels (2026-10-24).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_table",
+      "description": "Published row-level table aggregated (2026-11-19).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Publication date of the Open Payments archives (2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Coordinated Universal Time (UTC) at which the program-year archive was downloaded (2026-11-11 snapshot).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "core_hcp_disclosed_ties_by_year": [
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI) of a core HCP (hcps.csv, 2026-10-09).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "publication_year",
+      "description": "Publication year of the held papers (publications.csv, 2026-10-09); only years in which the HCP has a held paper appear.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "held_papers",
+      "description": "Held CAR-T lymphoma papers of the HCP published in the year (authorships.csv links).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_with_coi_statement",
+      "description": "Of those, papers whose PubMed record carries a conflict-of-interest statement.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_determinable",
+      "description": "Papers whose statement lets the HCP tie be read (named_with_cart_manufacturer is 0 or 1).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_cart_manufacturer",
+      "description": "Papers on which the statement discloses for the HCP a tie to a CAR-T manufacturer group.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_kite_gilead",
+      "description": "Papers on which the statement discloses for the HCP a tie to Kite/Gilead.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_bms_celgene_juno",
+      "description": "Papers on which the statement discloses for the HCP a tie to Bristol Myers Squibb/Celgene/Juno.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_novartis",
+      "description": "Papers on which the statement discloses for the HCP a tie to Novartis.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_janssen_jnj",
+      "description": "Papers on which the statement discloses for the HCP a tie to Janssen/Johnson & Johnson.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_legend",
+      "description": "Papers on which the statement discloses for the HCP a tie to Legend Biotech.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_autolus",
+      "description": "Papers on which the statement discloses for the HCP a tie to Autolus.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_bluebird_2seventy",
+      "description": "Papers on which the statement discloses for the HCP a tie to bluebird bio/2seventy bio.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "inputs",
+      "description": "Published tables the row is computed from, as snapshot/table.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release_date",
+      "description": "PubMed retrieval date of the statements.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Latest UTC retrieval time of the efetch responses behind the row.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "new_publication_industry_disclosures": [
+    {
+      "column": "pmid",
+      "description": "PubMed identifier (PMID) of a CAR-T lymphoma paper first published in 2026 (new_publications.csv, 2026-11-20); unique, and never also in publication_industry_disclosures.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_record_status",
+      "description": "returned when the efetch response held the PMID, not_returned otherwise.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_record_type",
+      "description": "journal_article (PubmedArticle) or book (PubmedBookArticle, such as a health technology assessment report).",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_author_count",
+      "description": "Number of entries in the PubMed author list (collective names included).",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_statement_present",
+      "description": "1 when the PubMed record carries a conflict-of-interest (COI) statement, else 0.",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_cart_manufacturers",
+      "description": "CAR-T manufacturer groups named anywhere in the statement: of seven CAR-T manufacturer groups (Kite/Gilead; Bristol Myers Squibb/Celgene/Juno; Novartis; Janssen/Johnson & Johnson; Legend Biotech; Autolus; bluebird bio/2seventy bio).",
+      "missing_value": "Blank when none is named or there is no statement.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_cart_manufacturer_count",
+      "description": "Number of CAR-T manufacturer groups named in the statement.",
+      "missing_value": "Blank when PubMed did not return the record or it has no statement.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_no_conflict_wording",
+      "description": "1 when the statement contains no-conflict wording (for example \"no competing interests\"), else 0; a statement can hold both.",
+      "missing_value": "Blank when PubMed did not return the record or it has no statement.",
+      "source": "pubmed"
+    },
+    {
+      "column": "coi_names_authors",
+      "description": "1 when at least one author of the paper is found in the statement by full name, initials and surname, or initials, else 0.",
+      "missing_value": "Blank when PubMed did not return the record or it has no statement.",
+      "source": "pubmed"
+    },
+    {
+      "column": "industry_affiliation_authors",
+      "description": "Authors with at least one PubMed affiliation naming a CAR-T manufacturer group.",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "industry_coauthorship",
+      "description": "1 when any author affiliation names a CAR-T manufacturer group, else 0.",
+      "missing_value": "Blank when PubMed did not return the record.",
+      "source": "pubmed"
+    },
+    {
+      "column": "industry_affiliation_groups",
+      "description": "CAR-T manufacturer groups named in author affiliations.",
+      "missing_value": "Blank when none or the record was not returned.",
+      "source": "pubmed"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen efetch response (Data/raw/2026-11-20/industry/) holding the record.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_url",
+      "description": "PubMed page of the paper.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_date_revised",
+      "description": "DateRevised of the PubMed record (YYYY-MM-DD), the version read; not_returned or not_reported otherwise.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Coordinated Universal Time (UTC) at which the efetch response was retrieved.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    }
+  ],
+  "universe_author_publication_industry_ties": [
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI) of a universe NPI (hcp_divisions.csv, 2026-10-24), core or not.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pmid",
+      "description": "PubMed identifier; (npi, pmid) is a link of universe_authorships.csv or new_authorships.csv (2026-11-20) and the key here; no pair is also in core_author_publication_industry_ties.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "link_table",
+      "description": "Link table the pair comes from: universe_authorships (non-core NPI on a held paper) or new_authorships (core or non-core NPI on a paper first published in 2026).",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "is_core",
+      "description": "1 when the NPI is one of the 500 core HCPs (hcps.csv, 2026-10-09), else 0.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "author_position",
+      "description": "Position of the core author in the author list, from authorships.csv.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_author_located",
+      "description": "How the core author was found in the PubMed author list: position_and_surname, unique_surname, not_located or record_not_returned.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "statement_status",
+      "description": "no_statement; no_cart_manufacturer (statement names none); not_structured (names one but no author of the paper can be found in it); author_not_named; author_named.",
+      "missing_value": "Blank when the record was not returned.",
+      "source": "pubmed"
+    },
+    {
+      "column": "named_in_statement",
+      "description": "1 when the author is found in a statement that names authors, else 0.",
+      "missing_value": "Blank when the record was not returned, has no statement, or the author could not be read from it.",
+      "source": "pubmed"
+    },
+    {
+      "column": "named_with_cart_manufacturer",
+      "description": "1 when a passage of the statement that discloses for this author names a CAR-T manufacturer group; 0 when it does not, when the statement names none, or when other authors are found and this one is not.",
+      "missing_value": "Blank when there is no statement, it is not structured, or the author was not located.",
+      "source": "pubmed"
+    },
+    {
+      "column": "cart_manufacturers_named_for_author",
+      "description": "CAR-T manufacturer groups named in the passages that disclose for this author.",
+      "missing_value": "Blank when none.",
+      "source": "pubmed"
+    },
+    {
+      "column": "own_affiliation_cart_manufacturer",
+      "description": "1 when one of the author own PubMed affiliations names a CAR-T manufacturer group, else 0.",
+      "missing_value": "Blank when the author was not located or the record was not returned.",
+      "source": "pubmed"
+    },
+    {
+      "column": "source_id",
+      "description": "Identifier of the frozen efetch response holding the record.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "pubmed_date_revised",
+      "description": "DateRevised of the PubMed record (YYYY-MM-DD), the version read; not_returned or not_reported otherwise.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Coordinated Universal Time (UTC) at which the efetch response was retrieved.",
+      "missing_value": "Never blank.",
+      "source": "pubmed"
+    }
+  ],
+  "universe_hcp_industry_ties_summary": [
+    {
+      "column": "npi",
+      "description": "Ten-digit NPI of a non-core universe NPI with at least one link in universe_author_publication_industry_ties; core HCPs are in core_hcp_industry_ties_summary.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "ownership_rows_2019_2025",
+      "description": "Ownership or investment records naming the HCP, program years 2019-2025 (from hcp_universe_ownership_features); zero when none.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_manufacturer_ownership_rows_2019_2025",
+      "description": "Of those, records in a CAR-T manufacturer group; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_rows_2019_2025",
+      "description": "Open Payments research records naming the HCP whose product fields name a CAR-T product, program years 2019-2025, from universe_cart_research_payments_2019_2025.csv (2026-11-20, product-field matches); zero when none.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_investigator_rows_2019_2025",
+      "description": "Of those, records with the HCP in a principal-investigator slot.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_sole_pi_rows_2019_2025",
+      "description": "Of those, records on which the HCP is the only principal investigator.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_nct_ids",
+      "description": "Distinct ClinicalTrials.gov identifiers on those records; zero when none.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "cart_product_research_manufacturer_groups",
+      "description": "CAR-T manufacturer groups paying those records, semicolon-separated.",
+      "missing_value": "Blank when none.",
+      "source": "project"
+    },
+    {
+      "column": "held_paper_links",
+      "description": "Papers linked to the NPI in universe_authorships.csv (held papers) or new_authorships.csv (2026 papers).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_with_coi_statement",
+      "description": "Of those, papers whose PubMed record carries a conflict-of-interest statement.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_named_with_cart_manufacturer",
+      "description": "Papers whose statement discloses for the HCP a tie to a CAR-T manufacturer group (named_with_cart_manufacturer = 1).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_not_named_with_cart_manufacturer",
+      "description": "Papers whose statement is read as naming no CAR-T manufacturer group for the HCP (value 0).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "papers_undetermined",
+      "description": "Papers with no statement, a statement that cannot be read author by author, or the HCP not located (blank value).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "disclosed_cart_manufacturer_groups",
+      "description": "CAR-T manufacturer groups disclosed for the HCP across held papers, semicolon-separated.",
+      "missing_value": "Blank when none.",
+      "source": "project"
+    },
+    {
+      "column": "papers_with_own_cart_affiliation",
+      "description": "Papers on which one of the HCP own PubMed affiliations names a CAR-T manufacturer group.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "groups_in_both_research_and_disclosure",
+      "description": "CAR-T manufacturer groups that both pay CAR-T product research naming the HCP and are disclosed for the HCP on a held paper.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "inputs",
+      "description": "Published tables the row is computed from, semicolon-separated, as snapshot/table.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Release of the underlying sources: Open Payments publication date and PubMed retrieval date.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Latest UTC retrieval time of the efetch responses behind the row (the 2025 archive download time when the HCP has no held paper).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "core_hcp_new_paper_ties": [
+    {
+      "column": "npi",
+      "description": "Ten-digit NPI of a core HCP (hcps.csv, 2026-10-09) with at least one link to a 2026 paper in new_authorships.csv; core HCPs without one are absent.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_links",
+      "description": "Links of the HCP to papers first published in 2026.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_with_coi_statement",
+      "description": "Of those, papers whose PubMed record carries a conflict-of-interest statement.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_named_with_cart_manufacturer",
+      "description": "Papers whose statement discloses for the HCP a tie to a CAR-T manufacturer group.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_not_named_with_cart_manufacturer",
+      "description": "Papers whose statement is read as naming no CAR-T manufacturer group for the HCP.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_undetermined",
+      "description": "Papers with no statement, an unreadable statement, or the HCP not located.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_disclosed_cart_manufacturer_groups",
+      "description": "CAR-T manufacturer groups disclosed for the HCP on 2026 papers.",
+      "missing_value": "Blank when none.",
+      "source": "project"
+    },
+    {
+      "column": "new_paper_own_cart_affiliation",
+      "description": "Papers on which one of the HCP own affiliations names a CAR-T manufacturer group.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "inputs",
+      "description": "Published table the row is computed from.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "source_release_date",
+      "description": "PubMed retrieval date of the statements.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "Latest UTC retrieval time of the efetch responses behind the row.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "hcp_universe_cart_research_by_year": [
+    {
+      "column": "npi",
+      "description": "Ten-digit NPI of a universe NPI (hcp_divisions.csv, 2026-10-24) named on at least one CAR-T research record; NPIs with none are absent, not zero.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year (2019-2025); every NPI present has all seven years.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "year_status",
+      "description": "records_in_year when the NPI has a CAR-T research record in the year, else no_records_in_year (counts zero).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_research_rows",
+      "description": "Research records naming the NPI (as principal investigator or covered recipient) whose product fields, study name or research context name a CAR-T product or generic CAR-T wording.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_field_rows",
+      "description": "Of those, records whose product fields name a CAR-T product (brand, generic or development name).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "text_only_rows",
+      "description": "Of those, records matched only on study name or research context (a text heuristic).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_field_investigator_rows",
+      "description": "Product-field records with the NPI in a principal-investigator slot.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_field_recipient_only_rows",
+      "description": "Product-field records naming the NPI only as covered recipient.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_field_sole_pi_rows",
+      "description": "Product-field records on which the NPI is the only populated principal-investigator slot.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "investigator_rows",
+      "description": "Records of either match type with the NPI in a principal-investigator slot.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_field_record_usd",
+      "description": "Sum of record totals of the product-field records, in US dollars; record totals are repeated across the NPIs of a record and are not personal income.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "text_only_record_usd",
+      "description": "Sum of record totals of the text-only records, in US dollars.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_product_rows",
+      "description": "Product-field records naming Yescarta, Tecartus, Kymriah or Breyanzi.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_field_brands",
+      "description": "CAR-T products named in product fields of the year, semicolon-separated.",
+      "missing_value": "Blank when there is no product-field record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "studies_named",
+      "description": "Distinct published study names on the records of the year; for non-core NPIs a study name withheld by the person-and-address screen (one record) is not counted.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "nct_ids",
+      "description": "Distinct ClinicalTrials.gov identifiers reported on the records of the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "manufacturer_groups",
+      "description": "CAR-T manufacturer groups paying the records of the year.",
+      "missing_value": "Blank when no payer is in a group.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_table",
+      "description": "Published row-level table aggregated: 2026-11-11/research_payments_2019_2025.csv for core HCPs, 2026-11-20/universe_cart_research_payments_2019_2025.csv for the others.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Publication date of the Open Payments archives (2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the program-year archive was downloaded (2026-11-11 snapshot).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "cart_research_by_division_year": [
+    {
+      "column": "division_group",
+      "description": "Division group of hcp_divisions.csv (label version 1.0.0): core, affiliates, referring or other.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year (2019-2025).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "npis_in_division_group",
+      "description": "Universe NPIs in the division group.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "npis_with_product_field_record",
+      "description": "NPIs of the group named on at least one product-field CAR-T research record in the year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_field_rows",
+      "description": "Product-field CAR-T research records of the group in the year (NPI-record pairs).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_field_investigator_rows",
+      "description": "Of those, records with the NPI in a principal-investigator slot.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "universe_snapshot_date",
+      "description": "Snapshot of the universe and division labels (2026-10-24).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_table",
+      "description": "Published table aggregated (hcp_universe_cart_research_by_year, 2026-11-20).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Publication date of the Open Payments archives (2026-06-30).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the program-year archive was downloaded (2026-11-11 snapshot).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "shared_patient_npi_center_flows_2017_2022": [
+    {
+      "column": "npi",
+      "description": "Licence of every row: CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum, attribution to CareSet Systems, Inc., non-commercial use only. National Provider Identifier (NPI) of the sending universe clinician (hcp_divisions.csv, 2026-10-24); join there for division and region.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "ccn",
+      "description": "CMS Certification Number (CCN, six characters) of the CAR-T center reached (cart_centers.csv).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year",
+      "description": "CareSet calendar year of the shared-patient pairs, 2017 to 2022.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "patients",
+      "description": "Sum of PATIENT_COUNT over the directed pairs from this NPI to receivers that map to this center in the year; a sum of pair counts, not distinct patients, and a pair whose receiver maps to several centers counts in full at each. At least 11, the source pair floor.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_allocated",
+      "description": "Same sum with each pair split equally across the centers its receiver maps to, to three decimals; an apportionment, not a count. Summed over centers it equals out_patients_to_centers of the 2026-10-24 yearly features.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "receiving_npis",
+      "description": "Number of directed pairs (distinct receiving NPIs: the center organization NPI or universe clinicians affiliated with the center) behind the row.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "mean_day_wait_weighted",
+      "description": "Patient-weighted mean of AVERAGE_DAY_WAIT, the mean days between the sender's and the receiver's services, over the pairs behind the row, in days to one decimal.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "region_relation",
+      "description": "Where the center lies against the sending NPI's hospital referral region (HRR, Dartmouth 2019 crosswalk): inside (same HRR), outside (another HRR) or unknown (either HRR blank).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id of the row: careset_hop_<year> is the CareSet DocGraph Hop Teaming annual file (Medicare fee-for-service shared-patient provider pairs) of that year; careset_hop_<first>_<last> means the row derives from the years first to last.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of each CareSet file the row derives from, as recorded at ingestion in the 2026-10-24 metadata, joined by semicolons in year order; full hashes are in the module metadata.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_ingested_at_utc",
+      "description": "UTC time the CareSet file was ingested into the 2026-10-24 edge tables (the latest ingestion time when the row derives from several years).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    }
+  ],
+  "shared_patient_npi_longitudinal_2017_2022": [
+    {
+      "column": "npi",
+      "description": "Licence of every row: CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum, attribution to CareSet Systems, Inc., non-commercial use only. National Provider Identifier (NPI) of a universe clinician; every one of the 17,510 NPIs of hcp_divisions.csv (2026-10-24) has one row.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "link_status",
+      "description": "linked: a link to a CAR-T center in at least one CareSet year 2017-2022; no_center_link: outgoing pairs in some year but none to a center; no_outgoing_edge: no outgoing pair at or above the 11-patient floor in any year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "first_year_linked",
+      "description": "First CareSet year with a center link.",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "last_year_linked",
+      "description": "Last CareSet year with a center link.",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "years_linked",
+      "description": "Number of CareSet years 2017-2022 with at least one center link (1 to 6).",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "persistence_in_span",
+      "description": "years_linked divided by the years from first to last linked year inclusive, to three decimals; 1.000 means no gap.",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "link_retention_rate",
+      "description": "Share of the NPI's center links in one year that recur the next year, pooled over 2017-2018 to 2021-2022, to three decimals.",
+      "missing_value": "Blank when never linked, or linked only in 2022 so there is no next year to compare.",
+      "source": "careset"
+    },
+    {
+      "column": "distinct_centers_ever",
+      "description": "Number of distinct CAR-T centers (CCN) linked in any year 2017-2022.",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "link_years_total",
+      "description": "Number of NPI x center x year rows of the panel for this NPI.",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "primary_center_ccn",
+      "description": "CCN of the center with the largest patients_allocated summed over 2017-2022 (ties: more years linked, then lower CCN).",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "primary_center_share",
+      "description": "The primary center's share of the NPI's patients_allocated over 2017-2022, to three decimals.",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "primary_center_years",
+      "description": "Number of years the primary center was linked.",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "primary_center_region",
+      "description": "Primary center against the NPI's own hospital referral region (HRR): inside, outside, or unknown when either HRR is blank.",
+      "missing_value": "Blank when the NPI was never linked.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id of the row: careset_hop_<year> is the CareSet DocGraph Hop Teaming annual file (Medicare fee-for-service shared-patient provider pairs) of that year; careset_hop_<first>_<last> means the row derives from the years first to last.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of each CareSet file the row derives from, as recorded at ingestion in the 2026-10-24 metadata, joined by semicolons in year order; full hashes are in the module metadata.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_ingested_at_utc",
+      "description": "UTC time the CareSet file was ingested into the 2026-10-24 edge tables (the latest ingestion time when the row derives from several years).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    }
+  ],
+  "shared_patient_npi_link_changes_2017_2022": [
+    {
+      "column": "npi",
+      "description": "Licence of every row: CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum, attribution to CareSet Systems, Inc., non-commercial use only. National Provider Identifier (NPI) of a universe clinician linked to a center in at least one year. A row is published for each year the NPI is linked and for each year it is not linked but lost links against the previous year; any other NPI-year is not observed with no change, which follows from the longitudinal table and is not repeated.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year",
+      "description": "CareSet calendar year, 2017 to 2022.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year_status",
+      "description": "linked, or not_observed when no pair to a center reached the 11-patient floor in the year (not observed is not zero patients). Patients per year are in the 2026-10-24 yearly features.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "links_gained",
+      "description": "Centers linked this year that were not linked the previous year.",
+      "missing_value": "Blank in 2017, the first panel year.",
+      "source": "careset"
+    },
+    {
+      "column": "links_lost",
+      "description": "Centers linked the previous year that are not linked this year.",
+      "missing_value": "Blank in 2017, the first panel year.",
+      "source": "careset"
+    },
+    {
+      "column": "links_retained",
+      "description": "Centers linked both this year and the previous year.",
+      "missing_value": "Blank in 2017, the first panel year.",
+      "source": "careset"
+    },
+    {
+      "column": "comparison_status",
+      "description": "first_year: 2017, no earlier year, so the change columns are blank; compared: compared with the previous year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id of the row: careset_hop_<year> is the CareSet DocGraph Hop Teaming annual file (Medicare fee-for-service shared-patient provider pairs) of that year; careset_hop_<first>_<last> means the row derives from the years first to last.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of each CareSet file the row derives from, as recorded at ingestion in the 2026-10-24 metadata, joined by semicolons in year order; full hashes are in the module metadata.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_ingested_at_utc",
+      "description": "UTC time the CareSet file was ingested into the 2026-10-24 edge tables (the latest ingestion time when the row derives from several years).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    }
+  ],
+  "shared_patient_center_referrer_base_2017_2022": [
+    {
+      "column": "ccn",
+      "description": "Licence of every row: CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum, attribution to CareSet Systems, Inc., non-commercial use only. CMS Certification Number (CCN) of a CAR-T center of cart_centers.csv (2026-10-24); all 173 centers.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year",
+      "description": "CareSet calendar year, 2017 to 2022.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year_status",
+      "description": "observed, or not_observed when no universe NPI had a pair to the center at or above the 11-patient floor in the year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "referrers",
+      "description": "Distinct universe NPIs (any division) with a panel row to the center in the year.",
+      "missing_value": "Blank when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_from_referrers",
+      "description": "Sum of panel patients over those NPIs: pair counts, not distinct patients.",
+      "missing_value": "Blank when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "referring_proxy_referrers",
+      "description": "Referrers whose 2024 division is referring_proxy.",
+      "missing_value": "Blank when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_from_referring_proxy",
+      "description": "Panel patients from referring_proxy referrers.",
+      "missing_value": "Blank when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "referrer_hhi",
+      "description": "Herfindahl-Hirschman index of referrers' shares of patients_from_referrers, 0 to 1, four decimals; 1 means a single referrer.",
+      "missing_value": "Blank when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "top_referrer_share",
+      "description": "Largest single referrer's share of patients_from_referrers, three decimals.",
+      "missing_value": "Blank when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "outside_hrr_patient_share",
+      "description": "Share of patients from referrers whose hospital referral region (HRR) differs from the center's, among referrers with a known HRR, three decimals.",
+      "missing_value": "Blank when the year is not observed or no referrer has an HRR.",
+      "source": "careset"
+    },
+    {
+      "column": "referrers_without_hrr",
+      "description": "Referrers left out of outside_hrr_patient_share because their HRR is blank.",
+      "missing_value": "Blank when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "new_referrers",
+      "description": "Referrers this year that had no row to the center the previous year.",
+      "missing_value": "Blank in 2017 and when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "lost_referrers",
+      "description": "Referrers of the previous year with no row to the center this year.",
+      "missing_value": "Blank in 2017.",
+      "source": "careset"
+    },
+    {
+      "column": "retained_referrers",
+      "description": "Referrers present this year and the previous year.",
+      "missing_value": "Blank in 2017 and when the year is not observed.",
+      "source": "careset"
+    },
+    {
+      "column": "comparison_status",
+      "description": "first_year: 2017, no earlier year, so the turnover columns are blank; compared: compared with the previous year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id of the row: careset_hop_<year> is the CareSet DocGraph Hop Teaming annual file (Medicare fee-for-service shared-patient provider pairs) of that year; careset_hop_<first>_<last> means the row derives from the years first to last.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of each CareSet file the row derives from, as recorded at ingestion in the 2026-10-24 metadata, joined by semicolons in year order; full hashes are in the module metadata.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_ingested_at_utc",
+      "description": "UTC time the CareSet file was ingested into the 2026-10-24 edge tables (the latest ingestion time when the row derives from several years).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    }
+  ],
+  "shared_patient_npi_center_baseline_2009_2015": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the initial NPI of the pair (npi1, the provider whose claim came first), a universe clinician. CMS data, public domain; a pre-CAR-T baseline, not part of the CareSet 2017-2022 series. Divisions, hospital affiliations, the universe and the center set are 2024 facts applied backwards, so early years undercount clinicians who moved, retired or changed NPI; read with the coverage table. ",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "ccn",
+      "description": "CCN of the CAR-T center reached, by the same rule as the CareSet panel applied to npi2 (the secondary provider whose claim followed within 180 days).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "year",
+      "description": "CMS file year, 2009 to 2015: initial claims in that calendar year with follow-ups up to 1 July of the next year; 2015 covers 2015-01-01 to 2015-10-01 only, a partial year.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "beneficiaries",
+      "description": "Sum of Bene Count (distinct beneficiaries of each pair, at least 11) over the pairs from this NPI to receivers mapped to the center; pair sums, not distinct beneficiaries.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "beneficiaries_allocated",
+      "description": "Same sum with each pair split equally across its receiver's centers, up to three decimals; an apportionment, not a count.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "pair_count",
+      "description": "Sum of Pair Count (shared count: follow-on claim events of each pair) over the same pairs.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "same_day_count",
+      "description": "Sum of Same Day Count over the same pairs; CMS assigns a same-day pair to the lesser of the two NPIs, so its direction is arbitrary.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "receiving_npis",
+      "description": "Number of pairs (distinct receiving NPIs) behind the row.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "careset_2017_link",
+      "description": "linked_2017 when the same NPI x center has a 2017 CareSet panel row, else not_linked_2017. Different method: not one series.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id: cms_pspp_<year>_180 is the CMS Physician Shared Patient Patterns file of that year, 180-day window, as mirrored by the National Bureau of Economic Research (NBER); public domain.",
+      "missing_value": "Never blank.",
+      "source": "nber"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of the whole streamed zip file.",
+      "missing_value": "Never blank.",
+      "source": "nber"
+    },
+    {
+      "column": "source_retrieved_at_utc",
+      "description": "UTC time the stream of the zip file ended.",
+      "missing_value": "Never blank.",
+      "source": "nber"
+    }
+  ],
+  "shared_patient_division_group_flows_2017_2022": [
+    {
+      "column": "division_group",
+      "description": "Licence of every row: CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum, attribution to CareSet Systems, Inc., non-commercial use only. Division group of base.DIVISION_GROUPS: core, affiliates, referring or other (2024 labels, version 1.0.0).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year",
+      "description": "CareSet calendar year, 2017 to 2022.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "npis_in_group",
+      "description": "Universe NPIs in the group (fixed across years: labels are from 2024).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "npis_linked",
+      "description": "NPIs of the group with at least one center link in the year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "center_links",
+      "description": "NPI x center rows of the panel for the group in the year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_allocated_to_centers",
+      "description": "Sum of patients_allocated for the group in the year, rounded to a whole number; equals the group sum of out_patients_to_centers of the 2026-10-24 yearly features (pair counts, not distinct patients).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "outside_hrr_patient_share",
+      "description": "Share of patients_allocated going to centers outside the sender's hospital referral region (HRR), among rows with both HRRs known.",
+      "missing_value": "Blank when no row of the group has both HRRs known.",
+      "source": "careset"
+    },
+    {
+      "column": "links_gained",
+      "description": "Sum of links_gained over the group's NPIs.",
+      "missing_value": "Blank in 2017.",
+      "source": "careset"
+    },
+    {
+      "column": "links_lost",
+      "description": "Sum of links_lost over the group's NPIs.",
+      "missing_value": "Blank in 2017.",
+      "source": "careset"
+    },
+    {
+      "column": "comparison_status",
+      "description": "first_year: 2017, no earlier year, so the change columns are blank; compared: compared with the previous year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id of the row: careset_hop_<year> is the CareSet DocGraph Hop Teaming annual file (Medicare fee-for-service shared-patient provider pairs) of that year; careset_hop_<first>_<last> means the row derives from the years first to last.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of each CareSet file the row derives from, as recorded at ingestion in the 2026-10-24 metadata, joined by semicolons in year order; full hashes are in the module metadata.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_ingested_at_utc",
+      "description": "UTC time the CareSet file was ingested into the 2026-10-24 edge tables (the latest ingestion time when the row derives from several years).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    }
+  ],
+  "shared_patient_baseline_coverage_2009_2015": [
+    {
+      "column": "year",
+      "description": "CMS Physician Shared Patient Patterns file year, 2009 to 2015 (180-day window); a pre-CAR-T baseline, not part of the CareSet 2017-2022 series. Divisions, hospital affiliations, the universe and the center set are 2024 facts applied backwards, so early years undercount clinicians who moved, retired or changed NPI; read with the coverage table. ",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "division_group",
+      "description": "Division group of base.DIVISION_GROUPS (2024 labels, version 1.0.0).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "npis_in_group",
+      "description": "Universe NPIs in the group (fixed: labels are from 2024).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "coverage_status",
+      "description": "measured: npis_as_npi1 was counted while streaming the whole file (2014 and 2015 on a second streaming whose SHA-256 and line count equal the first); not_measured: not counted.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "npis_as_npi1",
+      "description": "Universe NPIs of the group appearing as npi1 in any pair of the file, with any partner: how many of the 2024 universe the CMS year sees at all.",
+      "missing_value": "Blank when coverage_status is not_measured.",
+      "source": "cms"
+    },
+    {
+      "column": "npis_as_npi1_kept",
+      "description": "Universe NPIs of the group appearing as npi1 in the kept extract (pairs whose other end is a universe NPI or a center organization NPI).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "npis_linked",
+      "description": "Universe NPIs of the group with at least one baseline row (a link to a center) in the year.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "linked_share_of_covered",
+      "description": "npis_linked divided by npis_as_npi1, three decimals.",
+      "missing_value": "Blank when coverage_status is not_measured.",
+      "source": "cms"
+    },
+    {
+      "column": "source",
+      "description": "Source id cms_pspp_<year>_180 (NBER mirror of the CMS file); public domain.",
+      "missing_value": "Never blank.",
+      "source": "nber"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of the whole streamed zip file.",
+      "missing_value": "Never blank.",
+      "source": "nber"
+    },
+    {
+      "column": "source_retrieved_at_utc",
+      "description": "UTC time the stream of the zip file ended.",
+      "missing_value": "Never blank.",
+      "source": "nber"
+    }
+  ],
+  "shared_patient_npi_core_hcp_links_2017_2022": [
+    {
+      "column": "npi",
+      "description": "Licence of every row: CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum, attribution to CareSet Systems, Inc., non-commercial use only. National Provider Identifier (NPI) of a sending universe clinician; a row exists only for years with at least one pair to a core HCP (division core, 2024 label). Counts are sums of pair counts, each of at least 11 Medicare fee-for-service patients shared in the year, not distinct patients; a shared patient is not a referral, and nothing here is specific to CAR-T. ",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year",
+      "description": "CareSet calendar year, 2017 to 2022.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "core_hcps",
+      "description": "Distinct core HCPs the NPI shares patients with as the earlier provider in the year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_to_core",
+      "description": "Sum of PATIENT_COUNT over those pairs; at least 11.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_to_core_at_centers",
+      "description": "Part of patients_to_core going to core HCPs affiliated with a CAR-T center; these pairs are also counted in out_patients_to_centers of the 2026-10-24 yearly features.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "share_of_center_patients_via_core",
+      "description": "patients_to_core_at_centers divided by the NPI's out_patients_to_centers (2026-10-24 yearly features) for the year, three decimals: the part of its center-linked flow that goes through a core HCP rather than a non-core center clinician or the center organization.",
+      "missing_value": "Blank when the NPI has no center-linked flow in the year.",
+      "source": "careset"
+    },
+    {
+      "column": "mean_day_wait_weighted",
+      "description": "Patient-weighted mean of AVERAGE_DAY_WAIT over the pairs to core HCPs, in days.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id of the row: careset_hop_<year> is the CareSet DocGraph Hop Teaming annual file (Medicare fee-for-service shared-patient provider pairs) of that year; careset_hop_<first>_<last> means the row derives from the years first to last.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of each CareSet file the row derives from, as recorded at ingestion in the 2026-10-24 metadata, joined by semicolons in year order; full hashes are in the module metadata.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_ingested_at_utc",
+      "description": "UTC time the CareSet file was ingested into the 2026-10-24 edge tables (the latest ingestion time when the row derives from several years).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    }
+  ],
+  "shared_patient_core_hcp_senders_2017_2022": [
+    {
+      "column": "npi",
+      "description": "Licence of every row: CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum, attribution to CareSet Systems, Inc., non-commercial use only. NPI of a core HCP (division core, 2024 label) as receiver. A row exists for each year with at least one universe sender, and for a year without one that lost senders against the previous year. Counts are sums of pair counts, each of at least 11 Medicare fee-for-service patients shared in the year, not distinct patients; a shared patient is not a referral, and nothing here is specific to CAR-T. Patients and senders of the referring group are not repeated here: they are in_patients_from_referrers and referrer_sources of the 2026-10-24 yearly features, and equal patients_from_universe minus the three published groups.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year",
+      "description": "CareSet calendar year, 2017 to 2022.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "year_status",
+      "description": "linked: at least one universe sender in the year; not_observed: none at or above the 11-patient pair floor (not zero patients).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "senders",
+      "description": "Distinct universe NPIs sending to this core HCP.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_from_universe",
+      "description": "Sum of PATIENT_COUNT over pairs from universe NPIs.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_from_core",
+      "description": "Part of patients_from_universe from core senders.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_from_affiliates",
+      "description": "Part from affiliate senders (affiliate_A, B, C and center_affiliate_unlinked).",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_from_other",
+      "description": "Part from hemonc_other senders.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "senders_core",
+      "description": "Core senders.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "senders_affiliates",
+      "description": "Affiliate senders.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "senders_other",
+      "description": "hemonc_other senders.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "outside_hrr_patient_share",
+      "description": "Share of patients_from_universe from senders whose hospital referral region (HRR) differs from the core HCP's own, among senders with a known HRR, three decimals.",
+      "missing_value": "Blank when not_observed, or when the core HCP or every sender has no HRR.",
+      "source": "careset"
+    },
+    {
+      "column": "senders_without_hrr",
+      "description": "Senders left out of outside_hrr_patient_share.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "sender_hhi",
+      "description": "Herfindahl-Hirschman index of senders' shares of patients_from_universe, 0 to 1, four decimals.",
+      "missing_value": "Blank when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "senders_gained",
+      "description": "Senders this year without a pair the previous year.",
+      "missing_value": "Blank in 2017 and when not_observed.",
+      "source": "careset"
+    },
+    {
+      "column": "senders_lost",
+      "description": "Senders of the previous year without a pair this year.",
+      "missing_value": "Blank in 2017.",
+      "source": "careset"
+    },
+    {
+      "column": "comparison_status",
+      "description": "first_year: 2017, change columns blank; compared: compared with the previous year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id of the row: careset_hop_<year> is the CareSet DocGraph Hop Teaming annual file (Medicare fee-for-service shared-patient provider pairs) of that year; careset_hop_<first>_<last> means the row derives from the years first to last.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of each CareSet file the row derives from, as recorded at ingestion in the 2026-10-24 metadata, joined by semicolons in year order; full hashes are in the module metadata.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_ingested_at_utc",
+      "description": "UTC time the CareSet file was ingested into the 2026-10-24 edge tables (the latest ingestion time when the row derives from several years).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    }
+  ],
+  "shared_patient_core_reach_by_group_2017_2022": [
+    {
+      "column": "year",
+      "description": "Licence of every row: CC BY-NC-SA 4.0 with the CareSet Noncommercial Data License Addendum, attribution to CareSet Systems, Inc., non-commercial use only. CareSet calendar year, 2017 to 2022. Counts are sums of pair counts, each of at least 11 Medicare fee-for-service patients shared in the year, not distinct patients; a shared patient is not a referral, and nothing here is specific to CAR-T. ",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "division_group",
+      "description": "Sender division group of base.DIVISION_GROUPS (2024 labels).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "npis_in_group",
+      "description": "Universe NPIs in the group.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "senders_to_core",
+      "description": "NPIs of the group with a pair to at least one core HCP in the year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "sender_share_of_group",
+      "description": "senders_to_core divided by npis_in_group, three decimals.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "sender_core_pairs",
+      "description": "Sender x core HCP pairs of the group in the year.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "patients_to_core",
+      "description": "Sum of PATIENT_COUNT over those pairs.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source",
+      "description": "Source id of the row: careset_hop_<year> is the CareSet DocGraph Hop Teaming annual file (Medicare fee-for-service shared-patient provider pairs) of that year; careset_hop_<first>_<last> means the row derives from the years first to last.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_sha256_prefix",
+      "description": "First 8 hexadecimal characters of the SHA-256 of each CareSet file the row derives from, as recorded at ingestion in the 2026-10-24 metadata, joined by semicolons in year order; full hashes are in the module metadata.",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    },
+    {
+      "column": "source_ingested_at_utc",
+      "description": "UTC time the CareSet file was ingested into the 2026-10-24 edge tables (the latest ingestion time when the row derives from several years).",
+      "missing_value": "Never blank.",
+      "source": "careset"
+    }
+  ]
+}

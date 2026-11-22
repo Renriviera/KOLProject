@@ -29,6 +29,10 @@ kolproject-kol-site = "kolproject.kol.site:main"
 kolproject-divisions = "kolproject.divisions:main"
 kolproject-careset = "kolproject.careset:main"
 kolproject-catchment = "kolproject.kol.catchment:main"
+kolproject-research-payments = "kolproject.research_payments:main"
+kolproject-general-payments = "kolproject.general_payments:main"
+kolproject-volume-billing = "kolproject.volume_billing.cli:main"
+kolproject-extensions = "kolproject.extensions.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.12.23,<0.13.0"]

@@ -30,6 +30,10 @@ The evaluation checks the published tables and writes
 | [`Data/processed/`](Data/README.md) | Dated HCP, publication, payment, network, screening, and utilization CSVs |
 | `Data/manifests/` | Field dictionaries for the cohort, utilization extension, and HCP divisions |
 | [`Data/DIVISIONS_README.md`](Data/DIVISIONS_README.md) | 2026-10-24 CAR-T center set and referring/affiliate HCP division labels around the core 500 |
+| [`Data/RESEARCH_PAYMENTS_README.md`](Data/RESEARCH_PAYMENTS_README.md) | 2026-11-11 Open Payments research records naming core HCPs as principal investigators, 2019–2025 |
+| [`Data/GENERAL_PAYMENTS_README.md`](Data/GENERAL_PAYMENTS_README.md) | 2026-11-11 Open Payments general records for core HCPs across 2019–2025, with nature groups and CAR-T flags |
+| [`Data/VOLUME_BILLING_README.md`](Data/VOLUME_BILLING_README.md) | 2026-11-19 CAR-T site volume panel, 340B status, treater evidence, and Open Payments, Medicare and Medicaid payments for the whole universe |
+| [`Data/EXTENSIONS_README.md`](Data/EXTENSIONS_README.md) | 2026-11-20 extensions of the four dataset categories (publications, payer payments, industry ties, referral flows), with a source log and no entry repeated from earlier snapshots |
 | `src/kolproject/` | Collection, identity matching, deduplication, preprocessing, analysis, ranking, and evaluation code |
 | `pre-processing/` | Payment prefetch and one-to-one modeling join helpers |
 | `configs/` | Hydra settings, 2024 code definitions, and identity evidence templates; ignored `configs/local/` holds local evidence |
@@ -66,7 +70,15 @@ Derived output timestamps reflect the rerun; source observation dates are preser
 https://renriviera.github.io/KOLProject/ when GitHub Pages is enabled.
 `uv run kolproject-divisions --skip-collect` rebuilds the 2026-10-24 division tables
 from local raw files, and `uv run kolproject-catchment` bundles them into the site's
-Catchment tab; see [`Data/DIVISIONS_README.md`](Data/DIVISIONS_README.md). CareSet
+Catchment tab; see [`Data/DIVISIONS_README.md`](Data/DIVISIONS_README.md).
+`uv run kolproject-research-payments --skip-collect` rebuilds the 2026-11-11 research-payment
+tables from local archives; see [`Data/RESEARCH_PAYMENTS_README.md`](Data/RESEARCH_PAYMENTS_README.md).
+`uv run kolproject-general-payments --skip-collect` does the same for the 2019–2025 general
+payments; see [`Data/GENERAL_PAYMENTS_README.md`](Data/GENERAL_PAYMENTS_README.md).
+`uv run kolproject-volume-billing` rebuilds the 2026-11-19 volume, billing and payment tables from
+frozen local inputs; see [`Data/VOLUME_BILLING_README.md`](Data/VOLUME_BILLING_README.md).
+`uv run kolproject-extensions` does the same for the 2026-11-20 extension tables; see
+[`Data/EXTENSIONS_README.md`](Data/EXTENSIONS_README.md). CareSet
 DocGraph files, once licensed, load with `uv run kolproject-careset <file> --year 2024`.
 
 ![Cohort publication profile](eda/visualizations/cohort_profile.png)

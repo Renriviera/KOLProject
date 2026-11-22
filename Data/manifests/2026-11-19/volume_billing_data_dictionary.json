@@ -1,0 +1,2664 @@
+{
+  "cart_site_volume_panel": [
+    {
+      "column": "site_key",
+      "description": "Identifier of the site, filled on every row: the CMS Certification Number (CCN) for the 218 hospital rows, otherwise a lowercase slug of site type, name, city and state or country written by this project (for example practice-tennessee-oncology-nashville-tn).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "ccn",
+      "description": "CCN of the Medicare-enrolled hospital the row stands for (six digits, leading zeros kept; load as text). It is the join key to cart_centers of 2026-10-24 and to cart_center_340b_status of this snapshot, which carries 340B drug discount program status; no 340B column is repeated here.",
+      "missing_value": "The site is not a United States hospital with a CCN (22 rows); site_type says which kind.",
+      "source": "cms"
+    },
+    {
+      "column": "site_name",
+      "description": "Name of the site: for center-set hospitals the doing-business-as name, else the legal name, of cart_centers; for other hospitals the same from the Centers for Medicare & Medicaid Services (CMS) Hospital Enrollments file of 2026-09-29; seven hospital names and all names of sites without a CCN are written by this project. Two hospitals share the name METHODIST HOSPITAL (450388, 280040).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "city",
+      "description": "City of the site: the enrollment address city of the CMS Hospital Enrollments file for hospital rows (for example EDMOND for 370093), a city written by this project for the other rows.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "state",
+      "description": "Two-letter United States state or territory code of the site (PR included).",
+      "missing_value": "The site is outside the United States (11 Canadian rows).",
+      "source": "cms"
+    },
+    {
+      "column": "country",
+      "description": "Country of the site as a three-letter code: USA or CAN.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "site_type",
+      "description": "Kind of site: hospital (has a CCN, 218 rows), physician_practice (practice or freestanding clinic without a hospital CCN, 10), federal_hospital (Veterans Affairs hospital, which has no CCN, 1), non_us_center (Canadian center, 11).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "in_cart_center_set",
+      "description": "1 when the CCN is one of the 173 CAR-T (chimeric antigen receptor T-cell) centers of cart_centers (snapshot 2026-10-24), else 0.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "set_evidence",
+      "description": "Why the CCN is in the center set, copied from cart_centers: drg018_2024 (a published 2024 Medicare count), fact_iec_accredited (an immune effector cell accreditation of the Foundation for the Accreditation of Cellular Therapy, FACT, attached to the CCN), or both joined by a semicolon.",
+      "missing_value": "Not in the center set (67 rows).",
+      "source": "project"
+    },
+    {
+      "column": "core_hcps_affiliated",
+      "description": "Number of health care professionals of the core division of hcp_divisions (500 people, snapshot 2026-10-24) affiliated with the center, copied from cart_centers.",
+      "missing_value": "Not in the center set (67 rows). 0 means a center with no core professional.",
+      "source": "project"
+    },
+    {
+      "column": "childrens_hospital_ccn_range",
+      "description": "1 when the last four digits of the CCN are 3300 to 3399, the range CMS gives children's hospitals, else 0 (36 rows are 1). All 36 are absent from the 2024 Medicare inpatient file.",
+      "missing_value": "Never blank; 0 also covers rows without a CCN.",
+      "source": "cms"
+    },
+    {
+      "column": "related_center_ccn",
+      "description": "CCN, or CCNs joined by a semicolon, of other rows of this table that must be read together with this row; the hospital subset of related_site_key.",
+      "missing_value": "No related hospital row.",
+      "source": "project"
+    },
+    {
+      "column": "related_site_key",
+      "description": "site_key values, joined by a semicolon, of the rows this row must be read with; every pointer is returned by the row it names.",
+      "missing_value": "No related row.",
+      "source": "project"
+    },
+    {
+      "column": "related_site_relation",
+      "description": "How the related rows connect: program_at_related_site (the accreditation that puts this CCN in the center set belongs to a program at the related site), hosts_program_accredited_under_related_ccn (the reverse), program_partly_at_related_site, shares_program_accredited_under_related_ccn (the reverse), one_program_split_across_ccns, or accreditation_only (in the set by accreditation, no directory record, no related row).",
+      "missing_value": "No note applies to the row (218 rows).",
+      "source": "project"
+    },
+    {
+      "column": "related_site_note",
+      "description": "One sentence by this project explaining the relation, based on the FACT listing, the BMT InfoNet directory and Medicare or state files.",
+      "missing_value": "No note applies to the row.",
+      "source": "project"
+    },
+    {
+      "column": "on_bmtinfonet_directory",
+      "description": "1 when at least one record of the CAR T-cell Center Directory of BMT InfoNet (Blood & Marrow Transplant Information Network; 277 records retrieved 2026-11-19) was matched to the site, else 0. Presence on a list, not proof of treatment.",
+      "missing_value": "Never blank.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "bmtinfonet_program_count",
+      "description": "Number of BMT InfoNet directory records (programs) matched to the site, 0 to 3; adult and pediatric programs of one hospital are separate records.",
+      "missing_value": "Never blank; 0 means not in the directory.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "bmtinfonet_directory_ids",
+      "description": "Directory record numbers of the matched BMT InfoNet programs, joined by a semicolon; each is the last part of the address of the program page on bmtinfonet.org.",
+      "missing_value": "Not in the directory.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "bmtinfonet_fact_approved",
+      "description": "1 when a matched BMT InfoNet record showed FACT approval as Yes on 2026-11-19, else 0. The source is the directory page, not the FACT listing, and the two disagree for some centers.",
+      "missing_value": "Never blank; 0 covers a No, an empty field and sites not in the directory.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "bmtinfonet_match_methods",
+      "description": "How the BMT InfoNet records were matched to the site, distinct values joined by a semicolon: exact_addr (same ZIP code, street number and first street word as a CMS enrollment address), fuzzy (best name and place score within the state), manual (set by hand), foreign (record with no United States state).",
+      "missing_value": "Not in the directory.",
+      "source": "project"
+    },
+    {
+      "column": "bmtinfonet_match_review_note",
+      "description": "Note by this project on a BMT InfoNet record whose assignment to this row was a judgement call and should be reviewed before the row is relied on.",
+      "missing_value": "No such note (236 rows).",
+      "source": "project"
+    },
+    {
+      "column": "bmtinfonet_programs_reporting_2024",
+      "description": "Number of matched BMT InfoNet programs that show a number of CAR-T therapies for 2024. When it is above 0 and below bmtinfonet_program_count, the 2024 band is a partial sum.",
+      "missing_value": "Never blank; 0 means no matched program shows a 2024 number.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "bmtinfonet_n_2024_band",
+      "description": "Size band of the self-reported CAR-T therapies performed in 2024, summed over the matched BMT InfoNet programs as displayed on 2026-11-19: 0, 1-10, 11-25, 26-50, 51-100, 101-200 or 201+. Unaudited, all indications, definition not stated by the site; exact counts are not published.",
+      "missing_value": "No matched program shows a 2024 number (see bmtinfonet_programs_reporting_2024). The band 0 means a reported zero.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "bmtinfonet_n_2024_nonpediatric_band",
+      "description": "Same size band for 2024, summed only over matched BMT InfoNet programs that are not pediatric programs.",
+      "missing_value": "No non-pediatric matched program shows a 2024 number.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "bmtinfonet_duplicate_suspect_site_key",
+      "description": "site_key of another row whose BMT InfoNet record shows the same number in each of the five years 2021 to 2025 (five-year total 20 or more), which suggests one program posted on two directory pages and counted twice. Not confirmed with the source.",
+      "missing_value": "No such pair (238 rows).",
+      "source": "project"
+    },
+    {
+      "column": "medicare_ffs_drg018_2021",
+      "description": "Medicare fee-for-service inpatient discharges in Medicare Severity Diagnosis Related Group (MS-DRG) 018, the CAR-T and other immunotherapy group, at the CCN in 2021, from CMS Medicare Inpatient Hospitals by Provider and Service. Not lymphoma-specific; no Medicare Advantage, no outpatient infusions.",
+      "missing_value": "No MS-DRG 018 row for the CCN in that year of the CMS file: fewer than 11 discharges (suppressed) or none, hospital absent from the file, or no CCN. 0 never appears.",
+      "source": "cms"
+    },
+    {
+      "column": "medicare_ffs_drg018_2022",
+      "description": "Medicare fee-for-service inpatient discharges in MS-DRG 018 at the CCN in 2022, from CMS Medicare Inpatient Hospitals by Provider and Service.",
+      "missing_value": "No MS-DRG 018 row for the CCN in that year of the CMS file: fewer than 11 discharges (suppressed) or none, hospital absent from the file, or no CCN. 0 never appears.",
+      "source": "cms"
+    },
+    {
+      "column": "medicare_ffs_drg018_2023",
+      "description": "Medicare fee-for-service inpatient discharges in MS-DRG 018 at the CCN in 2023, from CMS Medicare Inpatient Hospitals by Provider and Service.",
+      "missing_value": "No MS-DRG 018 row for the CCN in that year of the CMS file: fewer than 11 discharges (suppressed) or none, hospital absent from the file, or no CCN. 0 never appears.",
+      "source": "cms"
+    },
+    {
+      "column": "medicare_ffs_drg018_2024",
+      "description": "Medicare fee-for-service inpatient discharges in MS-DRG 018 at the CCN in 2024, from CMS Medicare Inpatient Hospitals by Provider and Service; equal to drg018_discharges_2024 of cart_centers for the 173 centers.",
+      "missing_value": "See medicare_file_status_2024, which separates the three reasons for a blank. 0 never appears.",
+      "source": "cms"
+    },
+    {
+      "column": "medicare_file_status_2024",
+      "description": "Why the 2024 Medicare cell is filled or blank, from a check of every CCN against the full 2024 file: count_published (11 or more discharges), in_file_no_drg018_row (the hospital has rows for other groups, so its MS-DRG 018 count is below 11 or zero), not_in_file (the hospital has no row for any group: 36 children's hospitals, 10 cancer hospitals paid outside the prospective payment system, and 050778 and 400016), no_ccn.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "ny_sparcs_aprdrg011_all_payer_2023",
+      "description": "All-payer inpatient discharges in All Patient Refined Diagnosis Related Group (APR-DRG) 011, the CAR-T and other immunotherapy group, in 2023 in the de-identified public file of the New York Statewide Planning and Research Cooperative System (SPARCS), counted as records and summed over the facilities mapped by hand to the CCN. Not lymphoma-specific; values below 11 are shown as the file gives them.",
+      "missing_value": "No New York discharge record is mapped to the site; ny_sparcs_status says whether the site is outside New York. 0 never appears.",
+      "source": "ny_sparcs"
+    },
+    {
+      "column": "ny_sparcs_aprdrg011_all_payer_2024",
+      "description": "All-payer inpatient discharges in APR-DRG 011 in 2024 in the New York SPARCS de-identified public file, summed over the facilities mapped by hand to the CCN (both NewYork-Presbyterian campuses go to 330101; Cohen Children's goes to 330195).",
+      "missing_value": "No New York discharge record is mapped to the site; ny_sparcs_status says whether the site is outside New York. 0 never appears.",
+      "source": "ny_sparcs"
+    },
+    {
+      "column": "ny_sparcs_aprdrg011_2024_medicare",
+      "description": "Number of the 2024 New York APR-DRG 011 discharges whose first payment type is Medicare; the file does not separate traditional Medicare from Medicare Advantage. In the four payer columns values below 11 are shown as counted from the public record-level file.",
+      "missing_value": "Site has no 2024 New York record (see ny_sparcs_status). 0 means a hospital with 2024 records and none in this payer group.",
+      "source": "ny_sparcs"
+    },
+    {
+      "column": "ny_sparcs_aprdrg011_2024_medicaid",
+      "description": "Number of the 2024 New York APR-DRG 011 discharges whose first payment type is Medicaid.",
+      "missing_value": "Site has no 2024 New York record (see ny_sparcs_status). 0 means a hospital with 2024 records and none in this payer group.",
+      "source": "ny_sparcs"
+    },
+    {
+      "column": "ny_sparcs_aprdrg011_2024_commercial",
+      "description": "Number of the 2024 New York APR-DRG 011 discharges whose first payment type is Private Health Insurance or Blue Cross/Blue Shield.",
+      "missing_value": "Site has no 2024 New York record (see ny_sparcs_status). 0 means a hospital with 2024 records and none in this payer group.",
+      "source": "ny_sparcs"
+    },
+    {
+      "column": "ny_sparcs_aprdrg011_2024_other",
+      "description": "Number of the 2024 New York APR-DRG 011 discharges with any other first payment type (federal, state, local or Veterans Affairs; unspecified managed care; self-pay), counted from the records. The four payer columns sum to the 2024 total on every row.",
+      "missing_value": "Site has no 2024 New York record (see ny_sparcs_status). 0 means a hospital with 2024 records and none in this payer group.",
+      "source": "ny_sparcs"
+    },
+    {
+      "column": "ny_sparcs_status",
+      "description": "Coverage of the row by the New York file: discharges_in_file (a count in 2023 or 2024), in_state_none_in_file (New York hospital with no APR-DRG 011 record mapped to it), in_state_no_ccn (New York site without a CCN; none in this snapshot), outside_new_york (the file cannot show this site).",
+      "missing_value": "Never blank.",
+      "source": "ny_sparcs"
+    },
+    {
+      "column": "ca_hcai_msdrg018_all_payer_2024",
+      "description": "All-payer inpatient discharges in MS-DRG 018 in 2024 at the California licensed facility mapped by hand to the CCN, from the Top 25 MS-DRGs Individual Hospital profile of the California Department of Health Care Access and Information (HCAI). A hospital is listed only when MS-DRG 018 is in one of its top-25 tables; values as low as 1 are shown.",
+      "missing_value": "Site outside California, or MS-DRG 018 is in none of the hospital's top-25 tables that year (not evidence of zero); see ca_hcai_status. 0 never appears.",
+      "source": "ca_hcai"
+    },
+    {
+      "column": "ca_hcai_msdrg018_all_payer_2025",
+      "description": "All-payer inpatient discharges in MS-DRG 018 in 2025 at the California licensed facility mapped by hand to the CCN, from the same HCAI profile.",
+      "missing_value": "Site outside California, or MS-DRG 018 is in none of the hospital's top-25 tables that year (not evidence of zero); see ca_hcai_status. 0 never appears.",
+      "source": "ca_hcai"
+    },
+    {
+      "column": "ca_hcai_status",
+      "description": "Coverage of the row by the California file: drg018_in_top25_table (a count in 2024 or 2025), in_state_drg018_not_in_top25_table (California hospital not listed in either year, which is not evidence of zero), in_state_no_ccn (California site without a CCN, so no facility could be mapped), outside_california (the file cannot show this site).",
+      "missing_value": "Never blank.",
+      "source": "ca_hcai"
+    },
+    {
+      "column": "pt_remit_medicare_ffs_exact_n",
+      "description": "Sum of exact remittance counts (11 or more each) on traditional Medicare payer rows for MS-DRG 018 or APR-DRG 011 inpatient stays in the hospital's own price transparency file. Remittances in the 12 to 15 months before the file was posted (files dated 23 March to 1 April 2026 for five hospitals; the Stanford and Emory file dates were not recorded), not patients. The payer rule recognises traditional Medicare in the two Mass General Brigham files only.",
+      "missing_value": "Price file not parsed (see pt_remit_status), or the parsed file has no row of this payer class with an exact count. A blank is not zero volume.",
+      "source": "hospital_price_file"
+    },
+    {
+      "column": "pt_remit_ma_exact_n",
+      "description": "Sum of exact remittance counts on payer-plan rows classed Medicare Advantage by keyword, same files, groups and window. Remittances, not patients.",
+      "missing_value": "Price file not parsed (see pt_remit_status), or the parsed file has no row of this payer class with an exact count. A blank is not zero volume.",
+      "source": "hospital_price_file"
+    },
+    {
+      "column": "pt_remit_ma_masked_rows",
+      "description": "Number of Medicare Advantage payer-plan rows whose remittance count the file masks as 1 through 10. A count of file rows, each standing for 1 to 10 remittances; never add it to a count of cases.",
+      "missing_value": "Price file not parsed (see pt_remit_status). 0 means a parsed file with no masked row of this payer class.",
+      "source": "hospital_price_file"
+    },
+    {
+      "column": "pt_remit_commercial_exact_n",
+      "description": "Sum of exact remittance counts on payer-plan rows not classed Medicare, Medicare Advantage or Medicaid (transplant carve-out contracts included), same files, groups and window. Remittances include partial and adjustment payments.",
+      "missing_value": "Price file not parsed (see pt_remit_status), or the parsed file has no row of this payer class with an exact count. A blank is not zero volume.",
+      "source": "hospital_price_file"
+    },
+    {
+      "column": "pt_remit_commercial_masked_rows",
+      "description": "Number of commercial payer-plan rows whose remittance count the file masks as 1 through 10 (for APR-DRG 011 one row per plan and severity level). A count of file rows, not of cases.",
+      "missing_value": "Price file not parsed (see pt_remit_status). 0 means a parsed file with no masked row of this payer class.",
+      "source": "hospital_price_file"
+    },
+    {
+      "column": "pt_remit_medicaid_masked_rows",
+      "description": "Number of Medicaid payer-plan rows (state fee-for-service and managed care together, classed by keyword) whose remittance count the file masks as 1 through 10. A count of file rows, not of cases; no parsed file shows an exact Medicaid count.",
+      "missing_value": "Price file not parsed (see pt_remit_status). 0 means a parsed file with no masked row of this payer class.",
+      "source": "hospital_price_file"
+    },
+    {
+      "column": "pt_remit_status",
+      "description": "Whether the hospital's price transparency file was parsed for the remittance columns: file_parsed (7 hospitals), file_not_parsed (hospital whose file was not read for this table, which says nothing about its volume), no_ccn.",
+      "missing_value": "Never blank.",
+      "source": "hospital_price_file"
+    },
+    {
+      "column": "open_payments_cart_product_research_usd_2019_2025",
+      "description": "United States dollars on CMS Open Payments research records, program years 2019 to 2025 (publication of 2026-06-30), whose teaching hospital is this CCN and whose product fields name one of seven approved CAR-T products (Yescarta, Tecartus, Kymriah, Breyanzi, Abecma, Carvykti, Aucatzyl). As reported by manufacturers; institutional payments, not lymphoma-specific.",
+      "missing_value": "The CCN is the teaching hospital on no Open Payments research record in 2019 to 2025, or the site has no CCN; see open_payments_research_status. 0.00 means it has research records and none match.",
+      "source": "open_payments"
+    },
+    {
+      "column": "open_payments_cart_product_or_text_research_usd_2019_2025",
+      "description": "United States dollars on the same Open Payments research records that name a CAR-T product in a product field or whose study name or research context matches a CAR-T product name or phrase; a text rule of this project, never below the product-only amount.",
+      "missing_value": "The CCN is the teaching hospital on no Open Payments research record in 2019 to 2025, or the site has no CCN; see open_payments_research_status. 0.00 means it has research records and none match.",
+      "source": "open_payments"
+    },
+    {
+      "column": "open_payments_research_status",
+      "description": "Why the two Open Payments cells are filled or blank: published_records (the CCN is the teaching hospital on at least one research record in 2019 to 2025), no_published_records, no_ccn. Research paid to a university or institute instead of the hospital is not counted.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "has_public_all_payer_count",
+      "description": "1 when the New York file or the California file shows a count for the site, or its price transparency file was parsed (masked rows alone also count), else 0. Computed from the state and price-file columns of this table only; the BMT InfoNet directory plays no part.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "cart_center_340b_status": [
+    {
+      "column": "ccn",
+      "description": "Six-character Centers for Medicare & Medicaid Services (CMS) Certification Number (CCN) of the hospital that is a chimeric antigen receptor T-cell (CAR-T) therapy center, zero-padded text. Key of the table and of cart_centers.csv in the 2026-10-24 snapshot, which holds the hospital name, state and Medicare discharge count.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "registry_status_at_ccn",
+      "description": "Result of matching the center's own CCN to hospital records in the Health Resources and Services Administration (HRSA) 340B registry export of 2026-06-23: active = a parent record at this CCN is participating (a parent record is the registration of the hospital itself; its off-site clinics are registered as child sites under it); inactive = records exist at this CCN but no parent record is participating on that date, whether terminated or not yet started; not_registered = no hospital record carries this CCN.",
+      "missing_value": "Never blank.",
+      "source": "hrsa"
+    },
+    {
+      "column": "route_340b",
+      "description": "How the center reaches the 340B drug discount program in the 2026-06-23 export: direct = participating parent record at its own CCN; sibling = no participating record at its own CCN, but a participating child site of another hospital in the same health system sits at or beside the center's address or names its transplant or cell-therapy clinic (found by manual search); pending_direct = a parent record at its own CCN that starts on 2026-07-01 and is not yet participating; outside = none of these.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "entity_type_340b",
+      "description": "HRSA hospital entity type of the evidence record: DSH = disproportionate share hospital, PED = children's hospital, RRC = rural referral center, CAN = free-standing cancer hospital, SCH = sole community hospital, CAH = critical access hospital. Only DSH, PED, RRC and CAN occur.",
+      "missing_value": "route_340b is outside: there is no evidence record.",
+      "source": "hrsa"
+    },
+    {
+      "column": "class_340b",
+      "description": "What the entity type allows in law for an outpatient CAR-T dose: A = DSH or PED, a 340B price is legally possible; B = CAN, RRC, SCH or CAH, types for which drugs with an orphan designation (every CAR-T product) are excluded from 340B pricing unless the manufacturer offers it voluntarily; C = outside 340B. It does not show that any CAR-T dose was bought at a 340B price, and it counts the two records that start on 2026-07-01 but not the two that end on that date (see scheduled_registry_change).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_340b_id",
+      "description": "HRSA 340B ID of the registry record that supports route_340b: the center's own parent record for direct and pending_direct rows, the other hospital's child-site record for sibling rows.",
+      "missing_value": "route_340b is outside.",
+      "source": "hrsa"
+    },
+    {
+      "column": "evidence_ccn",
+      "description": "Medicare provider number on the evidence record. It equals ccn for direct and pending_direct rows; for sibling rows it is another hospital's CCN, which is not one of the 173 centers.",
+      "missing_value": "route_340b is outside.",
+      "source": "hrsa"
+    },
+    {
+      "column": "evidence_start_date",
+      "description": "Participating start date (YYYY-MM-DD) of the evidence record: start of the current registration under the current entity type for direct rows, start of the child site for sibling rows, and the future start for pending_direct rows. It is not the hospital's first 340B date, because a new registration resets it.",
+      "missing_value": "route_340b is outside.",
+      "source": "hrsa"
+    },
+    {
+      "column": "sibling_site_names_cell_therapy",
+      "description": "For sibling rows only: 1 when the name of the other hospital's child site names a bone marrow transplant or cell-therapy clinic, 0 when it is a general oncology, infusion or outpatient site at or next door to the center's address, which is weaker evidence.",
+      "missing_value": "route_340b is not sibling.",
+      "source": "project"
+    },
+    {
+      "column": "scheduled_registry_change",
+      "description": "Change to the center's own parent records that the 2026-06-23 export already holds for a later date, written as the date (YYYY-MM-DD), a colon and what starts or ends, for example \"2026-07-01: DSH record ends; SCH record starts\". Four centers have one, all dated 2026-07-01. class_340b applies the starts but not the endings.",
+      "missing_value": "No such change. A future-dated record that ends on the day it starts is void and is not counted.",
+      "source": "hrsa"
+    },
+    {
+      "column": "registry_entity_types_ever",
+      "description": "Every HRSA hospital entity type found on any record at the center's own CCN in the 2026-06-23 export, whether participating, terminated or future-dated, sorted and separated by |.",
+      "missing_value": "No hospital record carries this CCN.",
+      "source": "hrsa"
+    },
+    {
+      "column": "n_registry_records_active",
+      "description": "Number of registry records at the center's own CCN (parent and child sites) that are participating on 2026-06-23.",
+      "missing_value": "Never blank; 0 means none.",
+      "source": "hrsa"
+    },
+    {
+      "column": "n_registry_records_total",
+      "description": "Number of registry records at the center's own CCN (parent and child sites) in the 2026-06-23 export, whether participating, terminated or future-dated.",
+      "missing_value": "Never blank; 0 means none.",
+      "source": "hrsa"
+    },
+    {
+      "column": "pps_exempt_cancer_hospital",
+      "description": "1 when the CCN is one of the 11 cancer hospitals that CMS exempts from the Medicare inpatient prospective payment system (PPS), from the CMS list last modified 2026-03-17, else 0. Ten of the 11 are centers. They have no 2024 discharge count for Medicare Severity Diagnosis Related Group (MS-DRG) 018, the inpatient payment group for CAR-T, in cart_centers.csv, and they were exempt from the 2018 to 2022 cut in Medicare payment for 340B drugs.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "status_note",
+      "description": "Evidence in words, written by hand for this project: for sibling and pending_direct rows the other hospital or record, the child-site name as the registry gives it and its start date; for outside rows why no route was found. BMT = bone marrow transplant; entity type codes as in entity_type_340b.",
+      "missing_value": "route_340b is direct: the evidence record needs no note.",
+      "source": "project"
+    },
+    {
+      "column": "in_cms_340b_remedy_file",
+      "description": "1 when the CCN is a provider row in Addendum AAA of the CMS final rule on the remedy for 340B-acquired drug payment (CMS-1793-F, files dated 2023-10-27), else 0. Being listed does not mean a non-zero amount.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "remedy_2018_usd",
+      "description": "CMS estimate, in US dollars, of the payment the hospital did not receive (Medicare payment plus the beneficiary copayment share) for separately payable outpatient drugs bought under 340B on calendar-year 2018 claims, because they were paid at average sales price (ASP) minus 22.5% instead of ASP plus 6%; all drugs, no CAR-T breakout.",
+      "missing_value": "The CCN is not a provider row of Addendum AAA (in_cms_340b_remedy_file = 0); 0.00 means listed with no affected payment that year.",
+      "source": "cms"
+    },
+    {
+      "column": "remedy_2019_usd",
+      "description": "CMS estimate, in US dollars, of the payment the hospital did not receive (Medicare payment plus the beneficiary copayment share) for separately payable outpatient drugs bought under 340B on calendar-year 2019 claims, because they were paid at average sales price (ASP) minus 22.5% instead of ASP plus 6%; all drugs, no CAR-T breakout.",
+      "missing_value": "The CCN is not a provider row of Addendum AAA (in_cms_340b_remedy_file = 0); 0.00 means listed with no affected payment that year.",
+      "source": "cms"
+    },
+    {
+      "column": "remedy_2020_usd",
+      "description": "CMS estimate, in US dollars, of the payment the hospital did not receive (Medicare payment plus the beneficiary copayment share) for separately payable outpatient drugs bought under 340B on calendar-year 2020 claims, because they were paid at average sales price (ASP) minus 22.5% instead of ASP plus 6%; all drugs, no CAR-T breakout.",
+      "missing_value": "The CCN is not a provider row of Addendum AAA (in_cms_340b_remedy_file = 0); 0.00 means listed with no affected payment that year.",
+      "source": "cms"
+    },
+    {
+      "column": "remedy_2021_usd",
+      "description": "CMS estimate, in US dollars, of the payment the hospital did not receive (Medicare payment plus the beneficiary copayment share) for separately payable outpatient drugs bought under 340B on calendar-year 2021 claims, because they were paid at average sales price (ASP) minus 22.5% instead of ASP plus 6%; all drugs, no CAR-T breakout.",
+      "missing_value": "The CCN is not a provider row of Addendum AAA (in_cms_340b_remedy_file = 0); 0.00 means listed with no affected payment that year.",
+      "source": "cms"
+    },
+    {
+      "column": "remedy_2022_withheld_usd",
+      "description": "Payment withheld on 340B-acquired outpatient drug claims from 2022-01-01 to 2022-09-27, in US dollars, before subtracting the remedy already paid: the part-year continuation of the 2018 to 2021 columns.",
+      "missing_value": "The CCN is not a provider row of Addendum AAA (in_cms_340b_remedy_file = 0); 0.00 means listed with nothing withheld.",
+      "source": "cms"
+    },
+    {
+      "column": "remedy_2022_net_usd",
+      "description": "Amount still owed for claims from 2022-01-01 to 2022-09-27, in US dollars: remedy_2022_withheld_usd minus the remedy CMS had already paid by reprocessing 2022 claims. This net figure, not the withheld amount, enters the total, and it is not comparable with the 2018 to 2021 columns.",
+      "missing_value": "The CCN is not a provider row of Addendum AAA (in_cms_340b_remedy_file = 0); 0.00 means nothing still owed.",
+      "source": "cms"
+    },
+    {
+      "column": "remedy_total_2018_2022_usd",
+      "description": "Lump-sum remedy payment CMS scheduled for the hospital, in US dollars, for 340B-acquired outpatient drug claims from 2018-01-01 to 2022-09-27: the four year columns plus remedy_2022_net_usd as CMS publishes the total, which can differ from that sum by up to $0.02.",
+      "missing_value": "The CCN is not a provider row of Addendum AAA (in_cms_340b_remedy_file = 0); 0.00 means listed with no remedy: expected for hospital types exempt from the payment cut and for hospitals not in 340B in those years, so it does not by itself show which of the two.",
+      "source": "cms"
+    },
+    {
+      "column": "registry_export_date",
+      "description": "Date of the HRSA 340B registry export that every registry column describes.",
+      "missing_value": "Never blank.",
+      "source": "hrsa"
+    },
+    {
+      "column": "collection_snapshot_date",
+      "description": "Date of the collection run that assembled this table.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "cart_product_orphan_designations": [
+    {
+      "column": "product",
+      "description": "Brand name of the chimeric antigen receptor T-cell (CAR-T) product: Yescarta, Kymriah, Tecartus, Breyanzi, Abecma, Carvykti or Aucatzyl.",
+      "missing_value": "Never blank.",
+      "source": "fda"
+    },
+    {
+      "column": "generic_name",
+      "description": "Nonproprietary name of the product.",
+      "missing_value": "Never blank.",
+      "source": "fda"
+    },
+    {
+      "column": "designated_indication",
+      "description": "Indication for which the cited Food and Drug Administration (FDA) document states an orphan-drug designation, in short form: DLBCL = diffuse large B-cell lymphoma, PMBCL = primary mediastinal large B-cell lymphoma, ALL = acute lymphoblastic leukemia, CLL/SLL = chronic lymphocytic leukemia or small lymphocytic lymphoma, MCL = mantle cell lymphoma, 2L = second line, r/r = relapsed or refractory. A date in brackets is the approval date of a supplemental biologics license application (sBLA) whose letter states that the product has an orphan designation for that indication; one Breyanzi row groups three such supplements.",
+      "missing_value": "Never blank.",
+      "source": "fda"
+    },
+    {
+      "column": "designation_date",
+      "description": "Date the orphan designation was granted as the FDA document states it: YYYY-MM-DD, or YYYY-MM when the document gives only the month.",
+      "missing_value": "The document confirms the designation without a date (designation_date_precision = not_stated).",
+      "source": "fda"
+    },
+    {
+      "column": "designation_date_precision",
+      "description": "How precisely the document dates the designation: day, month, or not_stated.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_document",
+      "description": "Short label of the FDA document or documents relied on, separated by \"; \", with the date or year of the document where the compiled list recorded it. SBRA = summary basis for regulatory action; FL = follicular lymphoma.",
+      "missing_value": "Never blank.",
+      "source": "fda"
+    },
+    {
+      "column": "evidence_url",
+      "description": "Address on fda.gov of each document named in evidence_document, in the same order, separated by \" | \". Two exceptions: the Carvykti row names a second document (the 2024 approval letter) whose address is not listed, and the Breyanzi row of three supplements lists its three letters.",
+      "missing_value": "Never blank.",
+      "source": "fda"
+    },
+    {
+      "column": "evidence_quote",
+      "description": "Short extract copied word for word from one of the FDA documents at evidence_url that states the designation. On the Yescarta follicular lymphoma row the quote is from the approval letter and the date from the summary document.",
+      "missing_value": "Never blank.",
+      "source": "fda"
+    },
+    {
+      "column": "collection_snapshot_date",
+      "description": "Date of the collection run that assembled this table.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ],
+  "npi_cart_treater_evidence": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual National Provider Identifier (NPI); join key to hcp_divisions.csv.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "in_universe",
+      "description": "1 if the NPI is one of the 17,510 NPIs of hcp_divisions.csv (2026-10-24), else 0.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "is_core",
+      "description": "1 if the NPI is one of the 500 core healthcare professionals (HCPs) of hcp_divisions.csv (2026-10-24), else 0.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "division",
+      "description": "Division label of hcp_divisions.csv (2026-10-24, label version 1.0.0), or outside_universe when the NPI is not in that table.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "identity_source",
+      "description": "Where identity fields come from: universe_table (join hcp_divisions.csv on npi; no name is repeated here), nppes_name_query (record returned by the name query to the National Plan and Provider Enumeration System (NPPES) registry behind a published name link, 2026-11-19), nppes_number_lookup (registry lookup by NPI on 2026-11-19), nppes_number_lookup_empty (that lookup returned nothing), or no_registry_lookup (no registry record is attached: the NPI was reached through payment or Medicare records that carry the NPI, and no registry lookup by number was saved).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "nppes_last_name",
+      "description": "Last name in the NPPES registry record, upper case as the registry returns it; outside-universe NPIs only.",
+      "missing_value": "Universe NPI, or no registry record attached; identity_source says which.",
+      "source": "nppes"
+    },
+    {
+      "column": "nppes_first_name",
+      "description": "First name in the NPPES registry record, upper case as the registry returns it; outside-universe NPIs only.",
+      "missing_value": "Universe NPI, or no registry record attached; identity_source says which.",
+      "source": "nppes"
+    },
+    {
+      "column": "nppes_state",
+      "description": "State of the first practice-location address in the NPPES registry record, as a two-letter code; outside-universe NPIs only. One row holds a state of Mexico written in full.",
+      "missing_value": "Universe NPI, or no registry record attached; identity_source says which.",
+      "source": "nppes"
+    },
+    {
+      "column": "nppes_primary_taxonomy",
+      "description": "Description of the primary taxonomy in the NPPES registry record; outside-universe NPIs only.",
+      "missing_value": "Universe NPI, no registry record attached, or the registry returned the taxonomy without a description.",
+      "source": "nppes"
+    },
+    {
+      "column": "taxonomy_class",
+      "description": "Coarse class. in_universe for every universe NPI (not classified further). For outside-universe NPIs with a registry record: pediatric_hematology_oncology or adult_hematology_oncology if any registry taxonomy says so, otherwise from the primary taxonomy nurse_practitioner, physician_assistant, registered_nurse_or_cns (registered nurse or clinical nurse specialist), pediatrics_other, internal_medicine_other, pathology, pharmacist, student_or_trainee or other:<primary taxonomy>, written other:code <taxonomy code> when the registry gives no description. When identity_source is no_registry_lookup the same labels are assigned from the Open Payments recipient type and specialty. unknown when nothing is available.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "ev_bmt_roster",
+      "description": "1 if a person listed as program director, medical director or physician on a US center page of the BMT InfoNet (Blood & Marrow Transplant Information Network) directory of centers giving chimeric antigen receptor T-cell (CAR-T) therapy, read on 2026-11-19, was matched by name to this NPI. Not limited to adult or lymphoma programs.",
+      "missing_value": "Never blank; 0 means no accepted name match, not absence from every roster.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "ev_fact_director",
+      "description": "1 if this NPI was matched by name to a director of a program accredited for immune effector cell therapy by the Foundation for the Accreditation of Cellular Therapy (FACT), from Data/processed/2026-10-24/fact_iec_programs.csv (listing observed 2026-10-25).",
+      "missing_value": "Never blank; 0 means no accepted name match.",
+      "source": "fact"
+    },
+    {
+      "column": "ev_ctgov_investigator",
+      "description": "1 if this NPI was matched by name to an overall official or to a US site principal or sub-investigator on one of 337 trials kept as CAR-T lymphoma trials among the 402 ClinicalTrials.gov study records processed on 2026-11-19. The trial filter and the name matching are this project's modifications of the registry data.",
+      "missing_value": "Never blank; 0 means no accepted name match. Site names exist for only 74 of the 337 trials.",
+      "source": "ctgov"
+    },
+    {
+      "column": "ev_op_cart_research_pi",
+      "description": "1 if this NPI holds a principal-investigator (PI) slot on at least one of the Centers for Medicare & Medicaid Services (CMS) Open Payments Research records, program years 2019-2025 (publication of 2026-06-30) that names a commercial CAR-T product of any indication.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ev_op_cart_services",
+      "description": "1 if, in Open Payments General records, program years 2019-2025 (publication of 2026-06-30), a universe NPI received more than 0 US dollars of service-type payments (consulting, honoraria, speaker or faculty compensation) on records naming only CAR-T products with at least one lymphoma product, or any service-type payment from a payer named Kite, Legend Biotech or Autolus; or an outside-universe NPI received more than 0 US dollars of service-type payments on records naming only CAR-T products of any indication.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "ev_medicare_cell_therapy",
+      "description": "1 if the NPI has a row for procedure code 0540T (CAR-T administration) in the CMS Medicare Physician & Other Practitioners by Provider and Service file (service years 2013-2024 searched), or provider type Hematopoietic Cell Transplantation and Cellular Therapy in the by Provider file in any service year 2019-2024. The provider type also covers transplant-only physicians.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "n_evidence_types_public",
+      "description": "Number of the six ev_ flags of this table equal to 1 (1 to 6). Evidence held in restricted columns is not counted.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "n_evidence_types_excl_services_public",
+      "description": "n_evidence_types_public minus ev_op_cart_services. It counts listing, trial, research and Medicare markers, not treatment delivery.",
+      "missing_value": "Never blank; 0 means the only published evidence is industry service payments.",
+      "source": "project"
+    },
+    {
+      "column": "n_evidence_types_excl_services_strict_links_public",
+      "description": "Evidence types other than service payments that remain when name-based sources with a weak link are discarded (0 to 5): ev_bmt_roster, ev_fact_director and ev_ctgov_investigator count only if a match status of that source is not weak, ev_op_cart_research_pi and ev_medicare_cell_therapy always count. Weak values are listed under bmt_match_status.",
+      "missing_value": "Never blank; 0 means no such evidence survives.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_score_public",
+      "description": "Arbitrary additive sort aid recomputable from this table: 3 if ev_bmt_roster, 3 if ev_fact_director, min(6, 2 x product trials as overall official + 1 x further product trials as site investigator only), min(2, context trials), 2 if a research PI slot (+1 at 10 records, +1 at 50), 1 if either service-dollar column of this table is above 0 (+1 at 10,000 US dollars), 1 if any Kite, Legend Biotech or Autolus service year, 3 if a 0540T row, 2 if the Medicare cell-therapy provider type. Not a measure of anything.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "bmt_center_ids",
+      "description": "Semicolon-separated BMT InfoNet directory center identifiers (the number at the end of the center page address) at which the NPI is listed.",
+      "missing_value": "ev_bmt_roster is 0.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "bmt_match_status",
+      "description": "How the BMT InfoNet name was linked to this NPI, best outcome over its mentions: exact_first_last_state = one universe NPI with the same full first name, last name and state (_city_tiebreak when the city settled it); nppes_in_universe or nppes_outside_universe = found by a state-scoped NPPES registry query, inside or outside the universe; the weak values are fuzzy_first_last_state (nickname, prefix or middle-name first name, or one part of a compound surname), exact_name_unique_state_differs and exact_name_unique_no_state (one universe NPI with that full name, state different or not given) and any value ending _national (registry query on the name alone).",
+      "missing_value": "ev_bmt_roster is 0.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "fact_program_ccns",
+      "description": "Semicolon-separated CMS Certification Numbers (CCN) of the hospitals in cart_centers.csv (2026-10-24) whose FACT-accredited program lists the NPI as a director.",
+      "missing_value": "ev_fact_director is 0.",
+      "source": "fact"
+    },
+    {
+      "column": "fact_match_status",
+      "description": "How the FACT director name was linked to this NPI, best outcome over its mentions; same values as bmt_match_status.",
+      "missing_value": "ev_fact_director is 0.",
+      "source": "fact"
+    },
+    {
+      "column": "ctgov_product_trials_overall_official",
+      "description": "Number of distinct trials classified by this project as CAR-T product trials (lymphoma condition or title and a CAR-T term in the intervention name, or one of 21 trials added by hand) on which the NPI is an overall official.",
+      "missing_value": "Never blank; 0 means none matched.",
+      "source": "ctgov"
+    },
+    {
+      "column": "ctgov_product_trials_site_investigator",
+      "description": "Number of distinct CAR-T product trials on which the NPI is a US site principal or sub-investigator; can overlap the overall-official count.",
+      "missing_value": "Never blank; 0 means none matched. Site contacts are published only while a site recruits.",
+      "source": "ctgov"
+    },
+    {
+      "column": "ctgov_product_trials_any_role",
+      "description": "Number of distinct CAR-T product trials on which the NPI holds either role.",
+      "missing_value": "Never blank; 0 means none matched.",
+      "source": "ctgov"
+    },
+    {
+      "column": "ctgov_context_trials_any_role",
+      "description": "Number of distinct context trials (lymphoma trials that mention CAR-T in the title or intervention description without a CAR-T term in the intervention name, for example treatments given after CAR-T) on which the NPI holds either role.",
+      "missing_value": "Never blank; 0 means none matched.",
+      "source": "ctgov"
+    },
+    {
+      "column": "ctgov_nct_ids",
+      "description": "Semicolon-separated ClinicalTrials.gov identifiers of the product and context trials counted in the ctgov_ columns.",
+      "missing_value": "ev_ctgov_investigator is 0.",
+      "source": "ctgov"
+    },
+    {
+      "column": "ctgov_overall_official_match_status",
+      "description": "How the overall-official name was linked to this NPI, best outcome over its mentions; same values as bmt_match_status, where state means any US site state of the trial (used only when the trial has six or fewer such states).",
+      "missing_value": "No overall-official mention matched.",
+      "source": "ctgov"
+    },
+    {
+      "column": "ctgov_site_investigator_match_status",
+      "description": "How the site-investigator name was linked to this NPI, best outcome over its mentions; same values as bmt_match_status.",
+      "missing_value": "No site-investigator mention matched.",
+      "source": "ctgov"
+    },
+    {
+      "column": "op_cart_research_pi_records_2019_2025",
+      "description": "Number of Open Payments Research records, program years 2019-2025 (publication of 2026-06-30) that name a commercial CAR-T product and list this NPI in a principal-investigator slot.",
+      "missing_value": "Never blank; 0 means none.",
+      "source": "open_payments"
+    },
+    {
+      "column": "op_lymphoma_cart_research_pi_records_2019_2025",
+      "description": "Subset of op_cart_research_pi_records_2019_2025 naming Yescarta, Tecartus, Kymriah or Breyanzi.",
+      "missing_value": "Never blank; 0 means none (myeloma or leukemia products only, or no record).",
+      "source": "open_payments"
+    },
+    {
+      "column": "op_cart_research_studies",
+      "description": "Number of distinct studies behind the records counted in op_cart_research_pi_records_2019_2025, by ClinicalTrials.gov identifier or, when the record has none, the first 40 characters of the study name; a study can count twice when only some of its records carry the identifier.",
+      "missing_value": "Never blank; 0 means none.",
+      "source": "open_payments"
+    },
+    {
+      "column": "op_cart_research_brands",
+      "description": "Semicolon-separated CAR-T brand names, in capitals, found on the records counted in op_cart_research_pi_records_2019_2025.",
+      "missing_value": "ev_op_cart_research_pi is 0.",
+      "source": "open_payments"
+    },
+    {
+      "column": "op_cart_research_pi_record_usd_2019_2025",
+      "description": "Sum in US dollars of the full amount of every record counted in op_cart_research_pi_records_2019_2025, program years 2019-2025. Mostly paid to institutions, not the physician; a record with several principal investigators counts in full for each.",
+      "missing_value": "Never blank; 0.00 means no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "op_lymphoma_only_cart_services_usd_2019_2025",
+      "description": "US dollars of service-type payments in Open Payments General records, program years 2019-2025 (publication of 2026-06-30) to a universe NPI on records where every named product is a CAR-T product and at least one is Yescarta, Tecartus, Kymriah or Breyanzi. Amounts are as reported by manufacturers.",
+      "missing_value": "Outside-universe NPI: not computed. 0.00 is an observed zero.",
+      "source": "open_payments"
+    },
+    {
+      "column": "op_cart_only_services_usd_2019_2025_outside_universe",
+      "description": "For outside-universe NPIs, US dollars of service-type payments in Open Payments General records, program years 2019-2025 (publication of 2026-06-30) on records where every named product is a CAR-T product of any indication.",
+      "missing_value": "Universe NPI: this column does not apply. 0.00 is an observed zero.",
+      "source": "open_payments"
+    },
+    {
+      "column": "op_kite_legend_autolus_service_years",
+      "description": "For universe NPIs, semicolon-separated company:count pairs (kite, legend_biotech, autolus) giving the number of program years 2019-2025 (1 to 7) with a service-type payment in Open Payments General records, program years 2019-2025 (publication of 2026-06-30) from a payer named Kite, Legend Biotech or Autolus, whatever product was named.",
+      "missing_value": "No such payment, or outside-universe NPI (not computed); in_universe says which.",
+      "source": "open_payments"
+    },
+    {
+      "column": "medicare_0540t_year_services",
+      "description": "Semicolon-separated service_year:services pairs for procedure code 0540T (CAR-T administration) rows of this NPI in the Medicare Physician & Other Practitioners by Provider and Service file, service years 2013-2024.",
+      "missing_value": "No row published; CMS withholds rows with 10 or fewer beneficiaries, so blank is not zero.",
+      "source": "cms"
+    },
+    {
+      "column": "medicare_hct_specialty_years",
+      "description": "Semicolon-separated service years 2019-2024 in which the NPI has provider type Hematopoietic Cell Transplantation and Cellular Therapy in the Medicare by Provider file.",
+      "missing_value": "Not listed under that provider type in any of those years.",
+      "source": "cms"
+    },
+    {
+      "column": "name_link_weak_sources_public",
+      "description": "Semicolon-separated name-based sources (bmt, fact, ctgov_overall, ctgov_site) whose match status in this table is one of the weak values listed under bmt_match_status.",
+      "missing_value": "No weak link among the published name-based sources, or no name-based source at all.",
+      "source": "project"
+    },
+    {
+      "column": "npi_link_confidence_public",
+      "description": "Confidence that the published name-based evidence belongs to this NPI: high (no weak source), mixed (weak and strong sources), low_name_based (every source weak), npi_keyed_only (no name matching involved). high is not verified identity.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "flag_bmt_pediatric_program_only",
+      "description": "1 if every BMT InfoNet center listing the NPI is described by the directory as a pediatric program.",
+      "missing_value": "Never blank; 0 also when ev_bmt_roster is 0.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "flag_bmt_centers_in_two_states",
+      "description": "1 if the BMT InfoNet centers listing the NPI are in more than one state: a move not yet reflected on one roster, or two people merged.",
+      "missing_value": "Never blank; 0 also when ev_bmt_roster is 0.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "flag_medicare_specialty_only_public",
+      "description": "1 if the Medicare cell-therapy provider type is the only published evidence other than service payments (no 0540T row, roster, director, trial or research evidence).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "flag_ctgov_context_only",
+      "description": "1 if ev_ctgov_investigator is 1 and every matched trial is a context trial.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "flag_services_company_arm_only",
+      "description": "1 if ev_op_cart_services rests only on payments from Kite, Legend Biotech or Autolus, with no service dollars on lymphoma CAR-T product records.",
+      "missing_value": "Never blank; always 0 for outside-universe NPIs.",
+      "source": "project"
+    },
+    {
+      "column": "flag_services_legend_autolus_only",
+      "description": "1 if flag_services_company_arm_only is 1 and none of the payers is Kite, so the payments come from a company whose CAR-T product treats myeloma or leukemia.",
+      "missing_value": "Never blank; always 0 for outside-universe NPIs.",
+      "source": "project"
+    },
+    {
+      "column": "flag_non_physician_taxonomy_class",
+      "description": "1 if taxonomy_class is nurse_practitioner, physician_assistant, registered_nurse_or_cns, pharmacist or student_or_trainee, or names a speech-language pathologist or behavior analyst.",
+      "missing_value": "Never blank; always 0 for universe NPIs.",
+      "source": "project"
+    },
+    {
+      "column": "needs_review",
+      "description": "1 if the row should be checked by hand before it is used to relabel anyone; needs_review_reasons says why.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "needs_review_reasons",
+      "description": "Semicolon-separated reasons: probable_false_name_link, possible_recipient_mixup (an outside-universe NPI paid for CAR-T services that shares name and state with a core healthcare professional), low_name_based_name_link, mixed_name_link, outside_universe_name_link_not_hematology_class, registry_lookup_empty, bmt_centers_in_two_states.",
+      "missing_value": "needs_review is 0.",
+      "source": "project"
+    }
+  ],
+  "division_relabel_candidates": [
+    {
+      "column": "npi",
+      "description": "Ten-digit National Provider Identifier (NPI) of a healthcare professional whose division in hcp_divisions.csv (2026-10-24) is referring_proxy or hemonc_other and who has public evidence, other than industry service payments, of involvement with chimeric antigen receptor T-cell (CAR-T) therapy. Join hcp_divisions.csv or npi_cart_treater_evidence.csv on npi for the label and the full evidence.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_flags",
+      "description": "Evidence types held by the NPI, joined by +: bmt_roster (listed at a center of the Blood & Marrow Transplant Information Network, BMT InfoNet, CAR-T directory), fact_director (director of a program accredited by the Foundation for the Accreditation of Cellular Therapy, FACT), ctgov_investigator (ClinicalTrials.gov), op_cart_research_pi and op_cart_services (Open Payments research principal investigator and service payments), medicare_cell_therapy.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "n_evidence_types_excl_services_public",
+      "description": "Number of evidence types in evidence_flags other than op_cart_services (1 to 3 in this table). It counts listings, trial roles, research slots and Medicare markers, not treatment delivery.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "n_evidence_types_excl_services_strict_links_public",
+      "description": "The same count when evidence that rests on a weak name link is discarded (0 to 3 in this table). Weak links are defined under bmt_match_status in npi_cart_treater_evidence.csv.",
+      "missing_value": "Never blank; 0 means all such evidence rests on weak name links.",
+      "source": "project"
+    },
+    {
+      "column": "evidence_score_public",
+      "description": "Arbitrary additive sort aid copied from npi_cart_treater_evidence.csv, where the formula is given; used here only to order rows with the same number of evidence types.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "bmt_center_ids",
+      "description": "Semicolon-separated BMT InfoNet directory center identifiers (the number at the end of the center page address) at which the NPI is listed.",
+      "missing_value": "Not matched to a BMT InfoNet center listing.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "fact_program_ccns",
+      "description": "Semicolon-separated Centers for Medicare & Medicaid Services (CMS) Certification Numbers (CCN) of the hospitals in cart_centers.csv (2026-10-24) whose FACT-accredited program lists the NPI as a director.",
+      "missing_value": "Not matched to a FACT program director.",
+      "source": "fact"
+    },
+    {
+      "column": "ctgov_nct_ids",
+      "description": "Semicolon-separated ClinicalTrials.gov identifiers of the CAR-T lymphoma trials on which the NPI was matched as an overall official or US site investigator (ClinicalTrials.gov study records processed on 2026-11-19).",
+      "missing_value": "No matched trial.",
+      "source": "ctgov"
+    },
+    {
+      "column": "op_cart_research_pi_records_2019_2025",
+      "description": "Number of CMS Open Payments Research records, program years 2019-2025 (publication of 2026-06-30) that name a commercial CAR-T product and list this NPI in a principal-investigator slot.",
+      "missing_value": "Never blank; 0 means none.",
+      "source": "open_payments"
+    },
+    {
+      "column": "medicare_hct_specialty_years",
+      "description": "Semicolon-separated service years 2019-2024 in which the NPI has provider type Hematopoietic Cell Transplantation and Cellular Therapy in the CMS Medicare Physician & Other Practitioners by Provider file.",
+      "missing_value": "Not listed under that provider type in any of those years.",
+      "source": "cms"
+    },
+    {
+      "column": "npi_link_confidence_public",
+      "description": "Confidence that the name-based evidence (bmt_roster, fact_director, ctgov_investigator) belongs to this NPI: high (no weak name link), mixed (weak and strong links), low_name_based (every link weak), npi_keyed_only (no name matching involved). high is not verified identity.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "name_link_weak_sources_public",
+      "description": "Semicolon-separated name-based sources (bmt, fact, ctgov_overall, ctgov_site) whose link to this NPI is weak.",
+      "missing_value": "No weak name link, or no name-based source at all.",
+      "source": "project"
+    },
+    {
+      "column": "flag_bmt_pediatric_program_only",
+      "description": "1 if every BMT InfoNet center listing the NPI is described by the directory as a pediatric program; such a listing does not point to adult lymphoma practice.",
+      "missing_value": "Never blank; 0 also when the NPI is on no center listing.",
+      "source": "bmtinfonet"
+    },
+    {
+      "column": "flag_medicare_specialty_only_public",
+      "description": "1 if the Medicare provider type in medicare_hct_specialty_years is the only evidence other than service payments. The provider type also covers transplant-only physicians.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "flag_ctgov_context_only",
+      "description": "1 if every trial in ctgov_nct_ids is a context trial: a lymphoma trial that mentions CAR-T in its title or intervention description without giving a CAR-T product.",
+      "missing_value": "Never blank; 0 also when ctgov_nct_ids is blank.",
+      "source": "project"
+    },
+    {
+      "column": "needs_review",
+      "description": "1 if the row should be checked by hand before it is used to relabel anyone; needs_review_reasons says why.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "needs_review_reasons",
+      "description": "Semicolon-separated reasons: probable_false_name_link, possible_recipient_mixup (an outside-universe NPI paid for CAR-T services that shares name and state with a core healthcare professional), low_name_based_name_link, mixed_name_link, outside_universe_name_link_not_hematology_class, registry_lookup_empty, bmt_centers_in_two_states.",
+      "missing_value": "needs_review is 0.",
+      "source": "project"
+    }
+  ],
+  "universe_cart_general_payments_2019_2025": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the covered recipient; always one of the 17,510 NPIs of the 2026-10-24 universe table hcp_divisions.csv, matched by exact equality.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "record_id",
+      "description": "Identifier of the General Payment record in the Open Payments publication of 2026-06-30 from the Centers for Medicare & Medicaid Services (CMS); unique across program years.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cms_profile_id",
+      "description": "Open Payments profile identifier of the covered recipient on the record.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "covered_recipient_type",
+      "description": "Open Payments covered-recipient type on the record, as published: Covered Recipient Physician or Covered Recipient Non-Physician Practitioner. It describes the record, not the specialty of the person.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year of the record, 2019 to 2025.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "payment_date",
+      "description": "Date of payment reported by the manufacturer, in ISO format (YYYY-MM-DD); always a date within program_year.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "amount_usd",
+      "description": "Total amount of the payment or transfer of value in US dollars, as reported by the manufacturer; whole cents, always above zero in this table.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "number_of_payments",
+      "description": "Number of payments included in the total amount.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "manufacturer",
+      "description": "Name of the applicable manufacturer or group purchasing organization making the payment, as published.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "manufacturer_id",
+      "description": "CMS identifier of the manufacturer making the payment.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "submitting_manufacturer",
+      "description": "Name of the manufacturer or group purchasing organization that submitted the record.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "payment_nature",
+      "description": "CMS nature of payment or transfer of value, as published.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "nature_class",
+      "description": "Project class of payment_nature: services (CMS natures Consulting Fee, Honoraria, compensation for services other than consulting, and compensation for serving as faculty or speaker); hospitality_education (CMS natures Food and Beverage, Travel and Lodging, Education, Gift and Entertainment); other_financial (every other CMS nature, such as Grant, Royalty or License, Acquisitions or ownership interest).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "nature_group",
+      "description": "Grouping of payment_nature used in general_payments_2019_2025.csv of the 2026-11-11 snapshot (consulting, honoraria, speaking_non_cme, medical_education, grant, hospitality, other), kept so the two snapshots can be compared.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "payment_form",
+      "description": "CMS form of payment or transfer of value, as published.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "products",
+      "description": "Product names from the five product-name fields of the record, in field order, separated by semicolons.",
+      "missing_value": "No product is named on the record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "product_categories",
+      "description": "Distinct product categories or therapeutic areas the manufacturer assigned to the named products, separated by semicolons.",
+      "missing_value": "No category is reported on the record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_products",
+      "description": "Brands of the chimeric antigen receptor T-cell (CAR-T) products matched in the product-name fields by brand, generic or development name: YESCARTA, TECARTUS, KYMRIAH, BREYANZI, ABECMA, CARVYKTI or AUCATZYL, separated by semicolons.",
+      "missing_value": "No CAR-T product is named; the record is in the table because of its payer.",
+      "source": "open_payments"
+    },
+    {
+      "column": "any_slot",
+      "description": "1 when at least one product-name field names a CAR-T product, other products allowed on the same record; else 0.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only",
+      "description": "1 when at least one product is named and every named product is a CAR-T product; else 0. Records with all product fields blank are 0.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only",
+      "description": "1 when cart_only is 1 and a named product is Yescarta, Tecartus, Kymriah or Breyanzi; else 0. A product rule, not an indication rule: these products are also used outside lymphoma.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "development_name_only",
+      "description": "1 when any_slot is 1 and no brand or generic name appears, only a development code such as JCAR017 or BB-2121 (payments made before approval); else 0.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer",
+      "description": "1 when the name of the manufacturer making the payment matches Kite, Legend Biotech, Autolus, Juno or 2seventy, companies whose marketed products are CAR-T therapies, whatever the product fields say; else 0. Only Kite Pharma, Inc., Legend Biotech USA Inc. and Autolus Inc occur.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "third_party_payment_indicator",
+      "description": "CMS third-party payment recipient indicator as published. No Third Party Payment and Entity occur in this table; CMS also uses Individual, which no record here carries. The name of the third party is not published.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "direct_payment",
+      "description": "1 when third_party_payment_indicator is No Third Party Payment, that is, paid to the recipient directly; 0 when paid to a third party on the recipient's behalf.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "delay_in_publication_indicator",
+      "description": "CMS delay-in-publication indicator on the published record.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "dispute_status",
+      "description": "CMS dispute status for publication.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "change_type",
+      "description": "CMS change type of the record in this publication (NEW, ADD, CHANGED or UNCHANGED).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "payment_publication_date",
+      "description": "Payment publication date on the CMS record, in ISO format (YYYY-MM-DD); 2026-06-30 on every record of this publication.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Date of the Open Payments publication the record was read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_file",
+      "description": "General Payment detail file inside the program-year archive the record was read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "hcp_universe_general_payment_features": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) from the 2026-10-24 universe table hcp_divisions.csv; every universe NPI has exactly one row. Join that table on npi for name, place and division.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "general_data_status",
+      "description": "published_records when at least one General Payment record of the Centers for Medicare & Medicaid Services (CMS) Open Payments publication of 2026-06-30 names this NPI as covered recipient in program years 2019-2025, else no_published_records.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_payment_rows_2019_2025",
+      "description": "Number of General Payment records whose covered-recipient NPI equals this NPI, program years 2019-2025; every nature, manufacturer and product, payments to third parties included.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_payments_usd_2019_2025",
+      "description": "US dollars on the records counted in general_payment_rows_2019_2025, as reported by manufacturers.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "services_rows_2019_2025",
+      "description": "Number of General Payment records to this NPI, program years 2019-2025, in nature class services (CMS natures Consulting Fee, Honoraria, compensation for services other than consulting, and compensation for serving as faculty or speaker).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "services_usd_2019_2025",
+      "description": "US dollars on the records counted in services_rows_2019_2025. The three class columns sum to general_payments_usd_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "hospitality_education_rows_2019_2025",
+      "description": "Number of General Payment records to this NPI, program years 2019-2025, in nature class hospitality_education (CMS natures Food and Beverage, Travel and Lodging, Education, Gift and Entertainment).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "hospitality_education_usd_2019_2025",
+      "description": "US dollars on the records counted in hospitality_education_rows_2019_2025. The three class columns sum to general_payments_usd_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "other_financial_rows_2019_2025",
+      "description": "Number of General Payment records to this NPI, program years 2019-2025, in nature class other_financial (every other CMS nature, such as Grant, Royalty or License, Acquisitions or ownership interest).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "other_financial_usd_2019_2025",
+      "description": "US dollars on the records counted in other_financial_rows_2019_2025. The three class columns sum to general_payments_usd_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_direct_rows_2019_2025",
+      "description": "Records counted in general_payment_rows_2019_2025 whose CMS third-party payment indicator is No Third Party Payment, that is, paid to the recipient directly.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in general_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "services_direct_rows_2019_2025",
+      "description": "Records counted in services_rows_2019_2025 that were paid to the recipient directly.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "services_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in services_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "hospitality_education_direct_rows_2019_2025",
+      "description": "Records counted in hospitality_education_rows_2019_2025 that were paid to the recipient directly.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "hospitality_education_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in hospitality_education_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "other_financial_direct_rows_2019_2025",
+      "description": "Records counted in other_financial_rows_2019_2025 that were paid to the recipient directly.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "other_financial_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in other_financial_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_third_party_rows_2019_2025",
+      "description": "Records counted in general_payment_rows_2019_2025 paid to a third-party entity or individual on the recipient's behalf; direct plus third-party equals the total.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_third_party_usd_2019_2025",
+      "description": "US dollars on the records counted in general_third_party_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one General Payment record to this NPI.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_rows_2019_2025",
+      "description": "Number of General Payment records to this NPI, program years 2019-2025, that name a chimeric antigen receptor T-cell (CAR-T) product (brand, generic or development name of Yescarta, Tecartus, Kymriah, Breyanzi, Abecma, Carvykti or Aucatzyl) in at least one product-name field, other products allowed on the same record.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_any_slot_rows_2019_2025, all payment natures, payments to third parties included.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_services_usd_2019_2025",
+      "description": "Part of cart_any_slot_usd_2019_2025 whose nature class is services (consulting, honoraria, speaking and faculty compensation). The rest of cart_any_slot_usd_2019_2025 is hospitality_education: no record under this rule has an other_financial nature.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_direct_rows_2019_2025",
+      "description": "Records counted in cart_any_slot_rows_2019_2025 that were paid to the recipient directly (no third-party payee).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_any_slot_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_direct_services_usd_2019_2025",
+      "description": "Part of cart_any_slot_direct_usd_2019_2025 whose nature class is services.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_third_party_rows_2019_2025",
+      "description": "Records counted in cart_any_slot_rows_2019_2025 that were paid to a third party on the recipient's behalf; direct plus third-party equals the total.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_third_party_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_any_slot_third_party_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one record counted in cart_any_slot_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_rows_2019_2025",
+      "description": "Number of General Payment records to this NPI, program years 2019-2025, on which every named product is a CAR-T product.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_only_rows_2019_2025, all payment natures, payments to third parties included.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_services_usd_2019_2025",
+      "description": "Part of cart_only_usd_2019_2025 whose nature class is services (consulting, honoraria, speaking and faculty compensation). The rest of cart_only_usd_2019_2025 is hospitality_education: no record under this rule has an other_financial nature.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_direct_rows_2019_2025",
+      "description": "Records counted in cart_only_rows_2019_2025 that were paid to the recipient directly (no third-party payee).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_only_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_direct_services_usd_2019_2025",
+      "description": "Part of cart_only_direct_usd_2019_2025 whose nature class is services.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_third_party_rows_2019_2025",
+      "description": "Records counted in cart_only_rows_2019_2025 that were paid to a third party on the recipient's behalf; direct plus third-party equals the total.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_third_party_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_only_third_party_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one record counted in cart_only_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_rows_2019_2025",
+      "description": "Number of General Payment records to this NPI, program years 2019-2025, on which every named product is a CAR-T product and one is Yescarta, Tecartus, Kymriah or Breyanzi.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_usd_2019_2025",
+      "description": "US dollars on the records counted in lymphoma_only_rows_2019_2025, all payment natures, payments to third parties included.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_services_usd_2019_2025",
+      "description": "Part of lymphoma_only_usd_2019_2025 whose nature class is services (consulting, honoraria, speaking and faculty compensation). The rest of lymphoma_only_usd_2019_2025 is hospitality_education: no record under this rule has an other_financial nature.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_direct_rows_2019_2025",
+      "description": "Records counted in lymphoma_only_rows_2019_2025 that were paid to the recipient directly (no third-party payee).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in lymphoma_only_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_direct_services_usd_2019_2025",
+      "description": "Part of lymphoma_only_direct_usd_2019_2025 whose nature class is services.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_third_party_rows_2019_2025",
+      "description": "Records counted in lymphoma_only_rows_2019_2025 that were paid to a third party on the recipient's behalf; direct plus third-party equals the total.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_third_party_usd_2019_2025",
+      "description": "US dollars on the records counted in lymphoma_only_third_party_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one record counted in lymphoma_only_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_rows_2019_2025",
+      "description": "Number of General Payment records to this NPI, program years 2019-2025, paid by Kite Pharma, Legend Biotech or Autolus, whatever the product fields say.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_usd_2019_2025",
+      "description": "US dollars on the records counted in pure_play_payer_rows_2019_2025, all payment natures, payments to third parties included.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_services_usd_2019_2025",
+      "description": "Part of pure_play_payer_usd_2019_2025 whose nature class is services (consulting, honoraria, speaking and faculty compensation).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_direct_rows_2019_2025",
+      "description": "Records counted in pure_play_payer_rows_2019_2025 that were paid to the recipient directly (no third-party payee).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in pure_play_payer_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_direct_services_usd_2019_2025",
+      "description": "Part of pure_play_payer_direct_usd_2019_2025 whose nature class is services.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_third_party_rows_2019_2025",
+      "description": "Records counted in pure_play_payer_rows_2019_2025 that were paid to a third party on the recipient's behalf; direct plus third-party equals the total.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_third_party_usd_2019_2025",
+      "description": "US dollars on the records counted in pure_play_payer_third_party_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "pure_play_payer_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one record counted in pure_play_payer_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_rows_2019_2025",
+      "description": "Number of General Payment records to this NPI, program years 2019-2025, that satisfy the cart_only rule or the pure_play_payer rule, each record counted once.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_only_or_pure_play_rows_2019_2025, all payment natures, payments to third parties included.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_services_usd_2019_2025",
+      "description": "Part of cart_only_or_pure_play_usd_2019_2025 whose nature class is services (consulting, honoraria, speaking and faculty compensation).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_direct_rows_2019_2025",
+      "description": "Records counted in cart_only_or_pure_play_rows_2019_2025 that were paid to the recipient directly (no third-party payee).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_direct_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_only_or_pure_play_direct_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_direct_services_usd_2019_2025",
+      "description": "Part of cart_only_or_pure_play_direct_usd_2019_2025 whose nature class is services.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_third_party_rows_2019_2025",
+      "description": "Records counted in cart_only_or_pure_play_rows_2019_2025 that were paid to a third party on the recipient's behalf; direct plus third-party equals the total.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_third_party_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_only_or_pure_play_third_party_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_or_pure_play_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one record counted in cart_only_or_pure_play_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_brands",
+      "description": "CAR-T brands matched on the records counted in cart_any_slot_rows_2019_2025, sorted and separated by semicolons.",
+      "missing_value": "No record to this NPI names a CAR-T product.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_years_scanned",
+      "description": "Range of Open Payments program years scanned in full.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Date of the Open Payments publication the values were read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "hcp_universe_research_payment_features": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) from the 2026-10-24 universe table hcp_divisions.csv; every universe NPI has exactly one row.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "research_data_status",
+      "description": "published_records when at least one Research Payment record of the Centers for Medicare & Medicaid Services (CMS) Open Payments publication of 2026-06-30 names this NPI in program years 2019-2025, else no_published_records.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_rows_2019_2025",
+      "description": "Number of Research Payment records, program years 2019-2025, naming this NPI in one of the five principal-investigator fields or as covered recipient; each record counted once per NPI.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_investigator_rows_2019_2025",
+      "description": "Records counted in research_rows_2019_2025 on which the NPI is a listed principal investigator.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_recipient_only_rows_2019_2025",
+      "description": "Records counted in research_rows_2019_2025 on which the NPI is the covered recipient without being a listed principal investigator.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_record_usd_2019_2025",
+      "description": "Sum in US dollars of the full record amounts over the records counted in research_rows_2019_2025. The whole amount is repeated for every investigator and is mostly paid to institutions: not personal income and not additive across NPIs.",
+      "missing_value": "No research record names this NPI (research_rows_2019_2025 is 0).",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one research record naming this NPI.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_research_rows_2019_2025",
+      "description": "Records counted in research_rows_2019_2025 that name a chimeric antigen receptor T-cell (CAR-T) product (brand, generic or development name of seven approved products) in a product-name field. Study titles are not read, so this is narrower than cart_research_rows_2019_2025 in hcp_research_payment_features.csv of the 2026-11-11 snapshot.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_research_investigator_rows_2019_2025",
+      "description": "Records counted in cart_product_research_rows_2019_2025 on which the NPI is a listed principal investigator.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_research_recipient_only_rows_2019_2025",
+      "description": "Records counted in cart_product_research_rows_2019_2025 on which the NPI is only the covered recipient.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_research_record_usd_2019_2025",
+      "description": "Sum in US dollars of the full record amounts over the records counted in cart_product_research_rows_2019_2025; not personal income and not additive across NPIs.",
+      "missing_value": "No research record naming this NPI names a CAR-T product in a product field.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_research_brands",
+      "description": "CAR-T brands matched in the product-name fields of the records counted in cart_product_research_rows_2019_2025, sorted and separated by semicolons.",
+      "missing_value": "No research record naming this NPI names a CAR-T product in a product field.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_or_text_research_rows_2019_2025",
+      "description": "Records counted in research_rows_2019_2025 that name a CAR-T product in a product field, or whose study name or research context names one or uses generic CAR-T wording (a text heuristic); the rule of cart_research_rows_2019_2025 in hcp_research_payment_features.csv of the 2026-11-11 snapshot.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_or_text_research_record_usd_2019_2025",
+      "description": "Sum in US dollars of the full record amounts over the records counted in cart_product_or_text_research_rows_2019_2025; not personal income and not additive across NPIs.",
+      "missing_value": "No research record naming this NPI matches the product-or-text rule.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_years_scanned",
+      "description": "Range of Open Payments program years scanned in full.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Date of the Open Payments publication the values were read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "cart_industry_payments_by_division_2019_2025": [
+    {
+      "column": "rule",
+      "description": "Rule selecting the Open Payments General Payment records to universe NPIs that the cell counts: any_slot (a chimeric antigen receptor T-cell, CAR-T, product named in any product field); cart_only (every named product is a CAR-T product); cart_only_named_product (cart_only without development-code records); lymphoma_only (cart_only naming Yescarta, Tecartus, Kymriah or Breyanzi); pure_play_payer (paid by Kite Pharma, Legend Biotech or Autolus); cart_only_or_pure_play_payer (either, each record once).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "division_group",
+      "description": "Group of division labels of hcp_divisions.csv (2026-10-24, label version 1.0.0): core; affiliates (affiliate_A, affiliate_B, affiliate_C and center_affiliate_unlinked); referring (referring_proxy); other (hemonc_other).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "nature_class",
+      "description": "all, or one project class of the CMS (Centers for Medicare & Medicaid Services) nature of payment: services (CMS natures Consulting Fee, Honoraria, compensation for services other than consulting, and compensation for serving as faculty or speaker); hospitality_education (CMS natures Food and Beverage, Travel and Lodging, Education, Gift and Entertainment); other_financial (every other CMS nature, such as Grant, Royalty or License, Acquisitions or ownership interest).",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "npis_in_division_group",
+      "description": "Number of universe NPIs (National Provider Identifiers) in the division group; the denominator for shares.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "npis_paid",
+      "description": "Number of NPIs in the group with at least one matching General Payment record, program years 2019-2025, direct or through a third party.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "rows",
+      "description": "Number of matching General Payment records, program years 2019-2025; equals direct_rows plus third_party_rows.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "usd",
+      "description": "US dollars on the records counted in rows; equals direct_usd plus third_party_usd.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "direct_npis_paid",
+      "description": "Number of NPIs in the group with at least one matching record paid to the recipient directly (CMS third-party payment indicator No Third Party Payment).",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "direct_rows",
+      "description": "Number of matching records paid to the recipient directly.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "direct_usd",
+      "description": "US dollars on the records counted in direct_rows. The headline figures of this snapshot for CAR-T-only services are this column for rule cart_only and nature class services.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "direct_median_usd_per_paid_npi",
+      "description": "Median, over the NPIs counted in direct_npis_paid, of each NPI's direct dollars in the cell summed over program years 2019-2025; half a cent rounds up.",
+      "missing_value": "No NPI in the cell has a direct payment.",
+      "source": "open_payments"
+    },
+    {
+      "column": "third_party_npis_paid",
+      "description": "Number of NPIs in the group with at least one matching record paid to a third party on the recipient's behalf; an NPI can also be counted in direct_npis_paid.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "third_party_rows",
+      "description": "Number of matching records paid to a third party on the recipient's behalf.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "third_party_usd",
+      "description": "US dollars on the records counted in third_party_rows; not included in direct_usd.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "universe_snapshot_date",
+      "description": "Snapshot date of the hcp_divisions.csv table whose division labels were used.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "division_label_version",
+      "description": "Version of the division labels in hcp_divisions.csv that the groups were built from.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "program_years_scanned",
+      "description": "Range of Open Payments program years scanned in full.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Date of the Open Payments publication the values were read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "cart_center_teaching_hospital_payments_2019_2025": [
+    {
+      "column": "ccn",
+      "description": "Centers for Medicare & Medicaid Services (CMS) Certification Number (CCN) of a center in the 2026-10-24 table cart_centers.csv; every one of the 173 centers has exactly one row. Six characters, to be read as text.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "teaching_hospital_name",
+      "description": "Teaching hospital name most often written on Open Payments records carrying this CCN, program years 2019-2025 (General records, else Research records); spellings vary between records and can differ from the name in cart_centers.csv.",
+      "missing_value": "No Open Payments record carries this CCN as teaching hospital.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_data_status",
+      "description": "published_records when at least one General Payment record of the CMS Open Payments publication of 2026-06-30 carries this CCN as teaching hospital in program years 2019-2025, else no_published_records. The files do not say whether a center without records is absent from the CMS teaching-hospital list or listed and unpaid.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_payment_rows_2019_2025",
+      "description": "Number of General Payment records paid to this teaching hospital (teaching-hospital CCN equals ccn), program years 2019-2025; all natures, manufacturers and products.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_payments_usd_2019_2025",
+      "description": "US dollars on the records counted in general_payment_rows_2019_2025; payments to the institution, not to its physicians.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_payments_usd_2024_2025",
+      "description": "Part of general_payments_usd_2019_2025 on records of program years 2024 and 2025 only, in US dollars.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "general_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one General Payment record to this hospital.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "royalty_license_usd_2019_2025",
+      "description": "US dollars, program years 2019-2025, on General Payment records to this hospital whose CMS nature of payment is Royalty or License.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "grant_usd_2019_2025",
+      "description": "US dollars, program years 2019-2025, on General Payment records to this hospital whose CMS nature of payment is Grant.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "space_rental_usd_2019_2025",
+      "description": "US dollars, program years 2019-2025, on General Payment records to this hospital whose CMS nature of payment is Space rental or facility fees.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "consulting_usd_2019_2025",
+      "description": "US dollars, program years 2019-2025, on General Payment records to this hospital whose CMS nature of payment is Consulting Fee.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "other_services_compensation_usd_2019_2025",
+      "description": "US dollars, program years 2019-2025, on General Payment records to this hospital whose CMS nature of payment is compensation for services other than consulting.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "education_usd_2019_2025",
+      "description": "US dollars, program years 2019-2025, on General Payment records to this hospital whose CMS nature of payment is Education.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "other_nature_usd_2019_2025",
+      "description": "US dollars, program years 2019-2025, on General Payment records to this hospital in every other CMS nature; the seven nature columns sum to general_payments_usd_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_rows_2019_2025",
+      "description": "General Payment records to this hospital, program years 2019-2025, that name a chimeric antigen receptor T-cell (CAR-T) product (brand, generic or development name of seven approved products) in at least one product-name field.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_any_slot_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_any_slot_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_rows_2019_2025",
+      "description": "General Payment records to this hospital, program years 2019-2025, on which every named product is a CAR-T product.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_only_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_only_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_rows_2019_2025",
+      "description": "Records counted in cart_only_rows_2019_2025 that name Yescarta, Tecartus, Kymriah or Breyanzi.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "lymphoma_only_usd_2019_2025",
+      "description": "US dollars on the records counted in lymphoma_only_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_data_status",
+      "description": "published_records when at least one Research Payment record of the same publication carries this CCN as teaching hospital in program years 2019-2025, else no_published_records.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_rows_2019_2025",
+      "description": "Number of Research Payment records on which this teaching hospital is the recipient, program years 2019-2025. Research paid to a university, research institute or other non-covered entity is not included.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_payments_usd_2019_2025",
+      "description": "US dollars on the records counted in research_rows_2019_2025; each record counted once.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "research_active_years",
+      "description": "Number of program years of 2019-2025 (0 to 7) with at least one Research Payment record to this hospital.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_research_rows_2019_2025",
+      "description": "Records counted in research_rows_2019_2025 that name a CAR-T product in a product-name field.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_research_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_product_research_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_or_text_research_rows_2019_2025",
+      "description": "Records counted in research_rows_2019_2025 that name a CAR-T product in a product field, or whose study name or research context names one or uses generic CAR-T wording; a text heuristic that also catches trials of unapproved CAR-T products.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "cart_product_or_text_research_usd_2019_2025",
+      "description": "US dollars on the records counted in cart_product_or_text_research_rows_2019_2025.",
+      "missing_value": "Never blank; 0 means the full scan of the 2026-06-30 publication found no such record.",
+      "source": "open_payments"
+    },
+    {
+      "column": "program_years_scanned",
+      "description": "Range of Open Payments program years scanned in full.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    },
+    {
+      "column": "source_release_date",
+      "description": "Date of the Open Payments publication the values were read from.",
+      "missing_value": "Never blank.",
+      "source": "open_payments"
+    }
+  ],
+  "hcp_medicare_partb_payments_by_year": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the clinician, ten digits. Every NPI of the 2026-10-24 universe table hcp_divisions.csv has one row per service year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "service_year",
+      "description": "Calendar year in which the services were rendered, 2019 to 2024.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "by_provider_status",
+      "description": "What the Centers for Medicare & Medicaid Services (CMS) file Medicare Physician & Other Practitioners - by Provider holds for the NPI in that year: published_split (a row with drug and non-drug payment), split_suppressed (a row with the total only, because one side rests on 1 to 10 beneficiaries), or no_row (no row, which happens with 10 or fewer beneficiaries or no claims as rendering provider).",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "cms_provider_type",
+      "description": "Provider type on the CMS row for that year: the specialty reported on the NPI's claims and, when several were reported, the one with the most services that year. It is set per year and can change between years; it is a claims attribute, not a board certification.",
+      "missing_value": "No row for the NPI in that year's file (by_provider_status = no_row); not zero.",
+      "source": "cms"
+    },
+    {
+      "column": "total_medicare_payment_usd",
+      "description": "US dollars that Medicare fee-for-service Part B paid in the service year, after deductible and coinsurance, for all non-institutional services and drugs on which the NPI was the rendering provider. The money goes to the billing practice, not necessarily to the clinician.",
+      "missing_value": "No row for the NPI in that year's file (by_provider_status = no_row); not zero.",
+      "source": "cms"
+    },
+    {
+      "column": "drug_medicare_payment_usd",
+      "description": "Part of total_medicare_payment_usd paid for billing codes on that year's Medicare Part B drug Average Sales Price (ASP) file. A 0 is published by CMS and means no beneficiary received such a drug from the NPI.",
+      "missing_value": "No row that year, or the split is hidden by CMS; by_provider_status says which. Never zero. A hidden split with drug_suppression_indicator * means some drug billing, for 1 to 10 beneficiaries.",
+      "source": "cms"
+    },
+    {
+      "column": "non_drug_medicare_payment_usd",
+      "description": "Part of total_medicare_payment_usd paid for everything not on the ASP file: visits, drug administration, laboratory, imaging, and drugs billed under codes absent from that file. CMS calls this side medical services.",
+      "missing_value": "No row that year, or the split is hidden by CMS; by_provider_status says which. Never zero.",
+      "source": "cms"
+    },
+    {
+      "column": "drug_suppression_indicator",
+      "description": "CMS code on the drug side: * = hidden because 1 to 10 beneficiaries received a drug on the ASP file from the NPI; # = hidden only so that the hidden non-drug side cannot be recomputed from the total.",
+      "missing_value": "Drug side published, or no row that year; by_provider_status says which.",
+      "source": "cms"
+    },
+    {
+      "column": "non_drug_suppression_indicator",
+      "description": "CMS code on the non-drug side: * = hidden because 1 to 10 beneficiaries received non-drug services from the NPI; # = hidden only so that the hidden drug side cannot be recomputed from the total.",
+      "missing_value": "Non-drug side published, or no row that year; by_provider_status says which.",
+      "source": "cms"
+    },
+    {
+      "column": "total_beneficiaries",
+      "description": "Medicare fee-for-service beneficiaries who received any Part B service from the NPI in the service year; at least 11 on every CMS row. A patient seen by several NPIs is counted once for each, so sums across NPIs are not patient counts.",
+      "missing_value": "No row for the NPI in that year's file (by_provider_status = no_row); not zero.",
+      "source": "cms"
+    },
+    {
+      "column": "drug_beneficiaries",
+      "description": "Beneficiaries who received a drug on the ASP file from the NPI in the service year; 0 or at least 11 when published.",
+      "missing_value": "No row that year, or the split is hidden by CMS; by_provider_status says which. Never zero.",
+      "source": "cms"
+    },
+    {
+      "column": "non_drug_beneficiaries",
+      "description": "Beneficiaries who received a service not on the ASP file from the NPI in the service year; at least 11 when published.",
+      "missing_value": "No row that year, or the split is hidden by CMS; by_provider_status says which. Never zero.",
+      "source": "cms"
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "data.cms.gov version identifier of the by-Provider file for that service year. It is filled on no_row rows too, where it names the file that was searched.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    }
+  ],
+  "hcp_medicare_service_product_features_2024": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the clinician, ten digits; one row for every NPI of the 2026-10-24 universe table hcp_divisions.csv.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "service_product_data_status",
+      "description": "released_cells when at least one of the four sums on the row is filled, no_released_cells when all four are blank.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "partb_drug_rows_status",
+      "description": "Why partb_drug_rows_medicare_payment_estimate_usd is filled or blank, read with the NPI's 2024 row of hcp_medicare_partb_payments_by_year: released_rows; no_released_rows (drug payment published above zero but every code cell is under 11 beneficiaries); drug_payment_zero (published zero); split_suppressed (drug payment hidden); no_by_provider_row. For the last three the blank follows from the release rule, since no code cell can then reach 11 beneficiaries; most of those NPIs were not queried for drug rows.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "partb_drug_rows_medicare_payment_estimate_usd",
+      "description": "Estimated 2024 Medicare fee-for-service Part B payment in US dollars on the NPI's released drug rows: the sum of estimated_medicare_payment_usd over its rows in medicare_partb_drug_rows_2024. The Centers for Medicare & Medicaid Services (CMS) releases an NPI x code x place-of-service cell only when it has 11 or more beneficiaries, so this is a floor under the NPI's 2024 drug_medicare_payment_usd in hcp_medicare_partb_payments_by_year.",
+      "missing_value": "No released drug row for the NPI; partb_drug_rows_status gives the reason. Not zero.",
+      "source": "cms"
+    },
+    {
+      "column": "office_lymphoma_product_medicare_payment_estimate_usd",
+      "description": "Estimated 2024 Medicare fee-for-service Part B payment in US dollars on the NPI's released rows for 25 product codes used in lymphoma, in the non-facility setting (place_of_service O): the sum of estimated_medicare_payment_usd over its rows of medicare_partb_drug_rows_2024 with a lymphoma_product_family. Only rituximab, obinutuzumab and bendamustine codes have released rows, and all three are also used outside lymphoma.",
+      "missing_value": "No released row for any listed code; not zero and not evidence that the NPI does not treat lymphoma.",
+      "source": "cms"
+    },
+    {
+      "column": "office_chemo_admin_medicare_payment_estimate_usd",
+      "description": "Estimated 2024 Medicare payment in US dollars for chemotherapy infusion administration, codes 96413, 96415 and 96417, on the NPI's released non-facility rows of the CMS by-Provider-and-Service file: average Medicare payment times services, rounded to cents per row and summed.",
+      "missing_value": "No released row for any of the three codes (cell under 11 beneficiaries, or the administration is billed by a hospital or under another NPI); not zero.",
+      "source": "cms"
+    },
+    {
+      "column": "part_d_lymphoma_oral_total_drug_cost_usd",
+      "description": "Sum of total_drug_cost_usd over the NPI's 2024 rows of part_d_lymphoma_orals_2024.csv (2026-10-24 snapshot; Medicare Part D prescriptions for seven oral agents). It is the gross cost of prescriptions filled at pharmacies, not a payment to the prescriber, and must not be added to the Part B columns.",
+      "missing_value": "No published Part D row for any of the seven agents (CMS drops a prescriber x drug row with fewer than 11 claims); not zero.",
+      "source": "cms"
+    }
+  ],
+  "medicare_partb_drug_rows_2024": [
+    {
+      "column": "npi",
+      "description": "National Provider Identifier (NPI) of the rendering clinician, ten digits; always in the 2026-10-24 universe table hcp_divisions.csv.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "hcpcs_code",
+      "description": "Healthcare Common Procedure Coding System (HCPCS) code of the drug as billed, code number only. Every row is a code that the Centers for Medicare & Medicaid Services (CMS) flags as a drug on the Part B Average Sales Price file.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "place_of_service",
+      "description": "CMS place of service: O = non-facility (office or other non-facility setting), F = facility. Every row of this table is O.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "lymphoma_product_family",
+      "description": "This project's label when the code is one of 25 product codes used in lymphoma: rituximab_intravenous (originator and biosimilars), rituximab_subcutaneous, obinutuzumab or bendamustine on the rows present. None of these products is specific to lymphoma.",
+      "missing_value": "The code is not on the project's list.",
+      "source": "project"
+    },
+    {
+      "column": "beneficiaries",
+      "description": "Medicare fee-for-service beneficiaries who received the drug from the NPI in that place of service in 2024; at least 11, because CMS does not release smaller cells.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "services_or_units",
+      "description": "Billing units of the drug paid in 2024, as CMS counts services for the code. For a drug code this is a quantity of dosage units, not a number of administrations, and it can be fractional.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "average_medicare_payment_usd",
+      "description": "Average US dollars Medicare paid per unit after deductible and coinsurance, as CMS publishes it.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "estimated_medicare_payment_usd",
+      "description": "average_medicare_payment_usd times services_or_units, rounded to cents. It is an estimate of Medicare's payment on the row, since CMS publishes the average, not the sum.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    },
+    {
+      "column": "source_dataset_version_id",
+      "description": "data.cms.gov version identifier of the 2024 Medicare Physician & Other Practitioners - by Provider and Service file.",
+      "missing_value": "Never blank.",
+      "source": "cms"
+    }
+  ],
+  "hcp_medicaid_payments_by_year_2018_2024": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual National Provider Identifier (NPI) of a health care professional (HCP) in the 2026-10-24 universe (hcp_divisions.csv); join on it for name, state, specialty and division.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "year",
+      "description": "Calendar year, 2018 to 2024, of the claim-line month in the U.S. Department of Health and Human Services (HHS) Medicaid Provider Spending file, release 2026-02-09. 2024 is preliminary and its last months are largely missing.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_row_sides",
+      "description": "Side on which the NPI has released rows that year: servicing, billing, or servicing_and_billing. A released row is one billing NPI x servicing NPI x procedure code x month cell of the HHS Medicaid Provider Spending file; a cell is released only with at least 12 claim lines and at least 12 beneficiaries. An NPI x year without a released row on either side has no row in this table.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_months_present",
+      "description": "Number of calendar months of the year (1 to 12) with at least one released row naming this NPI as servicing provider.",
+      "missing_value": "No released row names this NPI as servicing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_source_rows",
+      "description": "Number of released rows naming this NPI as servicing provider in the year, all procedure codes.",
+      "missing_value": "No released row names this NPI as servicing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_distinct_billing_npis",
+      "description": "Number of distinct non-blank billing NPIs on the released rows naming this NPI as servicing provider in the year, the NPI itself included when it is on both sides; 0 means every such row has a blank billing NPI.",
+      "missing_value": "No released row names this NPI as servicing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_claim_lines",
+      "description": "Sum of claim lines (lines, not claims, including lines paid $0) on released rows naming this NPI as servicing provider in the year.",
+      "missing_value": "No released row names this NPI as servicing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_visit_admin_claim_lines",
+      "description": "Claim lines on the released rows naming this NPI as servicing provider in the year whose procedure code is one of the visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No released visit or administration row names this NPI as servicing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_drug_code_claim_lines",
+      "description": "Claim lines on the released rows naming this NPI as servicing provider in the year whose procedure code is one of the drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082).",
+      "missing_value": "No released drug-pattern row names this NPI as servicing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_patient_counts_summed",
+      "description": "Sum of the per-row beneficiary counts on the released rows naming this NPI as servicing provider in the year. A patient is counted once for every code, month and billing-servicing pair, so this is not a number of distinct patients.",
+      "missing_value": "No released row names this NPI as servicing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_max_patients_in_one_row",
+      "description": "Largest beneficiary count on any single one of the released rows naming this NPI as servicing provider in the year; a lower bound on the distinct Medicaid patients of the year.",
+      "missing_value": "No released row names this NPI as servicing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_paid_usd",
+      "description": "Medicaid and Children's Health Insurance Program (CHIP) paid amount in US dollars on released rows naming this NPI as servicing provider in the year, all procedure codes; fee-for-service and managed-care encounters together. The money was paid to the billing NPI, usually a group or hospital.",
+      "missing_value": "No released row names this NPI as servicing provider in that year; unobserved, not zero. 0.00 means released rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_visit_admin_paid_usd",
+      "description": "Part of the year's servicing-side paid amount, in US dollars, on visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No released visit or administration row names this NPI as servicing provider in that year; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_drug_code_paid_usd",
+      "description": "Part of the year's servicing-side paid amount, in US dollars, on drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082). These are mostly supportive-care drugs and fluids, not lymphoma or chimeric antigen receptor T-cell (CAR-T) product dollars.",
+      "missing_value": "No released drug-pattern row names this NPI as servicing provider in that year; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_months_present",
+      "description": "Number of calendar months of the year (1 to 12) with at least one released row naming this NPI as billing provider.",
+      "missing_value": "No released row names this NPI as billing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_source_rows",
+      "description": "Number of released rows naming this NPI as billing provider in the year, all procedure codes.",
+      "missing_value": "No released row names this NPI as billing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_distinct_servicing_npis",
+      "description": "Number of distinct non-blank servicing NPIs on the released rows naming this NPI as billing provider in the year, the NPI itself included when it is on both sides; 0 means every such row has a blank servicing NPI.",
+      "missing_value": "No released row names this NPI as billing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_claim_lines",
+      "description": "Sum of claim lines (lines, not claims, including lines paid $0) on released rows naming this NPI as billing provider in the year.",
+      "missing_value": "No released row names this NPI as billing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_visit_admin_claim_lines",
+      "description": "Claim lines on the released rows naming this NPI as billing provider in the year whose procedure code is one of the visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No released visit or administration row names this NPI as billing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_drug_code_claim_lines",
+      "description": "Claim lines on the released rows naming this NPI as billing provider in the year whose procedure code is one of the drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082).",
+      "missing_value": "No released drug-pattern row names this NPI as billing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_patient_counts_summed",
+      "description": "Sum of the per-row beneficiary counts on the released rows naming this NPI as billing provider in the year. A patient is counted once for every code, month and billing-servicing pair, so this is not a number of distinct patients.",
+      "missing_value": "No released row names this NPI as billing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_max_patients_in_one_row",
+      "description": "Largest beneficiary count on any single one of the released rows naming this NPI as billing provider in the year; a lower bound on the distinct Medicaid patients of the year.",
+      "missing_value": "No released row names this NPI as billing provider in that year; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_paid_usd",
+      "description": "Medicaid and CHIP paid amount in US dollars on released rows naming this NPI as billing provider in the year, all procedure codes; fee-for-service and managed-care encounters together. Rows where the NPI is also the servicing provider are inside the servicing columns too, so the two sides must not be added.",
+      "missing_value": "No released row names this NPI as billing provider in that year; unobserved, not zero. 0.00 means released rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_visit_admin_paid_usd",
+      "description": "Part of the year's billing-side paid amount, in US dollars, on visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No released visit or administration row names this NPI as billing provider in that year; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_drug_code_paid_usd",
+      "description": "Part of the year's billing-side paid amount, in US dollars, on drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082). Not lymphoma or CAR-T product dollars.",
+      "missing_value": "No released drug-pattern row names this NPI as billing provider in that year; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_self_billed_source_rows",
+      "description": "Number of released rows of the year on which this NPI is both the servicing and the billing provider; these rows are counted in both sides' columns.",
+      "missing_value": "No released row of the year has this NPI on both sides.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_self_billed_paid_usd",
+      "description": "Paid amount in US dollars on the released rows of the year on which this NPI is both servicing and billing provider. Servicing paid plus billing paid minus this amount is the paid amount on rows naming the NPI on either side.",
+      "missing_value": "No released row of the year has this NPI on both sides; unobserved, not zero.",
+      "source": "hhs"
+    }
+  ],
+  "hcp_medicaid_payment_features_2018_2024": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual National Provider Identifier (NPI) of a health care professional (HCP) in the 2026-10-24 universe (hcp_divisions.csv); join on it for name, state, specialty and division. Every universe NPI has one row.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "medicaid_data_status",
+      "description": "observed when at least one released row of the U.S. Department of Health and Human Services (HHS) Medicaid Provider Spending file (release 2026-02-09, January 2018 to December 2024) names this NPI as servicing or billing provider, otherwise not_observed. A released row is one billing NPI x servicing NPI x procedure code x month cell of the HHS Medicaid Provider Spending file; a cell is released only with at least 12 claim lines and at least 12 beneficiaries. not_observed does not mean the HCP sees no Medicaid patients.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_observed_sides",
+      "description": "Side on which released rows name the NPI in 2018 to 2024: servicing_and_billing, servicing, billing, or neither.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_paid_usd_2024",
+      "description": "Medicaid and Children's Health Insurance Program (CHIP) paid amount in US dollars on released rows naming this NPI as servicing provider with a claim-line month in calendar 2024 (preliminary, last months largely missing), all procedure codes; a lower bound. The money was paid to the billing NPI, usually a group or hospital, not to the HCP.",
+      "missing_value": "No released row names this NPI as servicing provider in 2024; unobserved, not zero. 0.00 means released rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_visit_admin_paid_usd_2024",
+      "description": "Part of the calendar 2024 (preliminary, last months largely missing) servicing-side paid amount, in US dollars, on visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No released visit or administration row names this NPI as servicing provider in 2024; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_drug_code_paid_usd_2024",
+      "description": "Part of the calendar 2024 (preliminary, last months largely missing) servicing-side paid amount, in US dollars, on drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082). These are mostly supportive-care drugs and fluids, not lymphoma or chimeric antigen receptor T-cell (CAR-T) product dollars.",
+      "missing_value": "No released drug-pattern row names this NPI as servicing provider in 2024; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_paid_usd_2018_2024",
+      "description": "Medicaid and CHIP paid amount in US dollars on released rows naming this NPI as servicing provider with a claim-line month in 2018 to 2024, all procedure codes; a lower bound. The money was paid to the billing NPI, usually a group or hospital, not to the HCP.",
+      "missing_value": "No released row names this NPI as servicing provider in any year from 2018 to 2024; unobserved, not zero. 0.00 means released rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_visit_admin_paid_usd_2018_2024",
+      "description": "Part of the 2018 to 2024 servicing-side paid amount, in US dollars, on visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No released visit or administration row names this NPI as servicing provider in any year from 2018 to 2024; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_drug_code_paid_usd_2018_2024",
+      "description": "Part of the 2018 to 2024 servicing-side paid amount, in US dollars, on drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082). Not lymphoma or CAR-T product dollars.",
+      "missing_value": "No released drug-pattern row names this NPI as servicing provider in any year from 2018 to 2024; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_years_present",
+      "description": "Number of calendar years from 2018 to 2024 (1 to 7) with at least one released row naming this NPI as servicing provider.",
+      "missing_value": "No released row names this NPI as servicing provider in any year from 2018 to 2024; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_servicing_distinct_billing_npis",
+      "description": "Number of distinct non-blank billing NPIs on released 2018 to 2024 rows naming this NPI as servicing provider, the NPI itself included when it bills under its own number; 0 means every such row has a blank billing NPI.",
+      "missing_value": "No released row names this NPI as servicing provider in any year from 2018 to 2024; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_paid_usd_2024",
+      "description": "Medicaid and CHIP paid amount in US dollars on released rows naming this NPI as billing provider with a claim-line month in calendar 2024 (preliminary, last months largely missing), all procedure codes; a lower bound. Paid to the HCP's own NPI; rows where the HCP is also the servicing provider are inside the servicing amount too, so the two must not be added.",
+      "missing_value": "No released row names this NPI as billing provider in 2024; unobserved, not zero. 0.00 means released rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_visit_admin_paid_usd_2024",
+      "description": "Part of the calendar 2024 (preliminary, last months largely missing) billing-side paid amount, in US dollars, on visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No released visit or administration row names this NPI as billing provider in 2024; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_drug_code_paid_usd_2024",
+      "description": "Part of the calendar 2024 (preliminary, last months largely missing) billing-side paid amount, in US dollars, on drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082). Not lymphoma or CAR-T product dollars.",
+      "missing_value": "No released drug-pattern row names this NPI as billing provider in 2024; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_paid_usd_2018_2024",
+      "description": "Medicaid and CHIP paid amount in US dollars on released rows naming this NPI as billing provider with a claim-line month in 2018 to 2024, all procedure codes; a lower bound. Paid to the HCP's own NPI; rows where the HCP is also the servicing provider are inside the servicing amount too, so the two must not be added.",
+      "missing_value": "No released row names this NPI as billing provider in any year from 2018 to 2024; unobserved, not zero. 0.00 means released rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_visit_admin_paid_usd_2018_2024",
+      "description": "Part of the 2018 to 2024 billing-side paid amount, in US dollars, on visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No released visit or administration row names this NPI as billing provider in any year from 2018 to 2024; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_drug_code_paid_usd_2018_2024",
+      "description": "Part of the 2018 to 2024 billing-side paid amount, in US dollars, on drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082). Not lymphoma or CAR-T product dollars.",
+      "missing_value": "No released drug-pattern row names this NPI as billing provider in any year from 2018 to 2024; unobserved, not zero. 0.00 means such rows exist and paid sums to exactly $0.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_billing_years_present",
+      "description": "Number of calendar years from 2018 to 2024 (1 to 7) with at least one released row naming this NPI as billing provider.",
+      "missing_value": "No released row names this NPI as billing provider in any year from 2018 to 2024; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_self_billed_paid_usd_2024",
+      "description": "Paid amount in US dollars on released 2024 rows where this NPI is both servicing and billing provider; it is inside both the servicing and the billing 2024 amounts.",
+      "missing_value": "No released 2024 row has this NPI on both sides; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_self_billed_paid_usd_2018_2024",
+      "description": "Paid amount in US dollars on released 2018 to 2024 rows where this NPI is both servicing and billing provider; it is inside both the servicing and the billing seven-year amounts.",
+      "missing_value": "No released row has this NPI on both sides; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "in_medicaid_enrollment_file",
+      "description": "1 when the NPI is on at least one row of the HHS Medicaid Provider Enrollment Segments file (release 2026-07-24, segments overlapping 2018 to 2024) in any state, with any status and any plan; otherwise 0. 1 does not mean active participation, and 0 does not mean the HCP never treated Medicaid patients.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_enrollment_states",
+      "description": "Semicolon-separated, sorted postal codes of the states and territories that reported at least one enrollment segment carrying this NPI, of any plan and status. New Mexico and Oregon never appear because their source rows carry no NPI.",
+      "missing_value": "The NPI has no row in the enrollment file (in_medicaid_enrollment_file is 0).",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_enrollment_medicaid_or_chip_plan",
+      "description": "1 when at least one of the NPI's enrollment segments has the plan MEDICAID or CHIP, with any status; otherwise 0, which includes NPIs absent from the file.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_enrollment_active_2024_any_state",
+      "description": "1 when at least one enrollment segment of the NPI, in any state and under any plan, has a status beginning with ACTIVE (which includes do-not-pay and encounter-only statuses) and an end date that is blank or on or after 2024-01-01; otherwise 0, which includes NPIs absent from the file.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "medicaid_enrollment_active_2024_medicaid_or_chip_plan",
+      "description": "Same rule as medicaid_enrollment_active_2024_any_state, counting only segments whose plan is MEDICAID or CHIP.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    }
+  ],
+  "medicaid_payments_by_division_year_2018_2024": [
+    {
+      "column": "join_side",
+      "description": "servicing when the rows summarised name a National Provider Identifier (NPI) of the division as servicing provider, billing when they name it as billing provider. The two sides overlap and must not be added.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "division_level",
+      "description": "division for one of the seven labels of hcp_divisions.csv (2026-10-24); division_group for the four groups core, affiliates (affiliate_A, affiliate_B, affiliate_C, center_affiliate_unlinked), referring (referring_proxy) and other (hemonc_other).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "division",
+      "description": "Division label or division group name, as division_level says.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "year",
+      "description": "Calendar year, 2018 to 2024, of the claim-line month in the U.S. Department of Health and Human Services (HHS) Medicaid Provider Spending file, release 2026-02-09. 2024 is preliminary and its last months are largely missing, so years are not a trend series.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "label_version",
+      "description": "Version of the division labels the row was built with (label_version column of hcp_divisions.csv).",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "npis_in_division",
+      "description": "Number of NPIs in hcp_divisions.csv (2026-10-24, 17,510 in all) carrying the label or in the group; the same in every year.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "npis_present",
+      "description": "Number of NPIs of the division on this join side with at least one released row that year, on any procedure code and including rows paid $0. A released row is one billing NPI x servicing NPI x procedure code x month cell of the HHS Medicaid Provider Spending file; a cell is released only with at least 12 claim lines and at least 12 beneficiaries.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "npis_with_visit_admin_rows",
+      "description": "Number of NPIs of the division on this join side with at least one released row that year on visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "npis_with_visit_admin_paid",
+      "description": "Number of NPIs of the division on this join side whose paid amount on visit and drug-administration codes that year is above $0.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "npis_with_drug_code_rows",
+      "description": "Number of NPIs of the division on this join side with at least one released row that year on drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082).",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "npis_with_drug_code_paid",
+      "description": "Number of NPIs of the division on this join side whose paid amount on drug-pattern codes that year is above $0.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "source_rows",
+      "description": "Number of released rows that year naming an NPI of the division on this join side, all procedure codes; the other columns summarise these rows.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "claim_lines",
+      "description": "Sum of claim lines (lines, not claims, including lines paid $0) on the rows counted in source_rows.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "claim_lines_visit_admin",
+      "description": "Part of claim_lines on visit and drug-administration codes; 0 when no such row was released.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "claim_lines_drug_code",
+      "description": "Part of claim_lines on drug-pattern codes; 0 when no such row was released.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "paid_total_usd",
+      "description": "Medicaid and Children's Health Insurance Program (CHIP) paid amount in US dollars on the rows counted in source_rows, all procedure codes; fee-for-service and managed-care encounters together. A lower bound; on the servicing side the money went to the billing NPI, usually a group or hospital, not to the health care professional (HCP).",
+      "missing_value": "No row was released for the division on this side that year.",
+      "source": "hhs"
+    },
+    {
+      "column": "paid_visit_admin_usd",
+      "description": "Part of paid_total_usd on visit and drug-administration codes.",
+      "missing_value": "No such row was released (npis_with_visit_admin_rows is 0); unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "paid_drug_code_usd",
+      "description": "Part of paid_total_usd on drug-pattern codes. These are mostly supportive-care drugs and fluids, not lymphoma or chimeric antigen receptor T-cell (CAR-T) product dollars.",
+      "missing_value": "No such row was released (npis_with_drug_code_rows is 0); unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "paid_listed_oncology_drug_usd",
+      "description": "Part of paid_drug_code_usd on 21 listed codes: J9312, Q5115, Q5119, Q5123, J9311, J9301, J9033, J9034, J9036, J9042, J9309, J9349, J9359, J9321, J9286, J9350, J9271, J9299, J9144, J9145 and J0897. The list is not lymphoma-specific.",
+      "missing_value": "No row on a listed code was released; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "paid_unclassified_drug_usd",
+      "description": "Part of paid_drug_code_usd on the unclassified-drug codes J3490, J3590, J9999 and C9399, where the product cannot be identified.",
+      "missing_value": "No row on these codes was released; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "paid_other_usd",
+      "description": "Part of paid_total_usd on every code that is neither a visit and drug-administration code nor a drug-pattern code, such as laboratory codes, hospital clinic visit code G0463, clinic encounter code T1015 and chemotherapy administration code Q0084.",
+      "missing_value": "No such row was released; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "median_paid_total_usd_per_present_npi",
+      "description": "Median, in US dollars, of the per-NPI paid amount that year across the NPIs counted in npis_present; NPIs without a released row are left out, not counted as zero.",
+      "missing_value": "npis_present is 0.",
+      "source": "hhs"
+    },
+    {
+      "column": "median_visit_admin_usd_per_npi_with_any",
+      "description": "Median, in US dollars, of the per-NPI paid amount on visit and drug-administration codes across the NPIs counted in npis_with_visit_admin_paid.",
+      "missing_value": "npis_with_visit_admin_paid is 0.",
+      "source": "hhs"
+    },
+    {
+      "column": "median_drug_code_usd_per_npi_with_any",
+      "description": "Median, in US dollars, of the per-NPI paid amount on drug-pattern codes across the NPIs counted in npis_with_drug_code_paid.",
+      "missing_value": "npis_with_drug_code_paid is 0.",
+      "source": "hhs"
+    },
+    {
+      "column": "share_rows_servicing_equals_billing",
+      "description": "Share, to three decimals, of the rows counted in source_rows on which the servicing NPI equals the billing NPI, meaning the HCP billed under their own number.",
+      "missing_value": "npis_present is 0.",
+      "source": "hhs"
+    },
+    {
+      "column": "share_rows_other_npi_blank",
+      "description": "Share, to three decimals, of the rows counted in source_rows whose other NPI is blank: the billing NPI on the servicing side, the servicing NPI on the billing side.",
+      "missing_value": "npis_present is 0.",
+      "source": "hhs"
+    },
+    {
+      "column": "share_paid_servicing_equals_billing",
+      "description": "Share, to three decimals, of paid_total_usd on rows where the servicing NPI equals the billing NPI.",
+      "missing_value": "npis_present is 0 or paid_total_usd is not above $0.",
+      "source": "hhs"
+    }
+  ],
+  "hcp_medicaid_center_billing_links_2018_2024": [
+    {
+      "column": "npi",
+      "description": "Ten-digit individual National Provider Identifier (NPI) of a health care professional (HCP) in the 2026-10-24 universe (hcp_divisions.csv); join on it for name, state, specialty and division. Here it is the servicing provider on the released rows of the pair.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "ccn",
+      "description": "Centers for Medicare & Medicaid Services (CMS) Certification Number (CCN) of the chimeric antigen receptor T-cell (CAR-T) center in cart_centers.csv (2026-10-24) whose organization NPI is the billing provider on the released rows of the pair.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "center_organization_npi",
+      "description": "The organization NPI recorded for that center in cart_centers.csv, one per CCN; a hospital's other billing NPIs, such as a faculty practice plan, are not matched.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    },
+    {
+      "column": "first_year",
+      "description": "Earliest calendar year, 2018 to 2024, with a released row for the pair in the U.S. Department of Health and Human Services (HHS) Medicaid Provider Spending file, release 2026-02-09. A released row is one billing NPI x servicing NPI x procedure code x month cell of the HHS Medicaid Provider Spending file; a cell is released only with at least 12 claim lines and at least 12 beneficiaries.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "last_year",
+      "description": "Latest calendar year with a released row for the pair. 2024 is preliminary and incomplete, so an earlier last year does not show that the relationship ended.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "years_present",
+      "description": "Number of calendar years from first_year to last_year with at least one released row for the pair; less than the span when there are gap years.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "source_rows",
+      "description": "Number of released rows for the pair in 2018 to 2024.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "claim_lines",
+      "description": "Sum of claim lines (lines, not claims) on the released rows of the pair in 2018 to 2024, all procedure codes.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "paid_usd_2018_2024",
+      "description": "Medicaid and Children's Health Insurance Program (CHIP) paid amount in US dollars to the center's billing NPI on the released rows of the pair in 2018 to 2024, all procedure codes; 0.00 means the rows exist and paid sums to exactly $0.",
+      "missing_value": "Never blank.",
+      "source": "hhs"
+    },
+    {
+      "column": "visit_admin_paid_usd_2018_2024",
+      "description": "Part of the pair's paid amount, in US dollars, on visit and drug-administration codes (99202-99205, 99211-99215, 99221-99223, 99231-99233, 96360-96379, 96401-96417).",
+      "missing_value": "No such row was released for the pair; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "drug_code_paid_usd_2018_2024",
+      "description": "Part of the pair's paid amount, in US dollars, on drug-pattern procedure codes (J, Q5, Q20, C9 or S0 followed by digits to five characters, plus Q0138, Q0139 and Q0082). Mostly supportive-care drugs and fluids, not lymphoma or CAR-T product dollars.",
+      "missing_value": "No such row was released for the pair; unobserved, not zero.",
+      "source": "hhs"
+    },
+    {
+      "column": "center_in_hcp_hospital_ccns",
+      "description": "1 when the center's CCN is among the HCP's hospital_ccns in hcp_divisions.csv, otherwise 0. A 0 may be a real secondary site or attribution noise; it was not checked.",
+      "missing_value": "Never blank.",
+      "source": "project"
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "general_payments_2019_2025": [
+    {
+      "column": "hcp_id",
+      "description": "Stable cohort key: NPI followed by the ten-digit NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI of the core HCP.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "record_id",
+      "description": "CMS Open Payments general record identifier; unique within the publication.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cms_profile_id",
+      "description": "Open Payments covered-recipient profile identifier on the record.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "payment_date",
+      "description": "Date of payment reported by the manufacturer (ISO).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "amount_usd",
+      "description": "Total amount of the transfer of value in US dollars.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "number_of_payments",
+      "description": "Number of payments included in the total amount.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "manufacturer",
+      "description": "Applicable manufacturer or GPO making the payment.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "manufacturer_id",
+      "description": "CMS identifier of the manufacturer making the payment.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "submitting_manufacturer",
+      "description": "Applicable manufacturer or GPO that submitted the record.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "payment_nature",
+      "description": "CMS nature of payment or transfer of value, as published.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "nature_group",
+      "description": "Project grouping of payment_nature: consulting, honoraria, speaking_non_cme, medical_education, grant, hospitality, or other.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "payment_form",
+      "description": "Form of payment or transfer of value.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "products",
+      "description": "Product names from the five associated-product slots, semicolon-separated.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "product_categories",
+      "description": "Distinct manufacturer-assigned product categories or therapeutic areas.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_products",
+      "description": "Canonical CAR-T brands matched in the product slots.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_product_mentioned",
+      "description": "1 when a brand, generic, or development name of one of seven approved CAR-T products appears in a product slot.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "lymphoma_cart_product_mentioned",
+      "description": "1 under the 2026-10-09 pattern: brand or generic name of Yescarta, Kymriah, Breyanzi, or Tecartus in a product slot.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "third_party_recipient",
+      "description": "Third-party entity that received the payment on the HCP's behalf, when reported.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "contextual_information",
+      "description": "Free-text context reported by the manufacturer.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "delay_in_publication_indicator",
+      "description": "CMS delay-in-publication indicator on the published record.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "dispute_status",
+      "description": "Dispute status for publication.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "change_type",
+      "description": "CMS change type of the record in this publication.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "payment_publication_date",
+      "description": "Date CMS published the record (ISO).",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_release_date",
+      "description": "Open Payments publication date of the source archive.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_file",
+      "description": "General detail member file inside the program-year archive.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_url",
+      "description": "URL of the program-year archive the record was read from.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "retrieved_at_utc",
+      "description": "UTC time the archive was downloaded.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "hcp_general_payments_by_year": [
+    {
+      "column": "hcp_id",
+      "description": "Stable cohort key: NPI followed by the ten-digit NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI of the core HCP.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "program_year",
+      "description": "Open Payments program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "general_payment_rows",
+      "description": "General records paid to the HCP in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "general_payments_usd",
+      "description": "Sum of general payments to the HCP in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "manufacturers",
+      "description": "Distinct manufacturers paying the HCP in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "consulting_usd",
+      "description": "Sum of records in the consulting nature group in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "honoraria_usd",
+      "description": "Sum of records in the honoraria nature group in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "speaking_non_cme_usd",
+      "description": "Sum of records in the speaking_non_cme nature group in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "medical_education_usd",
+      "description": "Sum of records in the medical_education nature group in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "grant_usd",
+      "description": "Sum of records in the grant nature group in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hospitality_usd",
+      "description": "Sum of records in the hospitality nature group in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "other_usd",
+      "description": "Sum of records in the other nature group in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "advisory_usd",
+      "description": "Sum over the consulting, honoraria, medical_education, and grant groups in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_product_rows",
+      "description": "Records naming a CAR-T product in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_product_usd",
+      "description": "Sum of records naming a CAR-T product in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_advisory_usd",
+      "description": "Advisory-group sum restricted to records naming a CAR-T product.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_products",
+      "description": "Canonical CAR-T brands matched in the product slots.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_manufacturers",
+      "description": "Manufacturers on records naming a CAR-T product in the program year.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ],
+  "hcp_general_payment_features": [
+    {
+      "column": "hcp_id",
+      "description": "Stable cohort key: NPI followed by the ten-digit NPI.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "npi",
+      "description": "Ten-digit individual NPI of the core HCP.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "general_data_status",
+      "description": "published_records when at least one record is paid to the HCP in 2019-2025, else no_published_records.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "general_payment_rows_2019_2025",
+      "description": "General records paid to the HCP across program years 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "general_payments_usd_2019_2025",
+      "description": "Sum of general payments to the HCP across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "general_active_years",
+      "description": "Program years with at least one general record.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "general_manufacturers_2019_2025",
+      "description": "Distinct manufacturers paying the HCP across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "advisory_usd_2019_2025",
+      "description": "Sum over the consulting, honoraria, medical_education, and grant groups across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "advisory_active_years",
+      "description": "Program years with at least one advisory-group record.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "consulting_usd_2019_2025",
+      "description": "Sum of Consulting Fee records across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "speaking_non_cme_usd_2019_2025",
+      "description": "Sum of speaking or faculty compensation outside continuing education across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "hospitality_usd_2019_2025",
+      "description": "Sum of food, beverage, travel, lodging, gift, and entertainment records across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_product_rows_2019_2025",
+      "description": "Records naming a CAR-T product across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_product_usd_2019_2025",
+      "description": "Sum of records naming a CAR-T product across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_advisory_usd_2019_2025",
+      "description": "Advisory-group sum on records naming a CAR-T product across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_active_years",
+      "description": "Program years with at least one record naming a CAR-T product.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "first_cart_payment_year",
+      "description": "First program year with a record naming a CAR-T product.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "last_cart_payment_year",
+      "description": "Last program year with a record naming a CAR-T product.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_products_2019_2025",
+      "description": "Canonical CAR-T brands named on the HCP records across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_manufacturers_2019_2025",
+      "description": "Manufacturers on records naming a CAR-T product across 2019-2025.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "cart_advisory_manufacturers_2019_2025",
+      "description": "Manufacturers on advisory-group records naming a CAR-T product.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "program_years_scanned",
+      "description": "Program-year range scanned in full.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "source_release_date",
+      "description": "Open Payments publication date of the source archive.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "feature_version",
+      "description": "Version of the feature definitions.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "collection_snapshot_date",
+      "description": "Collection-run date; exact retrieval times are in the metadata file.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    },
+    {
+      "column": "built_at_utc",
+      "description": "UTC time the table was assembled.",
+      "missing_value": "Blank = unavailable, suppressed, or unobserved; zero counts are observation counts, not confirmed absence of activity."
+    }
+  ]
+}

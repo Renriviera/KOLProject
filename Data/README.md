@@ -22,13 +22,28 @@ timestamps are separate fields; directory dates label snapshots, not service yea
 | `processed/2026-10-24/hcp_divisions.csv` | 17,510 US hem/onc NPIs (core, affiliate tiers, referring proxies) with structural links and 2024 treatment markers |
 | `processed/2026-10-24/hcp_hospital_affiliations.csv`, `hcp_group_memberships.csv`, `treatment_markers_2024.csv`, `part_d_lymphoma_orals_2024.csv` | Evidence tables behind the division labels |
 | `processed/2026-10-24/shared_patient_annual_<2017..2022>_features.csv`, `*_hrr_center_flows.csv` | CareSet DocGraph shared-patient flows to CAR-T centers, per NPI and per referral region (CC BY-NC-SA 4.0, attribution to CareSet Systems, Inc.) |
+| `processed/2026-11-11/research_payments_2019_2025.csv` | 74,094 CMS research-payment records × core HCP named as principal investigator or covered recipient, program years 2019–2025 |
+| `processed/2026-11-11/hcp_research_payment_features.csv` | 500 HCP-level research-payment feature rows, including HCPs with no published record |
+| `processed/2026-11-11/general_payments_2019_2025.csv` | 41,622 CMS general-payment records paid to core HCPs, program years 2019–2025; the 2024 rows reproduce `general_payments_2024.csv` |
+| `processed/2026-11-11/hcp_general_payments_by_year.csv`, `hcp_general_payment_features.csv` | 3,500 HCP × program-year rows and 500 seven-year summary rows, with nature groups and CAR-T product flags |
+| `processed/2026-11-19/` (17 tables) | CAR-T treating sites with public volume measures, 340B status of the 173 centers, public evidence of CAR-T involvement by NPI, and Open Payments, Medicare and Medicaid payments for all 17,510 universe NPIs; listed in [`VOLUME_BILLING_README.md`](VOLUME_BILLING_README.md) |
+| `processed/2026-11-20/` (44 tables) | Extensions of the four dataset categories: authorship and co-authorship beyond the core 500 with citation links and yearly views; Medicare Part B and Part D back to 2017 with state all-payer hospital stays; ownership, research and disclosed industry ties; shared-patient links to centers and core HCPs for 2017–2022 with a 2009–2015 baseline; listed in [`EXTENSIONS_README.md`](EXTENSIONS_README.md) |
 
-Metadata JSON files accompany all three snapshots. Field definitions are in
+Metadata JSON files accompany every snapshot. Field definitions are in
 `manifests/data_dictionary.csv`,
 `manifests/2026-10-15/utilization_data_dictionary.json`, and
-`manifests/2026-10-24/division_data_dictionary.json`. See
+`manifests/2026-10-24/division_data_dictionary.json`, and
+`manifests/2026-11-11/research_payments_data_dictionary.json`,
+`manifests/2026-11-11/general_payments_data_dictionary.json`, and
+`manifests/2026-11-19/volume_billing_data_dictionary.json`, and
+`manifests/2026-11-20/extensions_data_dictionary.json`. See
 [`UTILIZATION_README.md`](UTILIZATION_README.md) for code definitions and missingness,
-[`DIVISIONS_README.md`](DIVISIONS_README.md) for the division labels, and
+[`DIVISIONS_README.md`](DIVISIONS_README.md) for the division labels,
+[`RESEARCH_PAYMENTS_README.md`](RESEARCH_PAYMENTS_README.md) and
+[`GENERAL_PAYMENTS_README.md`](GENERAL_PAYMENTS_README.md) for the 2019–2025 Open Payments tables,
+[`VOLUME_BILLING_README.md`](VOLUME_BILLING_README.md) for the 2026-11-19 volume, billing and payment tables
+and the source terms that keep some columns out of Git, and
+[`EXTENSIONS_README.md`](EXTENSIONS_README.md) for the 2026-11-20 extension tables and their source log, and
 [`HCP_EXPANSION_SOURCES.md`](HCP_EXPANSION_SOURCES.md) for the source inventory.
 
 ## Join keys and interpretation

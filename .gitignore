@@ -29,6 +29,8 @@ Data/manifests/*/utilization_source_requests.csv
 Data/manifests/*/utilization_file_checksums.csv
 Data/manifests/*/division_source_requests.csv
 Data/manifests/*/division_file_checksums.csv
+Data/manifests/*/research_payments_file_checksums.csv
+Data/manifests/*/general_payments_file_checksums.csv
 models/inputs/*.csv
 models/inputs/*.metadata.json
 .cache/
@@ -46,3 +48,11 @@ edav/*
 evaluations/validation_report.json
 evaluations/utilization_validation_2026-10-15.json
 evaluations/release_integrity.json
+
+# Search notes and reports quote third-party list content, exact directory counts and contact details that the
+# published tables deliberately leave out. They stay local until someone reviews them for release.
+research_notes/
+reports/
+Data/manifests/*/volume_billing_file_checksums.csv
+Data/manifests/*/extension_request_log.csv
+Data/manifests/*/extension_file_checksums.csv
